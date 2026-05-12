@@ -1,0 +1,51 @@
+:root {
+  --sky-50: #f4faff;
+  --sky-100: #e5f4ff;
+  --sky-200: #c2e4ff;
+  --sky-300: #99d3ff;
+  --sky-400: #76c3fe;
+  --sky-500: #4db2fe;
+  --sky-600: #2ca1fe;
+  --sky-700: #0c86e4;
+  --sky-800: #076ab6;
+  --sky-900: #024881;
+
+  --navy-50: #e5f1ff;
+  --navy-100: #b8d7ff;
+  --navy-200: #85bafe;
+  --navy-300: #5ba2fd;
+  --navy-400: #2783fc;
+  --navy-500: #0069f6;
+  --navy-600: #0058cc;
+  --navy-700: #0047a3;
+  --navy-800: #003375;
+  --navy-900: #00214d;
+
+  --yellow-100: #fffbe5;
+  --yellow-200: #fff3b8;
+  --yellow-300: #feea85;
+  --yellow-400: #fde258;
+  --yellow-500: #fcd827;
+  --yellow-600: #f4c801;
+
+  --orange-100: #ffeee5;
+  --orange-200: #ffd4bd;
+  --orange-300: #ffb994;
+  --orange-400: #ff9c66;
+  --orange-500: #ff813d;
+  --orange-600: #ff6714;
+
+  --gray-100: #fafafa;
+  --gray-200: #f5f5f5;
+  --gray-300: #dcdcdc;
+  --gray-400: #bdbdbd;
+  --gray-500: #979797;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #2c2c2c;
+  --gray-900: #181818;
+
+  --black: #000000;
+  --white: #ffffff;
+  --logo-red: #d03238;
+}

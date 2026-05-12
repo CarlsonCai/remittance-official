@@ -1,0 +1,11 @@
+:root {
+  --layout-margin-sm: 20px;
+  --layout-gutter-sm: 16px;
+  --layout-container-sm: 390px;
+  --layout-margin-md: 40px;
+  --layout-gutter-md: 24px;
+  --layout-container-md: 944px;
+  --layout-margin-lg: 80px;
+  --layout-gutter-lg: 24px;
+  --layout-container-lg: 1440px;
+}
