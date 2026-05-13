@@ -1,4 +1,6 @@
 {
+  // Tailwind v4：@utility、@theme、@import "tailwindcss" 等會觸發內建 CSS 的 unknownAtRules
+  "css.lint.unknownAtRules": "ignore",
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "prettier.prettierPath": "./node_modules/prettier"

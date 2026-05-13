@@ -20,7 +20,9 @@ export function SiteFooterBrand() {
       </div>
 
       <address className="mb-10 flex w-full flex-col items-start gap-2 not-italic">
-        <p className="typo-body2-m text-white">{footerCompany.legalName}</p>
+        <p className="typo-body3-m tablet:typo-body2-m text-white">
+          {footerCompany.legalName}
+        </p>
         <p className="typo-body3-r text-white">{footerCompany.address}</p>
         <p className="typo-body3-r text-white">{footerCompany.taxId}</p>
       </address>

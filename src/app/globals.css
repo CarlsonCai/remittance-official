@@ -7,7 +7,7 @@
 @import "../styles/typography.css";
 @import "../styles/layout-grid.css";
 
-/* RWD：優先使用命名斷點 tablet: / desktop: / wide:（見 styles/theme.css @theme），避免任意 min-[…px]:。 */
+/* RWD：優先使用命名斷點 tablet: / desktop: / wide:（見 styles/theme.css @theme）。typo-* 為 @utility，可與上述前綴疊用。 */
 
 body {
   background: var(--background);
