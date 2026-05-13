@@ -109,7 +109,7 @@ export function SiteHeader() {
         <li key={key}>
           <Link
             href={item.href}
-            className="typo-body3 font-medium text-navy-900 transition-colors hover:text-navy-600"
+            className="typo-body3 text-navy-900 hover:text-navy-600 font-medium transition-colors"
           >
             {item.label}
           </Link>
@@ -121,7 +121,7 @@ export function SiteHeader() {
         <li key={key}>
           <button
             type="button"
-            className="typo-body3 inline-flex items-center gap-1 font-medium text-navy-900 transition-colors hover:text-navy-600"
+            className="typo-body3 text-navy-900 hover:text-navy-600 inline-flex items-center gap-1 font-medium transition-colors"
             aria-expanded="false"
             aria-haspopup="menu"
           >
@@ -136,7 +136,7 @@ export function SiteHeader() {
         <li key={key}>
           <button
             type="button"
-            className="typo-body3 inline-flex items-center gap-1 font-medium text-navy-900 transition-colors hover:text-navy-600"
+            className="typo-body3 text-navy-900 hover:text-navy-600 inline-flex items-center gap-1 font-medium transition-colors"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="選擇介面語言"
@@ -151,7 +151,7 @@ export function SiteHeader() {
       <li key={key}>
         <Link
           href={item.href}
-          className="typo-body3 inline-flex items-center gap-1 rounded-md bg-navy-500 px-4 py-2.5 font-medium text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+          className="typo-body3 bg-navy-500 hover:bg-navy-600 focus-visible:outline-navy-700 inline-flex items-center gap-1 rounded-md px-4 py-2.5 font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
         >
           {item.label}
           <ChevronDown className="text-white opacity-90" />
@@ -212,7 +212,7 @@ export function SiteHeader() {
       <li key={key}>
         <Link
           href={item.href}
-          className="typo-body3 flex w-full items-center justify-center gap-1 rounded-md bg-navy-500 py-3 font-medium text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700"
+          className="typo-body3 bg-navy-500 hover:bg-navy-600 focus-visible:outline-navy-700 flex w-full items-center justify-center gap-1 rounded-md py-3 font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
           onClick={closeMenu}
         >
           {item.label}
@@ -223,7 +223,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="w-full border-b border-navy-100 bg-background">
+    <header className="border-navy-100 bg-background w-full border-b">
       <div className="layout-shell">
         <div className="layout-container">
           <div className="flex h-16 w-full items-center justify-between gap-(--layout-gutter-sm) min-[1024px]:h-auto min-[1024px]:min-h-[89px] min-[1024px]:gap-(--layout-gutter-md) min-[1024px]:py-4">
@@ -234,28 +234,28 @@ export function SiteHeader() {
                 aria-label="永豐銀行 Bank SinoPac，返回首頁"
               >
                 <span
-                  className="inline-flex size-9 shrink-0 items-center justify-center rounded-full bg-logo-red text-[10px] font-bold text-white min-[1024px]:size-10 min-[1024px]:text-xs"
+                  className="bg-logo-red inline-flex size-9 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white min-[1024px]:size-10 min-[1024px]:text-xs"
                   aria-hidden="true"
                 >
                   永
                 </span>
                 <span className="flex min-w-0 flex-col min-[1024px]:hidden">
-                  <span className="text-sm font-bold leading-tight text-navy-900">
+                  <span className="text-navy-900 text-sm leading-tight font-bold">
                     永豐銀行
                   </span>
-                  <span className="text-[11px] font-semibold leading-tight text-navy-900">
+                  <span className="text-navy-900 text-[11px] leading-tight font-semibold">
                     Bank SinoPac
                   </span>
                 </span>
-                <span className="typo-body3 hidden min-w-0 truncate font-bold text-navy-900 min-[1024px]:inline min-[1024px]:whitespace-normal">
+                <span className="typo-body3 text-navy-900 hidden min-w-0 truncate font-bold min-[1024px]:inline min-[1024px]:whitespace-normal">
                   永豐銀行 Bank SinoPac
                 </span>
               </Link>
               <span
-                className="block h-8 w-px shrink-0 bg-navy-100"
+                className="bg-navy-100 block h-8 w-px shrink-0"
                 aria-hidden="true"
               />
-              <p className="min-w-0 flex-1 truncate text-[13px] leading-snug text-navy-900 min-[1024px]:typo-body3 min-[1024px]:leading-normal">
+              <p className="text-navy-900 min-[1024px]:typo-body3 min-w-0 flex-1 truncate text-[13px] leading-snug min-[1024px]:leading-normal">
                 全方位數位跨境匯款平台
               </p>
             </div>
@@ -272,7 +272,7 @@ export function SiteHeader() {
             <button
               id={menuButtonId}
               type="button"
-              className="inline-flex shrink-0 items-center justify-center rounded-md p-2 text-navy-900 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-700 min-[1024px]:hidden"
+              className="text-navy-900 focus-visible:outline-navy-700 inline-flex shrink-0 items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 min-[1024px]:hidden"
               aria-controls={MOBILE_NAV_PANEL_ID}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "關閉主選單" : "開啟主選單"}
@@ -286,7 +286,7 @@ export function SiteHeader() {
 
       <div
         id={MOBILE_NAV_PANEL_ID}
-        className={`border-t border-navy-100 min-[1024px]:hidden ${menuOpen ? "block" : "hidden"}`}
+        className={`border-navy-100 border-t min-[1024px]:hidden ${menuOpen ? "block" : "hidden"}`}
         aria-hidden={!menuOpen}
       >
         <div className="layout-shell">
