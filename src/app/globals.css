@@ -3,6 +3,7 @@
 @import "../styles/semantic.css";
 @import "../styles/theme.css";
 @import "tailwindcss";
+@import "../styles/home-scaffold.css";
 @import "../styles/typography.css";
 @import "../styles/layout-grid.css";
 

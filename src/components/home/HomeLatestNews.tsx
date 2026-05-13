@@ -1,0 +1,72 @@
+export function HomeLatestNews() {
+  return (
+    <section
+      id="latest-news"
+      aria-labelledby="latest-news-heading"
+      className="home-section-scaffold text-navy-900 bg-sky-50/80"
+    >
+      <span className="home-section__dev-label" aria-hidden="true">
+        LatestNews
+      </span>
+      <div className="layout-shell py-16 min-[1024px]:py-20">
+        <div className="layout-container">
+          <h2 id="latest-news-heading" className="typo-h2 text-navy-900">
+            最新消息
+          </h2>
+          <p className="typo-body2 mt-3 max-w-2xl text-gray-600">
+            區塊副標說明（佔位）。
+          </p>
+          <div className="mt-10 grid gap-8 min-[1024px]:grid-cols-12">
+            <aside className="min-[1024px]:col-span-3" aria-label="消息分類">
+              <p className="typo-body4 text-navy-900 font-semibold">篩選</p>
+              <ul className="mt-4 flex flex-wrap gap-2 min-[1024px]:flex-col">
+                <li>
+                  <span className="bg-navy-600 typo-body5 inline-block rounded-full px-4 py-2 text-white">
+                    新訊息（佔位）
+                  </span>
+                </li>
+                <li>
+                  <span className="typo-body5 inline-block rounded-full bg-white px-4 py-2 text-gray-600 ring-1 ring-gray-300">
+                    公告（佔位）
+                  </span>
+                </li>
+              </ul>
+            </aside>
+            <ul className="space-y-4 min-[1024px]:col-span-9">
+              {[0, 1, 2].map((i) => (
+                <li key={i}>
+                  <article
+                    aria-labelledby={`news-item-${i}-title`}
+                    className="border-navy-100 bg-background flex gap-4 rounded-xl border p-4 min-[1024px]:gap-6 min-[1024px]:p-6"
+                  >
+                    <div className="typo-body6 flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500 min-[1024px]:h-24 min-[1024px]:w-32">
+                      圖
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="typo-body6 text-gray-500">
+                        <time dateTime="2026-01-01">2026.01.01</time>
+                        <span className="mx-2" aria-hidden="true">
+                          ·
+                        </span>
+                        <span>分類標籤</span>
+                      </p>
+                      <h3
+                        id={`news-item-${i}-title`}
+                        className="typo-h4 text-navy-900 mt-1"
+                      >
+                        新聞標題 {i + 1}（佔位）
+                      </h3>
+                      <p className="typo-body5 mt-2 font-semibold text-sky-600">
+                        閱讀全文（佔位）
+                      </p>
+                    </div>
+                  </article>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
