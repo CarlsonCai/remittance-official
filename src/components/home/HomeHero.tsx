@@ -8,7 +8,7 @@ export function HomeHero() {
       <span className="home-section__dev-label" aria-hidden="true">
         Hero
       </span>
-      <div className="layout-shell py-16 min-[1024px]:py-24">
+      <div className="layout-shell py-16 tablet:py-24">
         <div className="layout-container">
           <div className="max-w-2xl">
             <h1 id="hero-heading" className="typo-h1 text-navy-900">
@@ -24,7 +24,7 @@ export function HomeHero() {
             </p>
           </div>
           <div
-            className="border-navy-200 bg-background text-navy-900 mt-12 rounded-xl border p-6 shadow-sm min-[1024px]:mt-16 min-[1024px]:p-8"
+            className="border-navy-200 bg-background text-navy-900 mt-12 rounded-xl border p-6 shadow-sm tablet:mt-16 tablet:p-8"
             role="region"
             aria-label="快速匯率試算（建置中）"
           >

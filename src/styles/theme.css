@@ -50,4 +50,9 @@
   --shadow-l: var(--shadow-l-source);
   --shadow-s: var(--shadow-s-source);
   --shadow-text: var(--shadow-text-source);
+
+  /* RWD：與 layout grid Medium（1024+）、Large（1440+）、Wide（1560+）一致 */
+  --breakpoint-tablet: 64rem; /* 1024px */
+  --breakpoint-desktop: 90rem; /* 1440px */
+  --breakpoint-wide: 97.5rem; /* 1560px — 稿：超寬視窗「主欄置中、左右留白」視覺區間；數值與 shell/container 疊用 */
 }

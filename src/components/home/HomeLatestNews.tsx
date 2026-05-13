@@ -8,7 +8,7 @@ export function HomeLatestNews() {
       <span className="home-section__dev-label" aria-hidden="true">
         LatestNews
       </span>
-      <div className="layout-shell py-16 min-[1024px]:py-20">
+      <div className="layout-shell py-16 tablet:py-20">
         <div className="layout-container">
           <h2 id="latest-news-heading" className="typo-h2 text-navy-900">
             最新消息
@@ -16,10 +16,10 @@ export function HomeLatestNews() {
           <p className="typo-body2 mt-3 max-w-2xl text-gray-600">
             區塊副標說明（佔位）。
           </p>
-          <div className="mt-10 grid gap-8 min-[1024px]:grid-cols-12">
-            <aside className="min-[1024px]:col-span-3" aria-label="消息分類">
+          <div className="mt-10 grid gap-8 tablet:grid-cols-12">
+            <aside className="tablet:col-span-3" aria-label="消息分類">
               <p className="typo-body4-m text-navy-900">篩選</p>
-              <ul className="mt-4 flex flex-wrap gap-2 min-[1024px]:flex-col">
+              <ul className="mt-4 flex flex-wrap gap-2 tablet:flex-col">
                 <li>
                   <span className="bg-navy-600 typo-body5 inline-block rounded-full px-4 py-2 text-white">
                     新訊息（佔位）
@@ -32,14 +32,14 @@ export function HomeLatestNews() {
                 </li>
               </ul>
             </aside>
-            <ul className="space-y-4 min-[1024px]:col-span-9">
+            <ul className="space-y-4 tablet:col-span-9">
               {[0, 1, 2].map((i) => (
                 <li key={i}>
                   <article
                     aria-labelledby={`news-item-${i}-title`}
-                    className="border-navy-100 bg-background flex gap-4 rounded-xl border p-4 min-[1024px]:gap-6 min-[1024px]:p-6"
+                    className="border-navy-100 bg-background flex gap-4 rounded-xl border p-4 tablet:gap-6 tablet:p-6"
                   >
-                    <div className="typo-body6 flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500 min-[1024px]:h-24 min-[1024px]:w-32">
+                    <div className="typo-body6 flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500 tablet:h-24 tablet:w-32">
                       圖
                     </div>
                     <div className="min-w-0 flex-1">

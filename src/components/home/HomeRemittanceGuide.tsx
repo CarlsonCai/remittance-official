@@ -8,7 +8,7 @@ export function HomeRemittanceGuide() {
       <span className="home-section__dev-label" aria-hidden="true">
         RemittanceGuide
       </span>
-      <div className="layout-shell py-16 min-[1024px]:py-20">
+      <div className="layout-shell py-16 tablet:py-20">
         <div className="layout-container">
           <h2 id="remittance-guide-heading" className="typo-h2 text-navy-900">
             匯款指南
@@ -16,8 +16,8 @@ export function HomeRemittanceGuide() {
           <p className="typo-body2 mt-3 max-w-2xl text-gray-600">
             區塊副標說明（佔位）。
           </p>
-          <div className="mt-10 grid gap-8 min-[1024px]:grid-cols-12">
-            <aside className="min-[1024px]:col-span-3" aria-label="指南分類">
+          <div className="mt-10 grid gap-8 tablet:grid-cols-12">
+            <aside className="tablet:col-span-3" aria-label="指南分類">
               <p className="typo-body4-m text-navy-900">分類篩選</p>
               <ul className="mt-4 space-y-2">
                 <li className="bg-navy-600 typo-body5 rounded-lg px-4 py-2 text-white">
@@ -31,7 +31,7 @@ export function HomeRemittanceGuide() {
                 </li>
               </ul>
             </aside>
-            <div className="grid gap-6 min-[1024px]:col-span-9 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-6 tablet:col-span-9 tablet:grid-cols-2">
               {[0, 1, 2, 3].map((i) => (
                 <article
                   key={i}

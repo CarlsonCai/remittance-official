@@ -17,7 +17,7 @@ export function HomeFeatureMatrix() {
       <span className="home-section__dev-label" aria-hidden="true">
         FeatureMatrix
       </span>
-      <div className="layout-shell py-16 min-[1024px]:py-20">
+      <div className="layout-shell py-16 tablet:py-20">
         <div className="layout-container">
           <h2 id="feature-matrix-heading" className="typo-h2 text-white">
             多種匯款矩陣
@@ -25,7 +25,7 @@ export function HomeFeatureMatrix() {
           <p className="typo-body2 mt-3 max-w-2xl text-sky-100">
             區塊副標說明（佔位）。
           </p>
-          <div className="mt-10 grid gap-6 min-[1024px]:grid-cols-4 sm:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-6 tablet:grid-cols-4">
             {FEATURE_TITLES.map((title, i) => (
               <FeatureCard key={title} title={title} index={i} />
             ))}

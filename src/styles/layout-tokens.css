@@ -17,6 +17,17 @@
   --layout-columns-lg: 12;
   --layout-container-lg: 1440px;
 
-  /* 稿：視窗 >1560 時主內容置中、左右留白；滿版底色／橫幅另做 full-bleed（見元件） */
+  /*
+   * 稿（1920 示意）：視窗 >1560 時主內容置中、左右留白。
+   * 實作：自 ≥1440 起沿用 Large 的 shell padding（80）+ container max（1440），
+   * 寬度繼續增加時留白自然加大；未再設獨立「1560 專用」數值。
+   * 滿版底色／橫幅：底色或圖設在包住 layout-shell 的外層（例 section/footer 設 w-full + bg），
+   * 內文維持 layout-shell > layout-container。
+   */
   --layout-content-wide-min: 1560px;
+  --layout-breakpoint-wide: 1560px;
+
+  /* 與 theme.css `--breakpoint-*` 對齊（供 JS／原生 CSS 用） */
+  --layout-breakpoint-tablet: 1024px;
+  --layout-breakpoint-desktop: 1440px;
 }

@@ -6,7 +6,7 @@
     letter-spacing: var(--letter-spacing-h1-sm);
     font-weight: var(--font-weight-extrabold);
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .typo-h1 {
       font-size: var(--font-size-h1-lg);
       letter-spacing: var(--letter-spacing-h1-lg);
@@ -19,7 +19,7 @@
     letter-spacing: var(--letter-spacing-h2-sm);
     font-weight: var(--font-weight-bold);
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .typo-h2 {
       font-size: var(--font-size-h2-lg);
       letter-spacing: var(--letter-spacing-h2-lg);
@@ -32,7 +32,7 @@
     letter-spacing: var(--letter-spacing-h3-sm);
     font-weight: var(--font-weight-bold);
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .typo-h3 {
       font-size: var(--font-size-h3-lg);
       letter-spacing: var(--letter-spacing-h3-lg);
@@ -45,7 +45,7 @@
     letter-spacing: var(--letter-spacing-h4-sm);
     font-weight: var(--font-weight-bold);
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .typo-h4 {
       font-size: var(--font-size-h4-lg);
       letter-spacing: var(--letter-spacing-h4-lg);
@@ -59,7 +59,7 @@
     letter-spacing: var(--letter-spacing-subtitle1-sm);
     font-weight: var(--font-weight-semibold);
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .typo-sub1-s {
       font-size: var(--font-size-subtitle1-lg);
       letter-spacing: var(--letter-spacing-subtitle1-lg);
@@ -72,7 +72,7 @@
     letter-spacing: var(--letter-spacing-subtitle1-sm);
     font-weight: var(--font-weight-medium);
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .typo-sub1-m {
       font-size: var(--font-size-subtitle1-lg);
       letter-spacing: var(--letter-spacing-subtitle1-lg);

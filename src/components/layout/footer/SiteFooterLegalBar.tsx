@@ -3,13 +3,13 @@ import { footerCopyright, footerLegalLinks } from "@/lib/footerContent";
 export function SiteFooterLegalBar() {
   return (
     <div className="relative z-10 w-full border-t border-white/20 bg-navy-900 pt-6">
-      <div className="flex flex-col gap-5 min-[1024px]:grid min-[1024px]:grid-cols-12 min-[1024px]:gap-x-10 min-[1024px]:gap-y-0">
-        <p className="typo-body4 order-2 min-h-0 min-w-0 shrink text-white min-[1024px]:order-1 min-[1024px]:col-span-5">
+      <div className="flex flex-col gap-5 tablet:grid tablet:grid-cols-12 tablet:gap-x-10 tablet:gap-y-0">
+        <p className="typo-body4 order-2 min-h-0 min-w-0 shrink text-white tablet:order-1 tablet:col-span-5">
           {footerCopyright}
         </p>
         <nav
           aria-label="法規與政策連結"
-          className="order-1 flex w-full min-h-0 min-w-0 justify-start min-[1024px]:order-2 min-[1024px]:col-span-7"
+          className="order-1 flex w-full min-h-0 min-w-0 justify-start tablet:order-2 tablet:col-span-7"
         >
           <ul className="flex flex-wrap items-center justify-start gap-5">
             {footerLegalLinks.map((item) => (

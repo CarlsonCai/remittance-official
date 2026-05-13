@@ -226,20 +226,20 @@ export function SiteHeader() {
     <header className="border-navy-100 bg-background w-full border-b">
       <div className="layout-shell">
         <div className="layout-container">
-          <div className="flex h-16 w-full items-center justify-between gap-(--layout-gutter-sm) min-[1024px]:h-auto min-[1024px]:min-h-[89px] min-[1024px]:gap-(--layout-gutter-md) min-[1024px]:py-4">
-            <div className="flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm) min-[1024px]:gap-(--layout-gutter-md)">
+          <div className="flex h-16 w-full items-center justify-between gap-(--layout-gutter-sm) tablet:h-auto tablet:min-h-[89px] tablet:gap-(--layout-gutter-md) tablet:py-4">
+            <div className="flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm) tablet:gap-(--layout-gutter-md)">
               <Link
                 href="/"
-                className="flex min-w-0 shrink-0 items-center gap-2 min-[1024px]:gap-3"
+                className="flex min-w-0 shrink-0 items-center gap-2 tablet:gap-3"
                 aria-label="永豐銀行 Bank SinoPac，返回首頁"
               >
                 <span
-                  className="bg-logo-red inline-flex size-9 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white min-[1024px]:size-10 min-[1024px]:text-xs"
+                  className="bg-logo-red inline-flex size-9 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white tablet:size-10 tablet:text-xs"
                   aria-hidden="true"
                 >
                   永
                 </span>
-                <span className="flex min-w-0 flex-col min-[1024px]:hidden">
+                <span className="flex min-w-0 flex-col tablet:hidden">
                   <span className="text-navy-900 text-sm leading-tight font-bold">
                     永豐銀行
                   </span>
@@ -247,7 +247,7 @@ export function SiteHeader() {
                     Bank SinoPac
                   </span>
                 </span>
-                <span className="typo-body3-b text-navy-900 hidden min-w-0 truncate min-[1024px]:inline min-[1024px]:whitespace-normal">
+                <span className="typo-body3-b text-navy-900 hidden min-w-0 truncate tablet:inline tablet:whitespace-normal">
                   永豐銀行 Bank SinoPac
                 </span>
               </Link>
@@ -255,13 +255,13 @@ export function SiteHeader() {
                 className="bg-navy-100 block h-8 w-px shrink-0"
                 aria-hidden="true"
               />
-              <p className="text-navy-900 min-[1024px]:typo-body3 min-w-0 flex-1 truncate text-[13px] leading-snug min-[1024px]:leading-normal">
+              <p className="text-navy-900 tablet:typo-body3 min-w-0 flex-1 truncate text-[13px] leading-snug tablet:leading-normal">
                 全方位數位跨境匯款平台
               </p>
             </div>
 
             <nav
-              className="hidden shrink-0 items-center gap-(--layout-gutter-md) overflow-x-auto min-[1024px]:flex"
+              className="hidden shrink-0 items-center gap-(--layout-gutter-md) overflow-x-auto tablet:flex"
               aria-label="主選單"
             >
               <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
@@ -272,7 +272,7 @@ export function SiteHeader() {
             <button
               id={menuButtonId}
               type="button"
-              className="text-navy-900 focus-visible:outline-navy-700 inline-flex shrink-0 items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 min-[1024px]:hidden"
+              className="text-navy-900 focus-visible:outline-navy-700 inline-flex shrink-0 items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 tablet:hidden"
               aria-controls={MOBILE_NAV_PANEL_ID}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "關閉主選單" : "開啟主選單"}
@@ -286,7 +286,7 @@ export function SiteHeader() {
 
       <div
         id={MOBILE_NAV_PANEL_ID}
-        className={`border-navy-100 border-t min-[1024px]:hidden ${menuOpen ? "block" : "hidden"}`}
+        className={`border-navy-100 border-t tablet:hidden ${menuOpen ? "block" : "hidden"}`}
         aria-hidden={!menuOpen}
       >
         <div className="layout-shell">

@@ -1,14 +1,20 @@
+/*
+ * 寬螢（含 >1560、1920）：主內容用 .layout-container 置中並限制 max-width；
+ * 純留白隨 .layout-shell 的 inline padding 加大。
+ * 區塊底色／滿版橫幅：放在 .layout-shell 外層區塊並設 width:100% + 背景或全寬媒體，
+ * 勿把滿版底色只加在 .layout-container 上。
+ */
 @layer components {
   .layout-shell {
     width: 100%;
     padding-inline: var(--layout-margin-sm);
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) /* tablet — theme --breakpoint-tablet */ {
     .layout-shell {
       padding-inline: var(--layout-margin-md);
     }
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop — theme --breakpoint-desktop */ {
     .layout-shell {
       padding-inline: var(--layout-margin-lg);
     }
@@ -19,12 +25,12 @@
     max-width: var(--layout-container-sm);
     margin-inline: auto;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) /* tablet */ {
     .layout-container {
       max-width: var(--layout-container-md);
     }
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop */ {
     .layout-container {
       max-width: var(--layout-container-lg);
     }
@@ -37,14 +43,14 @@
     column-gap: var(--layout-gutter-sm);
     row-gap: var(--layout-gutter-sm);
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) /* tablet */ {
     .layout-grid {
       grid-template-columns: repeat(var(--layout-columns-md), minmax(0, 1fr));
       column-gap: var(--layout-gutter-md);
       row-gap: var(--layout-gutter-md);
     }
   }
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) /* desktop */ {
     .layout-grid {
       grid-template-columns: repeat(var(--layout-columns-lg), minmax(0, 1fr));
       column-gap: var(--layout-gutter-lg);

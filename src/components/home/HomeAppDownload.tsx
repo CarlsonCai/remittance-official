@@ -8,7 +8,7 @@ export function HomeAppDownload() {
       <span className="home-section__dev-label" aria-hidden="true">
         AppDownload
       </span>
-      <div className="layout-shell py-16 min-[1024px]:py-24">
+      <div className="layout-shell py-16 tablet:py-24">
         <div className="layout-container">
           <h2 id="app-download-heading" className="typo-h2 text-navy-900">
             準備好匯款了嗎？
@@ -16,12 +16,12 @@ export function HomeAppDownload() {
           <p className="typo-body2 mt-3 max-w-2xl text-gray-600">
             區塊副標說明（佔位）。
           </p>
-          <div className="mt-10 grid gap-6 min-[1024px]:grid-cols-3">
+          <div className="mt-10 grid gap-6 tablet:grid-cols-3">
             {[0, 1, 2].map((i) => (
               <article
                 key={i}
                 aria-labelledby={`app-card-${i}-title`}
-                className="border-navy-100 flex flex-col rounded-xl border bg-white p-6 shadow-sm min-[1024px]:p-8"
+                className="border-navy-100 flex flex-col rounded-xl border bg-white p-6 shadow-sm tablet:p-8"
               >
                 <div className="typo-body6 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100 text-gray-500">
                   App

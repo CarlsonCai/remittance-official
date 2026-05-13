@@ -7,7 +7,7 @@ export function FeatureCard({ title, index }: FeatureCardProps) {
   return (
     <article
       aria-labelledby={`feature-card-${index}-title`}
-      className="bg-background text-navy-900 flex flex-col rounded-xl p-6 shadow-sm min-[1024px]:p-8"
+      className="bg-background text-navy-900 flex flex-col rounded-xl p-6 shadow-sm tablet:p-8"
     >
       <div className="text-navy-600 typo-body5 flex aspect-[4/3] items-center justify-center rounded-lg bg-sky-100">
         圖示／插圖（佔位）

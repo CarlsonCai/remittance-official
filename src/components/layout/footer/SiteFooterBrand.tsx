@@ -6,15 +6,15 @@ import { footerCompany } from "@/lib/footerContent";
 
 export function SiteFooterBrand() {
   return (
-    <div className="flex min-h-0 min-w-0 flex-col items-start self-stretch min-[1024px]:col-span-5">
+    <div className="tablet:col-span-5 flex min-h-0 min-w-0 flex-col items-start self-stretch">
       <div className="mb-10 flex shrink-0 items-center">
         <Image
           src={bankSinopacLogoWhite}
           alt="永豐銀行 Bank SinoPac"
           width={203}
           height={60}
-          className="h-[60px] w-[203px] max-w-full object-contain object-left"
-          sizes="203px"
+          className="h-10 w-[135px] max-w-full object-contain object-left tablet:h-[60px] tablet:w-[203px]"
+          sizes="(max-width: 1023px) 135px, 203px"
           priority={false}
         />
       </div>

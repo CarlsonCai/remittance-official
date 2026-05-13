@@ -7,6 +7,8 @@
 @import "../styles/typography.css";
 @import "../styles/layout-grid.css";
 
+/* RWD：優先使用命名斷點 tablet: / desktop: / wide:（見 styles/theme.css @theme），避免任意 min-[…px]:。 */
+
 body {
   background: var(--background);
   color: var(--foreground);
