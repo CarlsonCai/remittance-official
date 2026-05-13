@@ -18,11 +18,11 @@ export function SiteFooterNav() {
   return (
     <nav
       aria-label="頁尾網站連結"
-      className="flex min-h-0 min-w-0 flex-col gap-10 min-[1024px]:col-span-7 min-[1024px]:flex-row min-[1024px]:items-start min-[1024px]:gap-8 min-[1024px]:self-stretch"
+      className="flex min-h-0 min-w-0 flex-col gap-10 max-[1023px]:grid max-[1023px]:grid-cols-2 max-[1023px]:gap-x-4 max-[1023px]:gap-y-10 max-[1023px]:auto-rows-min min-[1024px]:col-span-7 min-[1024px]:flex-row min-[1024px]:items-start min-[1024px]:gap-8 min-[1024px]:self-stretch"
     >
       <section
         aria-labelledby="footer-nav-quick"
-        className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col gap-8 self-stretch"
+        className="flex max-[1023px]:min-w-0 min-h-0 min-w-0 flex-1 basis-0 flex-col gap-8 self-stretch"
       >
         <h2 id="footer-nav-quick" className="sr-only">
           快速連結
@@ -44,7 +44,7 @@ export function SiteFooterNav() {
 
       <section
         aria-labelledby="footer-nav-remit"
-        className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col self-stretch px-[20px]"
+        className="flex max-[1023px]:min-w-0 min-h-0 min-w-0 flex-1 basis-0 flex-col self-stretch px-0 min-[1024px]:px-[20px]"
       >
         <h2
           id="footer-nav-remit"
@@ -65,12 +65,12 @@ export function SiteFooterNav() {
           ))}
         </ul>
       </section>
-      <div className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col gap-8 self-stretch">
+      <div className="flex min-h-0 min-w-0 flex-1 basis-0 flex-col gap-8 self-stretch max-[1023px]:contents">
         {footerCommonAndContact.map((group) => (
           <section
             key={group.sectionId}
             aria-labelledby={group.sectionId}
-            className="flex flex-col"
+            className="flex min-h-0 min-w-0 flex-col self-stretch"
           >
             <h2
               id={group.sectionId}
