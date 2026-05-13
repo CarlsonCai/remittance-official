@@ -22,9 +22,9 @@ export function SiteFooter() {
                   <li>
                     <Link
                       className="text-gray-300 hover:text-white"
-                      href="/about/"
+                      href="/plans/"
                     >
-                      公司簡介（佔位）
+                      推薦方案（佔位）
                     </Link>
                   </li>
                   <li>
