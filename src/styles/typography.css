@@ -88,10 +88,22 @@
     line-height: 1.4;
     letter-spacing: 0.022em;
   }
+  .typo-body2-m {
+    font-size: var(--font-size-body2-m);
+    line-height: var(--line-height-body2-m);
+    letter-spacing: var(--letter-spacing-body2-m);
+    font-weight: var(--font-weight-body2-m);
+  }
   .typo-body3 {
     font-size: 1rem;
     line-height: 1.4;
     letter-spacing: 0.02em;
+  }
+  .typo-body3-r {
+    font-size: var(--font-size-body3-r);
+    line-height: var(--line-height-body3-r);
+    letter-spacing: var(--letter-spacing-body3-r);
+    font-weight: var(--font-weight-body3-r);
   }
   .typo-body4 {
     font-size: 0.875rem;

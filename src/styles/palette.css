@@ -48,4 +48,16 @@
   --black: #000000;
   --white: #ffffff;
   --logo-red: #d03238;
+
+  /* Paragraph / Body2-M (Figma) */
+  --font-size-body2-m: 1.125rem;
+  --line-height-body2-m: 1.4;
+  --letter-spacing-body2-m: 0.36px;
+  --font-weight-body2-m: 500;
+
+  /* Paragraph / Body3-R (Figma) */
+  --font-size-body3-r: 1rem;
+  --line-height-body3-r: 1.4;
+  --letter-spacing-body3-r: 0.32px;
+  --font-weight-body3-r: 400;
 }
