@@ -18,7 +18,7 @@ export function HomeLatestNews() {
           </p>
           <div className="mt-10 grid gap-8 min-[1024px]:grid-cols-12">
             <aside className="min-[1024px]:col-span-3" aria-label="消息分類">
-              <p className="typo-body4 text-navy-900 font-semibold">篩選</p>
+              <p className="typo-body4-m text-navy-900">篩選</p>
               <ul className="mt-4 flex flex-wrap gap-2 min-[1024px]:flex-col">
                 <li>
                   <span className="bg-navy-600 typo-body5 inline-block rounded-full px-4 py-2 text-white">
@@ -56,7 +56,7 @@ export function HomeLatestNews() {
                       >
                         新聞標題 {i + 1}（佔位）
                       </h3>
-                      <p className="typo-body5 mt-2 font-semibold text-sky-600">
+                      <p className="typo-body5-m mt-2 text-sky-600">
                         閱讀全文（佔位）
                       </p>
                     </div>

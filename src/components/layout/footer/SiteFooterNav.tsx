@@ -48,7 +48,7 @@ export function SiteFooterNav() {
       >
         <h2
           id="footer-nav-remit"
-          className="typo-body2-m mb-4 shrink-0 font-bold text-white"
+          className="typo-body2-b mb-4 shrink-0 text-white"
         >
           {footerRemittanceServices.title}
         </h2>
@@ -74,7 +74,7 @@ export function SiteFooterNav() {
           >
             <h2
               id={group.sectionId}
-              className="typo-body2-m mb-4 shrink-0 font-bold text-white"
+              className="typo-body2-b mb-4 shrink-0 text-white"
             >
               {group.title}
             </h2>

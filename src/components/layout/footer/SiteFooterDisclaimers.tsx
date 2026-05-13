@@ -15,7 +15,7 @@ export function SiteFooterDisclaimers() {
             {footerDisclaimerLines.map((line) => (
               <p
                 key={line}
-                className="typo-body4 font-normal tracking-[0.28px] text-white"
+                className="typo-body4 text-white"
               >
                 {line}
               </p>

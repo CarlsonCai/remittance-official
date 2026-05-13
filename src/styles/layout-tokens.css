@@ -1,11 +1,22 @@
 :root {
+  /* Guide / Grid (Figma): Small ≤1023 — 4 col, margin 20, gutter 16 */
   --layout-margin-sm: 20px;
   --layout-gutter-sm: 16px;
+  --layout-columns-sm: 4;
   --layout-container-sm: 390px;
+
+  /* Medium 1024–1439 — 12 col, margin 40, gutter 20 */
   --layout-margin-md: 40px;
-  --layout-gutter-md: 24px;
-  --layout-container-md: 944px;
+  --layout-gutter-md: 20px;
+  --layout-columns-md: 12;
+  --layout-container-md: 944px; /* 1024 − 40×2 */
+
+  /* Large ≥1440 — 12 col, margin 80, gutter 24 */
   --layout-margin-lg: 80px;
   --layout-gutter-lg: 24px;
+  --layout-columns-lg: 12;
   --layout-container-lg: 1440px;
+
+  /* 稿：視窗 >1560 時主內容置中、左右留白；滿版底色／橫幅另做 full-bleed（見元件） */
+  --layout-content-wide-min: 1560px;
 }

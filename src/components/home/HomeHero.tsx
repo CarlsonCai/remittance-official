@@ -18,7 +18,7 @@ export function HomeHero() {
               副標題與價值主張文案將於此區補上。
             </p>
             <p className="mt-8">
-              <span className="bg-navy-600 typo-body3 inline-flex rounded-lg px-6 py-3 font-semibold text-white">
+              <span className="bg-navy-600 typo-body3-b inline-flex rounded-lg px-6 py-3 text-white">
                 主要行動按鈕（佔位）
               </span>
             </p>

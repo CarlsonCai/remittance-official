@@ -21,7 +21,7 @@ export function FeatureCard({ title, index }: FeatureCardProps) {
       <p className="typo-body4 mt-2 flex-1 text-gray-600">
         卡片說明文案（佔位）。
       </p>
-      <p className="typo-body4 mt-4 font-semibold text-sky-600">
+      <p className="typo-body4-m mt-4 text-sky-600">
         了解更多（佔位連結）
       </p>
     </article>

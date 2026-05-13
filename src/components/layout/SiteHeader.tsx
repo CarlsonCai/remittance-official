@@ -247,7 +247,7 @@ export function SiteHeader() {
                     Bank SinoPac
                   </span>
                 </span>
-                <span className="typo-body3 text-navy-900 hidden min-w-0 truncate font-bold min-[1024px]:inline min-[1024px]:whitespace-normal">
+                <span className="typo-body3-b text-navy-900 hidden min-w-0 truncate min-[1024px]:inline min-[1024px]:whitespace-normal">
                   永豐銀行 Bank SinoPac
                 </span>
               </Link>

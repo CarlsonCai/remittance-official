@@ -4,7 +4,7 @@ export function SiteFooterLegalBar() {
   return (
     <div className="relative z-10 w-full border-t border-white/20 bg-navy-900 pt-6">
       <div className="flex flex-col gap-5 min-[1024px]:grid min-[1024px]:grid-cols-12 min-[1024px]:gap-x-10 min-[1024px]:gap-y-0">
-        <p className="typo-body4 order-2 min-h-0 min-w-0 shrink font-normal tracking-[0.28px] text-white min-[1024px]:order-1 min-[1024px]:col-span-5">
+        <p className="typo-body4 order-2 min-h-0 min-w-0 shrink text-white min-[1024px]:order-1 min-[1024px]:col-span-5">
           {footerCopyright}
         </p>
         <nav
@@ -16,7 +16,7 @@ export function SiteFooterLegalBar() {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="typo-body4 inline-block rounded-sm font-normal tracking-[0.28px] text-white underline decoration-solid decoration-auto underline-offset-auto [text-decoration-skip-ink:auto] [text-underline-position:from-font] outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
+                  className="typo-body4 inline-block rounded-sm text-white underline decoration-solid decoration-auto underline-offset-auto [text-decoration-skip-ink:auto] [text-underline-position:from-font] outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-navy-900"
                 >
                   {item.label}
                 </a>

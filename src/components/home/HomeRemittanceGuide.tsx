@@ -18,7 +18,7 @@ export function HomeRemittanceGuide() {
           </p>
           <div className="mt-10 grid gap-8 min-[1024px]:grid-cols-12">
             <aside className="min-[1024px]:col-span-3" aria-label="指南分類">
-              <p className="typo-body4 text-navy-900 font-semibold">分類篩選</p>
+              <p className="typo-body4-m text-navy-900">分類篩選</p>
               <ul className="mt-4 space-y-2">
                 <li className="bg-navy-600 typo-body5 rounded-lg px-4 py-2 text-white">
                   分類一（佔位）
@@ -48,7 +48,7 @@ export function HomeRemittanceGuide() {
                     >
                       指南文章標題 {i + 1}（佔位）
                     </h3>
-                    <p className="typo-body5 mt-3 font-semibold text-sky-600">
+                    <p className="typo-body5-m mt-3 text-sky-600">
                       閱讀全文（佔位）
                     </p>
                   </div>
