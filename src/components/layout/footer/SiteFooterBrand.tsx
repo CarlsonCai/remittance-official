@@ -1,7 +1,9 @@
 import Image from "next/image";
-import bankSinopacLogoWhite from "@/assets/images/bank-sinopac-logo-white.png";
-import fbBtn from "@/assets/images/fb-btn.png";
-import lineBtn from "@/assets/images/line-btn.png";
+import bankSinopacLogoWhite from "@/assets/images/brand/bank-sinopac-logo-white.png";
+import fbBtn from "@/assets/images/social/fb-btn.png";
+import fbBtnHover from "@/assets/images/social/fb-btn-hover.png";
+import lineBtn from "@/assets/images/social/line-btn.png";
+import lineBtnHover from "@/assets/images/social/line-btn-hover.png";
 import { footerCompany } from "@/lib/footerContent";
 
 export function SiteFooterBrand() {
@@ -35,7 +37,7 @@ export function SiteFooterBrand() {
         <li>
           <a
             href="#"
-            className="focus-visible:ring-offset-navy-900 inline-flex shrink-0 rounded-lg transition-opacity outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+            className="group focus-visible:ring-offset-navy-900 relative inline-flex h-10 w-10 shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
             aria-label="Facebook"
           >
             <Image
@@ -43,7 +45,15 @@ export function SiteFooterBrand() {
               alt=""
               width={40}
               height={40}
-              className="h-10 w-10 object-contain"
+              className="h-10 w-10 object-contain transition-opacity duration-200 group-hover:opacity-0"
+              aria-hidden
+            />
+            <Image
+              src={fbBtnHover}
+              alt=""
+              width={40}
+              height={40}
+              className="absolute inset-0 h-10 w-10 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
               aria-hidden
             />
           </a>
@@ -51,7 +61,7 @@ export function SiteFooterBrand() {
         <li>
           <a
             href="#"
-            className="focus-visible:ring-offset-navy-900 inline-flex shrink-0 rounded-lg transition-opacity outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+            className="group focus-visible:ring-offset-navy-900 relative inline-flex h-10 w-10 shrink-0 rounded-lg outline-none focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
             aria-label="LINE"
           >
             <Image
@@ -59,7 +69,15 @@ export function SiteFooterBrand() {
               alt=""
               width={40}
               height={40}
-              className="h-10 w-10 object-contain"
+              className="h-10 w-10 object-contain transition-opacity duration-200 group-hover:opacity-0"
+              aria-hidden
+            />
+            <Image
+              src={lineBtnHover}
+              alt=""
+              width={40}
+              height={40}
+              className="absolute inset-0 h-10 w-10 object-contain opacity-0 transition-opacity duration-200 group-hover:opacity-100"
               aria-hidden
             />
           </a>

@@ -1,4 +1,5 @@
 import { footerCopyright, footerLegalLinks } from "@/lib/footerContent";
+import { footerLinkMotion } from "@/lib/footerLinkMotion";
 
 export function SiteFooterLegalBar() {
   return (
@@ -17,7 +18,7 @@ export function SiteFooterLegalBar() {
               <li key={item.label}>
                 <a
                   href={item.href}
-                  className="typo-body4 focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white underline decoration-solid decoration-auto underline-offset-auto outline-none [text-decoration-skip-ink:auto] [text-underline-position:from-font] hover:opacity-90 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+                  className={`${footerLinkMotion} typo-body4 focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white underline decoration-solid decoration-auto underline-offset-auto outline-none [text-decoration-skip-ink:auto] [text-underline-position:from-font] hover:text-sky-600 hover:decoration-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
                 >
                   {item.label}
                 </a>

@@ -1,11 +1,11 @@
-import Image from "next/image";
 import Link from "next/link";
-import chevronRightIcon from "@/assets/images/chevron-right.png";
+import { ChevronRightIcon } from "@/components/icons/ChevronRightIcon";
 import {
   footerCommonAndContact,
   footerQuickLinks,
   footerRemittanceServices,
 } from "@/lib/footerContent";
+import { footerLinkMotion } from "@/lib/footerLinkMotion";
 
 export function SiteFooterNav() {
   return (
@@ -25,16 +25,10 @@ export function SiteFooterNav() {
             <li key={item.href}>
               <Link
                 href={item.href}
-                className="typo-body2-m focus-visible:ring-offset-navy-900 inline-flex items-center gap-1 rounded-sm text-white outline-none hover:text-sky-200 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+                className={`${footerLinkMotion} typo-body2-m focus-visible:ring-offset-navy-900 inline-flex items-center gap-1 rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
               >
                 {item.label}
-
-                <Image
-                  src={chevronRightIcon}
-                  alt=""
-                  className="ml-1 h-2.5 w-auto shrink-0 object-contain"
-                  aria-hidden
-                />
+                <ChevronRightIcon className="ml-1 size-[15px] shrink-0" />
               </Link>
             </li>
           ))}
@@ -56,7 +50,7 @@ export function SiteFooterNav() {
             <li key={item.label}>
               <a
                 href={item.href}
-                className="typo-body3-r focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white outline-none hover:text-sky-200 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+                className={`${footerLinkMotion} typo-body3-r focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
               >
                 - {item.label}
               </a>
@@ -82,7 +76,7 @@ export function SiteFooterNav() {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className="typo-body3-r focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white outline-none hover:text-sky-200 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2"
+                    className={`${footerLinkMotion} typo-body3-r focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
                   >
                     - {item.label}
                   </a>
