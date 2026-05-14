@@ -3,16 +3,17 @@
  * 才能在 JSX 疊加 tablet:typo-body3-m、desktop:typo-h1 等斷點前綴。
  */
 
-/* Headlines — mobile-first (≤1023); desktop ≥1440 */
+/* Headlines — H1 小階稿 900、大階稿 800；其餘見 palette。斷點 ≥1440 與 theme 一致 */
 @utility typo-h1 {
   font-size: var(--font-size-h1-sm);
   line-height: var(--line-height-h1);
   letter-spacing: var(--letter-spacing-h1-sm);
-  font-weight: var(--font-weight-extrabold);
+  font-weight: var(--font-weight-black);
 
   @media (min-width: 90rem) /* theme --breakpoint-desktop */ {
     font-size: var(--font-size-h1-lg);
     letter-spacing: var(--letter-spacing-h1-lg);
+    font-weight: var(--font-weight-extrabold);
   }
 }
 

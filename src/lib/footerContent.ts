@@ -58,11 +58,8 @@ export const footerCommonAndContact: FooterLinkGroup[] = [
 
 export const footerSlogan = "謹慎理財 信用至上";
 
-export const footerDisclaimerLines = [
-  "銀行客服24小時服務專線：(02)2505-9999",
-  "信用卡客服24小時服務專線：(02)2528-7776",
-  "循環信用利率 5%~15% (基準日 2023/3/3)；預借現金手續費：預借現金金額 X 3.5% + 指定金額 (100 元新台幣/3.5 美元/350 日圓/3 歐元)。其他費用請上 永豐銀行 網站查詢",
-] as const;
+export const footerDisclaimer =
+  "銀行客服24小時服務專線：(02)2505-9999\n信用卡客服24小時服務專線：(02)2528-7776\n循環信用利率 5%~15% (基準日 2023/3/3)；預借現金手續費：預借現金金額 X 3.5% + 指定金額 (100 元新台幣/3.5 美元/350 日圓/3 歐元)。其他費用請上 永豐銀行 網站查詢";
 
 export const footerCopyright =
   "Copyright © 2026 永豐商業銀行股份有限公司. All Rights Reserved.";

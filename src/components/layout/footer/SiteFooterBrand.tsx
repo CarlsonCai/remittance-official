@@ -13,7 +13,7 @@ export function SiteFooterBrand() {
           alt="永豐銀行 Bank SinoPac"
           width={203}
           height={60}
-          className="h-10 w-[135px] max-w-full object-contain object-left tablet:h-[60px] tablet:w-[203px]"
+          className="tablet:h-[60px] tablet:w-[203px] h-10 w-[135px] max-w-full object-contain object-left"
           sizes="(max-width: 1023px) 135px, 203px"
           priority={false}
         />
@@ -23,8 +23,12 @@ export function SiteFooterBrand() {
         <p className="typo-body3-m tablet:typo-body2-m text-white">
           {footerCompany.legalName}
         </p>
-        <p className="typo-body3-r text-white">{footerCompany.address}</p>
-        <p className="typo-body3-r text-white">{footerCompany.taxId}</p>
+        <p className="typo-body4-r tablet:typo-body3-r text-white">
+          {footerCompany.address}
+        </p>
+        <p className="typo-body4-r tablet:typo-body3-r text-white">
+          {footerCompany.taxId}
+        </p>
       </address>
 
       <ul className="flex shrink-0 gap-4" aria-label="社群媒體">

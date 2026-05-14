@@ -41,6 +41,8 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
   --font-weight-extrabold: 800;
+  /* Headline/H1 小階（稿 1023 under） */
+  --font-weight-black: 900;
 
   /* Headlines — base ≤1023px; ≥1440px in typography.css */
   --line-height-h1: 1.3;
