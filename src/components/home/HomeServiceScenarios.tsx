@@ -1,3 +1,5 @@
+import { SectionLayout } from "@/components/layout/SectionLayout";
+
 export function HomeServiceScenarios() {
   return (
     <section
@@ -8,8 +10,7 @@ export function HomeServiceScenarios() {
       <span className="home-section__dev-label" aria-hidden="true">
         ServiceScenarios
       </span>
-      <div className="layout-shell py-16 tablet:py-20">
-        <div className="layout-container">
+      <SectionLayout>
           <h2 id="service-scenarios-heading" className="typo-h2 text-navy-900">
             滿足您的各種匯款情境
           </h2>
@@ -27,8 +28,7 @@ export function HomeServiceScenarios() {
               右側：依選項顯示的說明卡（佔位，之後 ServiceDetailCard）
             </div>
           </div>
-        </div>
-      </div>
+      </SectionLayout>
     </section>
   );
 }

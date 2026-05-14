@@ -1,12 +1,13 @@
-type ChevronRightIconProps = {
+import { cn } from "@/lib/utils";
+
+type ChevronIconProps = {
   className?: string;
 };
 
-/** 與 `src/assets/icons/chevron-right.svg` 同形；`stroke="currentColor"` 可隨父層文字色（如 hover:text-sky-600）變化。 */
-export function ChevronRightIcon({ className }: ChevronRightIconProps) {
+export function ChevronIcon({ className }: ChevronIconProps) {
   return (
     <svg
-      className={className}
+      className={cn("size-[15px] shrink-0", className)}
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden

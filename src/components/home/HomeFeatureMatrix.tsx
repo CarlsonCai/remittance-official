@@ -1,3 +1,5 @@
+import { SectionLayout } from "@/components/layout/SectionLayout";
+
 import { FeatureCard } from "./FeatureCard";
 
 const FEATURE_TITLES = [
@@ -17,8 +19,7 @@ export function HomeFeatureMatrix() {
       <span className="home-section__dev-label" aria-hidden="true">
         FeatureMatrix
       </span>
-      <div className="layout-shell py-16 tablet:py-20">
-        <div className="layout-container">
+      <SectionLayout>
           <h2 id="feature-matrix-heading" className="typo-h2 text-white">
             多種匯款矩陣
           </h2>
@@ -30,8 +31,7 @@ export function HomeFeatureMatrix() {
               <FeatureCard key={title} title={title} index={i} />
             ))}
           </div>
-        </div>
-      </div>
+      </SectionLayout>
     </section>
   );
 }

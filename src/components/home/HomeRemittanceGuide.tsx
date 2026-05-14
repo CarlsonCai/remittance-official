@@ -1,3 +1,5 @@
+import { SectionLayout } from "@/components/layout/SectionLayout";
+
 export function HomeRemittanceGuide() {
   return (
     <section
@@ -8,8 +10,7 @@ export function HomeRemittanceGuide() {
       <span className="home-section__dev-label" aria-hidden="true">
         RemittanceGuide
       </span>
-      <div className="layout-shell py-16 tablet:py-20">
-        <div className="layout-container">
+      <SectionLayout>
           <h2 id="remittance-guide-heading" className="typo-h2 text-navy-900">
             匯款指南
           </h2>
@@ -56,8 +57,7 @@ export function HomeRemittanceGuide() {
               ))}
             </div>
           </div>
-        </div>
-      </div>
+      </SectionLayout>
     </section>
   );
 }

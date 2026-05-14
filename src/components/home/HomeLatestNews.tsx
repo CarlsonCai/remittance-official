@@ -1,3 +1,5 @@
+import { SectionLayout } from "@/components/layout/SectionLayout";
+
 export function HomeLatestNews() {
   return (
     <section
@@ -8,8 +10,7 @@ export function HomeLatestNews() {
       <span className="home-section__dev-label" aria-hidden="true">
         LatestNews
       </span>
-      <div className="layout-shell py-16 tablet:py-20">
-        <div className="layout-container">
+      <SectionLayout>
           <h2 id="latest-news-heading" className="typo-h2 text-navy-900">
             最新消息
           </h2>
@@ -65,8 +66,7 @@ export function HomeLatestNews() {
               ))}
             </ul>
           </div>
-        </div>
-      </div>
+      </SectionLayout>
     </section>
   );
 }

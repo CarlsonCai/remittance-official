@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronRightIcon } from "@/components/icons/ChevronRightIcon";
+import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import {
   footerCommonAndContact,
   footerQuickLinks,
@@ -28,7 +28,7 @@ export function SiteFooterNav() {
                 className={`${footerLinkMotion} typo-body2-m focus-visible:ring-offset-navy-900 inline-flex items-center gap-1 rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
               >
                 {item.label}
-                <ChevronRightIcon className="ml-1 size-[15px] shrink-0" />
+                <ChevronIcon className="ml-1" />
               </Link>
             </li>
           ))}

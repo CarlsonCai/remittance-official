@@ -1,7 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useId, useState } from "react";
+
+import bankSinopacLogoBlack from "@/assets/images/brand/bank-sinopac-logo-black.png";
+import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import { GlobeIcon } from "@/components/icons/GlobeIcon";
+import { cn } from "@/lib/utils";
 
 const MOBILE_NAV_PANEL_ID = "site-header-primary-nav-panel";
 
@@ -21,41 +27,8 @@ const NAV_ITEMS: NavItem[] = [
   { kind: "cta", href: "/remit/", label: "前往匯款" },
 ];
 
-function ChevronDown({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width={12}
-      height={12}
-      viewBox="0 0 12 12"
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path fill="currentColor" d="M6 8.25 1.5 3.75h9L6 8.25Z" />
-    </svg>
-  );
-}
-
-function GlobeIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      className={className}
-      width={18}
-      height={18}
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      aria-hidden="true"
-      focusable="false"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="M12 21a9.004 9.004 0 008.716-6H12V3.282A9.003 9.003 0 0012 21zm0 0a9.004 9.004 0 01-8.716-6H12V3.282A9.003 9.003 0 0112 21z"
-      />
-    </svg>
-  );
+function ChevronDownIcon({ className }: { className?: string }) {
+  return <ChevronIcon className={cn("rotate-90", className)} />;
 }
 
 function HamburgerIcon({ open }: { open: boolean }) {
@@ -109,7 +82,7 @@ export function SiteHeader() {
         <li key={key}>
           <Link
             href={item.href}
-            className="typo-body3 text-navy-900 hover:text-navy-600 font-medium transition-colors"
+            className="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
           >
             {item.label}
           </Link>
@@ -121,12 +94,12 @@ export function SiteHeader() {
         <li key={key}>
           <button
             type="button"
-            className="typo-body3 text-navy-900 hover:text-navy-600 inline-flex items-center gap-1 font-medium transition-colors"
+            className="typo-body2-m text-navy-900 hover:text-navy-600 inline-flex items-center gap-1 transition-colors"
             aria-expanded="false"
             aria-haspopup="menu"
           >
             {item.label}
-            <ChevronDown className="opacity-70" />
+            <ChevronDownIcon className="opacity-70" />
           </button>
         </li>
       );
@@ -136,13 +109,13 @@ export function SiteHeader() {
         <li key={key}>
           <button
             type="button"
-            className="typo-body3 text-navy-900 hover:text-navy-600 inline-flex items-center gap-1 font-medium transition-colors"
+            className="typo-body2-m text-navy-900 hover:text-sky-600 inline-flex items-center gap-1 transition-colors"
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="選擇介面語言"
           >
             <GlobeIcon className="opacity-80" />
-            <ChevronDown className="opacity-70" />
+            <ChevronDownIcon className="opacity-70" />
           </button>
         </li>
       );
@@ -151,10 +124,10 @@ export function SiteHeader() {
       <li key={key}>
         <Link
           href={item.href}
-          className="typo-body3 bg-navy-500 hover:bg-navy-600 focus-visible:outline-navy-700 inline-flex items-center gap-1 rounded-md px-4 py-2.5 font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="typo-body2-m focus-visible:outline-navy-700 inline-flex h-[57px] w-[138px] shrink-0 items-center justify-center gap-1 rounded-[12px] bg-navy-500 py-3 pr-4 pl-6 text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2"
         >
           {item.label}
-          <ChevronDown className="text-white opacity-90" />
+          <ChevronDownIcon className="text-white opacity-90" />
         </Link>
       </li>
     );
@@ -163,7 +136,7 @@ export function SiteHeader() {
   function renderMobileItem(item: NavItem, index: number) {
     const key = navItemKey(item, index);
     const rowClass =
-      "typo-body3 flex w-full items-center justify-between border-b border-navy-100 py-3 font-medium text-navy-900 last:border-b-0";
+      "typo-body2-m flex w-full items-center justify-between border-b border-navy-100 py-3 text-navy-900 last:border-b-0";
 
     if (item.kind === "link") {
       return (
@@ -184,7 +157,7 @@ export function SiteHeader() {
             aria-haspopup="menu"
           >
             <span>{item.label}</span>
-            <ChevronDown className="opacity-70" />
+            <ChevronDownIcon className="opacity-70" />
           </button>
         </li>
       );
@@ -194,7 +167,7 @@ export function SiteHeader() {
         <li key={key}>
           <button
             type="button"
-            className={rowClass}
+            className={`${rowClass} hover:text-sky-600 transition-colors`}
             aria-expanded="false"
             aria-haspopup="listbox"
             aria-label="選擇介面語言"
@@ -203,7 +176,7 @@ export function SiteHeader() {
               <GlobeIcon className="opacity-80" />
               語言
             </span>
-            <ChevronDown className="opacity-70" />
+            <ChevronDownIcon className="opacity-70" />
           </button>
         </li>
       );
@@ -212,11 +185,11 @@ export function SiteHeader() {
       <li key={key}>
         <Link
           href={item.href}
-          className="typo-body3 bg-navy-500 hover:bg-navy-600 focus-visible:outline-navy-700 flex w-full items-center justify-center gap-1 rounded-md py-3 font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+          className="typo-body2-m focus-visible:outline-navy-700 mx-auto flex h-[57px] w-[138px] items-center justify-center gap-1 rounded-[12px] bg-navy-500 py-3 pr-4 pl-6 text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2"
           onClick={closeMenu}
         >
           {item.label}
-          <ChevronDown className="text-white opacity-90" />
+          <ChevronDownIcon className="text-white opacity-90" />
         </Link>
       </li>
     );
@@ -224,38 +197,29 @@ export function SiteHeader() {
 
   return (
     <header className="border-navy-100 bg-background w-full border-b">
-      <div className="layout-shell">
-        <div className="layout-container">
-          <div className="flex h-16 w-full items-center justify-between gap-(--layout-gutter-sm) tablet:h-auto tablet:min-h-[89px] tablet:gap-(--layout-gutter-md) tablet:py-4">
+      <div className="w-full px-5 tablet:px-12">
+        <div className="flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm) tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4">
             <div className="flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm) tablet:gap-(--layout-gutter-md)">
               <Link
                 href="/"
-                className="flex min-w-0 shrink-0 items-center gap-2 tablet:gap-3"
+                className="inline-flex shrink-0 items-center"
                 aria-label="永豐銀行 Bank SinoPac，返回首頁"
               >
-                <span
-                  className="bg-logo-red inline-flex size-9 shrink-0 items-center justify-center rounded-full text-[10px] font-bold text-white tablet:size-10 tablet:text-xs"
-                  aria-hidden="true"
-                >
-                  永
-                </span>
-                <span className="flex min-w-0 flex-col tablet:hidden">
-                  <span className="text-navy-900 text-sm leading-tight font-bold">
-                    永豐銀行
-                  </span>
-                  <span className="text-navy-900 text-[11px] leading-tight font-semibold">
-                    Bank SinoPac
-                  </span>
-                </span>
-                <span className="typo-body3-b text-navy-900 hidden min-w-0 truncate tablet:inline tablet:whitespace-normal">
-                  永豐銀行 Bank SinoPac
-                </span>
+                <Image
+                  src={bankSinopacLogoBlack}
+                  alt="永豐銀行 Bank SinoPac"
+                  width={135}
+                  height={40}
+                  sizes="(max-width: 1023px) 108px, 135px"
+                  className="h-8 w-[108px] object-contain object-left tablet:h-10 tablet:w-[135px]"
+                  priority
+                />
               </Link>
               <span
-                className="bg-navy-100 block h-8 w-px shrink-0"
+                className="bg-navy-100 block h-[18px] w-px shrink-0 self-center tablet:h-6"
                 aria-hidden="true"
               />
-              <p className="text-navy-900 tablet:typo-body3 min-w-0 flex-1 truncate text-[13px] leading-snug tablet:leading-normal">
+              <p className="typo-body4-m tablet:typo-body2-m text-navy-900 min-w-0 flex-1 truncate">
                 全方位數位跨境匯款平台
               </p>
             </div>
@@ -280,7 +244,6 @@ export function SiteHeader() {
             >
               <HamburgerIcon open={menuOpen} />
             </button>
-          </div>
         </div>
       </div>
 
@@ -289,12 +252,10 @@ export function SiteHeader() {
         className={`border-navy-100 border-t tablet:hidden ${menuOpen ? "block" : "hidden"}`}
         aria-hidden={!menuOpen}
       >
-        <div className="layout-shell">
-          <div className="layout-container pb-4">
-            <nav aria-label="主選單（行動版）">
-              <ul>{NAV_ITEMS.map((item, i) => renderMobileItem(item, i))}</ul>
-            </nav>
-          </div>
+        <div className="w-full px-5 tablet:px-12">
+          <nav className="min-w-0 pb-4" aria-label="主選單（行動版）">
+            <ul>{NAV_ITEMS.map((item, i) => renderMobileItem(item, i))}</ul>
+          </nav>
         </div>
       </div>
     </header>

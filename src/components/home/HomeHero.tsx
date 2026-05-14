@@ -1,3 +1,5 @@
+import { SectionLayout } from "@/components/layout/SectionLayout";
+
 export function HomeHero() {
   return (
     <section
@@ -8,8 +10,7 @@ export function HomeHero() {
       <span className="home-section__dev-label" aria-hidden="true">
         Hero
       </span>
-      <div className="layout-shell py-16 tablet:py-24">
-        <div className="layout-container">
+      <SectionLayout>
           <div className="max-w-2xl">
             <h1 id="hero-heading" className="typo-h1 text-navy-900">
               永豐銀行跨境匯款（主標題佔位）
@@ -24,7 +25,7 @@ export function HomeHero() {
             </p>
           </div>
           <div
-            className="border-navy-200 bg-background text-navy-900 mt-12 rounded-xl border p-6 shadow-sm tablet:mt-16 tablet:p-8"
+            className="border-navy-200 bg-background text-navy-900 tablet:mt-16 tablet:p-8 mt-12 rounded-xl border p-6 shadow-sm"
             role="region"
             aria-label="快速匯率試算（建置中）"
           >
@@ -33,8 +34,7 @@ export function HomeHero() {
               幣別選擇、金額輸入與試算按鈕將於此區實作（ExchangeRateCalculator）。
             </p>
           </div>
-        </div>
-      </div>
+      </SectionLayout>
     </section>
   );
 }

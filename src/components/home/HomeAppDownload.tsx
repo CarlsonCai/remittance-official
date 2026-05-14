@@ -1,3 +1,5 @@
+import { SectionLayout } from "@/components/layout/SectionLayout";
+
 export function HomeAppDownload() {
   return (
     <section
@@ -8,8 +10,7 @@ export function HomeAppDownload() {
       <span className="home-section__dev-label" aria-hidden="true">
         AppDownload
       </span>
-      <div className="layout-shell py-16 tablet:py-24">
-        <div className="layout-container">
+      <SectionLayout>
           <h2 id="app-download-heading" className="typo-h2 text-navy-900">
             準備好匯款了嗎？
           </h2>
@@ -41,8 +42,7 @@ export function HomeAppDownload() {
               </article>
             ))}
           </div>
-        </div>
-      </div>
+      </SectionLayout>
     </section>
   );
 }
