@@ -104,6 +104,7 @@ export function SiteHeader() {
           triggerClassName="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
           triggerContent={item.label}
           chevronClassName="opacity-70"
+          panelClassName="mt-10"
         />
       );
     }
@@ -117,6 +118,7 @@ export function SiteHeader() {
           triggerContent={<GlobeIcon className="opacity-80" />}
           triggerAriaLabel="選擇介面語言"
           chevronClassName="opacity-70"
+          panelClassName="mt-9"
         />
       );
     }
@@ -129,6 +131,7 @@ export function SiteHeader() {
         triggerContent={item.label}
         chevronClassName="text-white opacity-90"
         className="shrink-0"
+        panelClassName="mt-6"
       />
     );
   }
@@ -153,10 +156,7 @@ export function SiteHeader() {
           ? HEADER_SERVICE_MENU_ITEMS
           : HEADER_GUIDE_MENU_ITEMS;
       return (
-        <li
-          key={key}
-          className="border-navy-100 border-b last:border-b-0"
-        >
+        <li key={key} className="border-navy-100 border-b last:border-b-0">
           <div className="typo-body2-m text-navy-900 py-3">{item.label}</div>
           <ul className="pb-3">
             {items.map((sub, i) => (
@@ -176,10 +176,7 @@ export function SiteHeader() {
     }
     if (item.kind === "lang") {
       return (
-        <li
-          key={key}
-          className="border-navy-100 border-b last:border-b-0"
-        >
+        <li key={key} className="border-navy-100 border-b last:border-b-0">
           <div className="typo-body2-m text-navy-900 flex items-center gap-2 py-3">
             <GlobeIcon className="opacity-80" />
             語言
@@ -201,10 +198,7 @@ export function SiteHeader() {
       );
     }
     return (
-      <li
-        key={key}
-        className="border-navy-100 border-b last:border-b-0"
-      >
+      <li key={key} className="border-navy-100 border-b last:border-b-0">
         <div className="typo-body2-m text-navy-900 py-3">{item.label}</div>
         <ul className="pb-3">
           {HEADER_REMIT_MENU_ITEMS.map((sub, i) => (
@@ -225,63 +219,63 @@ export function SiteHeader() {
 
   return (
     <header className="border-navy-100 bg-background w-full border-b">
-      <div className="w-full px-5 tablet:px-12">
-        <div className="flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm) tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4">
-            <div className="flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm) tablet:gap-(--layout-gutter-md)">
-              <Link
-                href="/"
-                className="inline-flex shrink-0 items-center"
-                aria-label="永豐銀行 Bank SinoPac，返回首頁"
-              >
-                <Image
-                  src={bankSinopacLogoBlack}
-                  alt="永豐銀行 Bank SinoPac"
-                  width={135}
-                  height={40}
-                  sizes="(max-width: 1023px) 108px, 135px"
-                  className="h-8 w-[108px] object-contain object-left tablet:h-10 tablet:w-[135px]"
-                  priority
-                />
-              </Link>
-              <span
-                className="bg-navy-100 block h-[18px] w-px shrink-0 self-center tablet:h-6"
-                aria-hidden="true"
+      <div className="tablet:px-12 w-full px-5">
+        <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
+          <div className="tablet:gap-(--layout-gutter-md) flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm)">
+            <Link
+              href="/"
+              className="inline-flex shrink-0 items-center"
+              aria-label="永豐銀行 Bank SinoPac，返回首頁"
+            >
+              <Image
+                src={bankSinopacLogoBlack}
+                alt="永豐銀行 Bank SinoPac"
+                width={135}
+                height={40}
+                sizes="(max-width: 1023px) 108px, 135px"
+                className="tablet:h-10 tablet:w-[135px] h-8 w-[108px] object-contain object-left"
+                priority
               />
-              <p className="typo-body4-m tablet:typo-body2-m text-navy-900 min-w-0 flex-1 truncate">
-                全方位數位跨境匯款平台
-              </p>
-            </div>
+            </Link>
+            <span
+              className="bg-navy-100 tablet:h-6 block h-[18px] w-px shrink-0 self-center"
+              aria-hidden="true"
+            />
+            <p className="typo-body4-m tablet:typo-body2-m text-navy-900 min-w-0 flex-1 truncate">
+              全方位數位跨境匯款平台
+            </p>
+          </div>
 
-            {/* 不可對包住絕對定位下拉的祖先用 overflow-x-auto：規格會把 overflow-y 算成 auto，面板往下展開會出現垂直卷軸 */}
-            <nav
-              className="hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible tablet:flex"
-              aria-label="主選單"
-            >
-              <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
-                {NAV_ITEMS.map((item, i) => renderDesktopItem(item, i))}
-              </ul>
-            </nav>
+          {/* 不可對包住絕對定位下拉的祖先用 overflow-x-auto：規格會把 overflow-y 算成 auto，面板往下展開會出現垂直卷軸 */}
+          <nav
+            className="tablet:flex hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible"
+            aria-label="主選單"
+          >
+            <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
+              {NAV_ITEMS.map((item, i) => renderDesktopItem(item, i))}
+            </ul>
+          </nav>
 
-            <button
-              id={menuButtonId}
-              type="button"
-              className="text-navy-900 focus-visible:outline-navy-700 inline-flex shrink-0 items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 tablet:hidden"
-              aria-controls={MOBILE_NAV_PANEL_ID}
-              aria-expanded={menuOpen}
-              aria-label={menuOpen ? "關閉主選單" : "開啟主選單"}
-              onClick={() => setMenuOpen((o) => !o)}
-            >
-              <HamburgerIcon open={menuOpen} />
-            </button>
+          <button
+            id={menuButtonId}
+            type="button"
+            className="text-navy-900 focus-visible:outline-navy-700 tablet:hidden inline-flex shrink-0 items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2"
+            aria-controls={MOBILE_NAV_PANEL_ID}
+            aria-expanded={menuOpen}
+            aria-label={menuOpen ? "關閉主選單" : "開啟主選單"}
+            onClick={() => setMenuOpen((o) => !o)}
+          >
+            <HamburgerIcon open={menuOpen} />
+          </button>
         </div>
       </div>
 
       <div
         id={MOBILE_NAV_PANEL_ID}
-        className={`border-navy-100 border-t tablet:hidden ${menuOpen ? "block" : "hidden"}`}
+        className={`border-navy-100 tablet:hidden border-t ${menuOpen ? "block" : "hidden"}`}
         aria-hidden={!menuOpen}
       >
-        <div className="w-full px-5 tablet:px-12">
+        <div className="tablet:px-12 w-full px-5">
           <nav className="min-w-0 pb-4" aria-label="主選單（行動版）">
             <ul>{NAV_ITEMS.map((item, i) => renderMobileItem(item, i))}</ul>
           </nav>

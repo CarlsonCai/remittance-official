@@ -12,11 +12,12 @@ export const HEADER_SERVICE_MENU_ITEMS = [
 ] as const;
 
 export const HEADER_GUIDE_MENU_ITEMS = [
-  { label: "指南項目一（佔位）", href: "#" },
-  { label: "指南項目二（佔位）", href: "#" },
+  { label: "精選文章", href: "#" },
+  { label: "操作影片", href: "#" },
 ] as const;
 
 export const HEADER_LANG_MENU_ITEMS = [
   { label: "繁體中文", href: "#" },
   { label: "English", href: "#" },
+  { label: "Tiếng Việt", href: "#" },
 ] as const;

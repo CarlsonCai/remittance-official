@@ -23,6 +23,7 @@ export type NavDropdownProps = {
   triggerContent: ReactNode;
   chevronClassName?: string;
   className?: string;
+  panelClassName?: string;
   triggerAriaLabel?: string;
 };
 
@@ -33,6 +34,7 @@ export function NavDropdown({
   triggerContent,
   chevronClassName,
   className,
+  panelClassName,
   triggerAriaLabel,
 }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
@@ -80,6 +82,7 @@ export function NavDropdown({
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
             : "pointer-events-none invisible -translate-x-1/2 -translate-y-1 opacity-0",
+          panelClassName,
         )}
       >
         <ul className="flex flex-col" role="none">
