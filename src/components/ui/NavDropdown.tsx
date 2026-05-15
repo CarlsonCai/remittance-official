@@ -1,23 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import {
-  type ReactNode,
-  useCallback,
-  useId,
-  useRef,
-  useState,
-} from "react";
-
+import { type ReactNode, useCallback, useId, useRef, useState } from "react";
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { cn } from "@/lib/utils";
 
-/** 與稿面／footer 連結一致：450ms + cubic-bezier */
-const MOTION =
-  "duration-[450ms] ease-[cubic-bezier(0.22,0.61,0.35,1)]";
-
+const MOTION = "duration-[450ms] ease-[cubic-bezier(0.22,0.61,0.35,1)]";
 const panelTransition = `transition-[opacity,transform] ${MOTION}`;
 const chevronTransition = `transition-transform ${MOTION}`;
 
@@ -27,40 +17,30 @@ export type NavDropdownItem = {
 };
 
 export type NavDropdownProps = {
-  /** `id` 前綴，全站唯一 */
-  menuId: string;
-  /** 選單 `aria-label` */
   menuAriaLabel: string;
-  items: readonly NavDropdownItem[] | NavDropdownItem[];
+  items: readonly NavDropdownItem[];
   triggerClassName: string;
-  /** 按鈕主文（不含箭頭） */
   triggerContent: ReactNode;
   chevronClassName?: string;
   className?: string;
-  panelClassName?: string;
-  /** 僅圖示觸發時的 `aria-label` */
   triggerAriaLabel?: string;
 };
 
 export function NavDropdown({
-  menuId,
   menuAriaLabel,
   items,
   triggerClassName,
   triggerContent,
   chevronClassName,
   className,
-  panelClassName,
   triggerAriaLabel,
 }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLLIElement>(null);
-  const reactId = useId();
-  const safeId = reactId.replace(/:/g, "");
-  const panelDomId = `${menuId}-panel-${safeId}`;
+  const panelDomId = `nav-dropdown-panel-${useId().replace(/:/g, "")}`;
 
   const close = useCallback(() => setOpen(false), []);
-  const toggle = useCallback(() => setOpen((o) => !o), []);
+  const toggle = () => setOpen((o) => !o);
 
   useOnClickOutside(rootRef, close, open);
   useEscapeKey(close, open);
@@ -100,7 +80,6 @@ export function NavDropdown({
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
             : "pointer-events-none invisible -translate-x-1/2 -translate-y-1 opacity-0",
-          panelClassName,
         )}
       >
         <ul className="flex flex-col" role="none">

@@ -99,7 +99,6 @@ export function SiteHeader() {
       return (
         <NavDropdown
           key={key}
-          menuId={`header-nav-menu-${index}`}
           menuAriaLabel={`${item.label}相關連結`}
           items={items}
           triggerClassName="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
@@ -112,7 +111,6 @@ export function SiteHeader() {
       return (
         <NavDropdown
           key={key}
-          menuId="header-nav-lang"
           menuAriaLabel="介面語言"
           items={HEADER_LANG_MENU_ITEMS}
           triggerClassName="typo-body2-m text-navy-900 hover:text-sky-600 transition-colors"
@@ -125,7 +123,6 @@ export function SiteHeader() {
     return (
       <NavDropdown
         key={key}
-        menuId="header-nav-remit-cta"
         menuAriaLabel="前往匯款管道"
         items={HEADER_REMIT_MENU_ITEMS}
         triggerClassName="typo-body2-m focus-visible:outline-navy-700 h-[57px] w-[138px] shrink-0 rounded-[12px] bg-navy-500 py-3 pr-4 pl-6 text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2"
