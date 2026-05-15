@@ -78,7 +78,7 @@ export function NavDropdown({
         aria-hidden={!open}
         className={cn(
           panelTransition,
-          "border-navy-100 bg-background absolute top-full left-1/2 z-50 mt-4 min-w-max rounded-xl border py-2 shadow-sm",
+          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit min-w-[120px] max-w-[min(90vw,280px)] flex-col rounded-[16px] border bg-white",
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
             : "pointer-events-none invisible -translate-x-1/2 -translate-y-1 opacity-0",
@@ -91,7 +91,7 @@ export function NavDropdown({
               <Link
                 role="menuitem"
                 href={item.href}
-                className="typo-body2-m text-navy-900 hover:bg-navy-50 focus-visible:bg-navy-50 block px-4 py-3 transition-colors"
+                className="typo-body3-m text-navy-900 hover:rounded-[8px] hover:bg-sky-100 focus-visible:rounded-[8px] focus-visible:bg-sky-100 block w-full p-[8px] text-center wrap-break-word transition-colors"
                 onClick={close}
               >
                 {item.label}

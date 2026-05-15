@@ -131,7 +131,7 @@ export function SiteHeader() {
         triggerContent={item.label}
         chevronClassName="text-white opacity-90"
         className="shrink-0"
-        panelClassName="mt-6"
+        panelClassName="mt-6 min-w-[180px]"
       />
     );
   }
