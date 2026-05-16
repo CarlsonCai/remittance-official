@@ -1,1 +1,3 @@
 @AGENTS.md
+@CODING_STYLE.md
+@MARKUP_STYLE.md

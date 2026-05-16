@@ -5,3 +5,5 @@ build
 package-lock.json
 AGENTS.md
 CLAUDE.md
+CODING_STYLE.md
+MARKUP_STYLE.md
