@@ -25,7 +25,7 @@ export function HomeHero() {
             </p>
           </div>
           <div
-            className="border-navy-200 bg-background text-navy-900 tablet:mt-16 tablet:p-8 mt-12 rounded-xl border p-6 shadow-sm"
+            className="border-navy-200 bg-background text-navy-900 shadow-s desktop:shadow-l tablet:mt-16 tablet:p-8 mt-12 rounded-xl border p-6"
             role="region"
             aria-label="快速匯率試算（建置中）"
           >

@@ -142,7 +142,7 @@ page.tsx
 ```tsx
 // ✅ 可讀順序示例
 className={cn(
-  "relative flex w-full flex-col gap-6 rounded-xl bg-background p-6 shadow-sm",
+  "relative flex w-full flex-col gap-6 rounded-xl bg-background p-6 shadow-s desktop:shadow-l",
   "typo-body4 text-navy-900",
   "tablet:grid tablet:grid-cols-12 tablet:gap-8 tablet:p-8",
 )}

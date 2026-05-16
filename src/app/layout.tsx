@@ -29,7 +29,6 @@ export default function RootLayout({
     <html
       lang="zh-Hant"
       className={`${manrope.variable} h-full antialiased`}
-      suppressHydrationWarning
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -45,7 +44,6 @@ export default function RootLayout({
       </head>
       <body
         className="flex min-h-full flex-col font-sans"
-        suppressHydrationWarning
       >
         {children}
       </body>

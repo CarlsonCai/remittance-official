@@ -22,7 +22,7 @@ export function HomeAppDownload() {
               <article
                 key={i}
                 aria-labelledby={`app-card-${i}-title`}
-                className="border-navy-100 flex flex-col rounded-xl border bg-white p-6 shadow-sm tablet:p-8"
+                className="border-navy-100 shadow-s desktop:shadow-l flex flex-col rounded-xl border bg-white p-6 tablet:p-8"
               >
                 <div className="typo-body6 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100 text-gray-500">
                   App

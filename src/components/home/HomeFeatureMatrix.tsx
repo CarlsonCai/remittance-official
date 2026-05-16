@@ -20,7 +20,10 @@ export function HomeFeatureMatrix() {
         FeatureMatrix
       </span>
       <SectionLayout>
-          <h2 id="feature-matrix-heading" className="typo-h2 text-white">
+          <h2
+            id="feature-matrix-heading"
+            className="typo-h2 text-shadow-on-blue text-white"
+          >
             多種匯款矩陣
           </h2>
           <p className="typo-body2 mt-3 max-w-2xl text-sky-100">

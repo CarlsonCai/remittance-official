@@ -219,8 +219,9 @@ export function SiteHeader() {
 
   return (
     <header className="border-navy-100 bg-background w-full border-b">
-      <div className="tablet:px-12 w-full px-5">
-        <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
+      <div className="layout-shell">
+        <div className="layout-container">
+          <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
           <div className="tablet:gap-(--layout-gutter-md) flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm)">
             <Link
               href="/"
@@ -267,18 +268,20 @@ export function SiteHeader() {
           >
             <HamburgerIcon open={menuOpen} />
           </button>
-        </div>
-      </div>
+          </div>
 
-      <div
-        id={MOBILE_NAV_PANEL_ID}
-        className={`border-navy-100 tablet:hidden border-t ${menuOpen ? "block" : "hidden"}`}
-        aria-hidden={!menuOpen}
-      >
-        <div className="tablet:px-12 w-full px-5">
-          <nav className="min-w-0 pb-4" aria-label="主選單（行動版）">
-            <ul>{NAV_ITEMS.map((item, i) => renderMobileItem(item, i))}</ul>
-          </nav>
+          <div
+            id={MOBILE_NAV_PANEL_ID}
+            className={cn(
+              "border-navy-100 tablet:hidden border-t",
+              menuOpen ? "block" : "hidden",
+            )}
+            aria-hidden={!menuOpen}
+          >
+            <nav className="min-w-0 pb-4" aria-label="主選單（行動版）">
+              <ul>{NAV_ITEMS.map((item, i) => renderMobileItem(item, i))}</ul>
+            </nav>
+          </div>
         </div>
       </div>
     </header>

@@ -230,3 +230,8 @@
   letter-spacing: var(--letter-spacing-body6);
   font-weight: var(--font-weight-regular);
 }
+
+/* Shadow-Text（稿）：藍底上的白色文字 — 使用 text-shadow，數值同 --shadow-text-source */
+@utility text-shadow-on-blue {
+  text-shadow: var(--shadow-text-source);
+}
