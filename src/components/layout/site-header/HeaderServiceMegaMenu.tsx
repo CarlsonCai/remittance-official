@@ -8,6 +8,7 @@ import {
   HEADER_SERVICE_MEGA_CARDS,
   HEADER_SERVICE_MEGA_INTRO,
 } from "@/lib/headerServiceMegaMenu";
+import { useIsClient } from "@/hooks/useIsClient";
 import { cn } from "@/lib/utils";
 
 const MOTION = "duration-[450ms] ease-[cubic-bezier(0.22,0.61,0.35,1)]";
@@ -69,9 +70,11 @@ export function HeaderServiceMegaMenuPanel({
   panelId,
   onClose,
 }: HeaderServiceMegaMenuPanelProps) {
+  const isClient = useIsClient();
+
   return (
     <>
-      {typeof document !== "undefined" &&
+      {isClient &&
         createPortal(
           <div
             aria-hidden="true"
@@ -110,32 +113,32 @@ export function HeaderServiceMegaMenuPanel({
           </div>
 
           <ul className="desktop:grid-cols-4 grid min-w-0 flex-1 grid-cols-2 gap-8">
-              {HEADER_SERVICE_MEGA_CARDS.map((card) => (
-                <li key={card.id} className="min-w-0">
-                  <Link
-                    href={card.href}
-                    className="group flex w-full min-w-0 flex-[1_0_0] flex-col items-start gap-3"
-                    onClick={onClose}
+            {HEADER_SERVICE_MEGA_CARDS.map((card) => (
+              <li key={card.id} className="min-w-0">
+                <Link
+                  href={card.href}
+                  className="group flex w-full min-w-0 flex-[1_0_0] flex-col items-start gap-3"
+                  onClick={onClose}
+                >
+                  <span className="typo-body2 text-navy-900 font-semibold capitalize">
+                    {card.title}
+                  </span>
+                  <div
+                    className="relative aspect-4/3 w-full self-stretch overflow-hidden rounded-[12px] bg-gray-200 bg-cover bg-center bg-no-repeat"
+                    style={{
+                      backgroundImage: serviceMegaCardBackground(
+                        card.image.src,
+                      ),
+                    }}
                   >
-                    <span className="typo-body2 text-navy-900 font-semibold capitalize">
-                      {card.title}
-                    </span>
-                    <div
-                      className="relative aspect-4/3 w-full self-stretch overflow-hidden rounded-[12px] bg-gray-200 bg-cover bg-center bg-no-repeat"
-                      style={{
-                        backgroundImage: serviceMegaCardBackground(
-                          card.image.src,
-                        ),
-                      }}
-                    >
-                      <span className="sr-only">{card.imageAlt}</span>
-                      <p className="typo-body3-b absolute right-3 bottom-[12.333px] left-3 line-clamp-2 overflow-hidden text-white capitalize">
-                        {card.description}
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
+                    <span className="sr-only">{card.imageAlt}</span>
+                    <p className="typo-body3-b absolute right-3 bottom-[12.333px] left-3 line-clamp-2 overflow-hidden text-white capitalize">
+                      {card.description}
+                    </p>
+                  </div>
+                </Link>
+              </li>
+            ))}
           </ul>
         </div>
       </div>

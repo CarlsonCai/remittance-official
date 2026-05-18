@@ -5,6 +5,7 @@ import { type ReactNode, useCallback, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
+import { useIsClient } from "@/hooks/useIsClient";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { cn } from "@/lib/utils";
 
@@ -40,18 +41,19 @@ export function NavDropdown({
   triggerAriaLabel,
 }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
+  const isClient = useIsClient();
   const rootRef = useRef<HTMLLIElement>(null);
   const panelDomId = `nav-dropdown-panel-${useId().replace(/:/g, "")}`;
 
   const close = useCallback(() => setOpen(false), []);
-  const toggle = () => setOpen((o) => !o);
+  const toggle = () => setOpen((prev) => !prev);
 
   useOnClickOutside(rootRef, close, open);
   useEscapeKey(close, open);
 
   return (
     <li ref={rootRef} className={cn("relative list-none", className)}>
-      {typeof document !== "undefined" &&
+      {isClient &&
         createPortal(
           <div
             aria-hidden="true"
