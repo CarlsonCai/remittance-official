@@ -1,7 +1,6 @@
 import Link from "next/link";
-import type { PointerEventHandler } from "react";
+import type { ReactNode } from "react";
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
-import { HeaderServiceMegaMenuTrigger } from "@/components/layout/site-header/HeaderServiceMegaMenu";
 import { NavDropdown } from "@/components/ui/NavDropdown";
 import {
   HEADER_GUIDE_MENU_ITEMS,
@@ -9,28 +8,23 @@ import {
   HEADER_REMIT_MENU_ITEMS,
 } from "@/lib/headerNavMenus";
 import {
-  SERVICE_MEGA_PANEL_ID,
   SITE_HEADER_NAV_ITEMS,
   siteHeaderNavItemKey,
   type SiteHeaderNavItem,
 } from "@/lib/siteHeaderNav";
 
 type SiteHeaderDesktopNavProps = {
-  serviceMegaOpen: boolean;
-  onToggleServiceMega: () => void;
-  onPointerDownCapture?: PointerEventHandler<HTMLElement>;
+  serviceMegaTrigger: ReactNode;
 };
 
 function SiteHeaderDesktopNavItem({
   item,
   index,
-  serviceMegaOpen,
-  onToggleServiceMega,
+  serviceMegaTrigger,
 }: {
   item: SiteHeaderNavItem;
   index: number;
-  serviceMegaOpen: boolean;
-  onToggleServiceMega: () => void;
+  serviceMegaTrigger: ReactNode;
 }) {
   const key = siteHeaderNavItemKey(item, index);
 
@@ -48,14 +42,7 @@ function SiteHeaderDesktopNavItem({
   }
 
   if (item.kind === "serviceMega") {
-    return (
-      <HeaderServiceMegaMenuTrigger
-        key={key}
-        open={serviceMegaOpen}
-        panelId={SERVICE_MEGA_PANEL_ID}
-        onToggle={onToggleServiceMega}
-      />
-    );
+    return serviceMegaTrigger;
   }
 
   if (item.kind === "menu") {
@@ -102,15 +89,12 @@ function SiteHeaderDesktopNavItem({
 }
 
 export function SiteHeaderDesktopNav({
-  serviceMegaOpen,
-  onToggleServiceMega,
-  onPointerDownCapture,
+  serviceMegaTrigger,
 }: SiteHeaderDesktopNavProps) {
   return (
     <nav
       className="tablet:flex hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible"
       aria-label="主選單"
-      onPointerDownCapture={onPointerDownCapture}
     >
       <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
         {SITE_HEADER_NAV_ITEMS.map((item, index) => (
@@ -118,8 +102,7 @@ export function SiteHeaderDesktopNav({
             key={siteHeaderNavItemKey(item, index)}
             item={item}
             index={index}
-            serviceMegaOpen={serviceMegaOpen}
-            onToggleServiceMega={onToggleServiceMega}
+            serviceMegaTrigger={serviceMegaTrigger}
           />
         ))}
       </ul>

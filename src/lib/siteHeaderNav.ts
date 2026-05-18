@@ -28,11 +28,3 @@ export function siteHeaderNavItemKey(
   }
   return `${item.kind}-${index}`;
 }
-
-export function isInsideServiceMega(target: Node) {
-  const trigger = document.querySelector("[data-service-mega-trigger]");
-  const panel = document.getElementById(SERVICE_MEGA_PANEL_ID);
-  return (
-    (trigger?.contains(target) ?? false) || (panel?.contains(target) ?? false)
-  );
-}
