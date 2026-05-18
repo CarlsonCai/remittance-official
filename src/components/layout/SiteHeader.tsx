@@ -6,26 +6,31 @@ import { useCallback, useEffect, useId, useState } from "react";
 
 import bankSinopacLogoBlack from "@/assets/images/brand/bank-sinopac-logo-black.png";
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
+import {
+  HeaderServiceMegaMenuPanel,
+  HeaderServiceMegaMenuTrigger,
+} from "@/components/layout/HeaderServiceMegaMenu";
 import { NavDropdown } from "@/components/ui/NavDropdown";
 import {
   HEADER_GUIDE_MENU_ITEMS,
   HEADER_LANG_MENU_ITEMS,
   HEADER_REMIT_MENU_ITEMS,
-  HEADER_SERVICE_MENU_ITEMS,
 } from "@/lib/headerNavMenus";
+import { HEADER_SERVICE_MEGA_CARDS } from "@/lib/headerServiceMegaMenu";
 import { cn } from "@/lib/utils";
 
 const MOBILE_NAV_PANEL_ID = "site-header-primary-nav-panel";
 
 type NavItem =
   | { kind: "link"; href: string; label: string }
+  | { kind: "serviceMega" }
   | { kind: "menu"; label: string }
   | { kind: "lang" }
   | { kind: "cta"; label: string };
 
 const NAV_ITEMS: NavItem[] = [
   { kind: "link", href: "/plans/", label: "推薦方案" },
-  { kind: "menu", label: "匯款服務" },
+  { kind: "serviceMega" },
   { kind: "menu", label: "匯款指南" },
   { kind: "link", href: "/news/", label: "最新消息" },
   { kind: "link", href: "/faq/", label: "常見問題" },
@@ -62,11 +67,19 @@ function navItemKey(item: NavItem, index: number): string {
   return `${item.kind}-${index}-${"href" in item ? item.href : item.kind === "menu" ? item.label : item.kind === "cta" ? item.label : "lang"}`;
 }
 
+const SERVICE_MEGA_PANEL_ID = "header-service-mega-panel";
+
 export function SiteHeader() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [serviceMegaOpen, setServiceMegaOpen] = useState(false);
   const menuButtonId = useId();
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
+  const closeServiceMega = useCallback(() => setServiceMegaOpen(false), []);
+  const toggleServiceMega = useCallback(
+    () => setServiceMegaOpen((open) => !open),
+    [],
+  );
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -77,6 +90,15 @@ export function SiteHeader() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [menuOpen]);
 
+  useEffect(() => {
+    if (!serviceMegaOpen) return;
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setServiceMegaOpen(false);
+    }
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [serviceMegaOpen]);
+
   function renderDesktopItem(item: NavItem, index: number) {
     const key = navItemKey(item, index);
     if (item.kind === "link") {
@@ -85,22 +107,29 @@ export function SiteHeader() {
           <Link
             href={item.href}
             className="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
+            onClick={closeServiceMega}
           >
             {item.label}
           </Link>
         </li>
       );
     }
+    if (item.kind === "serviceMega") {
+      return (
+        <HeaderServiceMegaMenuTrigger
+          key={key}
+          open={serviceMegaOpen}
+          panelId={SERVICE_MEGA_PANEL_ID}
+          onToggle={toggleServiceMega}
+        />
+      );
+    }
     if (item.kind === "menu") {
-      const items =
-        item.label === "匯款服務"
-          ? HEADER_SERVICE_MENU_ITEMS
-          : HEADER_GUIDE_MENU_ITEMS;
       return (
         <NavDropdown
           key={key}
           menuAriaLabel={`${item.label}相關連結`}
-          items={items}
+          items={HEADER_GUIDE_MENU_ITEMS}
           triggerClassName="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
           triggerContent={item.label}
           chevronClassName="opacity-70"
@@ -150,16 +179,32 @@ export function SiteHeader() {
         </li>
       );
     }
+    if (item.kind === "serviceMega") {
+      return (
+        <li key={key} className="border-navy-100 border-b last:border-b-0">
+          <div className="typo-body2-m text-navy-900 py-3">匯款服務</div>
+          <ul className="pb-3">
+            {HEADER_SERVICE_MEGA_CARDS.map((sub) => (
+              <li key={sub.id}>
+                <Link
+                  href={sub.href}
+                  className="typo-body2-m text-navy-700 hover:text-navy-600 block py-2.5 pl-4 transition-colors"
+                  onClick={closeMenu}
+                >
+                  {sub.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </li>
+      );
+    }
     if (item.kind === "menu") {
-      const items =
-        item.label === "匯款服務"
-          ? HEADER_SERVICE_MENU_ITEMS
-          : HEADER_GUIDE_MENU_ITEMS;
       return (
         <li key={key} className="border-navy-100 border-b last:border-b-0">
           <div className="typo-body2-m text-navy-900 py-3">{item.label}</div>
           <ul className="pb-3">
-            {items.map((sub, i) => (
+            {HEADER_GUIDE_MENU_ITEMS.map((sub, i) => (
               <li key={`${sub.href}-${i}`}>
                 <Link
                   href={sub.href}
@@ -284,6 +329,12 @@ export function SiteHeader() {
           </div>
         </div>
       </div>
+
+      <HeaderServiceMegaMenuPanel
+        open={serviceMegaOpen}
+        panelId={SERVICE_MEGA_PANEL_ID}
+        onClose={closeServiceMega}
+      />
     </header>
   );
 }

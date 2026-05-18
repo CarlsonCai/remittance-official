@@ -36,7 +36,7 @@
 ### 3.1 三層模型
 
 ```
-<section>          ← 滿版：背景色、文字色、可選 home-section-scaffold
+<section>          ← 滿版：背景色、文字色
   <SectionLayout>  ← 或手動 layout-shell + layout-container
     內容
   </SectionLayout>
@@ -149,7 +149,7 @@ className={cn(
 ```
 
 - **禁止**：同一元素上隨意排列（如 `text-white bg-navy-900 flex p-4` 與 `flex p-4 bg-navy-900 text-white` 混用風格）；提交前以 format 結果為準。
-- 自訂 class（`layout-container`、`home-section-scaffold`、`typo-h2`）在插件排序中通常靠前；與 Tailwind utility 混用時仍跑 `npm run format`。
+- 自訂 class（`layout-container`、`typo-h2`）在插件排序中通常靠前；與 Tailwind utility 混用時仍跑 `npm run format`。
 
 ---
 
@@ -181,7 +181,6 @@ className={cn(
 - 裝飾性元素：`aria-hidden="true"`。
 - 互動元件：可鍵盤聚焦、`aria-expanded` / `aria-controls`（選單、摺疊）。
 - 圖片：`next/image` + 有意義 `alt`；純裝飾 `alt=""`。
-- 開發用：`home-section__dev-label` 須 `aria-hidden`；上線前依任務移除。
 
 ### 6.3 SEO（Next.js Metadata + 內容）
 
@@ -215,11 +214,8 @@ className={cn(
 <section
   id="section-id"
   aria-labelledby="section-id-heading"
-  className="home-section-scaffold bg-… text-…"
+  className="w-full bg-… text-…"
 >
-  <span className="home-section__dev-label" aria-hidden="true">
-    SectionName
-  </span>
   <SectionLayout>
     <h2 id="section-id-heading" className="typo-h2 …">標題</h2>
     <p className="typo-body2 mt-3 max-w-2xl …">副標</p>
@@ -228,7 +224,6 @@ className={cn(
 </section>
 ```
 
-- `home-section-scaffold` 目前含開發用虛線外框；勿移除除非設計/任務要求。
 - 區塊背景在 **`section` 上**設定（例：`bg-navy-600`、`bg-background`）。
 
 ---

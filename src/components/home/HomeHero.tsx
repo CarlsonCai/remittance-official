@@ -5,11 +5,8 @@ export function HomeHero() {
     <section
       id="hero"
       aria-labelledby="hero-heading"
-      className="home-section-scaffold text-navy-900 bg-sky-50"
+      className="w-full text-navy-900 bg-sky-50"
     >
-      <span className="home-section__dev-label" aria-hidden="true">
-        Hero
-      </span>
       <SectionLayout>
           <div className="max-w-2xl">
             <h1 id="hero-heading" className="typo-h1 text-navy-900">

@@ -5,11 +5,8 @@ export function HomeAppDownload() {
     <section
       id="app-download"
       aria-labelledby="app-download-heading"
-      className="home-section-scaffold bg-background text-navy-900"
+      className="w-full bg-background text-navy-900"
     >
-      <span className="home-section__dev-label" aria-hidden="true">
-        AppDownload
-      </span>
       <SectionLayout>
           <h2 id="app-download-heading" className="typo-h2 text-navy-900">
             準備好匯款了嗎？

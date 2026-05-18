@@ -5,11 +5,8 @@ export function HomeLatestNews() {
     <section
       id="latest-news"
       aria-labelledby="latest-news-heading"
-      className="home-section-scaffold text-navy-900 bg-sky-50/80"
+      className="w-full text-navy-900 bg-sky-50/80"
     >
-      <span className="home-section__dev-label" aria-hidden="true">
-        LatestNews
-      </span>
       <SectionLayout>
           <h2 id="latest-news-heading" className="typo-h2 text-navy-900">
             最新消息

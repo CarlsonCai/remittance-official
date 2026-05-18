@@ -5,11 +5,8 @@ export function HomeRemittanceGuide() {
     <section
       id="remittance-guide"
       aria-labelledby="remittance-guide-heading"
-      className="home-section-scaffold bg-background text-navy-900"
+      className="w-full bg-background text-navy-900"
     >
-      <span className="home-section__dev-label" aria-hidden="true">
-        RemittanceGuide
-      </span>
       <SectionLayout>
           <h2 id="remittance-guide-heading" className="typo-h2 text-navy-900">
             匯款指南

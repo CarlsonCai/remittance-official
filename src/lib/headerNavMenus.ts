@@ -6,9 +6,12 @@ export const HEADER_REMIT_MENU_ITEMS = [
   { label: "MMA金融交易網", href: "#" },
 ] as const;
 
+/** @deprecated 行動版請改用 HEADER_SERVICE_MEGA_CARDS */
 export const HEADER_SERVICE_MENU_ITEMS = [
-  { label: "服務項目一（佔位）", href: "#" },
-  { label: "服務項目二（佔位）", href: "#" },
+  { label: "西聯匯款", href: "#" },
+  { label: "Mastercard(Q-Send)", href: "#" },
+  { label: "Visa 直接通", href: "#" },
+  { label: "大戶速匯", href: "#" },
 ] as const;
 
 export const HEADER_GUIDE_MENU_ITEMS = [

@@ -14,11 +14,8 @@ export function HomeFeatureMatrix() {
     <section
       id="feature-matrix"
       aria-labelledby="feature-matrix-heading"
-      className="home-section-scaffold bg-navy-600 text-white"
+      className="w-full bg-navy-600 text-white"
     >
-      <span className="home-section__dev-label" aria-hidden="true">
-        FeatureMatrix
-      </span>
       <SectionLayout>
           <h2
             id="feature-matrix-heading"

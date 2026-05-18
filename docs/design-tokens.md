@@ -13,9 +13,8 @@
 | 3 | `src/styles/semantic.css` | `--background`、`--foreground` |
 | 4 | `src/styles/theme.css` | Tailwind `@theme`：`bg-sky-*`、`tablet:` 等 |
 | 5 | `tailwindcss` | 框架 |
-| 6 | `home-scaffold.css` | 開發用區塊外框（非正式 token） |
-| 7 | `typography.css` | `typo-*` 工具類 |
-| 8 | `layout-grid.css` | `.layout-shell`、`.layout-container`、`.layout-grid` |
+| 6 | `typography.css` | `typo-*` 工具類 |
+| 7 | `layout-grid.css` | `.layout-shell`、`.layout-container`、`.layout-grid` |
 
 ---
 

@@ -5,11 +5,8 @@ export function HomeServiceScenarios() {
     <section
       id="service-scenarios"
       aria-labelledby="service-scenarios-heading"
-      className="home-section-scaffold bg-background text-navy-900"
+      className="w-full bg-background text-navy-900"
     >
-      <span className="home-section__dev-label" aria-hidden="true">
-        ServiceScenarios
-      </span>
       <SectionLayout>
           <h2 id="service-scenarios-heading" className="typo-h2 text-navy-900">
             滿足您的各種匯款情境
