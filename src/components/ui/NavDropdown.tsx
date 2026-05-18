@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { type ReactNode, useCallback, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
@@ -9,6 +10,7 @@ import { cn } from "@/lib/utils";
 
 const MOTION = "duration-[450ms] ease-[cubic-bezier(0.22,0.61,0.35,1)]";
 const panelTransition = `transition-[opacity,transform] ${MOTION}`;
+const backdropTransition = `transition-opacity ${MOTION}`;
 const chevronTransition = `transition-transform ${MOTION}`;
 
 export type NavDropdownItem = {
@@ -49,6 +51,22 @@ export function NavDropdown({
 
   return (
     <li ref={rootRef} className={cn("relative list-none", className)}>
+      {typeof document !== "undefined" &&
+        createPortal(
+          <div
+            aria-hidden="true"
+            className={cn(
+              backdropTransition,
+              "fixed inset-0 z-40 bg-black/40",
+              open
+                ? "opacity-100"
+                : "pointer-events-none opacity-0",
+            )}
+            onClick={close}
+          />,
+          document.body,
+        )}
+
       <button
         type="button"
         className={cn(
@@ -78,20 +96,20 @@ export function NavDropdown({
         aria-hidden={!open}
         className={cn(
           panelTransition,
-          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit min-w-[120px] max-w-[min(90vw,280px)] flex-col rounded-[16px] border bg-white",
+          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,280px)] min-w-[120px] flex-col rounded-[16px] border bg-white",
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
             : "pointer-events-none invisible -translate-x-1/2 -translate-y-1 opacity-0",
           panelClassName,
         )}
       >
-        <ul className="flex flex-col" role="none">
+        <ul className="flex flex-col p-2" role="none">
           {items.map((item, index) => (
             <li key={`${item.href}-${index}`} role="none">
               <Link
                 role="menuitem"
                 href={item.href}
-                className="typo-body3-m text-navy-900 hover:rounded-[8px] hover:bg-sky-100 focus-visible:rounded-[8px] focus-visible:bg-sky-100 block w-full p-[8px] text-center wrap-break-word transition-colors"
+                className="typo-body3-m text-navy-900 block w-full py-2 text-center wrap-break-word transition-colors hover:rounded-[8px] hover:bg-sky-100 focus-visible:rounded-[8px] focus-visible:bg-sky-100"
                 onClick={close}
               >
                 {item.label}
@@ -103,3 +121,4 @@ export function NavDropdown({
     </li>
   );
 }
+

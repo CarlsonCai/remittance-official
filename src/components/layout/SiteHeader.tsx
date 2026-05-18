@@ -218,7 +218,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className="border-navy-100 bg-background w-full border-b">
+    <header className="border-navy-100 bg-background relative z-50 w-full border-b">
       <div className="layout-shell">
         <div className="layout-container">
           <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
