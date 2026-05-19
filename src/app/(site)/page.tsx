@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { HomeAppDownload } from "@/components/home/HomeAppDownload";
-import { HomeFeatureMatrix } from "@/components/home/HomeFeatureMatrix";
+import { HomeRemittanceOptions } from "@/components/home/HomeRemittanceOptions";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLatestNews } from "@/components/home/HomeLatestNews";
 import { HomeRemittanceGuide } from "@/components/home/HomeRemittanceGuide";
@@ -28,7 +28,7 @@ export default function Home() {
       <main className="flex flex-1 flex-col">
         <HomeHero />
         <HomeServiceScenarios />
-        <HomeFeatureMatrix />
+        <HomeRemittanceOptions />
         <HomeRemittanceGuide />
         <HomeLatestNews />
         <HomeAppDownload />

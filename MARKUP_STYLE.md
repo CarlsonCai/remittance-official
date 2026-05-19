@@ -58,7 +58,7 @@
 | **大區塊**（首頁 `Home*`、內頁一個 `<section>`） | ✅ `SectionLayout` | 外層 `<section>` 負責滿版背景；內層 `SectionLayout` 對齊全站欄寬與區塊上下間距 |
 | **整頁主內容**（404、`PlaceholderPage`） | ✅ 手寫 `layout-shell` + `layout-container` | 與 `SectionLayout` 同寬度規則；自行控制 `py-*`，不必強制 `SectionLayout` |
 | **Header / Footer** | ⚠️ 特例 | 可有自訂結構（例 Footer 用 `max-w-[var(--layout-container-lg)]`）；概念上仍對齊同一 max-width |
-| **小元件**（`FeatureCard`、按鈕、選單、`NavDropdown`） | ❌ 不要用 | 已位於父層 `layout-container` 內，再包會雙重 margin／錯誤縮排 |
+| **小元件**（`RemittanceOptionCard`、按鈕、選單、`NavDropdown`） | ❌ 不要用 | 已位於父層 `layout-container` 內，再包會雙重 margin／錯誤縮排 |
 | **`page.tsx`** | 通常不直接包 | 首頁由多個 section 元件各自包 `SectionLayout`；內頁單區則在 page 或區塊元件擇一處包即可 |
 
 ```
@@ -113,7 +113,7 @@ page.tsx
 ## 5. 間距與尺寸（必須遵守）
 
 - **區塊上下間距**：內容區優先依 `SectionLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
-- **元件內距**：卡片等參考 `FeatureCard`（`p-6 tablet:p-8`）。
+- **元件內距**：卡片等參考 `RemittanceOptionCard`（`p-6 tablet:p-8`）。
 - **最大寬度**：長文/副標可用 `max-w-2xl` 等 Tailwind 標準尺度；全頁內容寬度仍受 `layout-container` 限制。
 - **間距尺度**：優先 Tailwind spacing scale（`4`、`6`、`8`、`10`…），避免 `mt-[22px]`。
 - **合併 class**：有條件或需 `tailwind-merge` 時用 `cn()`（`@/lib/utils`）；規則見 **§5.2**。

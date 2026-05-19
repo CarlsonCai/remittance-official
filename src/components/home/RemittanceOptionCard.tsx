@@ -1,16 +1,19 @@
 import { cn } from "@/lib/utils";
 
-type FeatureCardProps = {
+type RemittanceOptionCardProps = {
   title: string;
   index: number;
 };
 
-export function FeatureCard({ title, index }: FeatureCardProps) {
+export function RemittanceOptionCard({
+  title,
+  index,
+}: RemittanceOptionCardProps) {
   return (
     <article
-      aria-labelledby={`feature-card-${index}-title`}
+      aria-labelledby={`remittance-option-${index}-title`}
       className={cn(
-        "shadow-s desktop:shadow-l tablet:p-8 flex flex-col rounded-(--radius-card) p-6",
+        "flex flex-col rounded-(--radius-card) p-6 shadow-s desktop:shadow-l tablet:p-8",
         "bg-background text-navy-900",
       )}
     >
@@ -23,7 +26,7 @@ export function FeatureCard({ title, index }: FeatureCardProps) {
         圖示／插圖（佔位）
       </div>
       <h3
-        id={`feature-card-${index}-title`}
+        id={`remittance-option-${index}-title`}
         className="typo-h4 text-navy-900 mt-6"
       >
         {title}
@@ -31,7 +34,7 @@ export function FeatureCard({ title, index }: FeatureCardProps) {
       <p className="typo-body4 mt-2 flex-1 text-gray-600">
         卡片說明文案（佔位）。
       </p>
-      <p className="typo-body4-m mt-4 text-sky-600">了解更多（佔位連結）</p>
+      <p className="typo-body4-m mt-4 text-sky-600">查看方案（佔位連結）</p>
     </article>
   );
 }
