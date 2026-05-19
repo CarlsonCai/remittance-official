@@ -7,12 +7,12 @@ import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useIsClient } from "@/hooks/useIsClient";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
+import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
-const MOTION = "duration-[450ms] ease-[cubic-bezier(0.22,0.61,0.35,1)]";
-const panelTransition = `transition-[opacity,transform] ${MOTION}`;
-const backdropTransition = `transition-opacity ${MOTION}`;
-const chevronTransition = `transition-transform ${MOTION}`;
+const panelTransition = `transition-[opacity,transform] ${SITE_MOTION}`;
+const backdropTransition = `transition-opacity ${SITE_MOTION}`;
+const chevronTransition = `transition-transform ${SITE_MOTION}`;
 
 export type NavDropdownItem = {
   label: string;
@@ -96,7 +96,7 @@ export function NavDropdown({
         aria-hidden={!open}
         className={cn(
           panelTransition,
-          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,280px)] min-w-[120px] flex-col rounded-[16px] border bg-white",
+          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,var(--size-dropdown-panel-max-width))] min-w-(--size-dropdown-panel-min-width-sm) flex-col rounded-(--radius-dropdown) border bg-white",
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
             : "pointer-events-none invisible -translate-x-1/2 -translate-y-1 opacity-0",
@@ -109,7 +109,7 @@ export function NavDropdown({
               <Link
                 role="menuitem"
                 href={item.href}
-                className="typo-body3-m text-navy-900 block w-full py-2 text-center wrap-break-word transition-colors hover:rounded-[8px] hover:bg-sky-100 focus-visible:rounded-[8px] focus-visible:bg-sky-100"
+                className="typo-body3-m text-navy-900 block w-full py-2 text-center wrap-break-word transition-colors hover:rounded-(--radius-dropdown-item) hover:bg-sky-100 focus-visible:rounded-(--radius-dropdown-item) focus-visible:bg-sky-100"
                 onClick={close}
               >
                 {item.label}

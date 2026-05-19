@@ -141,8 +141,13 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | `cn()` 何時用、參數分層（表面 → 字形 → 動畫 → 狀態） | `MARKUP_STYLE.md` **§5.2** |
 | RWD（`tablet:` 等）歸哪層、可否獨立 `cn()` 參數 | `MARKUP_STYLE.md` **§5.2**（RWD 小節） |
 | 單一字串內 utility 排序、Prettier | `MARKUP_STYLE.md` **§5.1** |
-| 對稿數值 token（padding、圓角） | `src/styles/layout-tokens.css` 等 |
-| 跨區塊動效 duration／easing | `src/lib/headerMotion.ts`（例：`HEADER_MOTION`） |
+| 色票 | `src/styles/palette.css` |
+| 字級來源 | `src/styles/type-scale.css` |
+| 陰影 | `src/styles/effects.css` |
+| 間距／圓角／grid／動效／斷點 | `src/styles/dimensions.css` |
+| 語意色 | `src/styles/semantic.css` |
+| Tailwind 映射 | `src/styles/theme.css` |
+| 跨區塊動效 | `src/lib/siteMotion.ts`（`dimensions` `--motion-*`） |
 | 元件邏輯、accordion 狀態 | `src/hooks/`（例：`useMobileNavAccordion`） |
 
 ### 4.2 程式慣例（AI 必守）

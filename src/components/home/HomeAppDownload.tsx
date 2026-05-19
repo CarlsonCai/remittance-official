@@ -19,9 +19,9 @@ export function HomeAppDownload() {
             <article
               key={i}
               aria-labelledby={`app-card-${i}-title`}
-              className="border-navy-100 shadow-s desktop:shadow-l tablet:p-8 flex flex-col rounded-xl border bg-white p-6"
+              className="border-navy-100 shadow-s desktop:shadow-l tablet:p-8 flex flex-col rounded-(--radius-card) border bg-white p-6"
             >
-              <div className="typo-body6 mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-gray-100 text-gray-500">
+              <div className="typo-body6 mx-auto flex size-(--size-app-store-icon) items-center justify-center rounded-(--radius-4) bg-gray-100 text-gray-500">
                 App
               </div>
               <h3
@@ -33,7 +33,7 @@ export function HomeAppDownload() {
               <p className="typo-body4 mt-2 text-center text-gray-600">
                 簡短說明與 QR、商店徽章將於此補上。
               </p>
-              <div className="typo-body6 mt-6 flex aspect-square max-w-40 items-center justify-center self-center rounded-lg bg-gray-200 text-gray-500">
+              <div className="typo-body6 mt-6 flex aspect-square max-w-(--size-app-qr-max) items-center justify-center self-center rounded-(--radius-chip) bg-gray-200 text-gray-500">
                 QR（佔位）
               </div>
             </article>

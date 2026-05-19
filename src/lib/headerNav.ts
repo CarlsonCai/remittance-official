@@ -12,8 +12,8 @@ export type HeaderNavItem =
 export const HEADER_NAV_ITEMS: HeaderNavItem[] = [
   { kind: "link", href: "/plans/", label: "推薦方案" },
   { kind: "serviceMega" },
-  { kind: "menu", label: "匯款指南" },
   { kind: "link", href: "/news/", label: "最新消息" },
+  { kind: "menu", label: "匯款指南" },
   { kind: "link", href: "/faq/", label: "常見問題" },
   { kind: "lang" },
   { kind: "cta", label: "前往匯款" },

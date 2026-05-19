@@ -6,127 +6,120 @@
 
 ## 1. 樣式從哪裡載入（`globals.css` 順序）
 
-| 順序 | 檔案                           | 用途                                                 |
-| ---- | ------------------------------ | ---------------------------------------------------- |
-| 1    | `src/styles/palette.css`       | 色票、字級／行高／陰影來源                           |
-| 2    | `src/styles/layout-tokens.css` | 版型數值：margin、gutter、欄數、container 寬         |
-| 3    | `src/styles/semantic.css`      | `--background`、`--foreground`                       |
-| 4    | `src/styles/theme.css`         | Tailwind `@theme`：`bg-sky-*`、`tablet:` 等          |
-| 5    | `tailwindcss`                  | 框架                                                 |
-| 6    | `typography.css`               | `typo-*` 工具類                                      |
-| 7    | `layout-grid.css`              | `.layout-shell`、`.layout-container`、`.layout-grid` |
+| 順序 | 檔案 | 層級 | 內容 |
+| ---- | ---- | ---- | ---- |
+| 1 | `palette.css` | Primitive | 色票 `--sky-*`、`--navy-*`、`--gray-*` |
+| 2 | `type-scale.css` | Primitive | 字重、字号、行高、字距 |
+| 3 | `effects.css` | Primitive | 陰影 `--shadow-*-source` |
+| 4 | `dimensions.css` | Primitive → Semantic | 間距、圓角、尺寸、動效、grid、`--bp-*` 斷點 |
+| 5 | `semantic.css` | Semantic | `--background`、`--foreground` |
+| 6 | `theme.css` | Tailwind 橋接 | `bg-sky-*`、`tablet:`、`rounded-card`、`shadow-s` |
+| 7 | `tailwindcss` | — | 框架 |
+| 8 | `typography.css` | Utility | `typo-*` 工具類 |
+| 9 | `layout-grid.css` | Component | `.layout-shell`、`.layout-container`、`.layout-grid` |
+
+**改數值去哪裡**
+
+| 要改 | 檔案 |
+| ---- | ---- |
+| 品牌色 | `palette.css` |
+| 字級／字距 | `type-scale.css` |
+| 陰影 | `effects.css` |
+| 間距、圓角、元件尺寸、grid、動效、斷點 px | `dimensions.css` |
+| 頁面底／預設字色 | `semantic.css` |
+| Tailwind class 名映射 | `theme.css`（勿寫死新 px） |
+| 標題／內文 class | `typography.css`（通常只加 utility，不改數值） |
+
+### 1.1 `dimensions.css` 三層（切版請用語意層）
+
+| 層級 | 前綴例 |
+|------|--------|
+| Primitive | `--space-*`、`--radius-*`、`--motion-*-default` |
+| Semantic | `--radius-card`、`--spacing-*`、`--size-*`、`--layout-gutter-sm` |
+| Breakpoint | `--bp-tablet`、`--bp-desktop`、`--bp-wide`（`theme` 的 `tablet:` 來源） |
 
 ---
 
 ## 2. 色彩
 
-| 前綴（`palette.css`） | 用途         |
-| --------------------- | ------------ |
-| `--sky-*`             | 淺藍階       |
-| `--navy-*`            | 深藍／品牌藍 |
-| `--gray-*`            | 中性灰       |
-| `--logo-red`          | 標誌紅       |
+| 前綴（`palette.css`） | 用途 |
+| --------------------- | ---- |
+| `--sky-*` | 淺藍階 |
+| `--navy-*` | 深藍／品牌藍 |
+| `--gray-*` | 中性灰 |
 
-| 語意（`semantic.css`） | 值                |
-| ---------------------- | ----------------- |
-| `--background`         | `var(--white)`    |
-| `--foreground`         | `var(--navy-900)` |
-
-Tailwind 例：`bg-sky-500`、`text-navy-900`、`bg-background`、`text-foreground`。
+| 語意（`semantic.css`） | 值 |
+| ---------------------- | --- |
+| `--background` | `var(--white)` |
+| `--foreground` | `var(--navy-900)` |
 
 ---
 
 ## 3. 字型
 
-| 項目          | 說明                                            |
-| ------------- | ----------------------------------------------- |
-| 英文主體      | Manrope（`next/font`，見 `src/app/layout.tsx`） |
-| 中文 fallback | `Noto Sans TC` 等（`theme.css` `--font-sans`）  |
+| 項目 | 說明 |
+| ---- | ---- |
+| 英文主體 | Manrope（`next/font`，見 `src/app/layout.tsx`） |
+| 中文 fallback | `Noto Sans TC` 等（`theme.css` `--font-sans`） |
+| 字階 utility | `typography.css` 的 `typo-*` |
+| 字級來源 | `type-scale.css` |
 
 ---
 
-## 4. 字階工具類（`typography.css`）
+## 4. 陰影（`effects.css`）
 
-| 類名前綴                        | 用途                                   |
-| ------------------------------- | -------------------------------------- |
-| `typo-h1` … `typo-h4`           | 標題（大螢會放大，斷點見 `theme.css`） |
-| `typo-sub1-s` / `typo-sub1-m`   | Subtitle1                              |
-| `typo-body1-*` … `typo-body6-*` | 內文 Body1–Body6                       |
-
-可疊加 `tablet:`、`desktop:`、`wide:`。
+| Token | Tailwind |
+| ----- | -------- |
+| `--shadow-l-source` | `shadow-l`（≥1440 大卡） |
+| `--shadow-s-source` | `shadow-s` |
+| `--shadow-text-source` | `text-shadow-on-blue` utility |
 
 ---
 
-## 5. 陰影與圓角（`palette.css` / `theme.css`）
+## 5. 版型 grid（`dimensions.css` + `layout-grid.css`）
 
-| Token                           | 用途               |
-| ------------------------------- | ------------------ |
-| `--shadow-l` / `shadow-l`       | 大卡陰影           |
-| `--shadow-s` / `shadow-s`       | 小卡陰影           |
-| `--shadow-text` / `shadow-text` | 藍底白字陰影       |
-| `--radius-card`                 | 卡片圓角 `0.75rem` |
+### 5.1 三個 layout class
 
----
+| Class | 作用 |
+| ----- | ---- |
+| `.layout-shell` | 全寬 + `padding-inline`（`--layout-margin-*`） |
+| `.layout-container` | `max-width` + 置中 |
+| `.layout-grid` | 欄數 + gutter |
 
-## 6. 版型（Figma Guide／Grid 對照）
+### 5.2 稿數值（Small / Medium / Large）
 
-### 6.1 三個 layout class
+| 階層 | 視窗 | margin | Container | 欄數 | Gutter |
+| ---- | ---- | ------ | ----------- | ---- | ------ |
+| Small | ≤1023 | 20px | 390px | 4 | 16px |
+| Medium | 1024–1439 | 40px | 944px | 12 | 20px |
+| Large | ≥1440 | 80px | 1440px | 12 | 24px |
 
-| Class               | 作用                                                                 |
-| ------------------- | -------------------------------------------------------------------- |
-| `.layout-shell`     | 全寬 + 左右 `padding-inline`（`--layout-margin-*`）                  |
-| `.layout-container` | `max-width` + 置中（`--layout-container-*`）                         |
-| `.layout-grid`      | 與稿一致的欄數 + gutter（`--layout-columns-*`、`--layout-gutter-*`） |
+`layout-grid.css` / `typography.css` 的 media 寫死 `1024px` / `1440px`（與 `--bp-*` 同步；Tailwind／PostCSS 斷點不可用 `var()`）。
 
-### 6.2 斷點與稿數值（`layout-tokens.css`）
+### 5.3 Tailwind 斷點（`theme.css` ← `--bp-*`）
 
-| 階層   | 視窗      | 左右 margin | Container 寬 | 欄數 | Gutter |
-| ------ | --------- | ----------- | ------------ | ---- | ------ |
-| Small  | ≤1023     | 20px        | 390px        | 4    | 16px   |
-| Medium | 1024–1439 | 40px        | 944px        | 12   | 20px   |
-| Large  | ≥1440     | 80px        | 1440px       | 12   | 24px   |
-
-`layout-grid.css` 用 `min-width: 64rem`（1024）、`min-width: 90rem`（1440）切換上表。
-
-### 6.3 Tailwind 斷點前綴（`theme.css`）
-
-| 前綴       | 約略寬度 |
-| ---------- | -------- |
-| `tablet:`  | 1024px+  |
-| `desktop:` | 1440px+  |
-| `wide:`    | 1560px+  |
-
-### 6.4 首頁區塊 `SectionLayout`
-
-| 項目 | 說明                                                                  |
-| ---- | --------------------------------------------------------------------- |
-| 檔案 | `src/components/layout/SectionLayout.tsx`                             |
-| DOM  | 等同 `.layout-shell` + `.layout-container`，內建 `py-16 tablet:py-20` |
-| 外層 | 滿版底色請放在 `<section>`，不要只加在 `layout-container`             |
-
-### 6.5 例外（未走標準 shell）
-
-| 檔案         | 說明                                        |
-| ------------ | ------------------------------------------- |
-| `Header.tsx` | 稿定左右距，自管 padding                    |
-| `Footer.tsx` | `max-w-[var(--layout-container-lg)]` 等自管 |
+| 前綴 | 寬度 |
+| ---- | ---- |
+| `tablet:` | 1024px+ |
+| `desktop:` | 1440px+ |
+| `wide:` | 1560px+ |
 
 ---
 
-## 7. 想改〇〇時改哪裡
+## 6. 想改〇〇時改哪裡（速查）
 
-| 目標                               | 檔案                             |
-| ---------------------------------- | -------------------------------- |
-| 品牌色／灰階數值                   | `palette.css`                    |
-| 頁面底／預設字色                   | `semantic.css`                   |
-| Tailwind 顏色名、斷點名、radius    | `theme.css`                      |
-| margin／gutter／欄寬／container 寬 | `layout-tokens.css`              |
-| shell／container／grid 行為        | `layout-grid.css`                |
-| 標題／內文 class 名與斷點          | `typography.css` + `palette.css` |
-| 載入字體                           | `src/app/layout.tsx`             |
+| 目標 | 檔案 |
+| ---- | ---- |
+| 品牌色 | `palette.css` |
+| 字級 | `type-scale.css` + `typography.css` |
+| 陰影 | `effects.css` |
+| 間距／圓角／尺寸／grid／動效／斷點 | `dimensions.css` |
+| 語意色 | `semantic.css` |
+| Tailwind 映射 | `theme.css` |
+| 載入字體 | `src/app/layout.tsx` |
 
 ---
 
-## 8. 給 Figma／設計
+## 7. 給 Figma／設計
 
-對齊用：**色**（`palette` + semantic）、**字**（`palette` 尺寸表 + `typography`）、**格**（上表第 6.2 + Shell→Container 結構）。
+對齊用：**色**（palette + semantic）、**字**（type-scale + typo utilities）、**格**（§5.2 + layout 結構）、**陰影**（effects）。

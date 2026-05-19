@@ -25,12 +25,12 @@ export function HeaderBrand({ onPointerDownCapture }: HeaderBrandProps) {
           width={135}
           height={40}
           sizes="(max-width: 1023px) 108px, 135px"
-          className="tablet:h-10 tablet:w-[135px] h-8 w-[108px] object-contain object-left"
+          className="h-(--size-brand-logo-height-sm) w-(--size-brand-logo-width-sm) object-contain object-left tablet:h-(--size-brand-logo-height-md) tablet:w-(--size-brand-logo-width-md)"
           priority
         />
       </Link>
       <span
-        className="bg-navy-100 tablet:h-6 block h-[18px] w-px shrink-0 self-center"
+        className="bg-navy-100 block h-(--size-header-separator-height-sm) w-px shrink-0 self-center tablet:h-(--size-header-separator-height-md)"
         aria-hidden="true"
       />
       <p className="typo-body4-m tablet:typo-body2-m text-navy-900 min-w-0 flex-1 truncate">

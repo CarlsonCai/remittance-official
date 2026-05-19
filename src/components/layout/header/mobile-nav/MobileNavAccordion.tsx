@@ -42,7 +42,7 @@ export function MobileNavAccordion({
         isCta && "bg-sky-50",
         isCta &&
           expanded &&
-          "overflow-hidden rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
+          "overflow-hidden rounded-b-(--radius-panel-bottom-md)",
       )}
     >
       <button
@@ -50,12 +50,12 @@ export function MobileNavAccordion({
         className={
           isCta
             ? cn(
-                "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 flex h-(--header-mobile-nav-cta-btn-height) w-full shrink-0 items-center justify-center gap-(--header-mobile-nav-cta-btn-gap) self-stretch rounded-(--header-mobile-nav-cta-btn-radius) py-(--header-mobile-nav-cta-btn-py) ps-(--header-mobile-nav-cta-btn-ps) pe-(--header-mobile-nav-cta-btn-pe) focus-visible:outline-2 focus-visible:outline-offset-2",
+                "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 flex h-(--size-button-cta-height) w-full shrink-0 items-center justify-center gap-(--spacing-button-cta-gap) self-stretch rounded-(--radius-button) py-(--spacing-button-cta-block) ps-(--spacing-button-cta-inline-start) pe-(--spacing-button-cta-inline-end) focus-visible:outline-2 focus-visible:outline-offset-2",
                 "typo-body1-m text-white",
                 "transition-colors",
               )
             : cn(
-                "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--header-mobile-nav-btn-py) ps-(--header-mobile-nav-btn-ps) pe-(--header-mobile-nav-btn-pe)",
+                "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-(--spacing-nav-item-inline-start) pe-(--spacing-nav-item-inline-end)",
                 "typo-body1-m text-navy-900 [&_svg]:opacity-80",
                 "transition-colors",
                 expanded &&
@@ -88,10 +88,10 @@ export function MobileNavAccordion({
           expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
-        <div className="min-h-0 overflow-hidden rounded-b-(--header-mobile-nav-sub-panel-radius-b)">
+        <div className="min-h-0 overflow-hidden rounded-b-(--radius-panel-bottom-md)">
           <ul
             id={panelId}
-            className="overflow-hidden rounded-b-(--header-mobile-nav-sub-panel-radius-b) bg-sky-50"
+            className="overflow-hidden rounded-b-(--radius-panel-bottom-md) bg-sky-50"
             aria-hidden={!expanded}
           >
             {children ??
@@ -100,11 +100,11 @@ export function MobileNavAccordion({
                   <Link
                     href={link.href}
                     className={cn(
-                      "block w-full border-b border-white bg-sky-50 py-(--header-mobile-nav-sub-link-py) ps-(--header-mobile-nav-sub-link-ps) pe-(--header-mobile-nav-sub-link-pe) hover:bg-sky-100",
+                      "block w-full border-b border-white bg-sky-50 py-(--spacing-subnav-link-block) ps-(--spacing-subnav-link-inline-start) pe-(--spacing-subnav-link-inline-end) hover:bg-sky-100",
                       "typo-body2-m text-navy-900",
                       "transition-colors",
                       index === links.length - 1 &&
-                        "rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
+                        "rounded-b-(--radius-panel-bottom-md)",
                     )}
                     onClick={onNavigate}
                     tabIndex={expanded ? undefined : -1}

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 function footerNavLinkClass(variant: "primary" | "secondary") {
   return cn(
-    "rounded-sm outline-none",
+    "rounded-(--radius-focus-ring) outline-none",
     variant === "primary"
       ? "typo-body2-m inline-flex items-center gap-1 text-white"
       : "typo-body3-r inline-block text-white",
@@ -52,7 +52,7 @@ export function FooterNav() {
         aria-labelledby="footer-nav-remit"
         className={cn(
           "flex min-h-0 min-w-0 flex-1 basis-0 flex-col self-stretch px-0",
-          "tablet:px-[var(--layout-gutter-md)]",
+          "tablet:px-(--layout-gutter-md)",
         )}
       >
         <h2

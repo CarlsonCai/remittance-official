@@ -46,7 +46,7 @@ export function HeaderMobileNavItem({
         <Link
           href={item.href}
           className={cn(
-            "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--header-mobile-nav-btn-py) ps-(--header-mobile-nav-btn-ps) pe-(--header-mobile-nav-btn-pe)",
+            "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-(--spacing-nav-item-inline-start) pe-(--spacing-nav-item-inline-end)",
             "typo-body1-m text-navy-900 [&_svg]:opacity-80",
             "transition-colors",
           )}

@@ -7,7 +7,7 @@ type ChevronIconProps = {
 export function ChevronIcon({ className }: ChevronIconProps) {
   return (
     <svg
-      className={cn("size-[15px] shrink-0", className)}
+      className={cn("size-(--size-icon-chevron) shrink-0", className)}
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden

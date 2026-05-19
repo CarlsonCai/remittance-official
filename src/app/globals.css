@@ -1,12 +1,15 @@
+/* 樣式載入順序：色 → 字階 → 陰影 → 尺寸/grid → 語意色 → Tailwind theme → typo 工具 → layout 類 */
 @import "../styles/palette.css";
-@import "../styles/layout-tokens.css";
+@import "../styles/type-scale.css";
+@import "../styles/effects.css";
+@import "../styles/dimensions.css";
 @import "../styles/semantic.css";
 @import "../styles/theme.css";
 @import "tailwindcss";
 @import "../styles/typography.css";
 @import "../styles/layout-grid.css";
 
-/* RWD：優先使用命名斷點 tablet: / desktop: / wide:（見 styles/theme.css @theme）。typo-* 為 @utility，可與上述前綴疊用。 */
+/* RWD：tablet: / desktop: / wide: 見 theme.css（與 dimensions --bp-* 同步）。typo-* 見 typography.css。 */
 
 body {
   background: var(--background);

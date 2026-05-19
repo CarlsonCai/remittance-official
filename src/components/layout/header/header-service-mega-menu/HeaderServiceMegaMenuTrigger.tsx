@@ -3,11 +3,11 @@
 import type { RefObject } from "react";
 
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import { HEADER_MOTION } from "@/lib/headerMotion";
 import { HEADER_SERVICE_MEGA_INTRO } from "@/lib/headerServiceMegaMenu";
 import { cn } from "@/lib/utils";
 
-const MOTION = "duration-[450ms] ease-[cubic-bezier(0.22,0.61,0.35,1)]";
-const chevronTransition = `transition-transform ${MOTION}`;
+const chevronTransition = `transition-transform ${HEADER_MOTION}`;
 
 type HeaderServiceMegaMenuTriggerProps = {
   open: boolean;

@@ -40,7 +40,7 @@ export function Header() {
                   <button
                     id={menuButtonId}
                     type="button"
-                    className="tablet:hidden text-navy-900 focus-visible:outline-navy-700 inline-flex shrink-0 items-center justify-center rounded-md p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2"
+                    className="tablet:hidden text-navy-900 focus-visible:outline-navy-700 inline-flex shrink-0 items-center justify-center rounded-(--radius-control) p-2 transition-colors hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2"
                     aria-controls={MOBILE_NAV_PANEL_ID}
                     aria-expanded={menuOpen}
                     aria-label={menuOpen ? "關閉主選單" : "開啟主選單"}

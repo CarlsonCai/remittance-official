@@ -80,11 +80,11 @@ function HeaderDesktopNavItem({
       key={key}
       menuAriaLabel="前往匯款管道"
       items={HEADER_REMIT_MENU_ITEMS}
-      triggerClassName="typo-body2-m focus-visible:outline-navy-700 h-[57px] w-[138px] shrink-0 rounded-[12px] bg-navy-500 py-3 pr-4 pl-6 text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+      triggerClassName="typo-body2-m focus-visible:outline-navy-700 h-(--size-button-desktop-cta-height) w-(--size-button-desktop-cta-width) shrink-0 rounded-(--radius-button) bg-navy-500 py-3 pr-4 pl-6 text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2"
       triggerContent={item.label}
       chevronClassName="text-white opacity-90"
       className="shrink-0"
-      panelClassName="mt-6 min-w-[180px]"
+      panelClassName="mt-6 min-w-(--size-dropdown-panel-min-width)"
     />
   );
 }

@@ -35,9 +35,9 @@ export function HomeLatestNews() {
               <li key={i}>
                 <article
                   aria-labelledby={`news-item-${i}-title`}
-                  className="border-navy-100 bg-background tablet:gap-6 tablet:p-6 flex gap-4 rounded-xl border p-4"
+                  className="border-navy-100 bg-background tablet:gap-6 tablet:p-6 flex gap-4 rounded-(--radius-card) border p-4"
                 >
-                  <div className="typo-body6 tablet:h-24 tablet:w-32 flex h-20 w-28 shrink-0 items-center justify-center rounded-lg bg-gray-200 text-gray-500">
+                  <div className="typo-body6 flex h-(--size-news-thumb-height) w-(--size-news-thumb-width) shrink-0 items-center justify-center rounded-(--radius-chip) bg-gray-200 text-gray-500 tablet:h-(--size-news-thumb-height-md) tablet:w-(--size-news-thumb-width-md)">
                     圖
                   </div>
                   <div className="min-w-0 flex-1">

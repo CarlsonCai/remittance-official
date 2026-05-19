@@ -1,16 +1,15 @@
 /*
- * 設計稿字型階層。使用 Tailwind @utility（非 @layer components），
- * 才能在 JSX 疊加 tablet:typo-body3-m、desktop:typo-h1 等斷點前綴。
+ * typo-* 工具類（@utility）。字級來源見 type-scale.css。
+ * 可疊加 tablet: / desktop: / wide:（斷點見 dimensions --bp-*、theme.css）。
  */
 
-/* Headlines — H1 小階稿 900、大階稿 800；其餘見 palette。斷點 ≥1440 與 theme 一致 */
 @utility typo-h1 {
   font-size: var(--font-size-h1-sm);
   line-height: var(--line-height-h1);
   letter-spacing: var(--letter-spacing-h1-sm);
   font-weight: var(--font-weight-black);
 
-  @media (min-width: 90rem) /* theme --breakpoint-desktop */ {
+  @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-h1-lg);
     letter-spacing: var(--letter-spacing-h1-lg);
     font-weight: var(--font-weight-extrabold);
@@ -23,7 +22,7 @@
   letter-spacing: var(--letter-spacing-h2-sm);
   font-weight: var(--font-weight-bold);
 
-  @media (min-width: 90rem) {
+  @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-h2-lg);
     letter-spacing: var(--letter-spacing-h2-lg);
   }
@@ -35,7 +34,7 @@
   letter-spacing: var(--letter-spacing-h3-sm);
   font-weight: var(--font-weight-bold);
 
-  @media (min-width: 90rem) {
+  @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-h3-lg);
     letter-spacing: var(--letter-spacing-h3-lg);
   }
@@ -47,20 +46,19 @@
   letter-spacing: var(--letter-spacing-h4-sm);
   font-weight: var(--font-weight-bold);
 
-  @media (min-width: 90rem) {
+  @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-h4-lg);
     letter-spacing: var(--letter-spacing-h4-lg);
   }
 }
 
-/* Subtitle1 */
 @utility typo-sub1-s {
   font-size: var(--font-size-subtitle1-sm);
   line-height: var(--line-height-subtitle1);
   letter-spacing: var(--letter-spacing-subtitle1-sm);
   font-weight: var(--font-weight-semibold);
 
-  @media (min-width: 90rem) {
+  @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-subtitle1-lg);
     letter-spacing: var(--letter-spacing-subtitle1-lg);
   }
@@ -72,13 +70,12 @@
   letter-spacing: var(--letter-spacing-subtitle1-sm);
   font-weight: var(--font-weight-medium);
 
-  @media (min-width: 90rem) {
+  @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-subtitle1-lg);
     letter-spacing: var(--letter-spacing-subtitle1-lg);
   }
 }
 
-/* Body1 */
 @utility typo-body1-b {
   font-size: var(--font-size-body1);
   line-height: var(--line-height-body1);
@@ -107,7 +104,6 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* Body2 */
 @utility typo-body2-b {
   font-size: var(--font-size-body2);
   line-height: var(--line-height-body2);
@@ -136,7 +132,6 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* Body3 */
 @utility typo-body3-b {
   font-size: var(--font-size-body3);
   line-height: var(--line-height-body3);
@@ -165,7 +160,6 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* Body4 */
 @utility typo-body4-m {
   font-size: var(--font-size-body4);
   line-height: var(--line-height-body4);
@@ -187,7 +181,6 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* Body5 */
 @utility typo-body5-m {
   font-size: var(--font-size-body5);
   line-height: var(--line-height-body5);
@@ -209,7 +202,6 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* Body6 (稿另列 12px；命名為 Body6) */
 @utility typo-body6-m {
   font-size: var(--font-size-body6);
   line-height: var(--line-height-body6);
@@ -231,7 +223,6 @@
   font-weight: var(--font-weight-regular);
 }
 
-/* Shadow-Text（稿）：藍底上的白色文字 — 使用 text-shadow，數值同 --shadow-text-source */
 @utility text-shadow-on-blue {
   text-shadow: var(--shadow-text-source);
 }

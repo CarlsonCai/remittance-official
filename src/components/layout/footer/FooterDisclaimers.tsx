@@ -18,7 +18,7 @@ export function FooterDisclaimers() {
         >
           <p
             className={cn(
-              "typo-h4 w-full text-center tracking-[0.56px] text-white",
+              "typo-h4 w-full text-center tracking-(--letter-spacing-h4-tight) text-white",
               "tablet:w-auto tablet:text-left",
             )}
           >

@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 const socialIconMotion = "transition-opacity duration-200";
 
 const socialLinkClass = cn(
-  "group relative inline-flex h-10 w-10 shrink-0 rounded-lg outline-none",
+  "group relative inline-flex h-10 w-10 shrink-0 rounded-(--radius-chip) outline-none",
   "focus-visible:ring-offset-navy-900 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2",
 );
 
@@ -30,8 +30,8 @@ export function FooterBrand() {
           width={203}
           height={60}
           className={cn(
-            "h-10 w-[135px] max-w-full object-contain object-left",
-            "tablet:h-[60px] tablet:w-[203px]",
+            "h-(--size-brand-logo-height-md) w-(--size-brand-logo-width-md) max-w-full object-contain object-left",
+            "tablet:h-(--size-brand-logo-height-lg) tablet:w-(--size-brand-logo-width-lg)",
           )}
           sizes="(max-width: 1023px) 135px, 203px"
           priority={false}

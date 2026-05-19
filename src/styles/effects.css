@@ -1,0 +1,11 @@
+/*
+ * Primitive：陰影（Figma Shadow-L / S / Text）。
+ * Tailwind shadow-* 見 theme.css；藍底白字見 typography text-shadow-on-blue。
+ */
+:root {
+  --shadow-l-source:
+    45px 22px 50px 0 rgba(0, 0, 0, 0.04), 11px 6px 27px 0 rgba(0, 0, 0, 0.05);
+  --shadow-s-source:
+    19px 19px 20px 0 rgba(0, 0, 0, 0.03), 5px 5px 14px 0 rgba(0, 0, 0, 0.04);
+  --shadow-text-source: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
+}

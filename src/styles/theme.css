@@ -1,3 +1,7 @@
+/*
+ * Tailwind @theme：將 :root token 映射為 utility（bg-sky-500、tablet:、rounded-card 等）。
+ * 數值來源勿在此重複定義；見 palette / dimensions / type-scale / effects。
+ */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -44,15 +48,15 @@
   --color-white: var(--white);
   --color-logo-red: var(--logo-red);
 
-  --radius-card: 0.75rem;
-  --spacing-section: 5rem;
+  --radius-card: var(--radius-card);
+  --spacing-section: var(--spacing-section);
 
   --shadow-l: var(--shadow-l-source);
   --shadow-s: var(--shadow-s-source);
   --shadow-text: var(--shadow-text-source);
 
-  /* RWD：與 layout grid Medium（1024+）、Large（1440+）、Wide（1560+）一致 */
-  --breakpoint-tablet: 64rem; /* 1024px */
-  --breakpoint-desktop: 90rem; /* 1440px */
-  --breakpoint-wide: 97.5rem; /* 1560px — 稿：超寬視窗「主欄置中、左右留白」視覺區間；數值與 shell/container 疊用 */
+  /* 數值須與 dimensions --bp-* 一致（Tailwind 斷點不可寫 var()） */
+  --breakpoint-tablet: 1024px;
+  --breakpoint-desktop: 1440px;
+  --breakpoint-wide: 1560px;
 }

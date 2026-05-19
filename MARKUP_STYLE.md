@@ -9,7 +9,7 @@
 ## 1. 設計稿對齊原則（必須遵守）
 
 - **優先使用專案既有 token**，禁止為了「像設計稿」而大量寫死 `text-[13px]`、`mt-[37px]` 等任意值。
-- 設計稿若與 token 有落差：**先查** `src/styles/palette.css`、`layout-tokens.css`、`typography.css`；仍無對應時才用 Tailwind 任意值，並在 PR／說明中註記需否補 token。
+- 設計稿若與 token 有落差：**先查** `palette.css`、`type-scale.css`、`effects.css`、`dimensions.css`；仍無對應時才用 Tailwind 任意值，並在 PR／說明中註記需否補 token（見 `docs/design-tokens.md`）。
 - **Mobile First**：預設為小螢（≤1023）；再用 `tablet:`、`desktop:`、`wide:` 覆寫。
 - 文案使用**繁體中文**；語意標籤正確（見 §6）。
 
@@ -218,18 +218,18 @@ className={cn(
 #### 與 §5.1、動效 token 的關係
 
 - 每個 `cn()` 參數字串內部仍遵守 **§5.1**；提交前執行 `npm run format`。
-- 跨元件共用的 duration／easing 用 `headerMotion.ts`（例：`HEADER_MOTION`），勿在 JSX 重複寫死 `duration-[450ms]`。
-- **數值對稿**（padding、圓角 px）仍用 `layout-tokens.css` 的 `--header-*` 等 token，與分層 `cn()` 無衝突。
+- 跨元件共用的 duration／easing 用 `siteMotion.ts`（例：`SITE_MOTION`）或 `headerMotion.ts` 別名，勿在 JSX 重複寫死 `duration-[450ms]`。
+- **數值對稿**：間距／圓角／grid 用 `dimensions.css`（優先語意層如 `--radius-card`、`--layout-gutter-sm`）；與分層 `cn()` 無衝突。
 
 #### 示例
 
 ```tsx
 // ✅ 有條件：表面 → 字形 → 動畫 → 狀態
 className={cn(
-  "flex w-full border-b border-white bg-sky-50 py-(--header-mobile-nav-sub-link-py) hover:bg-sky-100",
+  "flex w-full border-b border-white bg-sky-50 py-(--spacing-subnav-link-block) hover:bg-sky-100",
   "typo-body2-m text-navy-900",
   "transition-colors",
-  isLast && "rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
+  isLast && "rounded-b-(--radius-panel-bottom-md)",
 )}
 
 // ✅ 靜態且短：不用 cn
@@ -237,8 +237,8 @@ className={cn(
 
 // ✅ 僅表面 + 狀態（無字形、無動畫）
 className={cn(
-  "flex w-full items-center gap-(--header-mobile-nav-service-card-gap) bg-sky-50",
-  isLast && "rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
+  "flex w-full items-center gap-(--spacing-media-card-gap) bg-sky-50",
+  isLast && "rounded-b-(--radius-panel-bottom-md)",
 )}
 ```
 
