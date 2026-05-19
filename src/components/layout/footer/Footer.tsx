@@ -8,11 +8,11 @@ export function Footer() {
   return (
     <footer
       className={cn(
-        "bg-navy-900 w-full rounded-t-(--radius-shell-top-sm) tablet:rounded-t-(--radius-shell-top-lg)",
+        "bg-navy-900 tablet:rounded-t-(--radius-shell-top-lg) w-full rounded-t-(--radius-shell-top-sm)",
         "text-white",
       )}
     >
-      <div className="layout-shell pt-8 pb-5 tablet:pt-(--spacing-shell-block-start-lg) tablet:pb-8">
+      <div className="layout-shell tablet:pt-(--spacing-shell-block-start-lg) tablet:pb-8 pt-8 pb-5">
         <div
           className={cn(
             "layout-container flex flex-col items-start gap-10",

@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
 import { NavDropdown } from "@/components/ui/NavDropdown";
+import { cn } from "@/lib/utils";
 import {
   HEADER_GUIDE_MENU_ITEMS,
   HEADER_LANG_MENU_ITEMS,
@@ -34,7 +35,10 @@ function HeaderDesktopNavItem({
       <li key={key}>
         <Link
           href={item.href}
-          className="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
+          className={cn(
+            "typo-body2-m text-navy-900 hover:text-navy-600",
+            "transition-colors",
+          )}
         >
           {item.label}
         </Link>
@@ -52,7 +56,10 @@ function HeaderDesktopNavItem({
         key={key}
         menuAriaLabel={`${item.label}相關連結`}
         items={HEADER_GUIDE_MENU_ITEMS}
-        triggerClassName="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
+        triggerClassName={cn(
+          "typo-body2-m text-navy-900 hover:text-navy-600",
+          "transition-colors",
+        )}
         triggerContent={item.label}
         chevronClassName="opacity-70"
         panelClassName="mt-10"
@@ -66,7 +73,10 @@ function HeaderDesktopNavItem({
         key={key}
         menuAriaLabel="介面語言"
         items={HEADER_LANG_MENU_ITEMS}
-        triggerClassName="typo-body2-m text-navy-900 hover:text-sky-600 transition-colors"
+        triggerClassName={cn(
+          "typo-body2-m text-navy-900 hover:text-sky-600",
+          "transition-colors",
+        )}
         triggerContent={<GlobeIcon className="opacity-80" />}
         triggerAriaLabel="選擇介面語言"
         chevronClassName="opacity-70"
@@ -80,7 +90,11 @@ function HeaderDesktopNavItem({
       key={key}
       menuAriaLabel="前往匯款管道"
       items={HEADER_REMIT_MENU_ITEMS}
-      triggerClassName="typo-body2-m focus-visible:outline-navy-700 h-(--size-button-desktop-cta-height) w-(--size-button-desktop-cta-width) shrink-0 rounded-(--radius-button) bg-navy-500 py-3 pr-4 pl-6 text-white transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2"
+      triggerClassName={cn(
+        "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-(--size-button-desktop-cta-height) w-(--size-button-desktop-cta-width) shrink-0 rounded-(--radius-button) py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
+        "typo-body2-m text-white",
+        "transition-colors",
+      )}
       triggerContent={item.label}
       chevronClassName="text-white opacity-90"
       className="shrink-0"

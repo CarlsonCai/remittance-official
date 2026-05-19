@@ -37,7 +37,7 @@ export function HomeLatestNews() {
                   aria-labelledby={`news-item-${i}-title`}
                   className="border-navy-100 bg-background tablet:gap-6 tablet:p-6 flex gap-4 rounded-(--radius-card) border p-4"
                 >
-                  <div className="typo-body6 flex h-(--size-news-thumb-height) w-(--size-news-thumb-width) shrink-0 items-center justify-center rounded-(--radius-chip) bg-gray-200 text-gray-500 tablet:h-(--size-news-thumb-height-md) tablet:w-(--size-news-thumb-width-md)">
+                  <div className="typo-body6 tablet:h-(--size-news-thumb-height-md) tablet:w-(--size-news-thumb-width-md) flex h-(--size-news-thumb-height) w-(--size-news-thumb-width) shrink-0 items-center justify-center rounded-(--radius-chip) bg-gray-200 text-gray-500">
                     圖
                   </div>
                   <div className="min-w-0 flex-1">

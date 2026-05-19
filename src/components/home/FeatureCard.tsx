@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 type FeatureCardProps = {
   title: string;
   index: number;
@@ -7,9 +9,17 @@ export function FeatureCard({ title, index }: FeatureCardProps) {
   return (
     <article
       aria-labelledby={`feature-card-${index}-title`}
-      className="bg-background text-navy-900 shadow-s desktop:shadow-l tablet:p-8 flex flex-col rounded-(--radius-card) p-6"
+      className={cn(
+        "shadow-s desktop:shadow-l tablet:p-8 flex flex-col rounded-(--radius-card) p-6",
+        "bg-background text-navy-900",
+      )}
     >
-      <div className="text-navy-600 typo-body5 flex aspect-[4/3] items-center justify-center rounded-(--radius-chip) bg-sky-100">
+      <div
+        className={cn(
+          "flex aspect-[4/3] items-center justify-center rounded-(--radius-chip) bg-sky-100",
+          "typo-body5 text-navy-600",
+        )}
+      >
         圖示／插圖（佔位）
       </div>
       <h3

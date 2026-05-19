@@ -22,9 +22,8 @@ const contentFadeMotion = `transition-opacity ${HEADER_MOTION}`;
 function mobileNavListFadeClass(open: boolean) {
   return cn(
     contentFadeMotion,
-    open
-      ? cn("opacity-100", HEADER_MOBILE_NAV_ITEM_FADE_DELAY)
-      : "opacity-0 delay-0",
+    open ? "opacity-100" : "opacity-0 delay-0",
+    open && HEADER_MOBILE_NAV_ITEM_FADE_DELAY,
   );
 }
 
@@ -46,8 +45,8 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
         data-state={open ? "open" : "closed"}
         className={cn(
           "bg-background tablet:hidden absolute inset-x-0 top-full z-50 grid overflow-hidden rounded-b-(--radius-panel-bottom-lg) shadow-none",
-          panelMotion,
           open && "border-navy-100 border-t",
+          panelMotion,
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           !open && "pointer-events-none delay-120",
         )}
@@ -60,9 +59,9 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
           >
             <ul
               className={cn(
-                listFade,
                 "[&>li:last-child>button]:border-b-0",
                 "[&>li:last-child>a]:border-b-0",
+                listFade,
               )}
             >
               {HEADER_MOBILE_LIST_ITEMS.map((item, index) => (

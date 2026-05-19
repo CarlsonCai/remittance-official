@@ -58,8 +58,8 @@ export function NavDropdown({
           <div
             aria-hidden="true"
             className={cn(
-              backdropTransition,
               "fixed inset-0 z-40 bg-black/40",
+              backdropTransition,
               open ? "opacity-100" : "pointer-events-none opacity-0",
             )}
             onClick={close}
@@ -82,9 +82,9 @@ export function NavDropdown({
         {triggerContent}
         <ChevronIcon
           className={cn(
+            chevronClassName,
             chevronTransition,
             open ? "-rotate-90" : "rotate-90",
-            chevronClassName,
           )}
         />
       </button>
@@ -95,8 +95,8 @@ export function NavDropdown({
         aria-label={menuAriaLabel}
         aria-hidden={!open}
         className={cn(
-          panelTransition,
           "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,var(--size-dropdown-panel-max-width))] min-w-(--size-dropdown-panel-min-width-sm) flex-col rounded-(--radius-dropdown) border bg-white",
+          panelTransition,
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
             : "pointer-events-none invisible -translate-x-1/2 -translate-y-1 opacity-0",
@@ -109,7 +109,11 @@ export function NavDropdown({
               <Link
                 role="menuitem"
                 href={item.href}
-                className="typo-body3-m text-navy-900 block w-full py-2 text-center wrap-break-word transition-colors hover:rounded-(--radius-dropdown-item) hover:bg-sky-100 focus-visible:rounded-(--radius-dropdown-item) focus-visible:bg-sky-100"
+                className={cn(
+                  "block w-full py-2 text-center wrap-break-word hover:rounded-(--radius-dropdown-item) hover:bg-sky-100 focus-visible:rounded-(--radius-dropdown-item) focus-visible:bg-sky-100",
+                  "typo-body3-m text-navy-900",
+                  "transition-colors",
+                )}
                 onClick={close}
               >
                 {item.label}

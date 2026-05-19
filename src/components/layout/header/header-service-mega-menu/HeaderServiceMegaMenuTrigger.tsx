@@ -27,7 +27,9 @@ export function HeaderServiceMegaMenuTrigger({
       <button
         type="button"
         className={cn(
-          "typo-body2-m inline-flex items-center justify-center gap-1 transition-colors",
+          "inline-flex items-center justify-center gap-1",
+          "typo-body2-m",
+          "transition-colors",
           open ? "text-sky-600" : "text-navy-900 hover:text-navy-600",
         )}
         aria-expanded={open}
@@ -38,8 +40,8 @@ export function HeaderServiceMegaMenuTrigger({
         {HEADER_SERVICE_MEGA_INTRO.title}
         <ChevronIcon
           className={cn(
-            chevronTransition,
             "opacity-70",
+            chevronTransition,
             open ? "-rotate-90" : "rotate-90",
           )}
         />

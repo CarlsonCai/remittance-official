@@ -38,8 +38,8 @@ export function HeaderServiceMegaMenuPanel({
           <div
             aria-hidden="true"
             className={cn(
-              backdropTransition,
               "fixed inset-0 z-40 bg-black/40",
+              backdropTransition,
               open ? "opacity-100" : "pointer-events-none opacity-0",
             )}
             onClick={onClose}
@@ -52,8 +52,8 @@ export function HeaderServiceMegaMenuPanel({
         id={panelId}
         aria-hidden={!open}
         className={cn(
-          panelTransition,
           "border-navy-100 tablet:block absolute inset-x-0 top-full z-50 hidden overflow-hidden rounded-b-(--radius-shell-top-sm) border-t bg-white",
+          panelTransition,
           open
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none -translate-y-2 opacity-0",
@@ -61,7 +61,12 @@ export function HeaderServiceMegaMenuPanel({
       >
         <div className="mx-auto flex w-full max-w-(--layout-container-lg) shrink-0 items-start gap-(--spacing-mega-menu-columns) self-stretch px-(--layout-margin-lg) pt-10 pb-12">
           <div className="border-navy-100 flex max-w-xs shrink-0 flex-col gap-4 self-stretch border-r pr-(--spacing-mega-menu-columns)">
-            <h2 className="typo-h4 text-navy-900 font-bold desktop:tracking-(--letter-spacing-h4-tight)">
+            <h2
+              className={cn(
+                "typo-h4 text-navy-900 font-bold",
+                "desktop:tracking-(--letter-spacing-h4-tight)",
+              )}
+            >
               {HEADER_SERVICE_MEGA_INTRO.title}
             </h2>
             <p className="typo-body3-r text-navy-900">

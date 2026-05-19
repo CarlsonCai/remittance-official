@@ -43,13 +43,13 @@ export function FooterBrand() {
           "mb-10 flex w-full flex-col items-start gap-2 not-italic",
         )}
       >
-        <p className="typo-body3-m text-white tablet:typo-body2-m">
+        <p className="typo-body3-m tablet:typo-body2-m text-white">
           {footerCompany.legalName}
         </p>
-        <p className="typo-body4-r text-white tablet:typo-body3-r">
+        <p className="typo-body4-r tablet:typo-body3-r text-white">
           {footerCompany.address}
         </p>
-        <p className="typo-body4-r text-white tablet:typo-body3-r">
+        <p className="typo-body4-r tablet:typo-body3-r text-white">
           {footerCompany.taxId}
         </p>
       </address>
@@ -115,4 +115,3 @@ export function FooterBrand() {
     </div>
   );
 }
-

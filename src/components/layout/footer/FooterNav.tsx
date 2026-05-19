@@ -16,7 +16,7 @@ function footerNavLinkClass(variant: "primary" | "secondary") {
       ? "typo-body2-m inline-flex items-center gap-1 text-white"
       : "typo-body3-r inline-block text-white",
     footerLinkMotion,
-    "hover:text-sky-600 focus-visible:ring-offset-navy-900 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2",
+    "focus-visible:ring-offset-navy-900 hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2",
   );
 }
 
@@ -57,7 +57,7 @@ export function FooterNav() {
       >
         <h2
           id="footer-nav-remit"
-          className="typo-body2-m mb-4 shrink-0 text-white tablet:typo-body2-b"
+          className="typo-body2-m tablet:typo-body2-b mb-4 shrink-0 text-white"
         >
           {footerRemittanceServices.title}
         </h2>
@@ -86,7 +86,7 @@ export function FooterNav() {
           >
             <h2
               id={group.sectionId}
-              className="typo-body2-m mb-4 shrink-0 text-white tablet:typo-body2-b"
+              className="typo-body2-m tablet:typo-body2-b mb-4 shrink-0 text-white"
             >
               {group.title}
             </h2>
