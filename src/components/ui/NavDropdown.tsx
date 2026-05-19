@@ -60,9 +60,7 @@ export function NavDropdown({
             className={cn(
               backdropTransition,
               "fixed inset-0 z-40 bg-black/40",
-              open
-                ? "opacity-100"
-                : "pointer-events-none opacity-0",
+              open ? "opacity-100" : "pointer-events-none opacity-0",
             )}
             onClick={close}
           />,
@@ -123,4 +121,3 @@ export function NavDropdown({
     </li>
   );
 }
-

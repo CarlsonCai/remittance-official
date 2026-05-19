@@ -114,11 +114,9 @@
 
   /* Guide / Shadow (Figma): Shadow-L — card ≥1440px; Shadow-S — card ≤1023px; Shadow-Text — white on blue */
   --shadow-l-source:
-    45px 22px 50px 0 rgba(0, 0, 0, 0.04),
-    11px 6px 27px 0 rgba(0, 0, 0, 0.05);
+    45px 22px 50px 0 rgba(0, 0, 0, 0.04), 11px 6px 27px 0 rgba(0, 0, 0, 0.05);
   --shadow-s-source:
-    19px 19px 20px 0 rgba(0, 0, 0, 0.03),
-    5px 5px 14px 0 rgba(0, 0, 0, 0.04);
+    19px 19px 20px 0 rgba(0, 0, 0, 0.03), 5px 5px 14px 0 rgba(0, 0, 0, 0.04);
   --shadow-text-source: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
 
   --shadow-l: var(--shadow-l-source);

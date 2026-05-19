@@ -24,7 +24,7 @@ export function HeaderServiceMegaMenuCard({
         className="group flex w-full min-w-0 flex-[1_0_0] flex-col items-start gap-3"
         onClick={onClose}
       >
-        <span className="typo-body2 text-navy-900 relative inline-block font-semibold capitalize after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:bg-navy-900 after:transition-transform after:duration-[450ms] after:ease-[cubic-bezier(0.22,0.61,0.35,1)] after:content-[''] group-hover:after:scale-x-100">
+        <span className="typo-body2 text-navy-900 after:bg-navy-900 relative inline-block font-semibold capitalize after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-[450ms] after:ease-[cubic-bezier(0.22,0.61,0.35,1)] after:content-[''] group-hover:after:scale-x-100">
           {card.title}
         </span>
         <div className="group/image relative aspect-4/3 w-full self-stretch overflow-hidden rounded-[12px] bg-gray-200">

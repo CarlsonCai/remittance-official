@@ -26,10 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="zh-Hant"
-      className={`${manrope.variable} h-full antialiased`}
-    >
+    <html lang="zh-Hant" className={`${manrope.variable} h-full antialiased`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
@@ -42,11 +39,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body
-        className="flex min-h-full flex-col font-sans"
-      >
-        {children}
-      </body>
+      <body className="flex min-h-full flex-col font-sans">{children}</body>
     </html>
   );
 }

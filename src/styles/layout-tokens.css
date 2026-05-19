@@ -30,4 +30,39 @@
   /* 與 theme.css `--breakpoint-*` 對齊（供 JS／原生 CSS 用） */
   --layout-breakpoint-tablet: 1024px;
   --layout-breakpoint-desktop: 1440px;
+
+  /*
+   * Header mobile nav（Figma Menu/Item 外框 + Menu Btn 內距）
+   * 外框：左右／底 20（同 --layout-margin-sm）、頂 8
+   * 按鈕：上下 16（同 --layout-gutter-sm）、左 12、右 8
+   * CTA 與列表間距：24（同 --layout-gutter-lg）
+   */
+  /* 整個 mobile 選單面板底圓角（稿：0 0 24px 24px） */
+  --header-mobile-nav-panel-radius-b: 24px;
+  --header-mobile-nav-frame-px: var(--layout-margin-sm);
+  --header-mobile-nav-frame-pt: 8px;
+  --header-mobile-nav-frame-pb: var(--layout-margin-sm);
+  --header-mobile-nav-btn-py: var(--layout-gutter-sm);
+  --header-mobile-nav-btn-ps: 12px;
+  --header-mobile-nav-btn-pe: 8px;
+  --header-mobile-nav-cta-gap: var(--layout-gutter-lg);
+  /* CTA 觸發鈕（稿：h 60、padding 12/16/12/24、gap 4、radius 12、bg #0069F6） */
+  --header-mobile-nav-cta-btn-height: 60px;
+  --header-mobile-nav-cta-btn-py: 12px;
+  --header-mobile-nav-cta-btn-ps: 24px;
+  --header-mobile-nav-cta-btn-pe: 16px;
+  --header-mobile-nav-cta-btn-gap: 4px;
+  --header-mobile-nav-cta-btn-radius: 12px;
+  /* 子內容（稿：padding 12/12/12/24、bg #F4FAFF、底線 #FFF） */
+  --header-mobile-nav-sub-link-py: 12px;
+  --header-mobile-nav-sub-link-pe: 12px;
+  --header-mobile-nav-sub-link-ps: 24px;
+  --header-mobile-nav-sub-panel-radius-b: 16px;
+  /* 匯款服務卡片（稿：py 16、pl 20、pr 12、與圖 gap 8） */
+  --header-mobile-nav-service-card-py: var(--layout-gutter-sm);
+  --header-mobile-nav-service-card-ps: var(--layout-margin-sm);
+  --header-mobile-nav-service-card-pe: 12px;
+  --header-mobile-nav-service-card-gap: 8px;
+  --header-mobile-nav-service-card-image-w: 88px;
+  --header-mobile-nav-service-card-image-radius: 4px;
 }

@@ -1,5 +1,6 @@
 export const SERVICE_MEGA_PANEL_ID = "header-service-mega-panel";
 export const MOBILE_NAV_PANEL_ID = "site-header-primary-nav-panel";
+export const MOBILE_NAV_CTA_ACCORDION_ID = "cta";
 
 export type SiteHeaderNavItem =
   | { kind: "link"; href: string; label: string }
@@ -17,6 +18,15 @@ export const SITE_HEADER_NAV_ITEMS: SiteHeaderNavItem[] = [
   { kind: "lang" },
   { kind: "cta", label: "前往匯款" },
 ];
+
+export const SITE_HEADER_MOBILE_LIST_ITEMS = SITE_HEADER_NAV_ITEMS.filter(
+  (item) => item.kind !== "cta",
+);
+
+export const SITE_HEADER_MOBILE_CTA_ITEM = SITE_HEADER_NAV_ITEMS.find(
+  (item): item is Extract<SiteHeaderNavItem, { kind: "cta" }> =>
+    item.kind === "cta",
+);
 
 export function siteHeaderNavItemKey(
   item: SiteHeaderNavItem,

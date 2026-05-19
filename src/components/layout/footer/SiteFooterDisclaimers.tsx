@@ -13,9 +13,11 @@ export function SiteFooterDisclaimers() {
         <div className="tablet:col-span-7 tablet:flex tablet:min-h-0 tablet:min-w-0 tablet:flex-row tablet:items-start tablet:gap-8 w-full">
           <div className="tablet:flex tablet:min-h-0 tablet:min-w-0 tablet:flex-1 tablet:basis-0 tablet:flex-col tablet:self-stretch w-full text-left">
             <p className="typo-body4-r text-white">
-              {footerDisclaimer.split("\n").flatMap((line, i) =>
-                i === 0 ? [line] : [<br key={`br-${i}`} />, line],
-              )}
+              {footerDisclaimer
+                .split("\n")
+                .flatMap((line, i) =>
+                  i === 0 ? [line] : [<br key={`br-${i}`} />, line],
+                )}
             </p>
           </div>
         </div>
