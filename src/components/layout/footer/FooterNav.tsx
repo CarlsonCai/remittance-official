@@ -1,4 +1,5 @@
 import Link from "next/link";
+
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import {
   footerCommonAndContact,
@@ -6,12 +7,27 @@ import {
   footerRemittanceServices,
 } from "@/lib/footerContent";
 import { footerLinkMotion } from "@/lib/footerLinkMotion";
+import { cn } from "@/lib/utils";
+
+function footerNavLinkClass(variant: "primary" | "secondary") {
+  return cn(
+    "rounded-sm outline-none",
+    variant === "primary"
+      ? "typo-body2-m inline-flex items-center gap-1 text-white"
+      : "typo-body3-r inline-block text-white",
+    footerLinkMotion,
+    "hover:text-sky-600 focus-visible:ring-offset-navy-900 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2",
+  );
+}
 
 export function FooterNav() {
   return (
     <nav
       aria-label="頁尾網站連結"
-      className="tablet:col-span-7 tablet:flex tablet:flex-row tablet:items-start tablet:gap-8 tablet:self-stretch grid min-h-0 min-w-0 auto-rows-min grid-cols-2 gap-x-4 gap-y-10"
+      className={cn(
+        "grid min-h-0 min-w-0 auto-rows-min grid-cols-2 gap-x-4 gap-y-10",
+        "tablet:col-span-7 tablet:flex tablet:flex-row tablet:items-start tablet:gap-8 tablet:self-stretch",
+      )}
     >
       <section
         aria-labelledby="footer-nav-quick"
@@ -23,10 +39,7 @@ export function FooterNav() {
         <ul className="flex w-full flex-col gap-8">
           {footerQuickLinks.map((item) => (
             <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`${footerLinkMotion} typo-body2-m focus-visible:ring-offset-navy-900 inline-flex items-center gap-1 rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
-              >
+              <Link href={item.href} className={footerNavLinkClass("primary")}>
                 {item.label}
                 <ChevronIcon className="ml-1" />
               </Link>
@@ -37,28 +50,34 @@ export function FooterNav() {
 
       <section
         aria-labelledby="footer-nav-remit"
-        className="tablet:px-[var(--layout-gutter-md)] flex min-h-0 min-w-0 flex-1 basis-0 flex-col self-stretch px-0"
+        className={cn(
+          "flex min-h-0 min-w-0 flex-1 basis-0 flex-col self-stretch px-0",
+          "tablet:px-[var(--layout-gutter-md)]",
+        )}
       >
         <h2
           id="footer-nav-remit"
-          className="typo-body2-m tablet:typo-body2-b mb-4 shrink-0 text-white"
+          className="typo-body2-m mb-4 shrink-0 text-white tablet:typo-body2-b"
         >
           {footerRemittanceServices.title}
         </h2>
         <ul className="flex w-full flex-col gap-3">
           {footerRemittanceServices.links.map((item) => (
             <li key={item.label}>
-              <a
-                href={item.href}
-                className={`${footerLinkMotion} typo-body3-r focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
-              >
+              <a href={item.href} className={footerNavLinkClass("secondary")}>
                 - {item.label}
               </a>
             </li>
           ))}
         </ul>
       </section>
-      <div className="tablet:flex tablet:flex-col tablet:gap-8 tablet:self-stretch contents min-h-0 min-w-0 flex-1 basis-0">
+
+      <div
+        className={cn(
+          "contents min-h-0 min-w-0 flex-1 basis-0",
+          "tablet:flex tablet:flex-col tablet:gap-8 tablet:self-stretch",
+        )}
+      >
         {footerCommonAndContact.map((group) => (
           <section
             key={group.sectionId}
@@ -67,7 +86,7 @@ export function FooterNav() {
           >
             <h2
               id={group.sectionId}
-              className="typo-body2-m tablet:typo-body2-b mb-4 shrink-0 text-white"
+              className="typo-body2-m mb-4 shrink-0 text-white tablet:typo-body2-b"
             >
               {group.title}
             </h2>
@@ -76,7 +95,7 @@ export function FooterNav() {
                 <li key={item.label}>
                   <a
                     href={item.href}
-                    className={`${footerLinkMotion} typo-body3-r focus-visible:ring-offset-navy-900 inline-block rounded-sm text-white outline-none hover:text-sky-600 focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2`}
+                    className={footerNavLinkClass("secondary")}
                   >
                     - {item.label}
                   </a>

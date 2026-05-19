@@ -139,6 +139,7 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | 內容 | 放哪 |
 |------|------|
 | `cn()` 何時用、參數分層（表面 → 字形 → 動畫 → 狀態） | `MARKUP_STYLE.md` **§5.2** |
+| RWD（`tablet:` 等）歸哪層、可否獨立 `cn()` 參數 | `MARKUP_STYLE.md` **§5.2**（RWD 小節） |
 | 單一字串內 utility 排序、Prettier | `MARKUP_STYLE.md` **§5.1** |
 | 對稿數值 token（padding、圓角） | `src/styles/layout-tokens.css` 等 |
 | 跨區塊動效 duration／easing | `src/lib/headerMotion.ts`（例：`HEADER_MOTION`） |

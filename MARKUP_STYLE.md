@@ -181,6 +181,40 @@ className={cn(
 - 無轉場的元件可**省略動畫層**。
 - `hover:` 預設放在表面層；若僅在特定狀態才變色，改放**狀態層**。
 
+#### RWD 與 `cn()` 分層
+
+**`tablet:` / `desktop:` / `wide:` 不是第五個語意層**；斷點前綴跟著它所修飾的 utility 歸類（見 **§2** Mobile First）。
+
+| 斷點修飾的內容 | 歸在哪一層 |
+|----------------|------------|
+| layout、`grid` / `flex`、`col-span-*`、間距、`p-*` / `gap-*` | **表面** |
+| `typo-*`、`text-*`（含 `tablet:typo-body3-m`） | **字形** |
+| `transition-*`（含斷點變體，少見） | **動畫** |
+| 僅在 `expanded` / `open` 等狀態才出現的斷點 class | **狀態**（最後） |
+
+**單一參數字串內**：同一 utility 的 RWD 變體須緊接在 base class 之後，遵守 **§5.1** 第 12 點（`npm run format` 會排序）。
+
+**可選 — 獨立 `cn()` 參數放 RWD**（提升可讀性，非必須）：
+
+- 在**同一語意層**內，可把「預設（≤1023）」與「`tablet:` 起」拆成相鄰的兩個參數；**不要**把表面的 `tablet:grid` 與字形的 `tablet:typo-*` 混在同一參數。
+- 順序仍為：**表面（含表面 RWD）→ 字形（含字形 RWD）→ 動畫 → 狀態**；RWD 參數不可插在動畫層之後、狀態層之前以外的位置。
+- 簡短、僅一兩個斷點時，維持與 base 寫在同一字串即可，勿為 RWD 機械式多拆一層。
+
+```tsx
+// ✅ 表面 base + 表面 RWD（可選拆參數）
+className={cn(
+  "flex min-h-0 min-w-0 flex-col items-start self-stretch",
+  "tablet:col-span-5",
+  "typo-body3-m text-white",
+  "tablet:typo-body2-m",
+)}
+
+// ✅ 同一字串內：base 緊接斷點（§5.1）
+className={cn(
+  "typo-h4 w-full text-center text-white tablet:w-auto tablet:text-left",
+)}
+```
+
 #### 與 §5.1、動效 token 的關係
 
 - 每個 `cn()` 參數字串內部仍遵守 **§5.1**；提交前執行 `npm run format`。
@@ -330,7 +364,7 @@ className={cn(
 - [ ] 內頁 `metadata`（title、description、canonical）已填且非空泛佔位
 - [ ] 連結與圖片 `alt` 文字對 SEO／螢幕閱讀器有意義
 - [ ] Tailwind class 順序符合 §5.1（或已 `npm run format`）
-- [ ] 有條件／衝突時用 `cn()`，且符合 §5.2 分層；靜態短 class 不濫用 `cn()`
+- [ ] 有條件／衝突時用 `cn()`，且符合 §5.2 分層（含 RWD 歸屬）；靜態短 class 不濫用 `cn()`
 - [ ] 無大量任意 `[px]` / `[#hex]`（除非已註記缺 token）
 
 ---
