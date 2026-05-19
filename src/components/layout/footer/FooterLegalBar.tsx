@@ -1,7 +1,7 @@
 import { footerCopyright, footerLegalLinks } from "@/lib/footerContent";
 import { footerLinkMotion } from "@/lib/footerLinkMotion";
 
-export function SiteFooterLegalBar() {
+export function FooterLegalBar() {
   return (
     <div className="bg-navy-900 relative z-10 w-full border-t border-white/20 pt-6">
       <div className="tablet:grid tablet:grid-cols-12 tablet:gap-x-10 tablet:gap-y-0 flex flex-col gap-5">

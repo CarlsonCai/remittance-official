@@ -106,10 +106,10 @@ Tailwind 例：`bg-sky-500`、`text-navy-900`、`bg-background`、`text-foregrou
 
 ### 6.5 例外（未走標準 shell）
 
-| 檔案             | 說明                                        |
-| ---------------- | ------------------------------------------- |
-| `SiteHeader.tsx` | 稿定左右距，自管 padding                    |
-| `SiteFooter.tsx` | `max-w-[var(--layout-container-lg)]` 等自管 |
+| 檔案         | 說明                                        |
+| ------------ | ------------------------------------------- |
+| `Header.tsx` | 稿定左右距，自管 padding                    |
+| `Footer.tsx` | `max-w-[var(--layout-container-lg)]` 等自管 |
 
 ---
 

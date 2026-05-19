@@ -22,8 +22,8 @@ export function MobileNavBackdrop({ open, onClose }: MobileNavBackdropProps) {
     <div
       aria-hidden="true"
       className={cn(
-        backdropMotion,
         "tablet:hidden fixed inset-0 z-40 bg-black/40",
+        backdropMotion,
         open ? "opacity-100" : "pointer-events-none opacity-0",
       )}
       onClick={onClose}

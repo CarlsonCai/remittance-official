@@ -6,32 +6,36 @@ import {
   HEADER_MOTION,
 } from "@/lib/headerMotion";
 import {
+  HEADER_MOBILE_CTA_ITEM,
+  HEADER_MOBILE_LIST_ITEMS,
+  headerNavItemKey,
   MOBILE_NAV_PANEL_ID,
-  SITE_HEADER_MOBILE_CTA_ITEM,
-  SITE_HEADER_MOBILE_LIST_ITEMS,
-  siteHeaderNavItemKey,
-} from "@/lib/siteHeaderNav";
+} from "@/lib/headerNav";
 import { cn } from "@/lib/utils";
 
 import { MobileNavBackdrop } from "./MobileNavBackdrop";
-import {
-  SiteHeaderMobileNavCta,
-  SiteHeaderMobileNavItem,
-} from "./SiteHeaderMobileNavItem";
+import { HeaderMobileNavCta, HeaderMobileNavItem } from "./HeaderMobileNavItem";
 
 const panelMotion = `transition-[grid-template-rows] ${HEADER_MOTION}`;
 const contentFadeMotion = `transition-opacity ${HEADER_MOTION}`;
 
-type SiteHeaderMobileNavProps = {
+function mobileNavListFadeClass(open: boolean) {
+  return cn(
+    contentFadeMotion,
+    open
+      ? cn("opacity-100", HEADER_MOBILE_NAV_ITEM_FADE_DELAY)
+      : "opacity-0 delay-0",
+  );
+}
+
+type HeaderMobileNavProps = {
   open: boolean;
   onClose: () => void;
 };
 
-export function SiteHeaderMobileNav({
-  open,
-  onClose,
-}: SiteHeaderMobileNavProps) {
+export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
   const { expandedId, toggle } = useMobileNavAccordion(open);
+  const listFade = mobileNavListFadeClass(open);
 
   return (
     <>
@@ -42,8 +46,8 @@ export function SiteHeaderMobileNav({
         data-state={open ? "open" : "closed"}
         className={cn(
           "bg-background tablet:hidden absolute inset-x-0 top-full z-50 grid overflow-hidden rounded-b-(--header-mobile-nav-panel-radius-b) shadow-none",
-          open && "border-navy-100 border-t",
           panelMotion,
+          open && "border-navy-100 border-t",
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           !open && "pointer-events-none delay-120",
         )}
@@ -56,17 +60,14 @@ export function SiteHeaderMobileNav({
           >
             <ul
               className={cn(
-                contentFadeMotion,
-                open
-                  ? cn("opacity-100", HEADER_MOBILE_NAV_ITEM_FADE_DELAY)
-                  : "opacity-0 delay-0",
+                listFade,
                 "[&>li:last-child>button]:border-b-0",
                 "[&>li:last-child>a]:border-b-0",
               )}
             >
-              {SITE_HEADER_MOBILE_LIST_ITEMS.map((item, index) => (
-                <SiteHeaderMobileNavItem
-                  key={siteHeaderNavItemKey(item, index)}
+              {HEADER_MOBILE_LIST_ITEMS.map((item, index) => (
+                <HeaderMobileNavItem
+                  key={headerNavItemKey(item, index)}
                   item={item}
                   index={index}
                   expandedId={expandedId}
@@ -76,23 +77,20 @@ export function SiteHeaderMobileNav({
               ))}
             </ul>
 
-            {SITE_HEADER_MOBILE_CTA_ITEM && (
+            {HEADER_MOBILE_CTA_ITEM && (
               <ul
                 className={cn(
                   "mt-(--header-mobile-nav-cta-gap) list-none bg-sky-50",
                   "[&:has(button[aria-expanded=true])]:overflow-hidden",
                   "[&:has(button[aria-expanded=true])]:rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
-                  contentFadeMotion,
-                  open
-                    ? cn("opacity-100", HEADER_MOBILE_NAV_ITEM_FADE_DELAY)
-                    : "opacity-0 delay-0",
+                  listFade,
                 )}
               >
-                <SiteHeaderMobileNavCta
+                <HeaderMobileNavCta
                   expandedId={expandedId}
                   onToggleAccordion={toggle}
                   onNavigate={onClose}
-                  ctaLabel={SITE_HEADER_MOBILE_CTA_ITEM.label}
+                  ctaLabel={HEADER_MOBILE_CTA_ITEM.label}
                 />
               </ul>
             )}

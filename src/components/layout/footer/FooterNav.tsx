@@ -7,7 +7,7 @@ import {
 } from "@/lib/footerContent";
 import { footerLinkMotion } from "@/lib/footerLinkMotion";
 
-export function SiteFooterNav() {
+export function FooterNav() {
   return (
     <nav
       aria-label="頁尾網站連結"

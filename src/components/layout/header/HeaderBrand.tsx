@@ -4,13 +4,11 @@ import type { PointerEventHandler } from "react";
 
 import bankSinopacLogoBlack from "@/assets/images/brand/bank-sinopac-logo-black.png";
 
-type SiteHeaderBrandProps = {
+type HeaderBrandProps = {
   onPointerDownCapture?: PointerEventHandler<HTMLDivElement>;
 };
 
-export function SiteHeaderBrand({
-  onPointerDownCapture,
-}: SiteHeaderBrandProps) {
+export function HeaderBrand({ onPointerDownCapture }: HeaderBrandProps) {
   return (
     <div
       className="tablet:gap-(--layout-gutter-md) flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm)"

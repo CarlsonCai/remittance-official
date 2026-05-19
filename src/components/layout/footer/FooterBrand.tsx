@@ -6,7 +6,7 @@ import lineBtn from "@/assets/images/social/line-btn.png";
 import lineBtnHover from "@/assets/images/social/line-btn-hover.png";
 import { footerCompany } from "@/lib/footerContent";
 
-export function SiteFooterBrand() {
+export function FooterBrand() {
   return (
     <div className="tablet:col-span-5 flex min-h-0 min-w-0 flex-col items-start self-stretch">
       <div className="mb-10 flex shrink-0 items-center">

@@ -1,1 +1,1 @@
-export { SiteFooter } from "@/components/layout/footer/SiteFooter";
+export { Footer } from "@/components/layout/footer/Footer";

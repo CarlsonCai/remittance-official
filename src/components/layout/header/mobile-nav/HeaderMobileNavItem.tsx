@@ -8,30 +8,31 @@ import {
 } from "@/lib/headerNavMenus";
 import { HEADER_SERVICE_MEGA_CARDS } from "@/lib/headerServiceMegaMenu";
 import {
+  headerNavItemKey,
   MOBILE_NAV_CTA_ACCORDION_ID,
-  siteHeaderNavItemKey,
-  type SiteHeaderNavItem,
-} from "@/lib/siteHeaderNav";
+  type HeaderNavItem,
+} from "@/lib/headerNav";
+import { cn } from "@/lib/utils";
 
 import { MobileNavAccordion } from "./MobileNavAccordion";
 import { MobileServiceMegaMenuCard } from "./MobileServiceMegaMenuCard";
 
-type SiteHeaderMobileNavItemProps = {
-  item: SiteHeaderNavItem;
+type HeaderMobileNavItemProps = {
+  item: HeaderNavItem;
   index: number;
   expandedId: string | null;
   onToggleAccordion: (id: string) => void;
   onNavigate: () => void;
 };
 
-export function SiteHeaderMobileNavItem({
+export function HeaderMobileNavItem({
   item,
   index,
   expandedId,
   onToggleAccordion,
   onNavigate,
-}: SiteHeaderMobileNavItemProps) {
-  const id = siteHeaderNavItemKey(item, index);
+}: HeaderMobileNavItemProps) {
+  const id = headerNavItemKey(item, index);
   const expanded = expandedId === id;
   const accordionProps = {
     expanded,
@@ -44,7 +45,11 @@ export function SiteHeaderMobileNavItem({
       <li>
         <Link
           href={item.href}
-          className="typo-body1-m border-navy-100 text-navy-900 flex w-full items-center justify-between border-b py-(--header-mobile-nav-btn-py) ps-(--header-mobile-nav-btn-ps) pe-(--header-mobile-nav-btn-pe) transition-colors [&_svg]:opacity-80"
+          className={cn(
+            "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--header-mobile-nav-btn-py) ps-(--header-mobile-nav-btn-ps) pe-(--header-mobile-nav-btn-pe)",
+            "typo-body1-m text-navy-900 [&_svg]:opacity-80",
+            "transition-colors",
+          )}
           onClick={onNavigate}
         >
           {item.label}
@@ -99,19 +104,19 @@ export function SiteHeaderMobileNavItem({
   return null;
 }
 
-type SiteHeaderMobileNavCtaProps = {
+type HeaderMobileNavCtaProps = {
   expandedId: string | null;
   onToggleAccordion: (id: string) => void;
   onNavigate: () => void;
   ctaLabel: string;
 };
 
-export function SiteHeaderMobileNavCta({
+export function HeaderMobileNavCta({
   expandedId,
   onToggleAccordion,
   onNavigate,
   ctaLabel,
-}: SiteHeaderMobileNavCtaProps) {
+}: HeaderMobileNavCtaProps) {
   return (
     <MobileNavAccordion
       variant="cta"

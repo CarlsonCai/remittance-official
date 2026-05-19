@@ -2,16 +2,16 @@
 
 import { useCallback, useId, useState } from "react";
 
-import { HeaderServiceMegaMenu } from "@/components/layout/site-header/header-service-mega-menu";
-import { HamburgerIcon } from "@/components/layout/site-header/HamburgerIcon";
-import { SiteHeaderBrand } from "@/components/layout/site-header/SiteHeaderBrand";
-import { SiteHeaderDesktopNav } from "@/components/layout/site-header/SiteHeaderDesktopNav";
-import { SiteHeaderMobileNav } from "@/components/layout/site-header/SiteHeaderMobileNav";
+import { HeaderServiceMegaMenu } from "@/components/layout/header/header-service-mega-menu";
+import { HamburgerIcon } from "@/components/layout/header/HamburgerIcon";
+import { HeaderBrand } from "@/components/layout/header/HeaderBrand";
+import { HeaderDesktopNav } from "@/components/layout/header/HeaderDesktopNav";
+import { HeaderMobileNav } from "@/components/layout/header/HeaderMobileNav";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
-import { MOBILE_NAV_PANEL_ID } from "@/lib/siteHeaderNav";
+import { MOBILE_NAV_PANEL_ID } from "@/lib/headerNav";
 import { cn } from "@/lib/utils";
 
-export function SiteHeader() {
+export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonId = useId();
 
@@ -33,11 +33,9 @@ export function SiteHeader() {
             <div className="layout-shell">
               <div className="layout-container">
                 <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
-                  <SiteHeaderBrand />
+                  <HeaderBrand />
 
-                  <SiteHeaderDesktopNav
-                    serviceMegaTrigger={serviceMegaTrigger}
-                  />
+                  <HeaderDesktopNav serviceMegaTrigger={serviceMegaTrigger} />
 
                   <button
                     id={menuButtonId}
@@ -54,7 +52,7 @@ export function SiteHeader() {
               </div>
             </div>
 
-            <SiteHeaderMobileNav open={menuOpen} onClose={closeMenu} />
+            <HeaderMobileNav open={menuOpen} onClose={closeMenu} />
           </>
         )}
       </HeaderServiceMegaMenu>

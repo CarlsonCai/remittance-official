@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
 import { NavDropdown } from "@/components/ui/NavDropdown";
 import {
@@ -8,25 +9,25 @@ import {
   HEADER_REMIT_MENU_ITEMS,
 } from "@/lib/headerNavMenus";
 import {
-  SITE_HEADER_NAV_ITEMS,
-  siteHeaderNavItemKey,
-  type SiteHeaderNavItem,
-} from "@/lib/siteHeaderNav";
+  HEADER_NAV_ITEMS,
+  headerNavItemKey,
+  type HeaderNavItem,
+} from "@/lib/headerNav";
 
-type SiteHeaderDesktopNavProps = {
+type HeaderDesktopNavProps = {
   serviceMegaTrigger: ReactNode;
 };
 
-function SiteHeaderDesktopNavItem({
+function HeaderDesktopNavItem({
   item,
   index,
   serviceMegaTrigger,
 }: {
-  item: SiteHeaderNavItem;
+  item: HeaderNavItem;
   index: number;
   serviceMegaTrigger: ReactNode;
 }) {
-  const key = siteHeaderNavItemKey(item, index);
+  const key = headerNavItemKey(item, index);
 
   if (item.kind === "link") {
     return (
@@ -88,18 +89,18 @@ function SiteHeaderDesktopNavItem({
   );
 }
 
-export function SiteHeaderDesktopNav({
+export function HeaderDesktopNav({
   serviceMegaTrigger,
-}: SiteHeaderDesktopNavProps) {
+}: HeaderDesktopNavProps) {
   return (
     <nav
       className="tablet:flex hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible"
       aria-label="主選單"
     >
       <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
-        {SITE_HEADER_NAV_ITEMS.map((item, index) => (
-          <SiteHeaderDesktopNavItem
-            key={siteHeaderNavItemKey(item, index)}
+        {HEADER_NAV_ITEMS.map((item, index) => (
+          <HeaderDesktopNavItem
+            key={headerNavItemKey(item, index)}
             item={item}
             index={index}
             serviceMegaTrigger={serviceMegaTrigger}

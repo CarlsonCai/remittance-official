@@ -2,7 +2,7 @@
 
 本文件約束 **AI 在此 repo 撰寫或修改程式** 時的行為。人類開發者亦可參考，但優先服務於 Agent。
 
-與 `AGENTS.md`（Next.js 版本與框架）搭配使用。其餘格式以 ESLint / Prettier 為準。
+與 `AGENTS.md`（Next.js 版本與框架）、`MARKUP_STYLE.md`（切版與 `className`）搭配使用。其餘格式以 ESLint / Prettier 為準。
 
 ---
 
@@ -117,7 +117,7 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 
 - 單一 `.tsx` 檔案（含型別、常數、子元件、主元件）**超過 300 行** → **必須拆分**。
 - 拆分方式（擇適當組合）：
-  - 子元件 → 同目錄獨立檔（如 `SiteHeaderNav.tsx`）
+  - 子元件 → 同目錄獨立檔（如 `HeaderDesktopNav.tsx`）
   - 邏輯 → `src/hooks/useXxx.ts`
   - 純資料 / 工具 → `src/lib/`
 - 拆分後：主檔保留組合與公開介面；檔名與 export 名稱一致（PascalCase 元件）。
@@ -130,11 +130,39 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 
 ---
 
+## 4. `className` 與 `cn()`（必須遵守）
+
+切版、Tailwind、`cn()` 語意分層的完整規則在 **`MARKUP_STYLE.md` §5.1、§5.2**；本節只列程式面必記項。
+
+### 4.1 職責切分
+
+| 內容 | 放哪 |
+|------|------|
+| `cn()` 何時用、參數分層（表面 → 字形 → 動畫 → 狀態） | `MARKUP_STYLE.md` **§5.2** |
+| 單一字串內 utility 排序、Prettier | `MARKUP_STYLE.md` **§5.1** |
+| 對稿數值 token（padding、圓角） | `src/styles/layout-tokens.css` 等 |
+| 跨區塊動效 duration／easing | `src/lib/headerMotion.ts`（例：`HEADER_MOTION`） |
+| 元件邏輯、accordion 狀態 | `src/hooks/`（例：`useMobileNavAccordion`） |
+
+### 4.2 程式慣例（AI 必守）
+
+- 合併 class 用 `cn()`（`@/lib/utils`，內含 `tailwind-merge`）；**有條件或可能衝突**才用，靜態短 class 直接寫 `className`（見 `MARKUP_STYLE.md` §5.2）。
+- **禁止**為了 DRY 新增 `*Classes.ts` 整包抽離 Tailwind（除非使用者明確要求）；樣式留在元件 JSX，動效可抽 `src/lib/*Motion.ts`。
+- 條件 class（`expanded && …`）放 `cn()` **最後一個參數**。
+- 自訂 Hook 放在 `src/hooks/`，**不要**放在元件目錄僅為了「離 JSX 近」。
+
+### 4.3 參考實作
+
+- `src/components/layout/header/mobile-nav/`（mobile 選單；§5.2 分層示例）
+
+---
+
 ## AI 產碼前自檢（簡表）
 
 - [ ] Hook 全在頂層，順序符合 §1.2
-- [ ] 無過度抽象、無未使用程式碼
+- [ ] 無過度抽象、無未使用程式碼；未新增 `*Classes.ts`（§4.2）
 - [ ] 單檔 ≤ 300 行（或已拆檔並說明）
+- [ ] `className` / `cn()` 符合 `MARKUP_STYLE.md` §5.2（§4）
 - [ ] `npm run lint` 可通過（不關規則）
 
 ---

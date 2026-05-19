@@ -4,7 +4,7 @@ import { type ReactNode, useCallback, useMemo, useRef, useState } from "react";
 
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
-import { SERVICE_MEGA_PANEL_ID } from "@/lib/siteHeaderNav";
+import { SERVICE_MEGA_PANEL_ID } from "@/lib/headerNav";
 
 import { HeaderServiceMegaMenuPanel } from "./HeaderServiceMegaMenuPanel";
 import { HeaderServiceMegaMenuTrigger } from "./HeaderServiceMegaMenuTrigger";

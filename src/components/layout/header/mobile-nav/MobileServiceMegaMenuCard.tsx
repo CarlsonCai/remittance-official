@@ -21,8 +21,7 @@ export function MobileServiceMegaMenuCard({
       href={card.href}
       className={cn(
         "flex w-full items-center gap-(--header-mobile-nav-service-card-gap) border-b border-white bg-sky-50 py-(--header-mobile-nav-service-card-py) ps-(--header-mobile-nav-service-card-ps) pe-(--header-mobile-nav-service-card-pe)",
-        isLast &&
-          "rounded-b-(--header-mobile-nav-sub-panel-radius-b) border-b border-white bg-sky-50",
+        isLast && "rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
       )}
       onClick={onNavigate}
       tabIndex={tabIndex}
@@ -32,7 +31,7 @@ export function MobileServiceMegaMenuCard({
         <p className="typo-body5-r text-navy-900">{card.description}</p>
       </span>
       <span
-        className="flex w-(--header-mobile-nav-service-card-image-w) shrink-0 flex-col items-start self-stretch overflow-hidden rounded-(--header-mobile-nav-service-card-image-radius) bg-gray-200 bg-cover bg-center bg-no-repeat"
+        className="flex w-(--header-mobile-nav-service-card-image-w) shrink-0 self-stretch overflow-hidden rounded-(--header-mobile-nav-service-card-image-radius) bg-gray-200 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${card.image.src})` }}
         role="img"
         aria-label={card.imageAlt}

@@ -1,6 +1,6 @@
 import { footerDisclaimer, footerSlogan } from "@/lib/footerContent";
 
-export function SiteFooterDisclaimers() {
+export function FooterDisclaimers() {
   return (
     <section aria-label="警語與客服資訊" className="w-full">
       <div className="tablet:grid-cols-12 tablet:gap-x-10 tablet:gap-y-0 grid w-full grid-cols-1 gap-5">

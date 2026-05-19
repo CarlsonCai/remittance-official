@@ -1,9 +1,9 @@
-import { SiteFooterBrand } from "@/components/layout/footer/SiteFooterBrand";
-import { SiteFooterDisclaimers } from "@/components/layout/footer/SiteFooterDisclaimers";
-import { SiteFooterLegalBar } from "@/components/layout/footer/SiteFooterLegalBar";
-import { SiteFooterNav } from "@/components/layout/footer/SiteFooterNav";
+import { FooterBrand } from "@/components/layout/footer/FooterBrand";
+import { FooterDisclaimers } from "@/components/layout/footer/FooterDisclaimers";
+import { FooterLegalBar } from "@/components/layout/footer/FooterLegalBar";
+import { FooterNav } from "@/components/layout/footer/FooterNav";
 
-export function SiteFooter() {
+export function Footer() {
   return (
     <footer className="bg-navy-900 tablet:rounded-t-[60px] w-full rounded-t-[32px] text-white">
       <div className="layout-shell tablet:pb-8 tablet:pt-[60px] pt-8 pb-5">
@@ -13,8 +13,8 @@ export function SiteFooter() {
             className="w-full self-stretch"
           >
             <div className="tablet:grid-cols-12 tablet:gap-10 grid w-full gap-12">
-              <SiteFooterBrand />
-              <SiteFooterNav />
+              <FooterBrand />
+              <FooterNav />
             </div>
           </section>
 
@@ -22,8 +22,8 @@ export function SiteFooter() {
             aria-label="頁尾警語與法務資訊"
             className="flex w-full flex-col gap-8 self-stretch"
           >
-            <SiteFooterDisclaimers />
-            <SiteFooterLegalBar />
+            <FooterDisclaimers />
+            <FooterLegalBar />
           </section>
         </div>
       </div>

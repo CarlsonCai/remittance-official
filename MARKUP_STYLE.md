@@ -116,7 +116,7 @@ page.tsx
 - **元件內距**：卡片等參考 `FeatureCard`（`p-6 tablet:p-8`）。
 - **最大寬度**：長文/副標可用 `max-w-2xl` 等 Tailwind 標準尺度；全頁內容寬度仍受 `layout-container` 限制。
 - **間距尺度**：優先 Tailwind spacing scale（`4`、`6`、`8`、`10`…），避免 `mt-[22px]`。
-- **合併 class**：使用 `cn()`（`@/lib/utils`）。
+- **合併 class**：有條件或需 `tailwind-merge` 時用 `cn()`（`@/lib/utils`）；規則見 **§5.2**。
 
 ### 5.1 Tailwind `class` 順序（必須遵守）
 
@@ -151,6 +151,66 @@ className={cn(
 - **禁止**：同一元素上隨意排列（如 `text-white bg-navy-900 flex p-4` 與 `flex p-4 bg-navy-900 text-white` 混用風格）；提交前以 format 結果為準。
 - 自訂 class（`layout-container`、`typo-h2`）在插件排序中通常靠前；與 Tailwind utility 混用時仍跑 `npm run format`。
 
+### 5.2 `cn()` 語意分層（建議遵守）
+
+與 **§5.1**（單一字串內的 utility 排序）並存：§5.1 管「每段字串怎麼排」；本節管「`cn()` 為何要拆成多個參數、各參數放什麼」。
+
+#### 何時用 `cn()`、何時不用
+
+| 情況 | 做法 |
+|------|------|
+| 有 `expanded && …`、`open ? …`、variant 等**條件 class** | ✅ `cn()` |
+| 可能互斥的 utility（兩個 `text-*`、`mt-4` 與 `mt-6`）需 merge | ✅ `cn()` |
+| 複雜元素、需分層閱讀的長 class | ✅ `cn()` 多參數 |
+| **固定且簡短**、無條件、無衝突 | ❌ 直接 `className="typo-body2-m text-navy-900"`，勿包一層 `cn()` |
+
+**禁止**為每個元素機械式拆三層 `cn()`；簡單靜態區塊一行即可。參考：`src/components/layout/header/mobile-nav/`。
+
+#### `cn()` 參數順序（語意層）
+
+由前到後；**條件／狀態 class 永遠放最後一個參數**（避免 `tailwind-merge` 覆寫意圖不清）。
+
+| 順序 | 名稱 | 放什麼 | 不放什麼 |
+|------|------|--------|----------|
+| 1 | **表面** | `flex` / `grid`、`w-*` `h-*`、間距、`border-*`、`rounded-*`、**`bg-*`**、**`hover:bg-*`**、`shadow-*`、`focus-visible:outline-*` | `typo-*`、純 `text-*`（字色） |
+| 2 | **字形** | `typo-*` 與 `text-*` **同一參數字串**（例：`"typo-body1-m text-navy-900"`） | layout、`transition-*` |
+| 3 | **動畫** | `transition-*`；或檔頂常數 + `HEADER_MOTION`（見 `src/lib/headerMotion.ts`） | — |
+| 4 | **狀態**（最後） | `expanded && "text-sky-600"`、`isLast && "rounded-b-…"`、`open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"` | 固定、不隨狀態變的樣式 |
+
+- **背景色**（含占位 `bg-gray-200`、`bg-cover`）一律算**表面**，不要因拆行而誤當「第二層字形」。
+- 無轉場的元件可**省略動畫層**。
+- `hover:` 預設放在表面層；若僅在特定狀態才變色，改放**狀態層**。
+
+#### 與 §5.1、動效 token 的關係
+
+- 每個 `cn()` 參數字串內部仍遵守 **§5.1**；提交前執行 `npm run format`。
+- 跨元件共用的 duration／easing 用 `headerMotion.ts`（例：`HEADER_MOTION`），勿在 JSX 重複寫死 `duration-[450ms]`。
+- **數值對稿**（padding、圓角 px）仍用 `layout-tokens.css` 的 `--header-*` 等 token，與分層 `cn()` 無衝突。
+
+#### 示例
+
+```tsx
+// ✅ 有條件：表面 → 字形 → 動畫 → 狀態
+className={cn(
+  "flex w-full border-b border-white bg-sky-50 py-(--header-mobile-nav-sub-link-py) hover:bg-sky-100",
+  "typo-body2-m text-navy-900",
+  "transition-colors",
+  isLast && "rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
+)}
+
+// ✅ 靜態且短：不用 cn
+<span className="typo-body2-m text-navy-900">{title}</span>
+
+// ✅ 僅表面 + 狀態（無字形、無動畫）
+className={cn(
+  "flex w-full items-center gap-(--header-mobile-nav-service-card-gap) bg-sky-50",
+  isLast && "rounded-b-(--header-mobile-nav-sub-panel-radius-b)",
+)}
+```
+
+- **禁止**新增 `*Classes.ts` 整包抽離 Tailwind（除非任務明確要求）；樣式以元件內 `className` 為主，動效常數可放 `src/lib/*Motion.ts`（亦見 `CODING_STYLE.md` **§4**）。
+- `cn()` 參數順序**不決定** CSS cascade；互斥 utility 由 `tailwind-merge` 處理，故狀態層必須最後。
+
 ---
 
 ## 6. 語意化標籤、無障礙與 SEO（必須遵守）
@@ -174,7 +234,7 @@ className={cn(
 
 - 每個主要區塊：`<section id="…" aria-labelledby="…-heading">` + 區塊標題 `h2`/`h3` 的 `id`。
 - **全頁僅一個 `h1`**（首頁 hero 或內頁主標）；區塊標題從 `h2` 起。
-- 頁面骨架：`(site)/layout` 已有 `SiteHeader` / `SiteFooter`；page 內用 `<main>` 包住主要內容（首頁 `page.tsx` 已用 `<main>`）。
+- 頁面骨架：`(site)/layout` 已有 `Header` / `Footer`；page 內用 `<main>` 包住主要內容（首頁 `page.tsx` 已用 `<main>`）。
 
 ### 6.2 無障礙（a11y）
 
@@ -254,7 +314,7 @@ className={cn(
 2. 從稿面取：**背景色、標題字級（typo-*）、欄數、斷點行為**。
 3. 用 `SectionLayout` + `grid`/`flex` 搭骨架，再填文案與圖片佔位。
 4. 加上語意標籤、`aria-*`、heading `id` 與 page `metadata`（§6）。
-5. 檢查 class 順序（§5.1）、format；未使用任意色碼/字級；斷點正確；滿版背景在外層。
+5. 檢查 class 順序（§5.1）、`cn()` 分層（§5.2）、format；未使用任意色碼/字級；斷點正確；滿版背景在外層。
 
 ---
 
@@ -270,7 +330,7 @@ className={cn(
 - [ ] 內頁 `metadata`（title、description、canonical）已填且非空泛佔位
 - [ ] 連結與圖片 `alt` 文字對 SEO／螢幕閱讀器有意義
 - [ ] Tailwind class 順序符合 §5.1（或已 `npm run format`）
-- [ ] class 合併使用 `cn()`
+- [ ] 有條件／衝突時用 `cn()`，且符合 §5.2 分層；靜態短 class 不濫用 `cn()`
 - [ ] 無大量任意 `[px]` / `[#hex]`（除非已註記缺 token）
 
 ---
