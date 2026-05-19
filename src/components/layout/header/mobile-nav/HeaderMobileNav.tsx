@@ -44,8 +44,7 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
         id={MOBILE_NAV_PANEL_ID}
         data-state={open ? "open" : "closed"}
         className={cn(
-          "bg-background tablet:hidden absolute inset-x-0 top-full z-50 grid overflow-hidden rounded-b-(--radius-panel-bottom-lg) shadow-none",
-          open && "border-navy-100 border-t",
+          "bg-background tablet:hidden absolute inset-x-0 top-[calc(100%+1px)] z-50 grid overflow-hidden rounded-b-(--radius-panel-bottom-lg) shadow-none",
           panelMotion,
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           !open && "pointer-events-none delay-120",

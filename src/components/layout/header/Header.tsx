@@ -20,16 +20,10 @@ export function Header() {
   useEscapeKey(closeMenu, menuOpen);
 
   return (
-    <header
-      className={cn(
-        "bg-background relative z-50 w-full",
-        "tablet:border-navy-100 tablet:border-b",
-        !menuOpen && "border-navy-100 border-b",
-      )}
-    >
+    <header className="bg-background relative z-50 w-full">
       <HeaderServiceMegaMenu>
         {(serviceMegaTrigger) => (
-          <>
+          <div className="border-navy-100 relative border-b">
             <div className="layout-shell">
               <div className="layout-container">
                 <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
@@ -57,7 +51,7 @@ export function Header() {
             </div>
 
             <HeaderMobileNav open={menuOpen} onClose={closeMenu} />
-          </>
+          </div>
         )}
       </HeaderServiceMegaMenu>
     </header>
