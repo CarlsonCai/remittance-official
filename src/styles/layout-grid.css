@@ -39,21 +39,11 @@
     }
   }
 
+  /* 寬度 100%；左右 margin 由 layout-shell（Small 20 / Medium 40 / Large 80）。390 為稿面 artboard 對照，不作 max-width cap */
   .layout-container {
     width: 100%;
-    max-width: var(--layout-container-sm);
+    max-width: none;
     margin-inline: auto;
-  }
-  @media (min-width: 1024px) /* --bp-tablet */ {
-    .layout-container {
-      max-width: var(--layout-container-md);
-    }
-  }
-  /* Large（1440–1559）：區塊內容欄隨 shell 內寬度撐滿；整頁 cap 見 .page-layout */
-  @media (min-width: 1440px) /* --bp-desktop */ {
-    .layout-container {
-      max-width: none;
-    }
   }
 
   .layout-grid {

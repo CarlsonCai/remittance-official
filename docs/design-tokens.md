@@ -87,16 +87,16 @@
 | ------------------- | ---------------------------------------------- |
 | `.layout-shell`     | 全寬 + `padding-inline`（`--layout-margin-*`） |
 | `.layout-header-shell` | Header 全寬；**&lt;1024：`--layout-margin-sm`（20px）**；**≥1024：`--layout-margin-header`（48px）** |
-| `.layout-container` | `max-width` + 置中                             |
+| `.layout-container` | `width: 100%`；左右 margin 由內層或外層 `layout-shell` |
 | `.layout-grid`      | 欄數 + gutter                                  |
 
 ### 5.2 稿數值（Small / Medium / Large）
 
 | 階層   | 視窗      | margin | Container | 欄數 | Gutter |
 | ------ | --------- | ------ | --------- | ---- | ------ |
-| Small  | ≤1023     | 20px   | 390px     | 4    | 16px   |
-| Medium | 1024–1439 | 40px   | 944px     | 12   | 20px   |
-| Large  | ≥1440     | 80px   | 1440px    | 12   | 24px   |
+| Small  | ≤1023     | 20px   | 撐滿（稿面 artboard 390） | 4    | 16px   |
+| Medium | 1024–1439 | 40px   | 撐滿（有效寬≈944@1024） | 12   | 20px   |
+| Large  | ≥1440     | 80px   | 撐滿（整頁 cap 見 `.page-layout` ≥1560） | 12   | 24px   |
 
 `layout-grid.css` / `typography.css` 的 media 寫死 `1024px` / `1440px`（與 `--bp-*` 同步；Tailwind／PostCSS 斷點不可用 `var()`）。
 
