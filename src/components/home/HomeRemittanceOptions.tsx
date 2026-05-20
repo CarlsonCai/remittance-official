@@ -1,13 +1,42 @@
+import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 import { cn } from "@/lib/utils";
 
+import westernUnionIllustration from "@/assets/images/service-mega/western-union-cutout.png";
+import mastercardQsendIllustration from "@/assets/images/service-mega/mastercard-qsend-cutout.png";
+import visaDirectIllustration from "@/assets/images/service-mega/visa-direct-cutout.png";
+import vipExpressIllustration from "@/assets/images/service-mega/vip-express-cutout.png";
 import { RemittanceOptionCard } from "./RemittanceOptionCard";
 
-const REMITTANCE_OPTION_TITLES = [
-  "Western Union（佔位）",
-  "Mastercard（Q-Send）（佔位）",
-  "Visa Direct（佔位）",
-  "大戶速匯（佔位）",
-];
+const REMITTANCE_OPTIONS = [
+  {
+    number: 1,
+    title: "西聯匯款",
+    subtitle: "免銀行帳戶，數分鐘內即可領現",
+    image: westernUnionIllustration,
+    imageAlt: "西聯匯款服務插圖",
+  },
+  {
+    number: 2,
+    title: "Mastercard (Q-Send)",
+    subtitle: "24小時隨匯隨到，支援全球多國",
+    image: mastercardQsendIllustration,
+    imageAlt: "Mastercard Q-Send 匯款服務插圖",
+  },
+  {
+    number: 3,
+    title: "Visa直接通",
+    subtitle: "即時到帳，應援海外緊急支出",
+    image: visaDirectIllustration,
+    imageAlt: "Visa 直接通匯款服務插圖",
+  },
+  {
+    number: 4,
+    title: "大戶速匯",
+    subtitle: "換匯讓分最優，大額資金首選",
+    image: vipExpressIllustration,
+    imageAlt: "大戶速匯匯款服務插圖",
+  },
+] as const;
 
 export function HomeRemittanceOptions() {
   return (
@@ -16,40 +45,47 @@ export function HomeRemittanceOptions() {
       aria-labelledby="remittance-options-heading"
       className="w-full"
     >
-      {/* 區塊與區塊之間的上下距；左右不包 shell，避免與面板內 80px 疊加 */}
-      <div className="tablet:py-20 py-16">
-        <div className="layout-container">
-          <div
+      <SectionPanelLayout
+        panelClassName={cn(
+          "rounded-4xl tablet:rounded-5xl",
+          "[background:var(--gradient-remittance-options)]",
+        )}
+        shellClassName={cn(
+          "flex w-full flex-col items-start gap-6 self-stretch pt-15 pb-[72px]",
+          "tablet:gap-18 tablet:py-30",
+        )}
+      >
+        <div className="flex w-full flex-col items-start">
+          <h2
+            id="remittance-options-heading"
             className={cn(
-              "w-full overflow-hidden rounded-5xl",
-              "[background:var(--gradient-remittance-options)]",
+              "typo-h2 text-white text-shadow-on-blue",
+              "max-[1023px]:tracking-[1.12px]",
             )}
           >
-            <div
-              className={cn(
-                "layout-shell flex w-full flex-col items-start gap-18 py-30",
-              )}
-            >
-              <div className="flex w-full flex-col items-start">
-                <h2
-                  id="remittance-options-heading"
-                  className="typo-h2 text-shadow-on-blue text-white"
-                >
-                  多種匯款選擇
-                </h2>
-                <p className="typo-body2 mt-3 max-w-2xl text-sky-100">
-                  區塊副標說明（佔位）。
-                </p>
-              </div>
-              <div className="tablet:grid-cols-4 grid w-full grid-cols-1 gap-6">
-                {REMITTANCE_OPTION_TITLES.map((title, i) => (
-                  <RemittanceOptionCard key={title} title={title} index={i} />
-                ))}
-              </div>
-            </div>
-          </div>
+            多種匯款選擇
+          </h2>
+          <p className={cn("typo-body3-r tablet:typo-body1-r mt-4 text-white tablet:mt-3")}>
+            不論是給孩子的一份心意、家人的緊急需求，或是個人的全球資產調度，給在異鄉的您最即時的支援。
+          </p>
         </div>
-      </div>
+        <div className="grid w-full grid-cols-1 items-start gap-6 tablet:grid-cols-[repeat(4,minmax(0,1fr))]">
+          {REMITTANCE_OPTIONS.map((option, index) => (
+            <RemittanceOptionCard
+              key={option.number}
+              number={option.number}
+              title={option.title}
+              subtitle={option.subtitle}
+              image={option.image}
+              imageAlt={option.imageAlt}
+              index={index}
+              className={
+                index === 1 || index === 3 ? "tablet:mt-15" : undefined
+              }
+            />
+          ))}
+        </div>
+      </SectionPanelLayout>
     </section>
   );
 }

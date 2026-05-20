@@ -54,13 +54,13 @@
 
 @utility typo-sub1-s {
   font-size: var(--font-size-subtitle1-sm);
-  line-height: var(--line-height-subtitle1);
+  line-height: var(--line-height-subtitle1-s);
   letter-spacing: var(--letter-spacing-subtitle1-sm);
   font-weight: var(--font-weight-semibold);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
     font-size: var(--font-size-subtitle1-lg);
-    letter-spacing: var(--letter-spacing-subtitle1-lg);
+    letter-spacing: var(--letter-spacing-subtitle1-lg-s);
   }
 }
 

@@ -1,4 +1,4 @@
-import { SectionLayout } from "@/components/layout/SectionLayout";
+import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 
 export function HomeLatestNews() {
   return (
@@ -7,7 +7,7 @@ export function HomeLatestNews() {
       aria-labelledby="latest-news-heading"
       className="text-navy-900 w-full bg-sky-50/80"
     >
-      <SectionLayout>
+      <SectionPanelLayout>
         <h2 id="latest-news-heading" className="typo-h2 text-navy-900">
           最新消息
         </h2>
@@ -63,7 +63,7 @@ export function HomeLatestNews() {
             ))}
           </ul>
         </div>
-      </SectionLayout>
+      </SectionPanelLayout>
     </section>
   );
 }

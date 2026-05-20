@@ -1,4 +1,4 @@
-import { SectionLayout } from "@/components/layout/SectionLayout";
+import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 
 export function HomeAppDownload() {
   return (
@@ -7,7 +7,7 @@ export function HomeAppDownload() {
       aria-labelledby="app-download-heading"
       className="bg-background text-navy-900 w-full"
     >
-      <SectionLayout>
+      <SectionPanelLayout>
         <h2 id="app-download-heading" className="typo-h2 text-navy-900">
           準備好匯款了嗎？
         </h2>
@@ -39,7 +39,7 @@ export function HomeAppDownload() {
             </article>
           ))}
         </div>
-      </SectionLayout>
+      </SectionPanelLayout>
     </section>
   );
 }

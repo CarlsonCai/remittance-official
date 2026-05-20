@@ -1,4 +1,4 @@
-import { SectionLayout } from "@/components/layout/SectionLayout";
+import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 
 export function HomeRemittanceGuide() {
   return (
@@ -7,7 +7,7 @@ export function HomeRemittanceGuide() {
       aria-labelledby="remittance-guide-heading"
       className="bg-background text-navy-900 w-full"
     >
-      <SectionLayout>
+      <SectionPanelLayout>
         <h2 id="remittance-guide-heading" className="typo-h2 text-navy-900">
           匯款指南
         </h2>
@@ -54,7 +54,7 @@ export function HomeRemittanceGuide() {
             ))}
           </div>
         </div>
-      </SectionLayout>
+      </SectionPanelLayout>
     </section>
   );
 }

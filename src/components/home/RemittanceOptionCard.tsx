@@ -1,40 +1,108 @@
+import Image, { type StaticImageData } from "next/image";
+
+import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { cn } from "@/lib/utils";
 
 type RemittanceOptionCardProps = {
+  number: number;
   title: string;
+  subtitle: string;
+  image: StaticImageData;
+  imageAlt: string;
   index: number;
+  className?: string;
 };
 
 export function RemittanceOptionCard({
+  number,
   title,
+  subtitle,
+  image,
+  imageAlt,
   index,
+  className,
 }: RemittanceOptionCardProps) {
+  const numberLabel = String(number).padStart(2, "0");
+
   return (
     <article
       aria-labelledby={`remittance-option-${index}-title`}
       className={cn(
-        "flex flex-col rounded-xl p-6 shadow-s desktop:shadow-l tablet:p-8",
-        "bg-background text-navy-900",
+        "flex min-w-0 w-full flex-col border border-navy-100 bg-white",
+        "rounded-[24px_12px] p-4 shadow-s",
+        "tablet:self-start tablet:rounded-(--radius-remittance-option-card) tablet:p-6 tablet:shadow-l",
+        className,
       )}
     >
       <div
         className={cn(
-          "flex aspect-[4/3] items-center justify-center rounded-lg bg-sky-100",
-          "typo-body5 text-navy-600",
+          "flex flex-row items-start gap-[12px]",
+          "tablet:flex-col tablet:gap-0",
         )}
       >
-        圖示／插圖（佔位）
+        <div className="flex min-w-0 flex-1 flex-col items-start gap-2 tablet:flex-none">
+          <div
+            className={cn(
+              "flex w-[26px] shrink-0 flex-col items-center justify-center rounded-lg bg-sky-600 p-1 text-white",
+              "typo-body6-m leading-none tablet:typo-body5",
+              "tablet:w-10 tablet:rounded-xl tablet:p-2",
+            )}
+            aria-hidden
+          >
+            {numberLabel}
+          </div>
+
+          <h3
+            id={`remittance-option-${index}-title`}
+            className={cn(
+              "typo-sub1-s text-navy-900 capitalize",
+              "max-[1023px]:tracking-[0.4px]",
+            )}
+          >
+            {title}
+          </h3>
+
+          <p className={cn("typo-body3-m text-navy-900 tracking-[0.32px]")}>
+            {subtitle}
+          </p>
+        </div>
+
+        <div
+          className={cn(
+            "flex shrink-0 flex-row items-center gap-[10px] rounded-lg bg-sky-50",
+            "tablet:mt-5 tablet:w-full tablet:flex-col tablet:gap-2.5 tablet:self-stretch tablet:rounded-xl",
+          )}
+        >
+          <div
+            className={cn(
+              "relative aspect-square size-[120px] shrink-0",
+              "tablet:flex tablet:size-auto tablet:aspect-auto tablet:min-h-0 tablet:w-full tablet:flex-col tablet:items-center tablet:gap-2.5 tablet:rounded-xl tablet:bg-sky-50",
+            )}
+          >
+            <div className="relative aspect-square size-full tablet:w-full tablet:max-w-[min(100%,200px)] tablet:shrink-0">
+              <Image
+                src={image}
+                alt={imageAlt}
+                fill
+                className="object-contain"
+                sizes="(max-width: 1023px) 120px, 25vw"
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <h3
-        id={`remittance-option-${index}-title`}
-        className="typo-h4 text-navy-900 mt-6"
+
+      <a
+        href="#"
+        className={cn(
+          "typo-body2-m text-navy-500 hidden items-center gap-1 self-end tablet:mt-5 tablet:inline-flex",
+          "focus-visible:ring-navy-500 outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
+        )}
       >
-        {title}
-      </h3>
-      <p className="typo-body4 mt-2 flex-1 text-gray-600">
-        卡片說明文案（佔位）。
-      </p>
-      <p className="typo-body4-m mt-4 text-sky-600">查看方案（佔位連結）</p>
+        <span className="sr-only">{title}：</span>
+        查看方案
+        <ChevronIcon className="size-5 shrink-0" aria-hidden />
+      </a>
     </article>
   );
 }

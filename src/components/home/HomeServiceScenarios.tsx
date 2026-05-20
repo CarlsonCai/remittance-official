@@ -1,4 +1,4 @@
-import { SectionLayout } from "@/components/layout/SectionLayout";
+import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 
 export function HomeServiceScenarios() {
   return (
@@ -7,7 +7,7 @@ export function HomeServiceScenarios() {
       aria-labelledby="service-scenarios-heading"
       className="bg-background text-navy-900 w-full"
     >
-      <SectionLayout>
+      <SectionPanelLayout>
         <h2 id="service-scenarios-heading" className="typo-h2 text-navy-900">
           滿足您的各種匯款情境
         </h2>
@@ -25,7 +25,7 @@ export function HomeServiceScenarios() {
             右側：依選項顯示的說明卡（佔位，之後 ServiceDetailCard）
           </div>
         </div>
-      </SectionLayout>
+      </SectionPanelLayout>
     </section>
   );
 }

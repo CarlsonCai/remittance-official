@@ -1,4 +1,4 @@
-import { SectionLayout } from "@/components/layout/SectionLayout";
+import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 
 export function HomeHero() {
   return (
@@ -7,7 +7,7 @@ export function HomeHero() {
       aria-labelledby="hero-heading"
       className="text-navy-900 w-full bg-sky-50"
     >
-      <SectionLayout>
+      <SectionPanelLayout>
         <div className="max-w-2xl">
           <h1 id="hero-heading" className="typo-h1 text-navy-900">
             永豐銀行跨境匯款（主標題佔位）
@@ -31,7 +31,7 @@ export function HomeHero() {
             幣別選擇、金額輸入與試算按鈕將於此區實作（ExchangeRateCalculator）。
           </p>
         </div>
-      </SectionLayout>
+      </SectionPanelLayout>
     </section>
   );
 }

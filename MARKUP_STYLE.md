@@ -41,9 +41,9 @@
     <Header />              ← layout-header-shell（&lt;1024：20px；≥1024：48px）+ layout-container
     <main>
       <section>             ← 滿版背景
-        <SectionLayout>     ← py → container → shell → 內容
+        <SectionPanelLayout>  ← py → container → [Panel] → shell
           內容
-        </SectionLayout>
+        </SectionPanelLayout>
       </section>
     </main>
     <Footer />              ← layout-shell → layout-container（與 §3.5 B 型等價，可改 A 型統一）
@@ -59,16 +59,16 @@
 | **`layout-container`** | 區塊內容欄寬 | **一律 `width: 100%`**；左右由 `layout-shell` margin（20/40/80）；390／944 僅稿面 artboard 對照；整頁 cap 見 `.page-layout` |
 | **Mega Menu 內層**（匯款服務） | 全寬白底面板；內容區 `padding` 依稿 | `HeaderServiceMegaMenuPanel`：內層 `px-(--layout-margin-lg)`（80px）+ `max-w-(--layout-container-lg)`；**不走** `layout-header-shell` |
 
-**`SectionLayout`**（`SectionLayout.tsx`）= `py-16 tablet:py-20` → `layout-container` → `layout-shell` → 內容（與 `HomeRemittanceOptions` 同序，但無 Panel 層）。
+**`SectionPanelLayout`**（`SectionPanelLayout.tsx`）= `py-16 tablet:py-20` → `layout-container` → **[Panel 可選]** → `layout-shell` → 內容。無 Panel 時省略中間層；有漸層／大圓角時傳 `panelClassName`（見 `HomeRemittanceOptions`）。
 
 ### 3.2 何時使用（區塊 vs 元件）
 
 | 對象 | 是否使用 | 說明 |
 |------|----------|------|
 | **全站** | ✅ `PageLayout` 一層 | 僅整頁寬與 ≥1560 置中；不取代各區 `layout-shell` |
-| **大區塊**（`Home*`） | ✅ `<section>` + `SectionLayout` 或手寫同序 | 一般區塊用 `SectionLayout`；滿寬 Panel 區塊手寫（見 §7.2） |
-| **404、無 site layout 的頁** | ✅ `PageLayout` + §3.5 A 或 B | 建議 `py` → `container` → `shell` |
-| **內頁 Placeholder**（在 site layout 內） | ✅ 建議改 `SectionLayout` | 現為 B 型（shell 包 container） |
+| **大區塊**（`Home*`） | ✅ `<section>` + `SectionPanelLayout` | 背景在 `section`；有 Panel 傳 `panelClassName`（§7） |
+| **404、無 site layout 的頁** | ✅ `PageLayout` + `SectionPanelLayout` 或 §3.5 B | 建議與首頁同元件 |
+| **內頁 Placeholder**（在 site layout 內） | ✅ 建議改 `SectionPanelLayout` | 現為 B 型（shell 包 container） |
 | **Header** | ✅ `layout-header-shell` + `layout-container` | **&lt;1024：20px**；**≥1024：48px**（非 grid 40） |
 | **Footer** | ✅ `layout-shell` → `layout-container` | B 型；寬度與 A 型等價，可之後統一 |
 | **小元件**（Card、按鈕） | ❌ 不要 layout-shell | 已在父層 container 內 |
@@ -78,13 +78,13 @@
 (site)/layout → PageLayout
   └─ HomeHero
        └─ <section class="bg-…">
-            └─ <SectionLayout>  → py → container → shell
+            └─ <SectionPanelLayout>  → py → container → [Panel] → shell
                  └─ 內容
 ```
 
 ### 3.3 優先使用的元件／class
 
-- **區塊級內容**：`<SectionLayout>`（見 §3.2）。
+- **區塊級內容**：`<SectionPanelLayout>`（見 §3.2、§7）。
 - **12 欄格線**：`layout-grid`（放在 `layout-container` **內**；欄數與 gutter 已依斷點設定）。
 - **內部排版**：可用 Tailwind `grid` / `flex`，欄位跨度對齊 12 欄邏輯（例：`tablet:col-span-4`），間距優先使用 gutter 倍數（`gap-6`、`gap-8` 等），與稿一致即可。
 
@@ -109,7 +109,7 @@
 
 `layout-container`：**一律 `width: 100%`、`max-width: none`**；390／944 僅對照用，不寫進 CSS cap。
 
-**A 型（首頁區塊、`SectionLayout`、`HomeRemittanceOptions` 外層）**
+**A 型（`SectionPanelLayout`、首頁 `Home*`）**
 
 ```
 section（可滿版 bg）
@@ -160,7 +160,7 @@ section（可滿版 bg）
 
 ## 5. 間距與尺寸（必須遵守）
 
-- **區塊上下間距**：內容區優先依 `SectionLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
+- **區塊上下間距**：內容區優先依 `SectionPanelLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
 - **元件內距**：卡片等參考 `RemittanceOptionCard`（`p-6 tablet:p-8`）。
 - **最大寬度**：長文/副標可用 `max-w-2xl` 等；區塊全寬由 `layout-container`（100%）+ `layout-shell` margin 決定。
 - **間距尺度**：優先 Tailwind spacing scale（`4`、`6`、`8`、`10`…），避免 `mt-[22px]`。
@@ -352,40 +352,40 @@ className={cn(
 
 新增首頁 section 時，對齊既有 `Home*` 元件。
 
-### 7.1 一般區塊（`SectionLayout`）
+### 7.1 區塊版面（`SectionPanelLayout`）
 
 ```tsx
 <section id="section-id" className="w-full bg-…">
-  <SectionLayout>
+  <SectionPanelLayout>
     <h2 className="typo-h2 …">標題</h2>
     {/* 內容 */}
-  </SectionLayout>
-</section>
-```
-
-等同手寫：
-
-```tsx
-<section>
-  <div className="py-16 tablet:py-20">
-    <div className="layout-container">
-      <div className="layout-shell">{/* 內容 */}</div>
-    </div>
-  </div>
+  </SectionPanelLayout>
 </section>
 ```
 
 - 區塊背景在 **`section` 上**（例：`HomeHero` `bg-sky-50`）。
-- `HomeHero`、`HomeLatestNews` 等已用 `SectionLayout`，**不必逐檔改 markup**。
+- 無 Panel 時省略 `panelClassName`，結構為 `container` → `shell`。
+- 內距、排版可加在 `shellClassName`（例：`flex flex-col gap-18 py-30`）。
 
 ### 7.2 內層大面板（漸層／大圓角）
 
 稿面為 **container 內一塊圓角面板** 時（見 `HomeRemittanceOptions`）：
 
-- 外層 `<section>` 可不設底色；**區塊間**上下用 `py-16 tablet:py-20`（不在外層包 `layout-shell`）。
-- 結構：`layout-container` → **Panel**（滿寬、漸層、圓角）→ **`layout-shell` 在 Panel 內**（稿面左右 20/40/80）→ 內容；**勿**外層再包 shell。
-- 漸層用 `[background:var(--gradient-remittance-options)]`（`effects.css`），**勿**只用 `bg-*`（僅設 `background-color`）。
-- 大圓角用 `rounded-5xl`；Panel 內上下 `py-30`（120px）、標題與卡片 `gap-18`（72px）。
+```tsx
+<SectionPanelLayout
+  panelClassName={cn(
+    "rounded-5xl",
+    "[background:var(--gradient-remittance-options)]",
+  )}
+  shellClassName="flex w-full flex-col items-start gap-18 py-30"
+>
+  {/* 內容 */}
+</SectionPanelLayout>
+```
+
+- 外層 `<section>` 可不設底色；**勿**在 `SectionPanelLayout` 外再包 `layout-shell`。
+- 漸層用 `[background:var(--gradient-…)]`（`effects.css`），**勿**只用 `bg-*`。
+- 大圓角用 `rounded-5xl`；Panel 內上下 `py-30`、區塊內 `gap-18` 等寫在 `shellClassName`。
 
 ---
 
@@ -413,7 +413,7 @@ className={cn(
 
 1. 確認區塊屬於首頁 section、內頁、Header/Footer 哪一類，選對外層結構（§3、§7）。
 2. 從稿面取：**背景色、標題字級（typo-*）、欄數、斷點行為**。
-3. 用 `SectionLayout` + `grid`/`flex` 搭骨架，再填文案與圖片佔位。
+3. 用 `SectionPanelLayout` + `grid`/`flex` 搭骨架，再填文案與圖片佔位。
 4. 加上語意標籤、`aria-*`、heading `id` 與 page `metadata`（§6）。
 5. 檢查 class 順序（§5.1）、`cn()` 分層（§5.2）、format；未使用任意色碼/字級；斷點正確；滿版背景在外層。
 
@@ -423,8 +423,8 @@ className={cn(
 
 - [ ] `(site)/layout` 有 `PageLayout`；未在 PageLayout 上再包 shell
 - [ ] `layout-container` 無 390／944 `max-width` cap（§3.5）
-- [ ] 大區塊 A 型：`py` → `container` →（Panel）→ `shell`；或 `SectionLayout`
-- [ ] 漸層 Panel 外層勿 `layout-shell` + 內層勿再 `px-20`（§7.2）
+- [ ] 大區塊用 `SectionPanelLayout`（§7）；有 Panel 傳 `panelClassName`
+- [ ] 漸層 Panel 勿在 `SectionPanelLayout` 外再包 `layout-shell`（§7.2）
 - [ ] Header `layout-header-shell`；Mega Menu 若對 Medium 稿需 40px 左右（現 80）
 - [ ] 滿版背景在 `section`（shell 外層），不在 container alone
 - [ ] 色彩為 `navy-*` / `sky-*` / `gray-*` / 語意色

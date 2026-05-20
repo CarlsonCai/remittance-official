@@ -41,6 +41,8 @@
   --size-icon-chevron: 15px;
 
   /* Home */
+  --size-remittance-option-card-width: 302px;
+  --radius-remittance-option-card: 36px 24px;
   --size-news-thumb-width: 112px;
   --size-news-thumb-height-md: 96px;
   --size-news-thumb-width-md: 128px;
