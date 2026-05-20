@@ -42,7 +42,7 @@ export function MobileNavAccordion({
         isCta && "bg-sky-50",
         isCta &&
           expanded &&
-          "overflow-hidden rounded-b-(--radius-panel-bottom-md)",
+          "overflow-hidden rounded-b-2xl",
       )}
     >
       <button
@@ -50,12 +50,12 @@ export function MobileNavAccordion({
         className={
           isCta
             ? cn(
-                "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 flex h-(--size-button-cta-height) w-full shrink-0 items-center justify-center gap-(--spacing-button-cta-gap) self-stretch rounded-(--radius-button) py-(--spacing-button-cta-block) ps-(--spacing-button-cta-inline-start) pe-(--spacing-button-cta-inline-end) focus-visible:outline-2 focus-visible:outline-offset-2",
+                "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 flex h-15 w-full shrink-0 items-center justify-center gap-1 self-stretch rounded-xl py-3 ps-6 pe-4 focus-visible:outline-2 focus-visible:outline-offset-2",
                 "typo-body1-m text-white",
                 "transition-colors",
               )
             : cn(
-                "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-(--spacing-nav-item-inline-start) pe-(--spacing-nav-item-inline-end)",
+                "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-3 pe-2",
                 "typo-body1-m text-navy-900 [&_svg]:opacity-80",
                 "transition-colors",
                 expanded &&
@@ -88,10 +88,10 @@ export function MobileNavAccordion({
           expanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
         )}
       >
-        <div className="min-h-0 overflow-hidden rounded-b-(--radius-panel-bottom-md)">
+        <div className="min-h-0 overflow-hidden rounded-b-2xl">
           <ul
             id={panelId}
-            className="overflow-hidden rounded-b-(--radius-panel-bottom-md) bg-sky-50"
+            className="overflow-hidden rounded-b-2xl bg-sky-50"
             aria-hidden={!expanded}
           >
             {children ??
@@ -100,11 +100,11 @@ export function MobileNavAccordion({
                   <Link
                     href={link.href}
                     className={cn(
-                      "block w-full border-b border-white bg-sky-50 py-(--spacing-subnav-link-block) ps-(--spacing-subnav-link-inline-start) pe-(--spacing-subnav-link-inline-end) hover:bg-sky-100",
+                      "block w-full border-b border-white bg-sky-50 py-3 ps-6 pe-3 hover:bg-sky-100",
                       "typo-body2-m text-navy-900",
                       "transition-colors",
                       index === links.length - 1 &&
-                        "rounded-b-(--radius-panel-bottom-md)",
+                        "rounded-b-2xl",
                     )}
                     onClick={onNavigate}
                     tabIndex={expanded ? undefined : -1}

@@ -39,7 +39,7 @@ export function HeaderServiceMegaMenuCard({
         >
           {card.title}
         </span>
-        <div className="group/image relative aspect-4/3 w-full self-stretch overflow-hidden rounded-(--radius-card) bg-gray-200">
+        <div className="group/image relative aspect-4/3 w-full self-stretch overflow-hidden rounded-xl bg-gray-200">
           <div
             aria-hidden="true"
             className={cn(
@@ -52,7 +52,7 @@ export function HeaderServiceMegaMenuCard({
             }}
           />
           <span className="sr-only">{card.imageAlt}</span>
-          <p className="typo-body3-b absolute right-3 bottom-(--space-3) left-3 z-10 line-clamp-2 overflow-hidden text-white capitalize">
+          <p className="typo-body3-b absolute right-3 bottom-3 left-3 z-10 line-clamp-2 overflow-hidden text-white capitalize">
             {card.description}
           </p>
         </div>

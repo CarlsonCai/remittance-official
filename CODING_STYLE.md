@@ -137,7 +137,7 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | **`PageLayout`** | `src/components/layout/PageLayout.tsx` | `.page-layout`：≥1560 整頁 max 1440 置中；掛在 `(site)/layout.tsx` |
 | **`SectionLayout`** | `src/components/layout/SectionLayout.tsx` | 區塊內 `layout-shell` + `layout-container` + `py` |
 | **首頁區塊** | `src/components/home/Home*.tsx` | `<section>` + `SectionLayout`；不包 PageLayout |
-| **樣式** | `src/styles/layout-grid.css` | `.page-layout`、`.layout-shell`、`.layout-container`、`.layout-grid` |
+| **樣式** | `src/styles/layout-grid.css` | `.page-layout`、`.layout-shell`、`.layout-header-shell`、`.layout-container`、`.layout-grid` |
 
 - 調整整頁超寬行為：改 `layout-grid.css` 的 `.page-layout`，勿在每個 `Home*` 重複 `max-width`。
 - 調整區塊上下間距：改 `SectionLayout` 預設或該區 `className`（見 `MARKUP_STYLE.md` §5）。

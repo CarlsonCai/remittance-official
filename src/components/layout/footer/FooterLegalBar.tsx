@@ -3,7 +3,7 @@ import { footerLinkMotion } from "@/lib/footerLinkMotion";
 import { cn } from "@/lib/utils";
 
 const legalLinkClass = cn(
-  "inline-block rounded-(--radius-focus-ring) underline decoration-solid decoration-auto underline-offset-auto outline-none",
+  "inline-block rounded-xs underline decoration-solid decoration-auto underline-offset-auto outline-none",
   "[text-decoration-skip-ink:auto] [text-underline-position:from-font]",
   "typo-body4 text-white",
   footerLinkMotion,

@@ -44,7 +44,7 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
         id={MOBILE_NAV_PANEL_ID}
         data-state={open ? "open" : "closed"}
         className={cn(
-          "bg-background tablet:hidden absolute inset-x-0 top-[calc(100%+1px)] z-50 grid overflow-hidden rounded-b-(--radius-panel-bottom-lg) shadow-none",
+          "bg-background tablet:hidden absolute inset-x-0 top-[calc(100%+1px)] z-50 grid overflow-hidden rounded-b-3xl shadow-none",
           panelMotion,
           open ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
           !open && "pointer-events-none delay-120",
@@ -53,7 +53,7 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
       >
         <div className="min-h-0 overflow-hidden">
           <nav
-            className="min-w-0 px-(--layout-margin-sm) pt-(--spacing-inset-top-sm) pb-(--layout-margin-sm)"
+            className="min-w-0 px-(--layout-margin-sm) pt-2 pb-(--layout-margin-sm)"
             aria-label="主選單（行動版）"
           >
             <ul
@@ -80,7 +80,7 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
                 className={cn(
                   "mt-(--layout-gutter-lg) list-none bg-sky-50",
                   "[&:has(button[aria-expanded=true])]:overflow-hidden",
-                  "[&:has(button[aria-expanded=true])]:rounded-b-(--radius-panel-bottom-md)",
+                  "[&:has(button[aria-expanded=true])]:rounded-b-2xl",
                   listFade,
                 )}
               >

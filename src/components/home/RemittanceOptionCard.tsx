@@ -13,13 +13,13 @@ export function RemittanceOptionCard({
     <article
       aria-labelledby={`remittance-option-${index}-title`}
       className={cn(
-        "flex flex-col rounded-(--radius-card) p-6 shadow-s desktop:shadow-l tablet:p-8",
+        "flex flex-col rounded-xl p-6 shadow-s desktop:shadow-l tablet:p-8",
         "bg-background text-navy-900",
       )}
     >
       <div
         className={cn(
-          "flex aspect-[4/3] items-center justify-center rounded-(--radius-chip) bg-sky-100",
+          "flex aspect-[4/3] items-center justify-center rounded-lg bg-sky-100",
           "typo-body5 text-navy-600",
         )}
       >

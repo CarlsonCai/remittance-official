@@ -1,8 +1,15 @@
 /*
- * Primitive：陰影（Figma Shadow-L / S / Text）。
+ * Primitive：陰影（Figma Shadow-L / S / Text）、區塊漸層。
  * Tailwind shadow-* 見 theme.css；藍底白字見 typography text-shadow-on-blue。
  */
 :root {
+  --gradient-remittance-options: linear-gradient(
+    180deg,
+    var(--navy-500) 0%,
+    var(--sky-600) 30%,
+    var(--sky-200) 100%
+  );
+
   --shadow-l-source:
     45px 22px 50px 0 rgba(0, 0, 0, 0.04), 11px 6px 27px 0 rgba(0, 0, 0, 0.05);
   --shadow-s-source:

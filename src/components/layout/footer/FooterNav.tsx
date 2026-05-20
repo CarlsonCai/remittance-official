@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 function footerNavLinkClass(variant: "primary" | "secondary") {
   return cn(
-    "rounded-(--radius-focus-ring) outline-none",
+    "rounded-xs outline-none",
     variant === "primary"
       ? "typo-body2-m inline-flex items-center gap-1 text-white"
       : "typo-body3-r inline-block text-white",

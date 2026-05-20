@@ -13,10 +13,10 @@
 | 3    | `effects.css`     | Primitive            | 陰影 `--shadow-*-source`                             |
 | 4    | `dimensions.css`  | Primitive → Semantic | 間距、圓角、尺寸、動效、grid、`--bp-*` 斷點          |
 | 5    | `semantic.css`    | Semantic             | `--background`、`--foreground`                       |
-| 6    | `theme.css`       | Tailwind 橋接        | `bg-sky-*`、`tablet:`、`rounded-card`、`shadow-s`    |
+| 6    | `theme.css`       | Tailwind 橋接        | `bg-sky-*`、`tablet:`、`shadow-s`    |
 | 7    | `tailwindcss`     | —                    | 框架                                                 |
 | 8    | `typography.css`  | Utility              | `typo-*` 工具類                                      |
-| 9    | `layout-grid.css` | Component            | `.layout-shell`、`.layout-container`、`.layout-grid` |
+| 9    | `layout-grid.css` | Component            | `.layout-shell`、`.layout-header-shell`、`.layout-container`、`.layout-grid` |
 
 **改數值去哪裡**
 
@@ -30,13 +30,16 @@
 | Tailwind class 名映射                     | `theme.css`（勿寫死新 px）                     |
 | 標題／內文 class                          | `typography.css`（通常只加 utility，不改數值） |
 
-### 1.1 `dimensions.css` 三層（切版請用語意層）
+### 1.1 `dimensions.css` 用法
 
 | 層級       | 前綴例                                                                  |
 | ---------- | ----------------------------------------------------------------------- |
-| Primitive  | `--space-*`、`--radius-*`、`--motion-*-default`                         |
-| Semantic   | `--radius-card`、`--spacing-*`、`--size-*`、`--layout-gutter-sm`        |
+| Primitive  | `--space-15`/`20`/`35`、`--radius-5xl-size`、`--motion-*`；4～24px 間距與 2～32px 圓角用 Tailwind utility |
+| 元件尺寸   | `--size-*`（固定 px，非 spacing scale；與 `--space-*` 相同數值時直接用 space） |
+| Layout     | `--layout-margin-*`、`--layout-margin-header`（48px）、`--layout-gutter-*`（`layout-grid.css`） |
 | Breakpoint | `--bp-tablet`、`--bp-desktop`、`--bp-wide`（`theme` 的 `tablet:` 來源） |
+
+間距：4～24px → Tailwind `1`～`6`；60/80/140px → `15`/`20`/`35`（`dimensions` 亦定義 `--space-15` 等供 CSS 引用）。圓角：2～32px → `rounded-xs`～`4xl`；60px → `rounded-5xl`（`dimensions` `--radius-5xl-size`）。
 
 ---
 
@@ -83,6 +86,7 @@
 | Class               | 作用                                           |
 | ------------------- | ---------------------------------------------- |
 | `.layout-shell`     | 全寬 + `padding-inline`（`--layout-margin-*`） |
+| `.layout-header-shell` | Header 全寬；**&lt;1024：`--layout-margin-sm`（20px）**；**≥1024：`--layout-margin-header`（48px）** |
 | `.layout-container` | `max-width` + 置中                             |
 | `.layout-grid`      | 欄數 + gutter                                  |
 

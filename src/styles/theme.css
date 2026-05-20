@@ -1,5 +1,5 @@
 /*
- * Tailwind @theme：將 :root token 映射為 utility（bg-sky-500、tablet:、rounded-card 等）。
+ * Tailwind @theme：將 :root token 映射為 utility（bg-sky-500、tablet:、shadow-s 等）。
  * 數值來源勿在此重複定義；見 palette / dimensions / type-scale / effects。
  */
 @theme inline {
@@ -48,8 +48,7 @@
   --color-white: var(--white);
   --color-logo-red: var(--logo-red);
 
-  --radius-card: var(--radius-card);
-  --spacing-section: var(--spacing-section);
+  --radius-5xl: var(--radius-5xl-size);
 
   --shadow-l: var(--shadow-l-source);
   --shadow-s: var(--shadow-s-source);

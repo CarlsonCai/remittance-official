@@ -18,13 +18,13 @@ export function HomeRemittanceGuide() {
           <aside className="tablet:col-span-3" aria-label="指南分類">
             <p className="typo-body4-m text-navy-900">分類篩選</p>
             <ul className="mt-4 space-y-2">
-              <li className="bg-navy-600 typo-body5 rounded-(--radius-chip) px-4 py-2 text-white">
+              <li className="bg-navy-600 typo-body5 rounded-lg px-4 py-2 text-white">
                 分類一（佔位）
               </li>
-              <li className="typo-body5 rounded-(--radius-chip) bg-gray-100 px-4 py-2 text-gray-600">
+              <li className="typo-body5 rounded-lg bg-gray-100 px-4 py-2 text-gray-600">
                 分類二（佔位）
               </li>
-              <li className="typo-body5 rounded-(--radius-chip) bg-gray-100 px-4 py-2 text-gray-600">
+              <li className="typo-body5 rounded-lg bg-gray-100 px-4 py-2 text-gray-600">
                 分類三（佔位）
               </li>
             </ul>
@@ -34,7 +34,7 @@ export function HomeRemittanceGuide() {
               <article
                 key={i}
                 aria-labelledby={`guide-card-${i}-title`}
-                className="border-navy-100 overflow-hidden rounded-(--radius-card) border bg-white"
+                className="border-navy-100 overflow-hidden rounded-xl border bg-white"
               >
                 <div className="typo-body5 flex aspect-video items-center justify-center bg-gray-200 text-gray-500">
                   縮圖（佔位）

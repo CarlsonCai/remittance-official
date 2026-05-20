@@ -95,7 +95,7 @@ export function NavDropdown({
         aria-label={menuAriaLabel}
         aria-hidden={!open}
         className={cn(
-          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,var(--size-dropdown-panel-max-width))] min-w-(--size-dropdown-panel-min-width-sm) flex-col rounded-(--radius-dropdown) border bg-white",
+          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,var(--size-dropdown-panel-max-width))] min-w-(--size-dropdown-panel-min-width-sm) flex-col rounded-2xl border bg-white",
           panelTransition,
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"
@@ -110,7 +110,7 @@ export function NavDropdown({
                 role="menuitem"
                 href={item.href}
                 className={cn(
-                  "block w-full py-2 text-center wrap-break-word hover:rounded-(--radius-dropdown-item) hover:bg-sky-100 focus-visible:rounded-(--radius-dropdown-item) focus-visible:bg-sky-100",
+                  "block w-full py-2 text-center wrap-break-word hover:rounded-xl hover:bg-sky-100 focus-visible:rounded-xl focus-visible:bg-sky-100",
                   "typo-body3-m text-navy-900",
                   "transition-colors",
                 )}

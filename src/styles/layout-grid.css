@@ -1,7 +1,7 @@
 /*
- * 版型元件：.page-layout / .layout-shell / .layout-container / .layout-grid。
+ * 版型元件：.page-layout / .layout-shell / .layout-header-shell / .layout-container / .layout-grid。
  * 數值變數見 dimensions.css；斷點 media 與 --bp-* 同步。
- * page-layout：整頁 ≥1560 外側留白；layout-shell：大區塊內部左右 margin。
+ * page-layout：整頁 ≥1560 外側留白；layout-shell：大區塊內部左右 margin；Header 用 layout-header-shell（&lt;1024：20px；≥1024：48px）。
  */
 @layer components {
   .page-layout {
@@ -11,6 +11,16 @@
   @media (min-width: 1560px) /* --bp-wide */ {
     .page-layout {
       max-width: var(--layout-container-lg);
+    }
+  }
+
+  .layout-header-shell {
+    width: 100%;
+    padding-inline: var(--layout-margin-sm);
+  }
+  @media (min-width: 1024px) /* --bp-tablet */ {
+    .layout-header-shell {
+      padding-inline: var(--layout-margin-header);
     }
   }
 

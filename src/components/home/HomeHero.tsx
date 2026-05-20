@@ -16,13 +16,13 @@ export function HomeHero() {
             副標題與價值主張文案將於此區補上。
           </p>
           <p className="mt-8">
-            <span className="bg-navy-600 typo-body3-b inline-flex rounded-(--radius-chip) px-6 py-3 text-white">
+            <span className="bg-navy-600 typo-body3-b inline-flex rounded-lg px-6 py-3 text-white">
               主要行動按鈕（佔位）
             </span>
           </p>
         </div>
         <div
-          className="border-navy-200 bg-background text-navy-900 shadow-s desktop:shadow-l tablet:mt-16 tablet:p-8 mt-12 rounded-(--radius-card) border p-6"
+          className="border-navy-200 bg-background text-navy-900 shadow-s desktop:shadow-l tablet:mt-16 tablet:p-8 mt-12 rounded-xl border p-6"
           role="region"
           aria-label="快速匯率試算（建置中）"
         >

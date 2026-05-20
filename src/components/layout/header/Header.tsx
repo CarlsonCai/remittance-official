@@ -24,7 +24,7 @@ export function Header() {
       <HeaderServiceMegaMenu>
         {(serviceMegaTrigger) => (
           <div className="border-navy-100 relative border-b">
-            <div className="layout-shell">
+            <div className="layout-header-shell">
               <div className="layout-container">
                 <div className="tablet:h-auto tablet:gap-(--layout-gutter-md) tablet:py-4 flex h-16 w-full min-w-0 items-center justify-between gap-(--layout-gutter-sm)">
                   <HeaderBrand />
@@ -35,7 +35,7 @@ export function Header() {
                     id={menuButtonId}
                     type="button"
                     className={cn(
-                      "focus-visible:outline-navy-700 tablet:hidden inline-flex shrink-0 items-center justify-center rounded-(--radius-control) p-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2",
+                      "focus-visible:outline-navy-700 tablet:hidden inline-flex shrink-0 items-center justify-center rounded-md p-2 hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2",
                       "text-navy-900",
                       "transition-colors",
                     )}
