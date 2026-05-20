@@ -135,14 +135,14 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | 元件 | 路徑 | 職責 |
 |------|------|------|
 | **`PageLayout`** | `src/components/layout/PageLayout.tsx` | `.page-layout`：≥1560 整頁 max 1440 置中；掛在 `(site)/layout.tsx` |
-| **`SectionPanelLayout`** | `src/components/layout/SectionPanelLayout.tsx` | `py` → `container` → [Panel] → `shell`；`panelClassName` 見 `HomeRemittanceOptions` |
+| **`SectionPanelLayout`** | `src/components/layout/SectionPanelLayout.tsx` | `py` → `container` → [Panel] → `shell`；`panelClassName` 見 `src/components/home/remittance-options/` |
 | **首頁區塊** | `src/components/home/Home*.tsx` | `<section>` + `SectionPanelLayout`；不包 PageLayout |
 | **樣式** | `src/styles/layout-grid.css` | `.page-layout`、`.layout-shell`、`.layout-header-shell`、`.layout-container`、`.layout-grid` |
 
 - 調整整頁超寬行為：改 `layout-grid.css` 的 `.page-layout`，勿在每個 `Home*` 重複 `max-width`。
 - 調整區塊上下間距：改 `SectionPanelLayout` 內 `py-*` 或該區 `shellClassName`（見 `MARKUP_STYLE.md` §5、§7）。
 - **Grid margin**（20/40/80）：改 `layout-grid.css` 的 `.layout-shell`；**勿**對 `layout-container` 設 390／944 cap（見 `MARKUP_STYLE.md` §3.5）。
-- 有 Panel：傳 `panelClassName` + `shellClassName`（見 `HomeRemittanceOptions`）；`layout-shell` 在 Panel **內**。
+- 有 Panel：傳 `panelClassName` + `shellClassName`（見 `src/components/home/remittance-options/HomeRemittanceOptions.tsx`）；`layout-shell` 在 Panel **內**。
 
 ---
 

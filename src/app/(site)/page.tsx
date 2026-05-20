@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { HomeAppDownload } from "@/components/home/HomeAppDownload";
-import { HomeRemittanceOptions } from "@/components/home/HomeRemittanceOptions";
+import { HomeRemittanceOptions } from "@/components/home/remittance-options";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLatestNews } from "@/components/home/HomeLatestNews";
 import { HomeRemittanceGuide } from "@/components/home/HomeRemittanceGuide";

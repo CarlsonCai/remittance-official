@@ -59,7 +59,7 @@
 | **`layout-container`** | 區塊內容欄寬 | **一律 `width: 100%`**；左右由 `layout-shell` margin（20/40/80）；390／944 僅稿面 artboard 對照；整頁 cap 見 `.page-layout` |
 | **Mega Menu 內層**（匯款服務） | 全寬白底面板；內容區 `padding` 依稿 | `HeaderServiceMegaMenuPanel`：內層 `px-(--layout-margin-lg)`（80px）+ `max-w-(--layout-container-lg)`；**不走** `layout-header-shell` |
 
-**`SectionPanelLayout`**（`SectionPanelLayout.tsx`）= `py-16 tablet:py-20` → `layout-container` → **[Panel 可選]** → `layout-shell` → 內容。無 Panel 時省略中間層；有漸層／大圓角時傳 `panelClassName`（見 `HomeRemittanceOptions`）。
+**`SectionPanelLayout`**（`SectionPanelLayout.tsx`）= `py-16 tablet:py-20` → `layout-container` → **[Panel 可選]** → `layout-shell` → 內容。無 Panel 時省略中間層；有漸層／大圓角時傳 `panelClassName`（見 `src/components/home/remittance-options/HomeRemittanceOptions.tsx`）。
 
 ### 3.2 何時使用（區塊 vs 元件）
 
@@ -161,7 +161,7 @@ section（可滿版 bg）
 ## 5. 間距與尺寸（必須遵守）
 
 - **區塊上下間距**：內容區優先依 `SectionPanelLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
-- **元件內距**：卡片等參考 `RemittanceOptionCard`（`p-6 tablet:p-8`）。
+- **元件內距**：卡片等參考 `RemittanceOptionCard`（`src/components/home/remittance-options/RemittanceOptionCard.tsx`，`p-6 tablet:p-8`）。
 - **最大寬度**：長文/副標可用 `max-w-2xl` 等；區塊全寬由 `layout-container`（100%）+ `layout-shell` margin 決定。
 - **間距尺度**：優先 Tailwind spacing scale（`4`、`6`、`8`、`10`…），避免 `mt-[22px]`。
 - **合併 class**：有條件或需 `tailwind-merge` 時用 `cn()`（`@/lib/utils`）；規則見 **§5.2**。
@@ -369,7 +369,7 @@ className={cn(
 
 ### 7.2 內層大面板（漸層／大圓角）
 
-稿面為 **container 內一塊圓角面板** 時（見 `HomeRemittanceOptions`）：
+稿面為 **container 內一塊圓角面板** 時（見 `src/components/home/remittance-options/HomeRemittanceOptions.tsx`）：
 
 ```tsx
 <SectionPanelLayout

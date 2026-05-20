@@ -47,7 +47,7 @@ export function HomeRemittanceOptions() {
     >
       <SectionPanelLayout
         panelClassName={cn(
-          "rounded-4xl tablet:rounded-5xl",
+          "tablet:rounded-5xl rounded-4xl",
           "[background:var(--gradient-remittance-options)]",
         )}
         shellClassName={cn(
@@ -59,17 +59,21 @@ export function HomeRemittanceOptions() {
           <h2
             id="remittance-options-heading"
             className={cn(
-              "typo-h2 text-white text-shadow-on-blue",
+              "typo-h2 text-shadow-on-blue text-white",
               "max-[1023px]:tracking-[1.12px]",
             )}
           >
             多種匯款選擇
           </h2>
-          <p className={cn("typo-body3-r tablet:typo-body1-r mt-4 text-white tablet:mt-3")}>
+          <p
+            className={cn(
+              "typo-body3-r tablet:typo-body1-r tablet:mt-3 mt-4 text-white",
+            )}
+          >
             不論是給孩子的一份心意、家人的緊急需求，或是個人的全球資產調度，給在異鄉的您最即時的支援。
           </p>
         </div>
-        <div className="grid w-full grid-cols-1 items-start gap-6 tablet:grid-cols-[repeat(4,minmax(0,1fr))]">
+        <div className="tablet:grid-cols-[repeat(4,minmax(0,1fr))] grid w-full grid-cols-1 items-start gap-6">
           {REMITTANCE_OPTIONS.map((option, index) => (
             <RemittanceOptionCard
               key={option.number}
