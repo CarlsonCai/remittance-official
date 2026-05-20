@@ -24,7 +24,7 @@
 | （無，預設） | &lt; 1024px | Small：4 欄，margin 20，gutter 16 |
 | `tablet:` | 1024px | Medium：12 欄，margin 40，gutter 20 |
 | `desktop:` | 1440px | Large：12 欄，margin 80，gutter 24 |
-| `wide:` | 1560px | 超寬：主欄置中、左右留白加大 |
+| `wide:` | 1560px | 超寬：`.page-layout` 整頁 max 1440 置中，兩側**外部**留白（見 §3.1） |
 
 - 字型階層（`typo-h1` 等）在 `typography.css` 內已含 `desktop` 媒體查詢；**多數標題不必再包一層 `desktop:typo-h1`**，除非稿面要求在特定斷點換用不同 utility。
 - `typo-*` 可疊加斷點前綴（例：`tablet:typo-body3-m`），見 `globals.css` 註解。
@@ -33,40 +33,50 @@
 
 ## 3. 版面結構（必須遵守）
 
-### 3.1 三層模型
+### 3.1 四層模型（整頁 vs 區塊內）
 
 ```
-<section>          ← 滿版：背景色、文字色
-  <SectionLayout>  ← 或手動 layout-shell + layout-container
-    內容
-  </SectionLayout>
-</section>
+(site)/layout
+  <PageLayout>              ← 整頁：≥1560 外側留白（.page-layout），不含 shell
+    <Header />              ← 自包 layout-shell + layout-container（Header 間距可另訂）
+    <main>
+      <section>             ← 滿版背景
+        <SectionLayout>     ← 區塊：layout-shell + layout-container + py
+          內容 / Panel
+        </SectionLayout>
+      </section>
+    </main>
+    <Footer />              ← 自包 layout-shell + layout-container
+  </PageLayout>
 ```
 
 | 層級 | 用途 | 用法 |
 |------|------|------|
-| 外層 `section` / `footer` | 滿版底色、圓角、全寬視覺 | `w-full` + `bg-*`；**不要**只把滿版背景加在 `layout-container` 上 |
-| `layout-shell` | 左右 margin（隨斷點變 20 / 40 / 80） | 見 `layout-grid.css` |
-| `layout-container` | 內容最大寬並置中 | max-width 隨斷點：390 → 944 → 1440 |
+| **`PageLayout`**（`.page-layout`） | **整頁**欄寬；≥1560 時 max 1440 置中，兩側**外部**留白 | `(site)/layout.tsx` 包 Header、`{children}`、Footer；**不含** `layout-shell` |
+| 外層 `section` / `footer` | 滿版底色、圓角 | `w-full` + `bg-*`；背景在 shell **外**（或 section 包 shell） |
+| **`layout-shell`** | 大區塊**內部**左右 margin（20 / 40 / 80） | 各 `SectionLayout`、Header、Footer **各自**一層，勿與 PageLayout 重複 |
+| **`layout-container`** | 區塊內容欄寬 | &lt;1024：390；1024–1439：944；**≥1440：`max-width: none`**（在 shell 內撐滿）；整頁 cap 見 `.page-layout` |
 
-**`SectionLayout` 實作**（`src/components/layout/SectionLayout.tsx`）= `layout-shell` + `py-16 tablet:py-20` + `layout-container`，無額外版面邏輯。
+**`SectionLayout`**（`SectionLayout.tsx`）= `layout-shell` + `layout-container` + `py-*`（預設 `py-16 tablet:py-20`；異常間距可傳 `className` 覆寫）。
 
 ### 3.2 何時使用（區塊 vs 元件）
 
 | 對象 | 是否使用 | 說明 |
 |------|----------|------|
-| **大區塊**（首頁 `Home*`、內頁一個 `<section>`） | ✅ `SectionLayout` | 外層 `<section>` 負責滿版背景；內層 `SectionLayout` 對齊全站欄寬與區塊上下間距 |
-| **整頁主內容**（404、`PlaceholderPage`） | ✅ 手寫 `layout-shell` + `layout-container` | 與 `SectionLayout` 同寬度規則；自行控制 `py-*`，不必強制 `SectionLayout` |
-| **Header / Footer** | ⚠️ 特例 | 可有自訂結構（例 Footer 用 `max-w-[var(--layout-container-lg)]`）；概念上仍對齊同一 max-width |
-| **小元件**（`RemittanceOptionCard`、按鈕、選單、`NavDropdown`） | ❌ 不要用 | 已位於父層 `layout-container` 內，再包會雙重 margin／錯誤縮排 |
-| **`page.tsx`** | 通常不直接包 | 首頁由多個 section 元件各自包 `SectionLayout`；內頁單區則在 page 或區塊元件擇一處包即可 |
+| **全站** | ✅ `PageLayout` 一層 | 僅整頁寬與 ≥1560 置中；不取代各區 `layout-shell` |
+| **大區塊**（`Home*`） | ✅ `<section>` + `SectionLayout` | section 管背景；`SectionLayout` 管 shell + container + 區塊 `py` |
+| **404、無 site layout 的頁** | ✅ `PageLayout` + 手寫 shell/container | 與 §3.1 同寬度規則 |
+| **內頁 Placeholder**（在 site layout 內） | ✅ `layout-shell` + `layout-container` | 或 `SectionLayout`；勿再包 PageLayout |
+| **Header / Footer** | ✅ 自包 shell + container | 與內容欄對齊；Header 左右間距若稿面非 20/40/80 可另訂 token |
+| **小元件**（Card、按鈕） | ❌ 不要 layout-shell | 已在父層 container 內 |
+| **`page.tsx`** | 不包 PageLayout | 由 `(site)/layout` 已包；只列 `Home*` |
 
 ```
-page.tsx
-  └─ HomeHero（區塊元件）
-       └─ <section class="bg-…">          ← 滿版背景
-            └─ <SectionLayout>           ← 僅區塊級
-                 └─ 標題、卡片…           ← 小元件不再包 layout-*
+(site)/layout → PageLayout
+  └─ HomeHero
+       └─ <section class="bg-…">
+            └─ <SectionLayout>  → shell + container + py
+                 └─ 內容
 ```
 
 ### 3.3 優先使用的元件／class
@@ -78,8 +88,9 @@ page.tsx
 ### 3.4 禁止的版面做法
 
 - 不要用 `max-w-screen-xl` 等**未在專案定義**的 container 取代 `layout-container`。
-- 不要在每個區塊重複發明一套 `px-4 md:px-8 lg:px-20` margin；應走 `SectionLayout` / `layout-shell`。
-- 不要把 Header/Footer 的特例 padding 複製到所有內容區（Header/Footer 可有獨立結構，但新 section 仍走 §3.1）。
+- **禁止**在 `PageLayout` 上再加 `layout-shell`（會與各區塊 shell 疊兩層 margin）。
+- 不要在每個區塊重複發明 `px-4 md:px-8`；區塊左右走 `layout-shell`。
+- 不要把 Header/Footer 的特例 padding 複製到所有內容區。
 
 ---
 
@@ -354,8 +365,9 @@ className={cn(
 
 ## AI 切版自檢（簡表）
 
-- [ ] 大區塊用 `SectionLayout`（或整頁用手寫 shell+container）；小元件未重複包裹
-- [ ] 滿版背景在 `section` 外層，不在 container  alone
+- [ ] `(site)/layout` 有 `PageLayout`；各區塊有 `layout-shell`，未與 PageLayout 重複 shell
+- [ ] 大區塊用 `SectionLayout`（或手寫 shell+container）；小元件未重複包裹
+- [ ] 滿版背景在 `section`（shell 外層），不在 container alone
 - [ ] 色彩為 `navy-*` / `sky-*` / `gray-*` / 語意色
 - [ ] 文字為 `typo-*`，無多餘 `font-*` 覆寫
 - [ ] RWD 使用 `tablet:` / `desktop:` / `wide:`，Mobile First

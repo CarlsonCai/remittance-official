@@ -128,6 +128,20 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 - 未滿 300 行但職責已混雜（多個獨立 UI 區塊、可抽成 hook 的邏輯）→ 仍應拆檔，不必等到行數門檻。
 - 禁止為了避免拆檔而把邏輯塞進註解或超長 JSX 一行到底。
 
+### 3.4 版面元件（必須遵守）
+
+與 **`MARKUP_STYLE.md` §3** 一致。
+
+| 元件 | 路徑 | 職責 |
+|------|------|------|
+| **`PageLayout`** | `src/components/layout/PageLayout.tsx` | `.page-layout`：≥1560 整頁 max 1440 置中；掛在 `(site)/layout.tsx` |
+| **`SectionLayout`** | `src/components/layout/SectionLayout.tsx` | 區塊內 `layout-shell` + `layout-container` + `py` |
+| **首頁區塊** | `src/components/home/Home*.tsx` | `<section>` + `SectionLayout`；不包 PageLayout |
+| **樣式** | `src/styles/layout-grid.css` | `.page-layout`、`.layout-shell`、`.layout-container`、`.layout-grid` |
+
+- 調整整頁超寬行為：改 `layout-grid.css` 的 `.page-layout`，勿在每個 `Home*` 重複 `max-width`。
+- 調整區塊上下間距：改 `SectionLayout` 預設或該區 `className`（見 `MARKUP_STYLE.md` §5）。
+
 ---
 
 ## 4. `className` 與 `cn()`（必須遵守）
@@ -147,6 +161,7 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | 間距／圓角／grid／動效／斷點 | `src/styles/dimensions.css` |
 | 語意色 | `src/styles/semantic.css` |
 | Tailwind 映射 | `src/styles/theme.css` |
+| 整頁／區塊版面 | `PageLayout`、`SectionLayout`、`layout-grid.css`（`MARKUP_STYLE.md` §3） |
 | 跨區塊動效 | `src/lib/siteMotion.ts`（`dimensions` `--motion-*`） |
 | 元件邏輯、accordion 狀態 | `src/hooks/`（例：`useMobileNavAccordion`） |
 
@@ -168,6 +183,7 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 - [ ] Hook 全在頂層，順序符合 §1.2
 - [ ] 無過度抽象、無未使用程式碼；未新增 `*Classes.ts`（§4.2）
 - [ ] 單檔 ≤ 300 行（或已拆檔並說明）
+- [ ] 版面符合 `MARKUP_STYLE.md` §3（`PageLayout` + 區塊 `SectionLayout`，§3.4）
 - [ ] `className` / `cn()` 符合 `MARKUP_STYLE.md` §5.2（§4）
 - [ ] `npm run lint` 可通過（不關規則）
 

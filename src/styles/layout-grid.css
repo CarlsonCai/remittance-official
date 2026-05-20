@@ -1,9 +1,19 @@
 /*
- * 版型元件：.layout-shell / .layout-container / .layout-grid。
+ * 版型元件：.page-layout / .layout-shell / .layout-container / .layout-grid。
  * 數值變數見 dimensions.css；斷點 media 與 --bp-* 同步。
- * 滿版底色請放在 .layout-shell 外層，勿只加在 .layout-container。
+ * page-layout：整頁 ≥1560 外側留白；layout-shell：大區塊內部左右 margin。
  */
 @layer components {
+  .page-layout {
+    width: 100%;
+    margin-inline: auto;
+  }
+  @media (min-width: 1560px) /* --bp-wide */ {
+    .page-layout {
+      max-width: var(--layout-container-lg);
+    }
+  }
+
   .layout-shell {
     width: 100%;
     padding-inline: var(--layout-margin-sm);
@@ -29,9 +39,10 @@
       max-width: var(--layout-container-md);
     }
   }
+  /* Large（1440–1559）：區塊內容欄隨 shell 內寬度撐滿；整頁 cap 見 .page-layout */
   @media (min-width: 1440px) /* --bp-desktop */ {
     .layout-container {
-      max-width: var(--layout-container-lg);
+      max-width: none;
     }
   }
 
