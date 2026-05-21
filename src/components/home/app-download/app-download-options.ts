@@ -7,6 +7,13 @@ import jingHuiTongQr from "@/assets/images/app-download/jing-hui-tong-qr.png";
 import mobileBankingIcon from "@/assets/images/app-download/mobile-banking.png";
 import mobileBankingQr from "@/assets/images/app-download/mobile-banking-qr.png";
 
+import type { AppStoreUrls } from "./app-download-store-urls";
+import {
+  DAWHO_STORE_URLS,
+  JING_HUI_TONG_STORE_URLS,
+  MOBILE_BANKING_STORE_URLS,
+} from "./app-download-store-urls";
+
 export const APP_VERSION_LINES = [
   "最新版本號碼：iOS v2.0.1，Android v2.0.1",
   "最低支援作業系統：iOS 13.0(含)以上，Android 9.0(含)以上",
@@ -19,6 +26,7 @@ export type AppDownloadOption = {
   iconAlt: string;
   qr: StaticImageData;
   qrAlt: string;
+  storeUrls: AppStoreUrls;
 };
 
 export const APP_DOWNLOAD_OPTIONS = [
@@ -30,6 +38,7 @@ export const APP_DOWNLOAD_OPTIONS = [
     iconAlt: "永豐京匯通 App 圖示",
     qr: jingHuiTongQr,
     qrAlt: "永豐京匯通 App 下載 QR Code",
+    storeUrls: JING_HUI_TONG_STORE_URLS,
   },
   {
     title: "永豐DAWHO",
@@ -39,6 +48,7 @@ export const APP_DOWNLOAD_OPTIONS = [
     iconAlt: "永豐DAWHO App 圖示",
     qr: dawhoQr,
     qrAlt: "永豐DAWHO App 下載 QR Code",
+    storeUrls: DAWHO_STORE_URLS,
   },
   {
     title: "永豐行動銀行",
@@ -47,5 +57,6 @@ export const APP_DOWNLOAD_OPTIONS = [
     iconAlt: "永豐行動銀行 App 圖示",
     qr: mobileBankingQr,
     qrAlt: "永豐行動銀行 App 下載 QR Code",
+    storeUrls: MOBILE_BANKING_STORE_URLS,
   },
 ] as const satisfies ReadonlyArray<AppDownloadOption>;

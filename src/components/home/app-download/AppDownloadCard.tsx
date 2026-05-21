@@ -2,16 +2,12 @@ import Image from "next/image";
 
 import { cn } from "@/lib/utils";
 
-import appStoreDownload from "@/assets/images/app-download/app-store-download.png";
-import googlePlayDownload from "@/assets/images/app-download/google-play-download.png";
-
-import {
-  APP_DOWNLOAD_OPTIONS,
-  APP_VERSION_LINES,
-} from "./app-download-options";
+import { AppDownloadStoreButtons } from "./AppDownloadStoreButtons";
+import type { AppDownloadOption } from "./app-download-options";
+import { APP_VERSION_LINES } from "./app-download-options";
 
 type AppDownloadCardProps = {
-  option: (typeof APP_DOWNLOAD_OPTIONS)[number];
+  option: AppDownloadOption;
   index: number;
 };
 
@@ -111,40 +107,10 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         </div>
       </div>
 
-      <div className="flex w-full items-start justify-center gap-3 self-stretch">
-        <a
-          href="#"
-          className={cn(
-            "inline-flex shrink-0",
-            "focus-visible:ring-navy-500 outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-          )}
-          aria-label={`於 App Store 下載${option.title}`}
-        >
-          <Image
-            src={appStoreDownload}
-            alt=""
-            width={appStoreDownload.width}
-            height={appStoreDownload.height}
-            className="h-10 w-auto"
-          />
-        </a>
-        <a
-          href="#"
-          className={cn(
-            "inline-flex shrink-0",
-            "focus-visible:ring-navy-500 outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
-          )}
-          aria-label={`於 Google Play 下載${option.title}`}
-        >
-          <Image
-            src={googlePlayDownload}
-            alt=""
-            width={googlePlayDownload.width}
-            height={googlePlayDownload.height}
-            className="h-10 w-auto"
-          />
-        </a>
-      </div>
+      <AppDownloadStoreButtons
+        appTitle={option.title}
+        storeUrls={option.storeUrls}
+      />
     </article>
   );
 }
