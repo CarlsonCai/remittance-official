@@ -12,7 +12,6 @@ export function HomeAppDownload() {
       className="text-navy-900 w-full bg-sky-50"
     >
       <SectionPanelLayout
-        outerClassName="py-0"
         shellClassName={cn(
           "flex w-full flex-col",
           "pt-15 pb-30",

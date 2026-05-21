@@ -7,7 +7,7 @@ export function HomeRemittanceGuide() {
       aria-labelledby="remittance-guide-heading"
       className="bg-background text-navy-900 w-full"
     >
-      <SectionPanelLayout>
+      <SectionPanelLayout shellClassName="py-16 tablet:py-20">
         <h2 id="remittance-guide-heading" className="typo-h2 text-navy-900">
           匯款指南
         </h2>

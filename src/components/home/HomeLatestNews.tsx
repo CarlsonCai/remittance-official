@@ -1,4 +1,5 @@
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
+import { cn } from "@/lib/utils";
 
 export function HomeLatestNews() {
   return (
@@ -7,7 +8,7 @@ export function HomeLatestNews() {
       aria-labelledby="latest-news-heading"
       className="text-navy-900 w-full bg-sky-50/80"
     >
-      <SectionPanelLayout>
+      <SectionPanelLayout shellClassName={cn("flex w-full flex-col", "py-35")}>
         <h2 id="latest-news-heading" className="typo-h2 text-navy-900">
           最新消息
         </h2>

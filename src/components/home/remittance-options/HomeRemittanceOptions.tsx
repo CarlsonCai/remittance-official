@@ -43,7 +43,7 @@ export function HomeRemittanceOptions() {
     <section
       id="remittance-options"
       aria-labelledby="remittance-options-heading"
-      className="w-full"
+      className="w-full py-16 tablet:py-20"
     >
       <SectionPanelLayout
         panelClassName={cn(

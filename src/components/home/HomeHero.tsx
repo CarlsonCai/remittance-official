@@ -7,7 +7,7 @@ export function HomeHero() {
       aria-labelledby="hero-heading"
       className="text-navy-900 w-full bg-sky-50"
     >
-      <SectionPanelLayout>
+      <SectionPanelLayout shellClassName="py-16 tablet:py-20">
         <div className="max-w-2xl">
           <h1 id="hero-heading" className="typo-h1 text-navy-900">
             永豐銀行跨境匯款（主標題佔位）

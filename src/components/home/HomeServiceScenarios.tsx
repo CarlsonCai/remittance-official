@@ -7,7 +7,7 @@ export function HomeServiceScenarios() {
       aria-labelledby="service-scenarios-heading"
       className="bg-background text-navy-900 w-full"
     >
-      <SectionPanelLayout>
+      <SectionPanelLayout shellClassName="py-16 tablet:py-20">
         <h2 id="service-scenarios-heading" className="typo-h2 text-navy-900">
           滿足您的各種匯款情境
         </h2>
