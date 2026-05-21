@@ -10,6 +10,26 @@
     var(--sky-200) 100%
   );
 
+  /* Headline/H2/1023under — App 下載主標（≤1023） */
+  --gradient-app-download-heading-sm: linear-gradient(
+    90deg,
+    var(--navy-900) 0%,
+    var(--navy-500) 31%,
+    var(--navy-900) 62%
+  );
+  /* 稿面色標在 62% 結束；放大背景讓整段漸層橫跨文字寬 */
+  --gradient-app-download-heading-sm-size: calc(100% / 0.62);
+
+  /* Headline/H2/1024up — App 下載主標（tablet+） */
+  --gradient-app-download-heading: linear-gradient(
+    90deg,
+    var(--navy-900) 0%,
+    var(--navy-500) 14.82%,
+    var(--navy-900) 29.65%
+  );
+  /* 稿面色標在 29.65% 結束；放大背景讓整段漸層橫跨文字寬（對齊 Figma 文字填色） */
+  --gradient-app-download-heading-size: calc(100% / 0.2965);
+
   --shadow-l-source:
     45px 22px 50px 0 rgba(0, 0, 0, 0.04), 11px 6px 27px 0 rgba(0, 0, 0, 0.05);
   --shadow-s-source:

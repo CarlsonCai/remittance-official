@@ -1,6 +1,7 @@
 /*
- * typo-* 工具類（@utility）。字級來源見 type-scale.css。
- * 可疊加 tablet: / desktop: / wide:（斷點見 dimensions --bp-*、theme.css）。
+ * typo-* 工具類（@utility）：唯一消費 type-scale.css 的樣式層。
+ * 元件請用 typo-*；勿在 JSX 以 arbitrary 字級引用 type-scale 變數。
+ * 可疊加 tablet: / desktop: / wide:（斷點見 dimensions --bp-*、theme.css）。規範見 MARKUP_STYLE.md §4.2。
  */
 
 @utility typo-h1 {
@@ -225,4 +226,21 @@
 
 @utility text-shadow-on-blue {
   text-shadow: var(--shadow-text-source);
+}
+
+/** App 下載區主標：僅 background-image + clip，勿用 background 簡寫（會蓋掉 clip） */
+@utility text-gradient-app-download-heading {
+  background-image: var(--gradient-app-download-heading-sm);
+  background-size: var(--gradient-app-download-heading-sm-size) 100%;
+  background-position: left top;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+
+  @media (min-width: 1024px) /* --bp-tablet */ {
+    background-image: var(--gradient-app-download-heading);
+    background-size: var(--gradient-app-download-heading-size) 100%;
+  }
 }

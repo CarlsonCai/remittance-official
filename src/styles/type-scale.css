@@ -1,6 +1,11 @@
 /*
- * 字階來源：字重、字号、行高、字距（Figma type scale）。
- * 元件請用 typography.css 的 typo-*；少數稿面特例可用 --letter-spacing-*。
+ * 字階 token（Figma type scale）：僅供 typography.css 的 typo-* 引用，勿在元件直接使用。
+ *
+ * - 元件：className 用 typo-*（見 typography.css）
+ * - 斷點／單區塊特例：用 Tailwind 預設字級（如 text-2xl、tablet:text-5xl）；勿用 arbitrary text-length 引用本檔變數（Tailwind 會掃描註解）
+ * - 非 scale 字距等：單處可用 tracking-[0.48px]；同一數值 ≥2 處再補此檔 token 或擴充 typo-*
+ *
+ * 規範見 MARKUP_STYLE.md §4.2。
  */
 :root {
   --font-weight-regular: 400;
@@ -19,7 +24,7 @@
   --line-height-h2: 1.3;
   --font-size-h2-sm: 1.75rem;
   --font-size-h2-lg: 3rem;
-  --letter-spacing-h2-sm: 0.07em;
+  --letter-spacing-h2-sm: 0.04em; /* 1.12px @ 28px（Headline/H2/1023under） */
   --letter-spacing-h2-lg: 0.06em; /* 2.88px @ 48px（Headline/H2/1440up） */
 
   --line-height-h3: 1.4;

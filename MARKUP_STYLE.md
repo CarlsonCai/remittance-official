@@ -9,6 +9,8 @@
 ## 1. 設計稿對齊原則（必須遵守）
 
 - **優先使用專案既有 token**，禁止為了「像設計稿」而大量寫死 `text-[13px]`、`mt-[37px]` 等任意值。
+- **字型**：`type-scale.css` 僅供 `typography.css` 的 `typo-*`；元件見 **§4.2.1**，勿用 arbitrary text-length 引用 type-scale 字級變數。
+- **間距（padding / margin / gap）**：見 **§5.0**（稿面 px 為 4 的倍數時**禁止**寫 `pb-[164px]` 等）。
 - 設計稿若與 token 有落差：**先查** `palette.css`、`type-scale.css`、`effects.css`、`dimensions.css`；仍無對應時才用 Tailwind 任意值，並在 PR／說明中註記需否補 token（見 `docs/design-tokens.md`）。
 - **Mobile First**：預設為小螢（≤1023）；再用 `tablet:`、`desktop:`、`wide:` 覆寫。
 - 文案使用**繁體中文**；語意標籤正確（見 §6）。
@@ -146,10 +148,55 @@ section（可滿版 bg）
 
 ### 4.2 字型
 
-- 內文與標題使用 **`typo-*` utility**（定義於 `src/styles/typography.css`）。
-- 標題對應：`typo-h1`～`typo-h4`；內文 `typo-body1`～`typo-body6`；副標 `typo-sub1-*`。
-- 字重已含在 utility 內（`-b` bold、`-m` medium、`-r` regular 等）；**不要**再疊 `font-bold` 蓋掉設計字重，除非稿面明確要求覆寫。
-- 文字顏色用 `text-navy-900`、`text-gray-600` 等 token，與區塊背景保持對比。
+#### 4.2.1 `type-scale.css` → `typography.css` → 元件（必須遵守）
+
+> **Tailwind v4 會掃描專案內字串**（見 `globals.css` 的 `@source`）：Markdown／CSS 註解**勿寫**可被當成 class 的 arbitrary 字級語法（例如 `text-length` 搭配 `--font-size-` 變數、或含 `*` 的萬用字元），否則會編進 `globals.css` 導致 PostCSS 失敗。
+
+```
+type-scale.css (:root 字階變數，Figma 對照表)
+       ↓ 僅由此檔引用
+typography.css（typo-h1、typo-body3-r … @utility）
+       ↓
+元件 JSX（className="typo-h2" …）
+```
+
+| 層級 | 用途 | AI 怎麼寫 |
+|------|------|-----------|
+| **`type-scale.css`** | 字級／行高／字距 **token 定義** | **勿**在元件用 arbitrary 字級引用 `--font-size-…`（改用 `typo-*` 或 `text-2xl` 等） |
+| **`typography.css`** | 把 token 包成 **`typo-*`** | 全站標題／內文 **必須**用 `typo-*`，不手抄 font-size |
+| **元件 JSX** | 組合 `typo-*` + 色 + RWD | 見下表「特例」 |
+
+**元件預設**
+
+- 內文與標題：**`typo-*`**（定義於 `typography.css`，數值來自 `type-scale.css`）。
+- 標題：`typo-h1`～`typo-h4`；內文：`typo-body1`～`typo-body6`；副標：`typo-sub1-*`。
+- 字重已含在 utility（`-b` / `-m` / `-r`）；**不要**再疊 `font-bold` 蓋掉設計字重。
+- 文字顏色：`text-navy-900`、`text-gray-600` 等（`palette.css` / `@theme`）。
+
+**斷點或單區塊特例（`typo-*` 斷點與稿不符時）**
+
+- 用 **Tailwind 預設字級 scale** 覆寫；**禁止**在 className 用 arbitrary text-length 搭配 type-scale 的 `--font-size-…`。
+- 換算與間距 §5.0 相同思路：稿面 px **÷ 4** 對 Tailwind 字級（例 24px → `text-2xl`，48px → `text-5xl`）。
+- 非 4 倍數字距（例 `0.48px`）：**單一元件、單一處**可寫 `tracking-[0.48px]`。
+
+**何時才動 `type-scale.css` / 擴充 `typo-*`**
+
+- 同一字級／字距 **≥2 處**要用，或全站 `typo-*` 斷點要改 → 改 `type-scale.css` + `typography.css`。
+- **僅一處**、且只是「比 `typo-*` 早一個斷點變大」→ JSX 用 `tablet:text-2xl` 等即可，**不要**為該區新增 type-scale 變數。
+
+```tsx
+// ✅ App 下載主標：typo-h2 + tablet 提早 48px
+className="typo-h2 tablet:text-5xl tablet:tracking-[0.06em] text-gradient-app-download-heading"
+
+// ✅ 卡片標題：typo-sub1-s + tablet 提早 24px
+className="typo-sub1-s tablet:text-2xl tablet:tracking-[0.48px]"
+
+// ❌ 禁止：tablet 字級用 arbitrary text-length + type-scale 變數（勿寫成可掃描的 Tailwind class 字串）
+```
+
+**現有少數直接引用 type-scale 變數的例外**（多處前勿再增加）
+
+- `tracking-(--letter-spacing-h4-tight)`：Footer／Mega Menu（`--letter-spacing-h4-tight` 在 `type-scale.css`）；新需求優先評估是否改為 `typo-*` 或 Tailwind。
 
 ### 4.3 圓角與陰影
 
@@ -163,8 +210,42 @@ section（可滿版 bg）
 - **區塊上下間距**：內容區優先依 `SectionPanelLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
 - **元件內距**：卡片等參考 `RemittanceOptionCard`（`src/components/home/remittance-options/RemittanceOptionCard.tsx`，`p-6 tablet:p-8`）。
 - **最大寬度**：長文/副標可用 `max-w-2xl` 等；區塊全寬由 `layout-container`（100%）+ `layout-shell` margin 決定。
-- **間距尺度**：優先 Tailwind spacing scale（`4`、`6`、`8`、`10`…），避免 `mt-[22px]`。
+- **間距尺度**：遵守 **§5.0**；小間距用 `4`、`6`、`8`…，大間距用 scale 數字（`15`、`30`、`41`…），避免 `mt-[22px]`、`pb-[164px]`。
 - **合併 class**：有條件或需 `tailwind-merge` 時用 `cn()`（`@/lib/utils`）；規則見 **§5.2**。
+
+### 5.0 Tailwind 預設 spacing scale（必須遵守）
+
+本 repo 的 `theme.css` **未覆寫** Tailwind spacing；`p-*` / `m-*` / `gap-*` 等走 **Tailwind 預設 scale**（`src/styles/theme.css` 無 `--spacing-*` 自訂表）。
+
+| 規則 | 說明 |
+|------|------|
+| **換算** | 稿面 px **÷ 4** = utility 數字（根字級 16px：`N` → `N × 0.25rem` = `N × 4px`） |
+| **必須** | 稿面為 **4 的倍數** 時，用 scale class（`pt-15`、`pb-30`、`tablet:pb-41`），**禁止** `pt-[60px]`、`pb-[120px]`、`pb-[164px]` 等「對稿直寫 px」 |
+| **一致** | 同一區塊勿混用：`tablet:pt-30` 配 `tablet:pb-[164px]` 屬錯誤寫法；應為 `tablet:pb-41` |
+| **例外** | 稿面 **非 4 的倍數**（例 37px）→ 先查 `dimensions.css` 是否已有 token；仍無則 `mt-[37px]` 或補 token（§1、§9） |
+
+**常見對照（AI 勿再發明任意 px）**
+
+| 稿面 | ✅ 寫法 | ❌ 勿寫 |
+|------|---------|---------|
+| 60px | `pt-15` / `py-15` / `gap-15` | `pt-[60px]` |
+| 80px | `p-20` / `gap-20` | `p-[80px]` |
+| 120px | `pb-30` / `pt-30` | `pb-[120px]` |
+| 140px | `pb-35` / `gap-35` | `pb-[140px]` |
+| 164px | `pb-41` | `pb-[164px]` |
+
+`dimensions.css` 的 `--space-15`（60px）、`--space-20`（80px）、`--space-35`（140px）是 **CSS 變數／文件對照**；JSX 大間距仍用 **同名 scale 數字**（`pt-15`），**不必**也**不要**為每個稿面 px 新增 `--space-*` 或寫 `[…px]`，除非該值**無法**用 ÷4 對齊（見例外）。
+
+```tsx
+// ✅
+shellClassName={cn(
+  "pt-15 pb-30",
+  "tablet:pt-30 tablet:pb-41",
+)}
+
+// ❌ 禁止（與上同視覺，但破壞全站一致）
+shellClassName="pt-15 pb-[120px] tablet:pt-30 tablet:pb-[164px]"
+```
 
 ### 5.1 Tailwind `class` 順序（必須遵守）
 
@@ -267,7 +348,7 @@ className={cn(
 
 - 每個 `cn()` 參數字串內部仍遵守 **§5.1**；提交前執行 `npm run format`。
 - 跨元件共用的 duration／easing 用 `siteMotion.ts`（例：`SITE_MOTION`）或 `headerMotion.ts` 別名，勿在 JSX 重複寫死 `duration-[450ms]`。
-- **數值對稿**：間距 4～24px 用 Tailwind `1`～`6`；60/80/140px 用 `15`/`20`/`35` 或 `dimensions` 的 `--space-15` 等；圓角用 `rounded-xs`～`5xl`；grid 用 `--layout-*`；漸層用 `effects.css`。
+- **數值對稿**：間距遵守 **§5.0**（4～24px → `1`～`6`；60/80/120/140/164px → `15`/`20`/`30`/`35`/`41` 等，**禁止** `[…px]`）；圓角用 `rounded-xs`～`5xl`；grid 用 `--layout-*`；漸層用 `effects.css`。
 
 #### 示例
 
@@ -415,7 +496,7 @@ className={cn(
 2. 從稿面取：**背景色、標題字級（typo-*）、欄數、斷點行為**。
 3. 用 `SectionPanelLayout` + `grid`/`flex` 搭骨架，再填文案與圖片佔位。
 4. 加上語意標籤、`aria-*`、heading `id` 與 page `metadata`（§6）。
-5. 檢查 class 順序（§5.1）、`cn()` 分層（§5.2）、format；未使用任意色碼/字級；斷點正確；滿版背景在外層。
+5. 檢查 class 順序（§5.1）、間距 scale（§5.0）、`cn()` 分層（§5.2）、format；未使用任意色碼/字級；斷點正確；滿版背景在外層。
 
 ---
 
@@ -428,7 +509,8 @@ className={cn(
 - [ ] Header `layout-header-shell`；Mega Menu 若對 Medium 稿需 40px 左右（現 80）
 - [ ] 滿版背景在 `section`（shell 外層），不在 container alone
 - [ ] 色彩為 `navy-*` / `sky-*` / `gray-*` / 語意色
-- [ ] 文字為 `typo-*`，無多餘 `font-*` 覆寫
+- [ ] 文字為 `typo-*`，無多餘 `font-*` 覆寫；未在 JSX 用 arbitrary 字級引用 type-scale（§4.2.1）
+- [ ] 字級／字距特例用 Tailwind scale 或單處任意值；非多處重複才改 `type-scale.css`
 - [ ] RWD 使用 `tablet:` / `desktop:` / `wide:`，Mobile First
 - [ ] 使用 `header` / `main` / `section` / `article` / `nav` / `footer` 等語意標籤
 - [ ] 全頁一個 `h1`；heading 不跳級；section 具 `id`、`aria-labelledby`
@@ -436,7 +518,8 @@ className={cn(
 - [ ] 連結與圖片 `alt` 文字對 SEO／螢幕閱讀器有意義
 - [ ] Tailwind class 順序符合 §5.1（或已 `npm run format`）
 - [ ] 有條件／衝突時用 `cn()`，且符合 §5.2 分層（含 RWD 歸屬）；靜態短 class 不濫用 `cn()`
-- [ ] 無大量任意 `[px]` / `[#hex]`（除非已註記缺 token）
+- [ ] 間距符合 **§5.0**（4 的倍數勿寫 `pb-[164px]` 等；與同區塊 `pt-30` 等寫法一致）
+- [ ] 無大量任意 `[px]` / `[#hex]`（字型／非 4 倍數間距等，除非已註記缺 token）
 
 ---
 
