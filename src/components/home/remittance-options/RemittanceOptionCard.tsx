@@ -28,8 +28,8 @@ export function RemittanceOptionCard({
     <article
       aria-labelledby={`remittance-option-${index}-title`}
       className={cn(
-        "flex min-w-0 w-full flex-col border border-navy-100 bg-white",
-        "rounded-[24px_12px] p-4 shadow-s",
+        "border-navy-100 flex w-full min-w-0 flex-col border bg-white",
+        "shadow-s rounded-[24px_12px] p-4",
         "tablet:self-start tablet:rounded-(--radius-remittance-option-card) tablet:p-6 tablet:shadow-l",
         className,
       )}
@@ -40,11 +40,11 @@ export function RemittanceOptionCard({
           "tablet:flex-col tablet:gap-0",
         )}
       >
-        <div className="flex min-w-0 flex-1 flex-col items-start gap-2 tablet:flex-none">
+        <div className="tablet:flex-none flex min-w-0 flex-1 flex-col items-start gap-2">
           <div
             className={cn(
               "flex w-[26px] shrink-0 flex-col items-center justify-center rounded-lg bg-sky-600 p-1 text-white",
-              "typo-body6-m leading-none tablet:typo-body5",
+              "typo-body6-m tablet:typo-body5 leading-none",
               "tablet:w-10 tablet:rounded-xl tablet:p-2",
             )}
             aria-hidden
@@ -79,7 +79,7 @@ export function RemittanceOptionCard({
               "tablet:flex tablet:size-auto tablet:aspect-auto tablet:min-h-0 tablet:w-full tablet:flex-col tablet:items-center tablet:gap-2.5 tablet:rounded-xl tablet:bg-sky-50",
             )}
           >
-            <div className="relative aspect-square size-full tablet:w-full tablet:max-w-[min(100%,200px)] tablet:shrink-0">
+            <div className="tablet:w-full tablet:max-w-[min(100%,200px)] tablet:shrink-0 relative aspect-square size-full">
               <Image
                 src={image}
                 alt={imageAlt}
@@ -95,7 +95,7 @@ export function RemittanceOptionCard({
       <a
         href="#"
         className={cn(
-          "typo-body2-m text-navy-500 hidden items-center gap-1 self-end tablet:mt-5 tablet:inline-flex",
+          "typo-body2-m text-navy-500 tablet:mt-5 tablet:inline-flex hidden items-center gap-1 self-end",
           "focus-visible:ring-navy-500 outline-none focus-visible:ring-2 focus-visible:ring-offset-2",
         )}
       >

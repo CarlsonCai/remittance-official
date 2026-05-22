@@ -18,10 +18,7 @@ export function useDownloadStoreVisibility() {
     const sync = () => {
       setIsMobileLayout(media.matches);
       setPlatform(
-        detectDownloadPlatform(
-          navigator.userAgent,
-          navigator.maxTouchPoints,
-        ),
+        detectDownloadPlatform(navigator.userAgent, navigator.maxTouchPoints),
       );
     };
     sync();

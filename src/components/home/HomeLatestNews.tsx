@@ -80,7 +80,7 @@ export function HomeLatestNews() {
                       </span>
 
                       <time
-                        className="text-navy-500 ml-5 overflow-hidden text-ellipsis text-sm font-medium leading-[130%] tracking-[0.28px]"
+                        className="text-navy-500 ml-5 overflow-hidden text-sm leading-[130%] font-medium tracking-[0.28px] text-ellipsis"
                         dateTime="2026-01-01"
                       >
                         2026.01.01
@@ -88,7 +88,7 @@ export function HomeLatestNews() {
 
                       <button
                         type="button"
-                        className="text-navy-500 ml-auto inline-flex items-center gap-1 text-sm leading-[140%] font-medium tracking-[0.28px] capitalize tablet:hidden"
+                        className="text-navy-500 tablet:hidden ml-auto inline-flex items-center gap-1 text-sm leading-[140%] font-medium tracking-[0.28px] capitalize"
                       >
                         VIEW MORE
                         <ArrowRightIcon size={20} className="text-navy-500" />
@@ -100,7 +100,7 @@ export function HomeLatestNews() {
                     >
                       春季匯款大賞，西聯匯款手續費8折，指定國家再享匯率減讓
                     </h3>
-                    <p className="typo-body3-r mt-4 hidden tablet:line-clamp-2">
+                    <p className="typo-body3-r tablet:line-clamp-2 mt-4 hidden">
                       手續費、電報費怎麼算?
                       幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。手續費、電報費怎麼算?
                       幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。

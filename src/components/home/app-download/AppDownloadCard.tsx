@@ -20,12 +20,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         "tablet:gap-5 tablet:p-7",
       )}
     >
-      <div
-        className={cn(
-          "flex flex-col items-center gap-4",
-          "tablet:gap-5",
-        )}
-      >
+      <div className={cn("flex flex-col items-center gap-4", "tablet:gap-5")}>
         <div
           className={cn(
             "relative flex aspect-square w-20 shrink-0 flex-col items-start overflow-hidden rounded-[13px] border border-gray-300",
@@ -44,7 +39,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
           <h3
             id={`app-card-${index}-title`}
             className={cn(
-              "typo-sub1-s text-navy-900 text-center capitalize tracking-[0.4px]",
+              "typo-sub1-s text-navy-900 text-center tracking-[0.4px] capitalize",
               "tablet:text-2xl tablet:tracking-[0.48px]",
             )}
           >
@@ -71,7 +66,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         </div>
       </div>
 
-      <div className="hidden w-full items-start gap-6 tablet:flex">
+      <div className="tablet:flex hidden w-full items-start gap-6">
         <div
           className={cn(
             "border-navy-100 flex aspect-square size-[100px] shrink-0 items-center justify-center rounded-[6.733px] border",

@@ -6,16 +6,16 @@
 
 ## 1. 樣式從哪裡載入（`globals.css` 順序）
 
-| 順序 | 檔案              | 層級                 | 內容                                                 |
-| ---- | ----------------- | -------------------- | ---------------------------------------------------- |
-| 1    | `palette.css`     | Primitive            | 色票 `--sky-*`、`--navy-*`、`--gray-*`               |
-| 2    | `type-scale.css`  | Primitive            | 字重、字号、行高、字距                               |
-| 3    | `effects.css`     | Primitive            | 陰影 `--shadow-*-source`                             |
-| 4    | `dimensions.css`  | Primitive → Semantic | 間距、圓角、尺寸、動效、grid、`--bp-*` 斷點          |
-| 5    | `semantic.css`    | Semantic             | `--background`、`--foreground`                       |
-| 6    | `theme.css`       | Tailwind 橋接        | `bg-sky-*`、`tablet:`、`shadow-s`    |
-| 7    | `tailwindcss`     | —                    | 框架                                                 |
-| 8    | `typography.css`  | Utility              | `typo-*` 工具類                                      |
+| 順序 | 檔案              | 層級                 | 內容                                                                         |
+| ---- | ----------------- | -------------------- | ---------------------------------------------------------------------------- |
+| 1    | `palette.css`     | Primitive            | 色票 `--sky-*`、`--navy-*`、`--gray-*`                                       |
+| 2    | `type-scale.css`  | Primitive            | 字重、字号、行高、字距                                                       |
+| 3    | `effects.css`     | Primitive            | 陰影 `--shadow-*-source`                                                     |
+| 4    | `dimensions.css`  | Primitive → Semantic | 間距、圓角、尺寸、動效、grid、`--bp-*` 斷點                                  |
+| 5    | `semantic.css`    | Semantic             | `--background`、`--foreground`                                               |
+| 6    | `theme.css`       | Tailwind 橋接        | `bg-sky-*`、`tablet:`、`shadow-s`                                            |
+| 7    | `tailwindcss`     | —                    | 框架                                                                         |
+| 8    | `typography.css`  | Utility              | `typo-*` 工具類                                                              |
 | 9    | `layout-grid.css` | Component            | `.layout-shell`、`.layout-header-shell`、`.layout-container`、`.layout-grid` |
 
 **改數值去哪裡**
@@ -32,12 +32,12 @@
 
 ### 1.1 `dimensions.css` 用法
 
-| 層級       | 前綴例                                                                  |
-| ---------- | ----------------------------------------------------------------------- |
+| 層級       | 前綴例                                                                                                    |
+| ---------- | --------------------------------------------------------------------------------------------------------- |
 | Primitive  | `--space-15`/`20`/`35`、`--radius-5xl-size`、`--motion-*`；4～24px 間距與 2～32px 圓角用 Tailwind utility |
-| 元件尺寸   | `--size-*`（固定 px，非 spacing scale；與 `--space-*` 相同數值時直接用 space） |
-| Layout     | `--layout-margin-*`、`--layout-margin-header`（48px）、`--layout-gutter-*`（`layout-grid.css`） |
-| Breakpoint | `--bp-tablet`、`--bp-desktop`、`--bp-wide`（`theme` 的 `tablet:` 來源） |
+| 元件尺寸   | `--size-*`（固定 px，非 spacing scale；與 `--space-*` 相同數值時直接用 space）                            |
+| Layout     | `--layout-margin-*`、`--layout-margin-header`（48px）、`--layout-gutter-*`（`layout-grid.css`）           |
+| Breakpoint | `--bp-tablet`、`--bp-desktop`、`--bp-wide`（`theme` 的 `tablet:` 來源）                                   |
 
 間距：4～24px → Tailwind `1`～`6`；60/80/140px → `15`/`20`/`35`（`dimensions` 亦定義 `--space-15` 等供 CSS 引用）。圓角：2～32px → `rounded-xs`～`4xl`；60px → `rounded-5xl`（`dimensions` `--radius-5xl-size`）。
 
@@ -83,19 +83,19 @@
 
 ### 5.1 三個 layout class
 
-| Class               | 作用                                           |
-| ------------------- | ---------------------------------------------- |
-| `.layout-shell`     | 全寬 + `padding-inline`（`--layout-margin-*`） |
+| Class                  | 作用                                                                                                 |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| `.layout-shell`        | 全寬 + `padding-inline`（`--layout-margin-*`）                                                       |
 | `.layout-header-shell` | Header 全寬；**&lt;1024：`--layout-margin-sm`（20px）**；**≥1024：`--layout-margin-header`（48px）** |
-| `.layout-container` | `width: 100%`；左右 margin 由內層或外層 `layout-shell` |
-| `.layout-grid`      | 欄數 + gutter                                  |
+| `.layout-container`    | `width: 100%`；左右 margin 由內層或外層 `layout-shell`                                               |
+| `.layout-grid`         | 欄數 + gutter                                                                                        |
 
 ### 5.2 稿數值（Small / Medium / Large）
 
-| 階層   | 視窗      | margin | Container | 欄數 | Gutter |
-| ------ | --------- | ------ | --------- | ---- | ------ |
-| Small  | ≤1023     | 20px   | 撐滿（稿面 artboard 390） | 4    | 16px   |
-| Medium | 1024–1439 | 40px   | 撐滿（有效寬≈944@1024） | 12   | 20px   |
+| 階層   | 視窗      | margin | Container                                | 欄數 | Gutter |
+| ------ | --------- | ------ | ---------------------------------------- | ---- | ------ |
+| Small  | ≤1023     | 20px   | 撐滿（稿面 artboard 390）                | 4    | 16px   |
+| Medium | 1024–1439 | 40px   | 撐滿（有效寬≈944@1024）                  | 12   | 20px   |
 | Large  | ≥1440     | 80px   | 撐滿（整頁 cap 見 `.page-layout` ≥1560） | 12   | 24px   |
 
 `layout-grid.css` / `typography.css` 的 media 寫死 `1024px` / `1440px`（與 `--bp-*` 同步；Tailwind／PostCSS 斷點不可用 `var()`）。

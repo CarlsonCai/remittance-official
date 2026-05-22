@@ -40,9 +40,7 @@ export function MobileNavAccordion({
     <li
       className={cn(
         isCta && "bg-sky-50",
-        isCta &&
-          expanded &&
-          "overflow-hidden rounded-b-2xl",
+        isCta && expanded && "overflow-hidden rounded-b-2xl",
       )}
     >
       <button
@@ -103,8 +101,7 @@ export function MobileNavAccordion({
                       "block w-full border-b border-white bg-sky-50 py-3 ps-6 pe-3 hover:bg-sky-100",
                       "typo-body2-m text-navy-900",
                       "transition-colors",
-                      index === links.length - 1 &&
-                        "rounded-b-2xl",
+                      index === links.length - 1 && "rounded-b-2xl",
                     )}
                     onClick={onNavigate}
                     tabIndex={expanded ? undefined : -1}
