@@ -30,6 +30,13 @@
   /* 稿面色標在 29.65% 結束；放大背景讓整段漸層橫跨文字寬（對齊 Figma 文字填色） */
   --gradient-app-download-heading-size: calc(100% / 0.2965);
 
+  /* Headline/H2/1440up — 最新消息主標 */
+  --gradient-latest-news-heading: linear-gradient(
+    90deg,
+    var(--navy-900) 0%,
+    var(--navy-500) 54.41%
+  );
+
   --shadow-l-source:
     45px 22px 50px 0 rgba(0, 0, 0, 0.04), 11px 6px 27px 0 rgba(0, 0, 0, 0.05);
   --shadow-s-source:
