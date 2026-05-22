@@ -7,7 +7,7 @@ export default function NotFound() {
     <div className="bg-background flex min-h-full flex-1 flex-col font-sans">
       <PageLayout>
         <main className="layout-shell flex min-h-full flex-1 flex-col">
-          <div className="layout-container bg-background flex min-h-full flex-1 flex-col justify-center py-24">
+          <div className="bg-background flex min-h-full flex-1 flex-col justify-center py-24">
             <div className="layout-grid">
               <div className="tablet:col-span-12 col-span-4 flex flex-col gap-6 text-center">
                 <h1 className="typo-h1 text-navy-900">找不到頁面</h1>

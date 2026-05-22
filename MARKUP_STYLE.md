@@ -40,15 +40,15 @@
 ```
 (site)/layout
   <PageLayout>              ← 整頁：≥1560 外側留白（.page-layout），不含 shell
-    <Header />              ← layout-header-shell（&lt;1024：20px；≥1024：48px）+ layout-container
+    <Header />              ← layout-header-shell（&lt;1024：20px；≥1024：48px）
     <main>
       <section>             ← 滿版背景
-        <SectionPanelLayout>  ← py → container → [Panel] → shell
+        <SectionPanelLayout>  ← [Panel 可選] → shell
           內容
         </SectionPanelLayout>
       </section>
     </main>
-    <Footer />              ← layout-shell → layout-container（與 §3.5 B 型等價，可改 A 型統一）
+    <Footer />              ← layout-shell
   </PageLayout>
 ```
 
@@ -56,12 +56,11 @@
 |------|------|------|
 | **`PageLayout`**（`.page-layout`） | **整頁**欄寬；≥1560 時 max 1440 置中，兩側**外部**留白 | `(site)/layout.tsx` 包 Header、`{children}`、Footer；**不含** `layout-shell` |
 | 外層 `section` / `footer` | 滿版底色、圓角 | `w-full` + `bg-*`；背景在 shell **外**（或 section 包 shell） |
-| **`layout-shell`** | 左右 margin（20 / 40 / 80） | 見 §3.5：**A 型**在 `layout-container` 內；**B 型**包 container 外（Footer，等價） |
+| **`layout-shell`** | 左右 margin（20 / 40 / 80） | 直接包內容；Panel 存在時在 Panel **內** |
 | **`layout-header-shell`** | Header 導覽列左右：**&lt;1024 → 20px**；**≥1024 → 48px** | `Header.tsx`；行動選單 `px` 用 `--layout-margin-sm`（與小螢幕 shell 同值） |
-| **`layout-container`** | 區塊內容欄寬 | **一律 `width: 100%`**；左右由 `layout-shell` margin（20/40/80）；390／944 僅稿面 artboard 對照；整頁 cap 見 `.page-layout` |
 | **Mega Menu 內層**（匯款服務） | 全寬白底面板；內容區 `padding` 依稿 | `HeaderServiceMegaMenuPanel`：內層 `px-(--layout-margin-lg)`（80px）+ `max-w-(--layout-container-lg)`；**不走** `layout-header-shell` |
 
-**`SectionPanelLayout`**（`SectionPanelLayout.tsx`）= `py-16 tablet:py-20` → `layout-container` → **[Panel 可選]** → `layout-shell` → 內容。無 Panel 時省略中間層；有漸層／大圓角時傳 `panelClassName`（見 `src/components/home/remittance-options/HomeRemittanceOptions.tsx`）。
+**`SectionPanelLayout`**（`SectionPanelLayout.tsx`）= **[Panel 可選]** → `layout-shell` → 內容。無 Panel 時 shell 直接包內容；有漸層／大圓角時傳 `panelClassName`（見 `src/components/home/remittance-options/HomeRemittanceOptions.tsx`）。
 
 ### 3.2 何時使用（區塊 vs 元件）
 
@@ -69,32 +68,30 @@
 |------|----------|------|
 | **全站** | ✅ `PageLayout` 一層 | 僅整頁寬與 ≥1560 置中；不取代各區 `layout-shell` |
 | **大區塊**（`Home*`） | ✅ `<section>` + `SectionPanelLayout` | 背景在 `section`；有 Panel 傳 `panelClassName`（§7） |
-| **404、無 site layout 的頁** | ✅ `PageLayout` + `SectionPanelLayout` 或 §3.5 B | 建議與首頁同元件 |
-| **內頁 Placeholder**（在 site layout 內） | ✅ 建議改 `SectionPanelLayout` | 現為 B 型（shell 包 container） |
-| **Header** | ✅ `layout-header-shell` + `layout-container` | **&lt;1024：20px**；**≥1024：48px**（非 grid 40） |
-| **Footer** | ✅ `layout-shell` → `layout-container` | B 型；寬度與 A 型等價，可之後統一 |
-| **小元件**（Card、按鈕） | ❌ 不要 layout-shell | 已在父層 container 內 |
+| **404、無 site layout 的頁** | ✅ `PageLayout` + `SectionPanelLayout` | 建議與首頁同元件 |
+| **內頁 Placeholder**（在 site layout 內） | ✅ 建議改 `SectionPanelLayout` | — |
+| **Header** | ✅ `layout-header-shell` | **&lt;1024：20px**；**≥1024：48px**（非 grid 40） |
+| **Footer** | ✅ `layout-shell` | 直接包內容 |
+| **小元件**（Card、按鈕） | ❌ 不要 layout-shell | 已在父層 shell 內 |
 | **`page.tsx`** | 不包 PageLayout | 由 `(site)/layout` 已包；只列 `Home*` |
 
 ```
 (site)/layout → PageLayout
   └─ HomeHero
        └─ <section class="bg-…">
-            └─ <SectionPanelLayout>  → py → container → [Panel] → shell
+            └─ <SectionPanelLayout>  → [Panel] → shell
                  └─ 內容
 ```
 
 ### 3.3 優先使用的元件／class
 
 - **區塊級內容**：`<SectionPanelLayout>`（見 §3.2、§7）。
-- **12 欄格線**：`layout-grid`（放在 `layout-container` **內**；欄數與 gutter 已依斷點設定）。
+- **12 欄格線**：`layout-grid`（放在 `layout-shell` **內**；欄數與 gutter 已依斷點設定）。
 - **內部排版**：可用 Tailwind `grid` / `flex`，欄位跨度對齊 12 欄邏輯（例：`tablet:col-span-4`），間距優先使用 gutter 倍數（`gap-6`、`gap-8` 等），與稿一致即可。
 
 ### 3.4 禁止的版面做法
 
-- 不要用 `max-w-screen-xl` 等**未在專案定義**的 container 取代 `layout-container`。
 - **禁止**在 `PageLayout` 上再加 `layout-shell`（會與各區塊 shell 疊兩層 margin）。
-- **禁止**把 `--layout-container-sm`（390）或 `--layout-container-md`（944）當成 `layout-container` 的 `max-width`（稿面 artboard／1024 有效寬，不是 cap）。
 - **禁止** Panel 外層 `layout-shell` + Panel 內層再 `layout-shell`（或外層 shell + 內層 `px-20`）疊兩層 margin。
 - 不要在每個區塊重複發明 `px-4 md:px-8`；左右 margin 走 `layout-shell` / `layout-header-shell`。
 - 不要把 Header／Mega Menu／Footer 的特例 padding 複製到所有內容區。
@@ -109,20 +106,15 @@
 | Medium | 1024–1439 | **40px** | 20px | 12 |
 | Large | ≥1440 | **80px** | 24px | 12 |
 
-`layout-container`：**一律 `width: 100%`、`max-width: none`**；390／944 僅對照用，不寫進 CSS cap。
-
-**A 型（`SectionPanelLayout`、首頁 `Home*`）**
+**`SectionPanelLayout`、首頁 `Home*`、Footer**
 
 ```
 section（可滿版 bg）
   py-16 tablet:py-20          ← 區塊與區塊之間
-    layout-container          ← 100% 寬
-      [Panel 可選：滿寬漸層/圓角]
-        layout-shell          ← 稿面 margin 在這
-          內容
+    [Panel 可選：滿寬漸層/圓角]
+      layout-shell            ← 稿面 margin 在這（Small 20 / Medium 40 / Large 80）
+        內容
 ```
-
-**B 型（Footer、Placeholder 現狀）**：`layout-shell` 包 `layout-container`。在 `container` 為 100% 寬時，**內容有效寬與 A 型相同**；新區塊優先用 A 型。
 
 **例外**
 
@@ -209,7 +201,7 @@ className="typo-sub1-s tablet:text-2xl tablet:tracking-[0.48px]"
 
 - **區塊上下間距**：內容區優先依 `SectionPanelLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
 - **元件內距**：卡片等參考 `RemittanceOptionCard`（`src/components/home/remittance-options/RemittanceOptionCard.tsx`，`p-6 tablet:p-8`）。
-- **最大寬度**：長文/副標可用 `max-w-2xl` 等；區塊全寬由 `layout-container`（100%）+ `layout-shell` margin 決定。
+- **最大寬度**：長文/副標可用 `max-w-2xl` 等；區塊全寬由 `layout-shell` margin（20/40/80）決定。
 - **間距尺度**：遵守 **§5.0**；小間距用 `4`、`6`、`8`…，大間距用 scale 數字（`15`、`30`、`41`…），避免 `mt-[22px]`、`pb-[164px]`。
 - **合併 class**：有條件或需 `tailwind-merge` 時用 `cn()`（`@/lib/utils`）；規則見 **§5.2**。
 
@@ -278,7 +270,7 @@ className={cn(
 ```
 
 - **禁止**：同一元素上隨意排列（如 `text-white bg-navy-900 flex p-4` 與 `flex p-4 bg-navy-900 text-white` 混用風格）；提交前以 format 結果為準。
-- 自訂 class（`layout-container`、`typo-h2`）在插件排序中通常靠前；與 Tailwind utility 混用時仍跑 `npm run format`。
+- 自訂 class（`layout-shell`、`typo-h2`）在插件排序中通常靠前；與 Tailwind utility 混用時仍跑 `npm run format`。
 
 ### 5.2 `cn()` 語意分層（建議遵守）
 
@@ -445,7 +437,7 @@ className={cn(
 ```
 
 - 區塊背景在 **`section` 上**（例：`HomeHero` `bg-sky-50`）。
-- 無 Panel 時省略 `panelClassName`，結構為 `container` → `shell`。
+- 無 Panel 時省略 `panelClassName`，`layout-shell` 直接包內容。
 - 內距、排版可加在 `shellClassName`（例：`flex flex-col gap-18 py-30`）。
 
 ### 7.2 內層大面板（漸層／大圓角）
@@ -503,11 +495,10 @@ className={cn(
 ## AI 切版自檢（簡表）
 
 - [ ] `(site)/layout` 有 `PageLayout`；未在 PageLayout 上再包 shell
-- [ ] `layout-container` 無 390／944 `max-width` cap（§3.5）
 - [ ] 大區塊用 `SectionPanelLayout`（§7）；有 Panel 傳 `panelClassName`
 - [ ] 漸層 Panel 勿在 `SectionPanelLayout` 外再包 `layout-shell`（§7.2）
 - [ ] Header `layout-header-shell`；Mega Menu 若對 Medium 稿需 40px 左右（現 80）
-- [ ] 滿版背景在 `section`（shell 外層），不在 container alone
+- [ ] 滿版背景在 `section`（shell 外層）
 - [ ] 色彩為 `navy-*` / `sky-*` / `gray-*` / 語意色
 - [ ] 文字為 `typo-*`，無多餘 `font-*` 覆寫；未在 JSX 用 arbitrary 字級引用 type-scale（§4.2.1）
 - [ ] 字級／字距特例用 Tailwind scale 或單處任意值；非多處重複才改 `type-scale.css`

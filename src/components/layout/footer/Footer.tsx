@@ -15,7 +15,7 @@ export function Footer() {
       <div className="layout-shell tablet:pt-15 tablet:pb-8 pt-8 pb-5">
         <div
           className={cn(
-            "layout-container flex flex-col items-start gap-10",
+            "flex flex-col items-start gap-10",
             "tablet:items-center tablet:gap-35",
           )}
         >

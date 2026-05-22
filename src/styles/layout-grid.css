@@ -1,5 +1,5 @@
 /*
- * 版型元件：.page-layout / .layout-shell / .layout-header-shell / .layout-container / .layout-grid。
+ * 版型元件：.page-layout / .layout-shell / .layout-header-shell / .layout-grid。
  * 數值變數見 dimensions.css；斷點 media 與 --bp-* 同步。
  * page-layout：整頁 ≥1560 外側留白；layout-shell：大區塊內部左右 margin；Header 用 layout-header-shell（&lt;1024：20px；≥1024：48px）。
  */
@@ -37,13 +37,6 @@
     .layout-shell {
       padding-inline: var(--layout-margin-lg);
     }
-  }
-
-  /* 寬度 100%；左右 margin 由 layout-shell（Small 20 / Medium 40 / Large 80）。390 為稿面 artboard 對照，不作 max-width cap */
-  .layout-container {
-    width: 100%;
-    max-width: none;
-    margin-inline: auto;
   }
 
   .layout-grid {

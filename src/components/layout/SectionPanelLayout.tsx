@@ -17,15 +17,9 @@ export function SectionPanelLayout({
     <div className={cn("layout-shell", shellClassName)}>{children}</div>
   );
 
-  return (
-    <div className="layout-container">
-      {panelClassName ? (
-        <div className={cn("w-full overflow-hidden", panelClassName)}>
-          {shell}
-        </div>
-      ) : (
-        shell
-      )}
-    </div>
+  return panelClassName ? (
+    <div className={cn("w-full overflow-hidden", panelClassName)}>{shell}</div>
+  ) : (
+    shell
   );
 }
