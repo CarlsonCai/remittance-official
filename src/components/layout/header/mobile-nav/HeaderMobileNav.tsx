@@ -4,10 +4,8 @@ import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 
 import { useMobileNavAccordion } from "@/hooks/useMobileNavAccordion";
-import {
-  HEADER_MOBILE_NAV_ITEM_FADE_DELAY,
-  HEADER_MOTION,
-} from "@/lib/headerMotion";
+import { SITE_MOTION, SITE_MOTION_DELAY_SHORT } from "@/lib/siteMotion";
+import { PortalBackdrop } from "@/components/ui/PortalBackdrop";
 import {
   HEADER_MOBILE_CTA_ITEM,
   HEADER_MOBILE_LIST_ITEMS,
@@ -16,17 +14,16 @@ import {
 } from "@/lib/headerNav";
 import { cn } from "@/lib/utils";
 
-import { MobileNavBackdrop } from "./MobileNavBackdrop";
 import { HeaderMobileNavCta, HeaderMobileNavItem } from "./HeaderMobileNavItem";
 
-const panelMotion = `transition-[grid-template-rows] ${HEADER_MOTION}`;
-const contentFadeMotion = `transition-opacity ${HEADER_MOTION}`;
+const panelMotion = `transition-[grid-template-rows] ${SITE_MOTION}`;
+const contentFadeMotion = `transition-opacity ${SITE_MOTION}`;
 
 function mobileNavListFadeClass(open: boolean) {
   return cn(
     contentFadeMotion,
     open ? "opacity-100" : "opacity-0 delay-0",
-    open && HEADER_MOBILE_NAV_ITEM_FADE_DELAY,
+    open && SITE_MOTION_DELAY_SHORT,
   );
 }
 
@@ -43,7 +40,7 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
 
   return (
     <>
-      <MobileNavBackdrop open={open} onClose={onClose} />
+      <PortalBackdrop open={open} onClose={onClose} className="tablet:hidden" />
 
       <div
         id={MOBILE_NAV_PANEL_ID}

@@ -2,16 +2,14 @@
 
 import Link from "next/link";
 import { type ReactNode, useCallback, useId, useRef, useState } from "react";
-import { createPortal } from "react-dom";
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
-import { useIsClient } from "@/hooks/useIsClient";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
+import { PortalBackdrop } from "@/components/ui/PortalBackdrop";
 import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
 const panelTransition = `transition-[opacity,transform] ${SITE_MOTION}`;
-const backdropTransition = `transition-opacity ${SITE_MOTION}`;
 const chevronTransition = `transition-transform ${SITE_MOTION}`;
 
 export type NavDropdownItem = {
@@ -42,7 +40,6 @@ export function NavDropdown({
   triggerAriaLabel,
 }: NavDropdownProps) {
   const [open, setOpen] = useState(false);
-  const isClient = useIsClient();
   const rootRef = useRef<HTMLLIElement>(null);
   const panelDomId = `nav-dropdown-panel-${useId().replace(/:/g, "")}`;
 
@@ -54,19 +51,7 @@ export function NavDropdown({
 
   return (
     <li ref={rootRef} className={cn("relative list-none", className)}>
-      {isClient &&
-        createPortal(
-          <div
-            aria-hidden="true"
-            className={cn(
-              "fixed inset-0 z-40 bg-black/40",
-              backdropTransition,
-              open ? "opacity-100" : "pointer-events-none opacity-0",
-            )}
-            onClick={close}
-          />,
-          document.body,
-        )}
+      <PortalBackdrop open={open} onClose={close} />
 
       <button
         type="button"

@@ -295,7 +295,7 @@ className={cn(
 |------|------|--------|----------|
 | 1 | **表面** | `flex` / `grid`、`w-*` `h-*`、間距、`border-*`、`rounded-*`、**`bg-*`**、**`hover:bg-*`**、`shadow-*`、`focus-visible:outline-*` | `typo-*`、純 `text-*`（字色） |
 | 2 | **字形** | `typo-*` 與 `text-*` **同一參數字串**（例：`"typo-body1-m text-navy-900"`） | layout、`transition-*` |
-| 3 | **動畫** | `transition-*`；或檔頂常數 + `HEADER_MOTION`（見 `src/lib/headerMotion.ts`） | — |
+| 3 | **動畫** | `transition-*`；或檔頂常數 + `SITE_MOTION`（見 `src/lib/siteMotion.ts`） | — |
 | 4 | **狀態**（最後） | `expanded && "text-sky-600"`、`isLast && "rounded-b-…"`、`open ? "grid-rows-[1fr]" : "grid-rows-[0fr]"` | 固定、不隨狀態變的樣式 |
 
 - **背景色**（含占位 `bg-gray-200`、`bg-cover`）一律算**表面**，不要因拆行而誤當「第二層字形」。
@@ -339,7 +339,7 @@ className={cn(
 #### 與 §5.1、動效 token 的關係
 
 - 每個 `cn()` 參數字串內部仍遵守 **§5.1**；提交前執行 `npm run format`。
-- 跨元件共用的 duration／easing 用 `siteMotion.ts`（例：`SITE_MOTION`）或 `headerMotion.ts` 別名，勿在 JSX 重複寫死 `duration-[450ms]`。
+- 跨元件共用的 duration／easing 用 `siteMotion.ts`（例：`SITE_MOTION`），勿在 JSX 重複寫死 `duration-[450ms]`。
 - **數值對稿**：間距遵守 **§5.0**（4～24px → `1`～`6`；60/80/120/140/164px → `15`/`20`/`30`/`35`/`41` 等，**禁止** `[…px]`）；圓角用 `rounded-xs`～`5xl`；grid 用 `--layout-*`；漸層用 `effects.css`。
 
 #### 示例

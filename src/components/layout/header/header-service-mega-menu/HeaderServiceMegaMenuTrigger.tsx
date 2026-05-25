@@ -4,10 +4,10 @@ import type { RefObject } from "react";
 import { useTranslations } from "next-intl";
 
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
-import { HEADER_MOTION } from "@/lib/headerMotion";
+import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
-const chevronTransition = `transition-transform ${HEADER_MOTION}`;
+const chevronTransition = `transition-transform ${SITE_MOTION}`;
 
 type HeaderServiceMegaMenuTriggerProps = {
   open: boolean;

@@ -1,18 +1,16 @@
 "use client";
 
 import type { RefObject } from "react";
-import { createPortal } from "react-dom";
 import { useTranslations } from "next-intl";
 
 import { HEADER_SERVICE_MEGA_CARDS } from "@/lib/headerServiceMegaMenu";
-import { useIsClient } from "@/hooks/useIsClient";
-import { HEADER_MOTION } from "@/lib/headerMotion";
+import { PortalBackdrop } from "@/components/ui/PortalBackdrop";
+import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
 import { HeaderServiceMegaMenuCard } from "./HeaderServiceMegaMenuCard";
 
-const panelTransition = `transition-[opacity,transform] ${HEADER_MOTION}`;
-const backdropTransition = `transition-opacity ${HEADER_MOTION}`;
+const panelTransition = `transition-[opacity,transform] ${SITE_MOTION}`;
 
 type HeaderServiceMegaMenuPanelProps = {
   open: boolean;
@@ -27,24 +25,11 @@ export function HeaderServiceMegaMenuPanel({
   onClose,
   rootRef,
 }: HeaderServiceMegaMenuPanelProps) {
-  const isClient = useIsClient();
   const t = useTranslations("header");
 
   return (
     <>
-      {isClient &&
-        createPortal(
-          <div
-            aria-hidden="true"
-            className={cn(
-              "fixed inset-0 z-40 bg-black/40",
-              backdropTransition,
-              open ? "opacity-100" : "pointer-events-none opacity-0",
-            )}
-            onClick={onClose}
-          />,
-          document.body,
-        )}
+      <PortalBackdrop open={open} onClose={onClose} />
 
       <div
         ref={rootRef}

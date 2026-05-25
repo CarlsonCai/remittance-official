@@ -4,11 +4,11 @@ import Link from "next/link";
 import { type ReactNode, useId } from "react";
 
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
-import { HEADER_MOTION } from "@/lib/headerMotion";
+import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
-const accordionPanelMotion = `transition-[grid-template-rows] ${HEADER_MOTION}`;
-const chevronMotion = `transition-transform ${HEADER_MOTION}`;
+const accordionPanelMotion = `transition-[grid-template-rows] ${SITE_MOTION}`;
+const chevronMotion = `transition-transform ${SITE_MOTION}`;
 
 type NavLink = { href: string; label: string; onSelect?: () => void };
 

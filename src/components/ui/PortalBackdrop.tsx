@@ -3,17 +3,16 @@
 import { createPortal } from "react-dom";
 
 import { useIsClient } from "@/hooks/useIsClient";
-import { HEADER_MOTION } from "@/lib/headerMotion";
+import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
-const backdropMotion = `transition-opacity ${HEADER_MOTION}`;
-
-type MobileNavBackdropProps = {
+type PortalBackdropProps = {
   open: boolean;
   onClose: () => void;
+  className?: string;
 };
 
-export function MobileNavBackdrop({ open, onClose }: MobileNavBackdropProps) {
+export function PortalBackdrop({ open, onClose, className }: PortalBackdropProps) {
   const isClient = useIsClient();
 
   if (!isClient) return null;
@@ -22,9 +21,10 @@ export function MobileNavBackdrop({ open, onClose }: MobileNavBackdropProps) {
     <div
       aria-hidden="true"
       className={cn(
-        "tablet:hidden fixed inset-0 z-40 bg-black/40",
-        backdropMotion,
+        "fixed inset-0 z-40 bg-black/40",
+        `transition-opacity ${SITE_MOTION}`,
         open ? "opacity-100" : "pointer-events-none opacity-0",
+        className,
       )}
       onClick={onClose}
     />,
