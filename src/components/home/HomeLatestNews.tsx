@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
+import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
 
 import newsImage1 from "@/assets/images/latest-news/latest-news-1.png";
@@ -49,13 +50,13 @@ export function HomeLatestNews() {
               </span>
             </li>
           </ul>
-          <button
-            type="button"
-            className="bg-navy-500 typo-body1-b tablet:inline-flex mt-12 hidden items-center justify-center gap-2 rounded-xl py-4 pr-4 pl-5 text-white"
+          <Button
+            size="lg"
+            iconRight={<ArrowRightIcon size={24} />}
+            className="tablet:inline-flex mt-12 hidden"
           >
             閱讀更多
-            <ArrowRightIcon size={24} className="text-white" />
-          </button>
+          </Button>
         </aside>
         <div className="flex w-full min-w-0 flex-1 flex-col gap-8">
           <ul className="w-full space-y-4">
@@ -118,13 +119,7 @@ export function HomeLatestNews() {
             ))}
           </ul>
           <div className="tablet:hidden flex w-full justify-center">
-            <button
-              type="button"
-              className="bg-navy-500 typo-body1-b inline-flex items-center justify-center gap-2 rounded-xl py-4 pr-4 pl-5 text-white"
-            >
-              閱讀更多
-              <ArrowRightIcon size={24} className="text-white" />
-            </button>
+            <Button size="sm" iconRight={<ArrowRightIcon size={24} />}>閱讀更多</Button>
           </div>
         </div>
       </SectionPanelLayout>

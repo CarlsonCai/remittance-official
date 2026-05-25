@@ -476,7 +476,7 @@ className={cn(
 | 情況 | 做法 |
 |------|------|
 | 單一元件、一次性版面 | Tailwind class 寫在 JSX |
-| 重複 ≥3 次的相同 pattern | 考慮 `src/styles/*.css` 的 `@layer components` 或共用元件 |
+| 重複 ≥2 次的相同 pattern | 考慮 `src/styles/*.css` 的 `@layer components` 或共用元件 |
 | 新顏色／字級／斷點 | 擴充 `palette.css` / `typography.css` / `theme.css`，**不要**只在 JSX 堆任意值 |
 | 禁止 | 在元件內寫 `<style jsx>`、隨意新增全域 CSS 檔（未經任務要求） |
 

@@ -52,6 +52,10 @@
   --size-min-height-loading: 40vh;
   --size-button-height-md: 48px;
 
+  /* Button */
+  --size-btn-xl: 82px;
+  --size-btn-sm: 57px;
+
   /* ── Layout grid（layout-grid.css） ── */
   --layout-margin-header: 48px;
   --layout-margin-sm: 20px;
