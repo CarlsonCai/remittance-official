@@ -1,7 +1,6 @@
 "use client";
 
 import { useCallback, useId, useState } from "react";
-import { useTranslations } from "next-intl";
 
 import { HeaderServiceMegaMenu } from "@/components/layout/header/header-service-mega-menu";
 import { HamburgerIcon } from "@/components/layout/header/HamburgerIcon";
@@ -15,7 +14,6 @@ import { cn } from "@/lib/utils";
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonId = useId();
-  const t = useTranslations("header");
 
   const closeMenu = useCallback(() => setMenuOpen(false), []);
 
@@ -42,7 +40,7 @@ export function Header() {
                   )}
                   aria-controls={MOBILE_NAV_PANEL_ID}
                   aria-expanded={menuOpen}
-                  aria-label={menuOpen ? t("aria.closeMenu") : t("aria.openMenu")}
+                  aria-label={menuOpen ? "關閉主選單" : "開啟主選單"}
                   onClick={() => setMenuOpen((open) => !open)}
                 >
                   <HamburgerIcon open={menuOpen} />

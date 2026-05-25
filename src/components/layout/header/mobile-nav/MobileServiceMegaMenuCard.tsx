@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 
 import type { HeaderServiceMegaCard } from "@/lib/headerServiceMegaMenu";
 import { cn } from "@/lib/utils";
@@ -19,8 +18,6 @@ export function MobileServiceMegaMenuCard({
   onNavigate,
   tabIndex,
 }: MobileServiceMegaMenuCardProps) {
-  const t = useTranslations("header");
-
   return (
     <Link
       href={card.href}
@@ -33,17 +30,17 @@ export function MobileServiceMegaMenuCard({
     >
       <span className="flex min-w-0 flex-1 flex-col items-start gap-1">
         <span className="typo-body2-m text-navy-900">
-          {t(`serviceMega.${card.id}.title`)}
+          {card.title}
         </span>
         <p className="typo-body5-r text-navy-900">
-          {t(`serviceMega.${card.id}.description`)}
+          {card.description}
         </p>
       </span>
       <span
         className="flex w-(--size-media-card-thumb) shrink-0 self-stretch overflow-hidden rounded-sm bg-gray-200 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${card.image.src})` }}
         role="img"
-        aria-label={t(`serviceMega.${card.id}.imageAlt`)}
+        aria-label={card.imageAlt}
       />
     </Link>
   );

@@ -1,7 +1,6 @@
 "use client";
 
 import type { RefObject } from "react";
-import { useTranslations } from "next-intl";
 
 import { HEADER_SERVICE_MEGA_CARDS } from "@/lib/headerServiceMegaMenu";
 import { PortalBackdrop } from "@/components/ui/PortalBackdrop";
@@ -25,8 +24,6 @@ export function HeaderServiceMegaMenuPanel({
   onClose,
   rootRef,
 }: HeaderServiceMegaMenuPanelProps) {
-  const t = useTranslations("header");
-
   return (
     <>
       <PortalBackdrop open={open} onClose={onClose} />
@@ -51,10 +48,10 @@ export function HeaderServiceMegaMenuPanel({
                 "desktop:tracking-(--letter-spacing-h4-tight)",
               )}
             >
-              {t("serviceMega.title")}
+              匯款服務
             </h2>
             <p className="typo-body3-r text-navy-900">
-              {t("serviceMega.description")}
+              多種匯款服務選擇，給在異鄉的您最即時的支援。
             </p>
           </div>
 

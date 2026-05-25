@@ -1,6 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import { usePathname } from "@/i18n/navigation";
 
 import { useMobileNavAccordion } from "@/hooks/useMobileNavAccordion";
@@ -34,7 +33,6 @@ type HeaderMobileNavProps = {
 
 export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
   const { expandedId, toggle } = useMobileNavAccordion(open);
-  const t = useTranslations("header");
   const pathname = usePathname();
   const listFade = mobileNavListFadeClass(open);
 
@@ -56,7 +54,7 @@ export function HeaderMobileNav({ open, onClose }: HeaderMobileNavProps) {
         <div className="min-h-0 overflow-hidden">
           <nav
             className="min-w-0 px-(--layout-margin-sm) pt-2 pb-(--layout-margin-sm)"
-            aria-label={t("aria.mobileNav")}
+            aria-label="主選單（行動版）"
           >
             <ul
               className={cn(

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 
 import type { HeaderServiceMegaCard as HeaderServiceMegaCardData } from "@/lib/headerServiceMegaMenu";
 import { SITE_MOTION } from "@/lib/siteMotion";
@@ -23,8 +22,6 @@ export function HeaderServiceMegaMenuCard({
   card,
   onClose,
 }: HeaderServiceMegaMenuCardProps) {
-  const t = useTranslations("header");
-
   return (
     <li className="min-w-0">
       <Link
@@ -40,7 +37,7 @@ export function HeaderServiceMegaMenuCard({
             "group-hover:after:scale-x-100",
           )}
         >
-          {t(`serviceMega.${card.id}.title`)}
+          {card.title}
         </span>
         <div className="group/image relative aspect-4/3 w-full self-stretch overflow-hidden rounded-xl bg-gray-200">
           <div
@@ -54,9 +51,9 @@ export function HeaderServiceMegaMenuCard({
               backgroundImage: serviceMegaCardBackground(card.image.src),
             }}
           />
-          <span className="sr-only">{t(`serviceMega.${card.id}.imageAlt`)}</span>
+          <span className="sr-only">{card.imageAlt}</span>
           <p className="typo-body3-b absolute right-3 bottom-3 left-3 z-10 line-clamp-2 overflow-hidden text-white capitalize">
-            {t(`serviceMega.${card.id}.description`)}
+            {card.description}
           </p>
         </div>
       </Link>

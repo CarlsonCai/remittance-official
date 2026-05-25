@@ -1,7 +1,5 @@
 "use client";
 
-import { useTranslations } from "next-intl";
-
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
 import { Link } from "@/i18n/navigation";
 import {
@@ -37,7 +35,6 @@ export function HeaderMobileNavItem({
   onNavigate,
   currentPath,
 }: HeaderMobileNavItemProps) {
-  const t = useTranslations("header");
   const id = headerNavItemKey(item, index);
   const expanded = expandedId === id;
   const accordionProps = {
@@ -58,7 +55,7 @@ export function HeaderMobileNavItem({
           )}
           onClick={onNavigate}
         >
-          {t(item.label)}
+          {item.label}
         </Link>
       </li>
     );
@@ -66,7 +63,7 @@ export function HeaderMobileNavItem({
 
   if (item.kind === "serviceMega") {
     return (
-      <MobileNavAccordion {...accordionProps} triggerLabel={t("serviceMega.title")}>
+      <MobileNavAccordion {...accordionProps} triggerLabel="匯款服務">
         {HEADER_SERVICE_MEGA_CARDS.map((card, cardIndex) => (
           <li key={card.id}>
             <MobileServiceMegaMenuCard
@@ -83,14 +80,14 @@ export function HeaderMobileNavItem({
 
   if (item.kind === "menu") {
     const guideLinks = HEADER_GUIDE_MENU_ITEMS.map(({ label, href }) => ({
-      label: t(label),
+      label,
       href,
     }));
 
     return (
       <MobileNavAccordion
         {...accordionProps}
-        triggerLabel={t(item.label)}
+        triggerLabel={item.label}
         links={guideLinks}
       />
     );
@@ -106,11 +103,11 @@ export function HeaderMobileNavItem({
     return (
       <MobileNavAccordion
         {...accordionProps}
-        triggerLabel={t("nav.lang")}
+        triggerLabel="語言"
         triggerContent={
           <span className="flex items-center gap-2">
             <GlobeIcon aria-hidden="true" />
-            <span className="sr-only">{t("nav.lang")}</span>
+            <span className="sr-only">語言</span>
           </span>
         }
         links={langLinks}
@@ -134,10 +131,8 @@ export function HeaderMobileNavCta({
   onNavigate,
   ctaLabel,
 }: HeaderMobileNavCtaProps) {
-  const t = useTranslations("header");
-
   const remitLinks = HEADER_REMIT_MENU_ITEMS.map(({ label, href }) => ({
-    label: t(label),
+    label,
     href,
   }));
 
@@ -147,7 +142,7 @@ export function HeaderMobileNavCta({
       expanded={expandedId === MOBILE_NAV_CTA_ACCORDION_ID}
       onToggle={() => onToggleAccordion(MOBILE_NAV_CTA_ACCORDION_ID)}
       onNavigate={onNavigate}
-      triggerLabel={t(ctaLabel)}
+      triggerLabel={ctaLabel}
       links={remitLinks}
     />
   );

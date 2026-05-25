@@ -1,7 +1,6 @@
 "use client";
 
 import type { RefObject } from "react";
-import { useTranslations } from "next-intl";
 
 import { ChevronIcon } from "@/components/icons/ChevronIcon";
 import { SITE_MOTION } from "@/lib/siteMotion";
@@ -22,8 +21,6 @@ export function HeaderServiceMegaMenuTrigger({
   onToggle,
   rootRef,
 }: HeaderServiceMegaMenuTriggerProps) {
-  const t = useTranslations("header");
-
   return (
     <li ref={rootRef} className="relative list-none">
       <button
@@ -39,7 +36,7 @@ export function HeaderServiceMegaMenuTrigger({
         aria-controls={panelId}
         onClick={onToggle}
       >
-        {t("serviceMega.title")}
+        匯款服務
         <ChevronIcon
           className={cn(
             "opacity-70",

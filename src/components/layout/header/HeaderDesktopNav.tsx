@@ -1,7 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { useTranslations } from "next-intl";
 
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
 import { NavDropdown } from "@/components/ui/NavDropdown";
@@ -33,7 +32,6 @@ function HeaderDesktopNavItem({
   serviceMegaTrigger: ReactNode;
   pathname: string;
 }) {
-  const t = useTranslations("header");
   const key = headerNavItemKey(item, index);
 
   if (item.kind === "link") {
@@ -46,7 +44,7 @@ function HeaderDesktopNavItem({
             "transition-colors",
           )}
         >
-          {t(item.label)}
+          {item.label}
         </Link>
       </li>
     );
@@ -58,20 +56,20 @@ function HeaderDesktopNavItem({
 
   if (item.kind === "menu") {
     const guideItems = HEADER_GUIDE_MENU_ITEMS.map(({ label, href }) => ({
-      label: t(label),
+      label,
       href,
     }));
 
     return (
       <NavDropdown
         key={key}
-        menuAriaLabel={t("aria.guideMenu", { label: t(item.label) })}
+        menuAriaLabel={`${item.label}相關連結`}
         items={guideItems}
         triggerClassName={cn(
           "typo-body2-m text-navy-900 hover:text-navy-600",
           "transition-colors",
         )}
-        triggerContent={t(item.label)}
+        triggerContent={item.label}
         chevronClassName="opacity-70"
         panelClassName="mt-10"
       />
@@ -88,14 +86,14 @@ function HeaderDesktopNavItem({
     return (
       <NavDropdown
         key={key}
-        menuAriaLabel={t("aria.langMenu")}
+        menuAriaLabel="介面語言"
         items={langItems}
         triggerClassName={cn(
           "typo-body2-m text-navy-900 hover:text-sky-600",
           "transition-colors",
         )}
         triggerContent={<GlobeIcon className="opacity-80" />}
-        triggerAriaLabel={t("aria.selectLang")}
+        triggerAriaLabel="選擇介面語言"
         chevronClassName="opacity-70"
         panelClassName="mt-9"
       />
@@ -103,21 +101,21 @@ function HeaderDesktopNavItem({
   }
 
   const remitItems = HEADER_REMIT_MENU_ITEMS.map(({ label, href }) => ({
-    label: t(label),
+    label,
     href,
   }));
 
   return (
     <NavDropdown
       key={key}
-      menuAriaLabel={t("aria.remitMenu")}
+      menuAriaLabel="前往匯款管道"
       items={remitItems}
       triggerClassName={cn(
         "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-(--size-button-desktop-cta-height) w-(--size-button-desktop-cta-width) shrink-0 rounded-xl py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
         "typo-body2-m text-white",
         "transition-colors",
       )}
-      triggerContent={t(item.label)}
+      triggerContent={item.label}
       chevronClassName="text-white opacity-90"
       className="shrink-0"
       panelClassName="mt-6 min-w-(--size-dropdown-panel-min-width)"
@@ -128,13 +126,12 @@ function HeaderDesktopNavItem({
 export function HeaderDesktopNav({
   serviceMegaTrigger,
 }: HeaderDesktopNavProps) {
-  const t = useTranslations("header");
   const pathname = usePathname();
 
   return (
     <nav
       className="tablet:flex hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible"
-      aria-label={t("aria.mainNav")}
+      aria-label="主選單"
     >
       <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
         {HEADER_NAV_ITEMS.map((item, index) => (
