@@ -26,7 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="zh-Hant" className={`${manrope.variable} h-full antialiased`}>
+    <html
+      lang="zh-Hant"
+      className={`${manrope.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

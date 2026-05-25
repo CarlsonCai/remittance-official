@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const accordionPanelMotion = `transition-[grid-template-rows] ${HEADER_MOTION}`;
 const chevronMotion = `transition-transform ${HEADER_MOTION}`;
 
-type NavLink = { href: string; label: string };
+type NavLink = { href: string; label: string; onSelect?: () => void };
 
 export type MobileNavAccordionProps = {
   expanded: boolean;
@@ -103,7 +103,10 @@ export function MobileNavAccordion({
                       "transition-colors",
                       index === links.length - 1 && "rounded-b-2xl",
                     )}
-                    onClick={onNavigate}
+                    onClick={() => {
+                      link.onSelect?.();
+                      onNavigate();
+                    }}
                     tabIndex={expanded ? undefined : -1}
                   >
                     {link.label}

@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
+
+import { useTranslations } from "next-intl";
 
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
+import { Link } from "@/i18n/navigation";
 import {
   HEADER_GUIDE_MENU_ITEMS,
   HEADER_LANG_MENU_ITEMS,
@@ -23,6 +26,7 @@ type HeaderMobileNavItemProps = {
   expandedId: string | null;
   onToggleAccordion: (id: string) => void;
   onNavigate: () => void;
+  currentPath: string;
 };
 
 export function HeaderMobileNavItem({
@@ -31,7 +35,9 @@ export function HeaderMobileNavItem({
   expandedId,
   onToggleAccordion,
   onNavigate,
+  currentPath,
 }: HeaderMobileNavItemProps) {
+  const t = useTranslations("header");
   const id = headerNavItemKey(item, index);
   const expanded = expandedId === id;
   const accordionProps = {
@@ -52,7 +58,7 @@ export function HeaderMobileNavItem({
           )}
           onClick={onNavigate}
         >
-          {item.label}
+          {t(item.label)}
         </Link>
       </li>
     );
@@ -60,7 +66,7 @@ export function HeaderMobileNavItem({
 
   if (item.kind === "serviceMega") {
     return (
-      <MobileNavAccordion {...accordionProps} triggerLabel="匯款服務">
+      <MobileNavAccordion {...accordionProps} triggerLabel={t("serviceMega.title")}>
         {HEADER_SERVICE_MEGA_CARDS.map((card, cardIndex) => (
           <li key={card.id}>
             <MobileServiceMegaMenuCard
@@ -76,27 +82,38 @@ export function HeaderMobileNavItem({
   }
 
   if (item.kind === "menu") {
+    const guideLinks = HEADER_GUIDE_MENU_ITEMS.map(({ label, href }) => ({
+      label: t(label),
+      href,
+    }));
+
     return (
       <MobileNavAccordion
         {...accordionProps}
-        triggerLabel={item.label}
-        links={HEADER_GUIDE_MENU_ITEMS}
+        triggerLabel={t(item.label)}
+        links={guideLinks}
       />
     );
   }
 
   if (item.kind === "lang") {
+    const langLinks = HEADER_LANG_MENU_ITEMS.map(({ label, code }) => ({
+      label,
+      href: `/${code}${currentPath}`,
+      onSelect: () => localStorage.setItem("lang", code),
+    }));
+
     return (
       <MobileNavAccordion
         {...accordionProps}
-        triggerLabel="語言"
+        triggerLabel={t("nav.lang")}
         triggerContent={
           <span className="flex items-center gap-2">
             <GlobeIcon aria-hidden="true" />
-            <span className="sr-only">語言</span>
+            <span className="sr-only">{t("nav.lang")}</span>
           </span>
         }
-        links={HEADER_LANG_MENU_ITEMS}
+        links={langLinks}
       />
     );
   }
@@ -117,14 +134,21 @@ export function HeaderMobileNavCta({
   onNavigate,
   ctaLabel,
 }: HeaderMobileNavCtaProps) {
+  const t = useTranslations("header");
+
+  const remitLinks = HEADER_REMIT_MENU_ITEMS.map(({ label, href }) => ({
+    label: t(label),
+    href,
+  }));
+
   return (
     <MobileNavAccordion
       variant="cta"
       expanded={expandedId === MOBILE_NAV_CTA_ACCORDION_ID}
       onToggle={() => onToggleAccordion(MOBILE_NAV_CTA_ACCORDION_ID)}
       onNavigate={onNavigate}
-      triggerLabel={ctaLabel}
-      links={HEADER_REMIT_MENU_ITEMS}
+      triggerLabel={t(ctaLabel)}
+      links={remitLinks}
     />
   );
 }

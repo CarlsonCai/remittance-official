@@ -2,11 +2,9 @@
 
 import type { RefObject } from "react";
 import { createPortal } from "react-dom";
+import { useTranslations } from "next-intl";
 
-import {
-  HEADER_SERVICE_MEGA_CARDS,
-  HEADER_SERVICE_MEGA_INTRO,
-} from "@/lib/headerServiceMegaMenu";
+import { HEADER_SERVICE_MEGA_CARDS } from "@/lib/headerServiceMegaMenu";
 import { useIsClient } from "@/hooks/useIsClient";
 import { HEADER_MOTION } from "@/lib/headerMotion";
 import { cn } from "@/lib/utils";
@@ -30,6 +28,7 @@ export function HeaderServiceMegaMenuPanel({
   rootRef,
 }: HeaderServiceMegaMenuPanelProps) {
   const isClient = useIsClient();
+  const t = useTranslations("header");
 
   return (
     <>
@@ -67,10 +66,10 @@ export function HeaderServiceMegaMenuPanel({
                 "desktop:tracking-(--letter-spacing-h4-tight)",
               )}
             >
-              {HEADER_SERVICE_MEGA_INTRO.title}
+              {t("serviceMega.title")}
             </h2>
             <p className="typo-body3-r text-navy-900">
-              {HEADER_SERVICE_MEGA_INTRO.description}
+              {t("serviceMega.description")}
             </p>
           </div>
 

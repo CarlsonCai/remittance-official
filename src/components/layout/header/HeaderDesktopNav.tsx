@@ -1,8 +1,11 @@
-import Link from "next/link";
+"use client";
+
 import type { ReactNode } from "react";
+import { useTranslations } from "next-intl";
 
 import { GlobeIcon } from "@/components/icons/GlobeIcon";
 import { NavDropdown } from "@/components/ui/NavDropdown";
+import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
 import {
   HEADER_GUIDE_MENU_ITEMS,
@@ -23,11 +26,14 @@ function HeaderDesktopNavItem({
   item,
   index,
   serviceMegaTrigger,
+  pathname,
 }: {
   item: HeaderNavItem;
   index: number;
   serviceMegaTrigger: ReactNode;
+  pathname: string;
 }) {
+  const t = useTranslations("header");
   const key = headerNavItemKey(item, index);
 
   if (item.kind === "link") {
@@ -40,7 +46,7 @@ function HeaderDesktopNavItem({
             "transition-colors",
           )}
         >
-          {item.label}
+          {t(item.label)}
         </Link>
       </li>
     );
@@ -51,16 +57,21 @@ function HeaderDesktopNavItem({
   }
 
   if (item.kind === "menu") {
+    const guideItems = HEADER_GUIDE_MENU_ITEMS.map(({ label, href }) => ({
+      label: t(label),
+      href,
+    }));
+
     return (
       <NavDropdown
         key={key}
-        menuAriaLabel={`${item.label}相關連結`}
-        items={HEADER_GUIDE_MENU_ITEMS}
+        menuAriaLabel={t("aria.guideMenu", { label: t(item.label) })}
+        items={guideItems}
         triggerClassName={cn(
           "typo-body2-m text-navy-900 hover:text-navy-600",
           "transition-colors",
         )}
-        triggerContent={item.label}
+        triggerContent={t(item.label)}
         chevronClassName="opacity-70"
         panelClassName="mt-10"
       />
@@ -68,34 +79,45 @@ function HeaderDesktopNavItem({
   }
 
   if (item.kind === "lang") {
+    const langItems = HEADER_LANG_MENU_ITEMS.map(({ label, code }) => ({
+      label,
+      href: `/${code}${pathname}`,
+      onSelect: () => localStorage.setItem("lang", code),
+    }));
+
     return (
       <NavDropdown
         key={key}
-        menuAriaLabel="介面語言"
-        items={HEADER_LANG_MENU_ITEMS}
+        menuAriaLabel={t("aria.langMenu")}
+        items={langItems}
         triggerClassName={cn(
           "typo-body2-m text-navy-900 hover:text-sky-600",
           "transition-colors",
         )}
         triggerContent={<GlobeIcon className="opacity-80" />}
-        triggerAriaLabel="選擇介面語言"
+        triggerAriaLabel={t("aria.selectLang")}
         chevronClassName="opacity-70"
         panelClassName="mt-9"
       />
     );
   }
 
+  const remitItems = HEADER_REMIT_MENU_ITEMS.map(({ label, href }) => ({
+    label: t(label),
+    href,
+  }));
+
   return (
     <NavDropdown
       key={key}
-      menuAriaLabel="前往匯款管道"
-      items={HEADER_REMIT_MENU_ITEMS}
+      menuAriaLabel={t("aria.remitMenu")}
+      items={remitItems}
       triggerClassName={cn(
         "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-(--size-button-desktop-cta-height) w-(--size-button-desktop-cta-width) shrink-0 rounded-xl py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
         "typo-body2-m text-white",
         "transition-colors",
       )}
-      triggerContent={item.label}
+      triggerContent={t(item.label)}
       chevronClassName="text-white opacity-90"
       className="shrink-0"
       panelClassName="mt-6 min-w-(--size-dropdown-panel-min-width)"
@@ -106,10 +128,13 @@ function HeaderDesktopNavItem({
 export function HeaderDesktopNav({
   serviceMegaTrigger,
 }: HeaderDesktopNavProps) {
+  const t = useTranslations("header");
+  const pathname = usePathname();
+
   return (
     <nav
       className="tablet:flex hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible"
-      aria-label="主選單"
+      aria-label={t("aria.mainNav")}
     >
       <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
         {HEADER_NAV_ITEMS.map((item, index) => (
@@ -118,6 +143,7 @@ export function HeaderDesktopNav({
             item={item}
             index={index}
             serviceMegaTrigger={serviceMegaTrigger}
+            pathname={pathname}
           />
         ))}
       </ul>

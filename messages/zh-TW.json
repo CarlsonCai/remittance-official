@@ -1,0 +1,56 @@
+{
+  "header": {
+    "nav": {
+      "plans": "推薦方案",
+      "news": "最新消息",
+      "guide": "匯款指南",
+      "faq": "常見問題",
+      "remit": "前往匯款",
+      "lang": "語言"
+    },
+    "remitItems": {
+      "jinghuiApp": "永豐京匯通App",
+      "dawhoApp": "永豐DAWHO App",
+      "netBankApp": "永豐網路銀行App",
+      "mmaNet": "MMA金融交易網"
+    },
+    "guideItems": {
+      "articles": "精選文章",
+      "videos": "操作影片"
+    },
+    "serviceMega": {
+      "title": "匯款服務",
+      "description": "多種匯款服務選擇，給在異鄉的您最即時的支援。",
+      "western-union": {
+        "title": "西聯匯款",
+        "description": "免銀行帳戶，數分鐘內即可領現",
+        "imageAlt": "西聯匯款服務示意圖"
+      },
+      "mastercard-qsend": {
+        "title": "Mastercard(Q-Send)",
+        "description": "24小時隨會隨到，支援全球多國",
+        "imageAlt": "Mastercard Q-Send 匯款服務示意圖"
+      },
+      "visa-direct": {
+        "title": "Visa 直接通",
+        "description": "即時到帳，應援海外緊急支出",
+        "imageAlt": "Visa 直接通匯款服務示意圖"
+      },
+      "vip-express": {
+        "title": "大戶速匯",
+        "description": "換匯讓分最優，大額資金首選",
+        "imageAlt": "大戶速匯服務示意圖"
+      }
+    },
+    "aria": {
+      "openMenu": "開啟主選單",
+      "closeMenu": "關閉主選單",
+      "mainNav": "主選單",
+      "mobileNav": "主選單（行動版）",
+      "langMenu": "介面語言",
+      "selectLang": "選擇介面語言",
+      "remitMenu": "前往匯款管道",
+      "guideMenu": "{label}相關連結"
+    }
+  }
+}

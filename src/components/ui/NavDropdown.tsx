@@ -17,6 +17,7 @@ const chevronTransition = `transition-transform ${SITE_MOTION}`;
 export type NavDropdownItem = {
   label: string;
   href: string;
+  onSelect?: () => void;
 };
 
 export type NavDropdownProps = {
@@ -114,7 +115,10 @@ export function NavDropdown({
                   "typo-body3-m text-navy-900",
                   "transition-colors",
                 )}
-                onClick={close}
+                onClick={() => {
+                  close();
+                  item.onSelect?.();
+                }}
               >
                 {item.label}
               </Link>

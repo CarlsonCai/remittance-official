@@ -1,0 +1,56 @@
+{
+  "header": {
+    "nav": {
+      "plans": "Recommended Plans",
+      "news": "Latest News",
+      "guide": "Remittance Guide",
+      "faq": "FAQ",
+      "remit": "Send Money",
+      "lang": "Language"
+    },
+    "remitItems": {
+      "jinghuiApp": "Sinopac JingHui App",
+      "dawhoApp": "Sinopac DAWHO App",
+      "netBankApp": "Sinopac Online Banking App",
+      "mmaNet": "MMA Financial Trading Network"
+    },
+    "guideItems": {
+      "articles": "Featured Articles",
+      "videos": "Tutorial Videos"
+    },
+    "serviceMega": {
+      "title": "Remittance Services",
+      "description": "Multiple remittance options to support you wherever you are.",
+      "western-union": {
+        "title": "Western Union",
+        "description": "No bank account needed, receive cash within minutes",
+        "imageAlt": "Western Union remittance service"
+      },
+      "mastercard-qsend": {
+        "title": "Mastercard (Q-Send)",
+        "description": "24/7 availability, supporting multiple countries worldwide",
+        "imageAlt": "Mastercard Q-Send remittance service"
+      },
+      "visa-direct": {
+        "title": "Visa Direct",
+        "description": "Instant transfer, cover overseas emergency expenses",
+        "imageAlt": "Visa Direct remittance service"
+      },
+      "vip-express": {
+        "title": "VIP Express",
+        "description": "Best exchange rates, ideal for large transfers",
+        "imageAlt": "VIP Express remittance service"
+      }
+    },
+    "aria": {
+      "openMenu": "Open main menu",
+      "closeMenu": "Close main menu",
+      "mainNav": "Main navigation",
+      "mobileNav": "Main navigation (mobile)",
+      "langMenu": "Interface language",
+      "selectLang": "Select interface language",
+      "remitMenu": "Remittance channels",
+      "guideMenu": "{label} related links"
+    }
+  }
+}

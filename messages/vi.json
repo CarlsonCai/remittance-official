@@ -1,0 +1,56 @@
+{
+  "header": {
+    "nav": {
+      "plans": "Gói Đề Xuất",
+      "news": "Tin Tức Mới Nhất",
+      "guide": "Hướng Dẫn Chuyển Tiền",
+      "faq": "Câu Hỏi Thường Gặp",
+      "remit": "Chuyển Tiền",
+      "lang": "Ngôn Ngữ"
+    },
+    "remitItems": {
+      "jinghuiApp": "Ứng Dụng Sinopac JingHui",
+      "dawhoApp": "Ứng Dụng Sinopac DAWHO",
+      "netBankApp": "Ứng Dụng Ngân Hàng Trực Tuyến Sinopac",
+      "mmaNet": "Mạng Giao Dịch Tài Chính MMA"
+    },
+    "guideItems": {
+      "articles": "Bài Viết Nổi Bật",
+      "videos": "Video Hướng Dẫn"
+    },
+    "serviceMega": {
+      "title": "Dịch Vụ Chuyển Tiền",
+      "description": "Nhiều lựa chọn chuyển tiền, hỗ trợ bạn kịp thời dù ở đâu.",
+      "western-union": {
+        "title": "Western Union",
+        "description": "Không cần tài khoản ngân hàng, nhận tiền mặt trong vài phút",
+        "imageAlt": "Dịch vụ chuyển tiền Western Union"
+      },
+      "mastercard-qsend": {
+        "title": "Mastercard (Q-Send)",
+        "description": "24/7 sẵn sàng, hỗ trợ nhiều quốc gia trên toàn thế giới",
+        "imageAlt": "Dịch vụ chuyển tiền Mastercard Q-Send"
+      },
+      "visa-direct": {
+        "title": "Visa Direct",
+        "description": "Chuyển tiền tức thì, hỗ trợ chi phí khẩn cấp ở nước ngoài",
+        "imageAlt": "Dịch vụ chuyển tiền Visa Direct"
+      },
+      "vip-express": {
+        "title": "VIP Express",
+        "description": "Tỷ giá tốt nhất, lý tưởng cho chuyển khoản lớn",
+        "imageAlt": "Dịch vụ chuyển tiền VIP Express"
+      }
+    },
+    "aria": {
+      "openMenu": "Mở menu chính",
+      "closeMenu": "Đóng menu chính",
+      "mainNav": "Điều hướng chính",
+      "mobileNav": "Điều hướng chính (di động)",
+      "langMenu": "Ngôn ngữ giao diện",
+      "selectLang": "Chọn ngôn ngữ giao diện",
+      "remitMenu": "Kênh chuyển tiền",
+      "guideMenu": "Liên kết liên quan đến {label}"
+    }
+  }
+}
