@@ -16,7 +16,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   gap?: ButtonGap;
   iconLeft?: ReactNode;
   iconRight?: ReactNode;
-  /** CTA mode: DUBSTEP pulse rings + color change + icon slides down on hover */
+  /** CTA mode: dot-pulse effect + color change + icon slides down on hover */
   pulse?: boolean;
 };
 
@@ -163,17 +163,15 @@ export function Button({
       {isWipe && (
         <span
           aria-hidden="true"
-          className={cn(
-            "absolute inset-0 -translate-x-full rounded-[inherit]",
-            WIPE_MOTION,
-            "group-hover:translate-x-0",
-            SOLID_WIPE_BG[color],
-          )}
+          className={cn("btn-wipe-overlay absolute inset-0 rounded-[inherit]", SOLID_WIPE_BG[color])}
         />
       )}
 
       {isPulse && (
-        <span aria-hidden="true" className="btn-pulse-rings absolute inset-0 rounded-[inherit]" />
+        <>
+          <span aria-hidden="true" className="btn-dot-left" />
+          <span aria-hidden="true" className="btn-dot-right" />
+        </>
       )}
 
       <span className={cn("relative z-10 flex items-center", GAP_CLASS[effectiveGap], SIZE_TYPO[size])}>

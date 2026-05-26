@@ -1,40 +1,109 @@
 /*
- * 按鈕動效：wipe（solid 一般）與 DUBSTEP pulse rings（CTA）。
+ * 按鈕動效：wipe（solid 一般）與 dot-pulse（CTA）。
  * 色值用 palette.css 的 :root 變數；動效時序用 dimensions.css 的 --motion-*。
  */
 
-@keyframes btn-pulse {
-  0%   { transform: scale(1);   opacity: 0.5; }
-  100% { transform: scale(1.5); opacity: 0; }
+/* ─── Wipe overlay ────────────────────────────────────────────────────────────
+ * hover：填滿（左→右 0.5s）→ 幾乎無縫接續淡出（0.35s，delay 0.45s）
+ * hover-out：animation 取消，overlay 立即重置為初始隱藏狀態
+ */
+@keyframes btn-wipe-fill {
+  from { clip-path: inset(0 100% 0 0); opacity: 1; }
+  to   { clip-path: inset(0 0% 0 0); opacity: 1; }
 }
 
-@keyframes btn-pulse2 {
-  0%   { transform: scale(1);   opacity: 0.35; }
-  100% { transform: scale(1.8); opacity: 0; }
+@keyframes btn-wipe-fade {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.btn-wipe-overlay {
+  clip-path: inset(0 100% 0 0);
+  opacity: 0;
+}
+
+.group:hover .btn-wipe-overlay {
+  animation:
+    btn-wipe-fill 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards,
+    btn-wipe-fade 0.35s linear 0.45s forwards;
+}
+
+/* ─── CTA dot-pulse animation ─────────────────────────────────────────────────
+ * 右側小圓點持續向外發散漣漪（::after idle 動畫）；
+ * hover 時：左點滑入、右點 ::before 由圓點位置向外擴散填滿背景。
+ */
+
+@keyframes btn-dot-ripple {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
 }
 
 @layer components {
-  .btn-pulse-rings::before,
-  .btn-pulse-rings::after {
-    content: "";
+  /* 左側指示點：idle 隱藏，hover 滑入 */
+  .btn-dot-left {
     position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: var(--navy-500);
+    top: 50%;
+    left: 1.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 0.75);
+    opacity: 0;
+    transform: translateY(-50%) translateX(-0.75rem);
+    transition:
+      transform 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s,
+      opacity   1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
     pointer-events: none;
   }
 
-  .btn-pulse-rings::before {
-    animation: btn-pulse 2.5s var(--motion-ease-default) infinite;
+  .group:hover .btn-dot-left {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
   }
 
-  .btn-pulse-rings::after {
-    animation: btn-pulse2 2.5s var(--motion-ease-default) 0.5s infinite;
+  /* 右側圓點：idle 常駐可見；承載 ::before（hover 擴散填滿）與 ::after（持續漣漪） */
+  .btn-dot-right {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 0.85);
+    transform: translateY(-50%);
+    pointer-events: none;
   }
 
-  .group:hover .btn-pulse-rings::before,
-  .group:hover .btn-pulse-rings::after {
-    animation-duration: 0.2s;
-    animation-delay: 0s;
+  /* hover：由圓點中心向外擴散，覆蓋整顆按鈕（scale 40 ≈ 24rem，足覆蓋各尺寸） */
+  .btn-dot-right::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 0.12);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+
+  .group:hover .btn-dot-right::before {
+    transform: translate(-50%, -50%) scale(40);
+  }
+
+  /* idle 漣漪環：由圓點中心無限向外發散（40rem 溢出按鈕形成光暈） */
+  .btn-dot-right::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    background-color: rgb(255 255 255 / 0.3);
+    transform: translate(-50%, -50%) scale(0);
+    animation: btn-dot-ripple 2.4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+    pointer-events: none;
   }
 }
