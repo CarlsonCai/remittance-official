@@ -13,31 +13,36 @@ export function HomeAppDownload() {
     >
       <SectionPanelLayout
         shellClassName={cn(
-          "flex w-full flex-col",
-          "pt-15 pb-30",
-          "tablet:pt-30 tablet:pb-41",
+          "flex w-full flex-col gap-6 pt-15 pb-30",
+          "tablet:gap-18 tablet:pt-30 tablet:pb-41",
         )}
       >
-        <h2
-          id="app-download-heading"
-          className={cn(
-            "typo-h2 text-gradient-app-download-heading w-fit",
-            "tablet:text-5xl tablet:tracking-[0.06em]",
-          )}
-        >
-          準備好匯款了嗎？
-        </h2>
-        <p
-          className={cn(
-            "typo-body3-r text-navy-900 mt-4 max-w-2xl tracking-[0.32px]",
-            "tablet:typo-body1-r tablet:mt-5",
-          )}
-        >
-          多國匯款一次搞定，每一步都清楚掌握。
-        </p>
-        <div className="tablet:grid-cols-3 tablet:mt-18 mt-6 grid grid-cols-1 gap-6">
+        <div className="layout-grid">
+          <div className="col-span-4 tablet:col-span-12">
+            <h2
+              id="app-download-heading"
+              className={cn(
+                "typo-h2 text-gradient-app-download-heading w-fit",
+                "tablet:text-5xl tablet:tracking-[0.06em]",
+              )}
+            >
+              準備好匯款了嗎？
+            </h2>
+            <p
+              className={cn(
+                "typo-body3-r text-navy-900 mt-4 tracking-[0.32px]",
+                "tablet:typo-body1-r tablet:mt-5",
+              )}
+            >
+              多國匯款一次搞定，每一步都清楚掌握。
+            </p>
+          </div>
+        </div>
+        <div className="layout-grid">
           {APP_DOWNLOAD_OPTIONS.map((option, index) => (
-            <AppDownloadCard key={option.title} option={option} index={index} />
+            <div key={option.title} className="col-span-4">
+              <AppDownloadCard option={option} index={index} />
+            </div>
           ))}
         </div>
       </SectionPanelLayout>

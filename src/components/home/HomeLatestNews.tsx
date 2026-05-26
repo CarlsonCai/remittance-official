@@ -20,13 +20,11 @@ export function HomeLatestNews() {
     >
       <SectionPanelLayout
         panelClassName="rounded-5xl bg-sky-100"
-        shellClassName={cn(
-          "flex flex-col items-start gap-8 pt-15 pb-40",
-          "tablet:flex-row tablet:gap-18",
-        )}
+        shellClassName="pt-15 pb-40"
       >
+        <div className="layout-grid items-start gap-y-8">
         <aside
-          className="tablet:w-1/4 tablet:shrink-0 w-full"
+          className="col-span-4"
           aria-label="消息分類"
         >
           <h2
@@ -35,7 +33,7 @@ export function HomeLatestNews() {
           >
             最新消息
           </h2>
-          <p className="typo-body3-r tablet:mt-5 text-navy-900 mt-4 max-w-2xl">
+          <p className="typo-body1-r text-navy-900 mt-4 tablet:mt-5 tablet:max-w-[87.5%]">
             提供即時的優惠訊息或重要公告，分享永豐跨境匯款服務的最新動態。
           </p>
           <ul className="tablet:flex-col tablet:mt-12 mt-6 flex flex-wrap gap-2">
@@ -58,7 +56,7 @@ export function HomeLatestNews() {
             閱讀更多
           </Button>
         </aside>
-        <div className="flex w-full min-w-0 flex-1 flex-col gap-8">
+        <div className="col-span-4 tablet:col-span-8 flex min-w-0 flex-col gap-8">
           <ul className="w-full space-y-4">
             {NEWS_IMAGES.map((img, i) => (
               <li key={i}>
@@ -121,6 +119,7 @@ export function HomeLatestNews() {
           <div className="tablet:hidden flex w-full justify-center">
             <Button size="sm" iconRight={<ArrowRightIcon size={24} />}>閱讀更多</Button>
           </div>
+        </div>
         </div>
       </SectionPanelLayout>
     </section>

@@ -51,42 +51,44 @@ export function HomeRemittanceOptions() {
           "[background:var(--gradient-remittance-options)]",
         )}
         shellClassName={cn(
-          "flex w-full flex-col items-start gap-6 self-stretch pt-15 pb-[72px]",
+          "flex w-full flex-col gap-6 pt-15 pb-18",
           "tablet:gap-18 tablet:py-30",
         )}
       >
-        <div className="flex w-full flex-col items-start">
-          <h2
-            id="remittance-options-heading"
-            className={cn(
-              "typo-h2 text-shadow-on-blue text-white",
-              "max-[1023px]:tracking-[1.12px]",
-            )}
-          >
-            多種匯款選擇
-          </h2>
-          <p
-            className={cn(
-              "typo-body3-r tablet:typo-body1-r tablet:mt-3 mt-4 text-white",
-            )}
-          >
-            不論是給孩子的一份心意、家人的緊急需求，或是個人的全球資產調度，給在異鄉的您最即時的支援。
-          </p>
+        <div className="layout-grid">
+          <div className="col-span-4 tablet:col-span-12">
+            <h2
+              id="remittance-options-heading"
+              className={cn(
+                "typo-h2 text-shadow-on-blue text-white",
+                "max-[1023px]:tracking-[1.12px]",
+              )}
+            >
+              多種匯款選擇
+            </h2>
+            <p className="typo-body3-r tablet:typo-body1-r mt-4 tablet:mt-3 text-white">
+              不論是給孩子的一份心意、家人的緊急需求，或是個人的全球資產調度，給在異鄉的您最即時的支援。
+            </p>
+          </div>
         </div>
-        <div className="tablet:grid-cols-[repeat(4,minmax(0,1fr))] grid w-full grid-cols-1 items-start gap-6">
+        <div className="layout-grid items-start">
           {REMITTANCE_OPTIONS.map((option, index) => (
-            <RemittanceOptionCard
+            <div
               key={option.number}
-              number={option.number}
-              title={option.title}
-              subtitle={option.subtitle}
-              image={option.image}
-              imageAlt={option.imageAlt}
-              index={index}
-              className={
-                index === 1 || index === 3 ? "tablet:mt-15" : undefined
-              }
-            />
+              className={cn(
+                "col-span-4 tablet:col-span-3",
+                (index === 1 || index === 3) && "tablet:mt-15",
+              )}
+            >
+              <RemittanceOptionCard
+                number={option.number}
+                title={option.title}
+                subtitle={option.subtitle}
+                image={option.image}
+                imageAlt={option.imageAlt}
+                index={index}
+              />
+            </div>
           ))}
         </div>
       </SectionPanelLayout>

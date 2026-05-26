@@ -24,12 +24,13 @@ export function HomeRemittanceGuide() {
       <SectionPanelLayout
         panelClassName="rounded-5xl"
         shellClassName={cn(
-          "flex flex-col items-start gap-8 pt-15 pb-25",
-          "tablet:flex-row tablet:gap-18 tablet:pt-35 tablet:pb-60",
+          "pt-15 pb-25",
+          "tablet:pt-35 tablet:pb-60",
         )}
       >
+        <div className="layout-grid items-start gap-y-8">
         <aside
-          className="tablet:w-1/4 tablet:shrink-0 w-full"
+          className="col-span-4"
           aria-label="指南分類"
         >
           <h2
@@ -38,8 +39,8 @@ export function HomeRemittanceGuide() {
           >
             匯款指南
           </h2>
-          <p className="typo-body3-r text-navy-900 tablet:mt-5 mt-4 max-w-2xl">
-            手續費、電報費怎麼算？幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。
+          <p className="typo-body1-r text-navy-900 mt-4 tablet:mt-5 tablet:max-w-[87.5%]">
+            掌握國際趨勢，匯款知識與優惠訊息不漏接，讓每一分心意準確送達。
           </p>
           <ul className="tablet:mt-12 tablet:flex-col mt-6 flex flex-wrap gap-2">
             {GUIDE_CATEGORIES.map((cat, i) => (
@@ -67,7 +68,7 @@ export function HomeRemittanceGuide() {
           </button>
         </aside>
 
-        <div className="flex w-full min-w-0 flex-1 flex-col gap-8">
+        <div className="col-span-4 tablet:col-span-8 flex min-w-0 flex-col gap-8">
           <ul className="tablet:grid-cols-2 grid grid-cols-1 gap-6">
             {GUIDE_CARDS.map((i) => (
               <li key={i}>
@@ -123,6 +124,7 @@ export function HomeRemittanceGuide() {
               <ArrowRightIcon size={24} className="text-white" />
             </button>
           </div>
+        </div>
         </div>
       </SectionPanelLayout>
     </section>
