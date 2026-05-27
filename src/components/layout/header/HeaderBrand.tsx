@@ -29,11 +29,12 @@ export function HeaderBrand({ onPointerDownCapture }: HeaderBrandProps) {
           priority
         />
       </Link>
+      {/* 1024–1439px nav 7 項佔 ~678px，空間不足，tablet 隱藏；desktop(1440+) 才顯示 */}
       <span
-        className="bg-navy-100 tablet:h-(--size-header-separator-height-md) block h-(--size-header-separator-height-sm) w-px shrink-0 self-center"
+        className="bg-navy-100 tablet:hidden desktop:block h-(--size-header-separator-height-sm) desktop:h-(--size-header-separator-height-md) w-px shrink-0 self-center"
         aria-hidden="true"
       />
-      <p className="typo-body4-m tablet:typo-body2-m text-navy-900 min-w-0 flex-1 truncate">
+      <p className="typo-body4-m desktop:typo-body2-m text-navy-900 min-w-0 flex-1 truncate tablet:hidden desktop:block">
         全方位數位跨境匯款平台
       </p>
     </div>

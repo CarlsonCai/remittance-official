@@ -5,74 +5,74 @@
  */
 
 @utility typo-h1 {
-  font-size: var(--font-size-h1-sm);
+  /* 390px→32px, 1440px→52px */
+  font-size: clamp(2rem, 1.905vw + 1.536rem, 3.25rem);
   line-height: var(--line-height-h1);
   letter-spacing: var(--letter-spacing-h1-sm);
   font-weight: var(--font-weight-black);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
-    font-size: var(--font-size-h1-lg);
     letter-spacing: var(--letter-spacing-h1-lg);
     font-weight: var(--font-weight-extrabold);
   }
 }
 
 @utility typo-h2 {
-  font-size: var(--font-size-h2-sm);
+  /* 390px→28px, 1440px→48px */
+  font-size: clamp(1.75rem, 1.905vw + 1.286rem, 3rem);
   line-height: var(--line-height-h2);
   letter-spacing: var(--letter-spacing-h2-sm);
   font-weight: var(--font-weight-bold);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
-    font-size: var(--font-size-h2-lg);
     letter-spacing: var(--letter-spacing-h2-lg);
   }
 }
 
 @utility typo-h3 {
-  font-size: var(--font-size-h3-sm);
+  /* 390px→24px, 1440px→32px */
+  font-size: clamp(1.5rem, 0.762vw + 1.314rem, 2rem);
   line-height: var(--line-height-h3);
   letter-spacing: var(--letter-spacing-h3-sm);
   font-weight: var(--font-weight-bold);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
-    font-size: var(--font-size-h3-lg);
     letter-spacing: var(--letter-spacing-h3-lg);
   }
 }
 
 @utility typo-h4 {
-  font-size: var(--font-size-h4-sm);
+  /* 390px→22px, 1440px→28px */
+  font-size: clamp(1.375rem, 0.571vw + 1.236rem, 1.75rem);
   line-height: var(--line-height-h4);
   letter-spacing: var(--letter-spacing-h4-sm);
   font-weight: var(--font-weight-bold);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
-    font-size: var(--font-size-h4-lg);
     letter-spacing: var(--letter-spacing-h4-lg);
   }
 }
 
 @utility typo-sub1-s {
-  font-size: var(--font-size-subtitle1-sm);
+  /* 390px→20px, 1440px→24px */
+  font-size: clamp(1.25rem, 0.381vw + 1.157rem, 1.5rem);
   line-height: var(--line-height-subtitle1-s);
   letter-spacing: var(--letter-spacing-subtitle1-sm);
   font-weight: var(--font-weight-semibold);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
-    font-size: var(--font-size-subtitle1-lg);
     letter-spacing: var(--letter-spacing-subtitle1-lg-s);
   }
 }
 
 @utility typo-sub1-m {
-  font-size: var(--font-size-subtitle1-sm);
+  /* 390px→20px, 1440px→24px */
+  font-size: clamp(1.25rem, 0.381vw + 1.157rem, 1.5rem);
   line-height: var(--line-height-subtitle1);
   letter-spacing: var(--letter-spacing-subtitle1-sm);
   font-weight: var(--font-weight-medium);
 
   @media (min-width: 1440px) /* --bp-desktop */ {
-    font-size: var(--font-size-subtitle1-lg);
     letter-spacing: var(--letter-spacing-subtitle1-lg);
   }
 }
