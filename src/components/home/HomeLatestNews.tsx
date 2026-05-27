@@ -3,6 +3,7 @@ import Image from "next/image";
 import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 import { Button } from "@/components/ui/Button";
+import { Tag } from "@/components/ui/Tag";
 import { ViewMoreButton } from "@/components/ui/ViewMoreButton";
 
 import newsImage1 from "@/assets/images/latest-news/latest-news-1.png";
@@ -74,9 +75,7 @@ export function HomeLatestNews() {
                   </div>
                   <div className="flex min-w-0 flex-1 flex-col">
                     <p className="typo-body6 flex w-full items-center">
-                      <span className="border-navy-100 typo-body5-m text-navy-500 inline-flex items-center justify-center gap-2.5 rounded-lg border bg-white px-3 py-2 text-center tracking-[0.26px]">
-                        大戶速匯
-                      </span>
+                      <Tag>大戶速匯</Tag>
 
                       <time
                         className="text-navy-500 ml-5 overflow-hidden text-sm leading-[130%] font-medium tracking-[0.28px] text-ellipsis"

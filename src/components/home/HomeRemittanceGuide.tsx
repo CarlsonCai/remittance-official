@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
+import { Tag } from "@/components/ui/Tag";
 import { ViewMoreButton } from "@/components/ui/ViewMoreButton";
 import { cn } from "@/lib/utils";
 
@@ -75,9 +76,9 @@ export function HomeRemittanceGuide() {
               <li key={i}>
                 <article
                   aria-labelledby={`guide-card-${i}-title`}
-                  className="overflow-hidden rounded-xl bg-white"
+                  className="rounded-xl bg-white"
                 >
-                  <div className="relative aspect-video w-full overflow-hidden">
+                  <div className="relative aspect-video w-full overflow-hidden rounded-t-xl">
                     <Image
                       src={GUIDE_IMAGES[i]}
                       alt=""
@@ -98,11 +99,7 @@ export function HomeRemittanceGuide() {
                       幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。
                     </p>
                     <div className="mt-6 flex items-center justify-between">
-                      <span className="border-navy-100 inline-flex items-center justify-center gap-2.5 rounded-lg border bg-white px-3 py-2 tracking-[0.26px]">
-                        <span className="typo-body5-m text-navy-500">
-                          入門指南
-                        </span>
-                      </span>
+                      <Tag>入門指南</Tag>
                       <ViewMoreButton />
                     </div>
                   </div>
