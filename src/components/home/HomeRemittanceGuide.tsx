@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
+import { ViewMoreButton } from "@/components/ui/ViewMoreButton";
 import { cn } from "@/lib/utils";
 
 import newsImage1 from "@/assets/images/latest-news/latest-news-1.png";
@@ -102,13 +103,7 @@ export function HomeRemittanceGuide() {
                           入門指南
                         </span>
                       </span>
-                      <button
-                        type="button"
-                        className="text-navy-500 inline-flex items-center gap-1 text-sm leading-[140%] font-medium tracking-[0.28px] capitalize"
-                      >
-                        VIEW MORE
-                        <ArrowRightIcon size={20} className="text-navy-500" />
-                      </button>
+                      <ViewMoreButton />
                     </div>
                   </div>
                 </article>

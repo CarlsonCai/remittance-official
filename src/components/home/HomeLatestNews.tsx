@@ -3,7 +3,7 @@ import Image from "next/image";
 import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 import { Button } from "@/components/ui/Button";
-import { cn } from "@/lib/utils";
+import { ViewMoreButton } from "@/components/ui/ViewMoreButton";
 
 import newsImage1 from "@/assets/images/latest-news/latest-news-1.png";
 import newsImage2 from "@/assets/images/latest-news/latest-news-2.png";
@@ -85,13 +85,7 @@ export function HomeLatestNews() {
                         2026.01.01
                       </time>
 
-                      <button
-                        type="button"
-                        className="text-navy-500 tablet:hidden ml-auto inline-flex items-center gap-1 text-sm leading-[140%] font-medium tracking-[0.28px] capitalize"
-                      >
-                        VIEW MORE
-                        <ArrowRightIcon size={20} className="text-navy-500" />
-                      </button>
+                      <ViewMoreButton className="tablet:hidden ml-auto" />
                     </p>
                     <h3
                       id={`news-item-${i}-title`}
@@ -104,13 +98,7 @@ export function HomeLatestNews() {
                       幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。手續費、電報費怎麼算?
                       幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。
                     </p>
-                    <button
-                      type="button"
-                      className="text-navy-500 tablet:inline-flex mt-4 hidden items-center gap-1 self-end text-sm leading-[140%] font-medium tracking-[0.28px] capitalize"
-                    >
-                      VIEW MORE
-                      <ArrowRightIcon size={20} className="text-navy-500" />
-                    </button>
+                    <ViewMoreButton className="tablet:inline-flex mt-4 hidden self-end" />
                   </div>
                 </article>
               </li>
