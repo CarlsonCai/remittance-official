@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 
-import { GlobeIcon } from "@/components/icons/GlobeIcon";
+import GlobeSvg from "@/assets/icons/globe.svg";
 import { NavDropdown } from "@/components/ui/NavDropdown";
 import { Link, usePathname } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -92,7 +92,7 @@ function HeaderDesktopNavItem({
           "typo-body2-m text-navy-900 hover:text-sky-600",
           "transition-colors",
         )}
-        triggerContent={<GlobeIcon className="opacity-80" />}
+        triggerContent={<GlobeSvg className="block size-6 shrink-0 opacity-80" />}
         triggerAriaLabel="選擇介面語言"
         chevronClassName="opacity-70"
         panelClassName="mt-9"

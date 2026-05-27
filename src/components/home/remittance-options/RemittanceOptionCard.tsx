@@ -1,6 +1,6 @@
 import Image, { type StaticImageData } from "next/image";
 
-import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import ChevronRightSvg from "@/assets/icons/chevron-right.svg";
 import { cn } from "@/lib/utils";
 
 type RemittanceOptionCardProps = {
@@ -101,7 +101,7 @@ export function RemittanceOptionCard({
       >
         <span className="sr-only">{title}：</span>
         查看方案
-        <ChevronIcon className="size-5 shrink-0" aria-hidden />
+        <ChevronRightSvg className="size-5 shrink-0" aria-hidden="true" />
       </a>
     </article>
   );

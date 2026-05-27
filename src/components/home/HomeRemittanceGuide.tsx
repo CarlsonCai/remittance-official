@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
+import ArrowRightSvg from "@/assets/icons/arrow-right.svg";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 import { Tag } from "@/components/ui/Tag";
 import { ViewMoreButton } from "@/components/ui/ViewMoreButton";
@@ -66,7 +66,7 @@ export function HomeRemittanceGuide() {
             className="bg-navy-500 tablet:inline-flex mt-12 hidden items-center justify-center gap-2 rounded-xl py-4 pr-4 pl-5"
           >
             <span className="typo-body1-b text-white">閱讀更多</span>
-            <ArrowRightIcon size={24} className="text-white" />
+            <ArrowRightSvg width={24} height={24} className="text-white" />
           </button>
         </aside>
 
@@ -113,7 +113,7 @@ export function HomeRemittanceGuide() {
               className="bg-navy-500 inline-flex items-center justify-center gap-2 rounded-xl py-4 pr-4 pl-5"
             >
               <span className="typo-body1-b text-white">閱讀更多</span>
-              <ArrowRightIcon size={24} className="text-white" />
+              <ArrowRightSvg width={24} height={24} className="text-white" />
             </button>
           </div>
         </div>

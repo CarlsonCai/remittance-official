@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { type ReactNode, useId } from "react";
 
-import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import ChevronRightSvg from "@/assets/icons/chevron-right.svg";
 import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
@@ -65,8 +65,9 @@ export function MobileNavAccordion({
         onClick={onToggle}
       >
         {triggerContent ?? <span>{triggerLabel}</span>}
-        <ChevronIcon
+        <ChevronRightSvg
           className={cn(
+            "shrink-0",
             isCta ? "size-5" : "size-6",
             isCta
               ? "text-white opacity-90"

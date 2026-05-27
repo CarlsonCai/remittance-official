@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
+import ArrowRightSvg from "@/assets/icons/arrow-right.svg";
 import { SectionPanelLayout } from "@/components/layout/SectionPanelLayout";
 import { Button } from "@/components/ui/Button";
 import { Tag } from "@/components/ui/Tag";
@@ -51,7 +51,7 @@ export function HomeLatestNews() {
           </ul>
           <Button
             size="lg"
-            iconRight={<ArrowRightIcon size={24} />}
+            iconRight={<ArrowRightSvg width={24} height={24} />}
             className="tablet:inline-flex mt-12 hidden"
           >
             閱讀更多
@@ -104,7 +104,7 @@ export function HomeLatestNews() {
             ))}
           </ul>
           <div className="tablet:hidden flex w-full justify-center">
-            <Button size="sm" iconRight={<ArrowRightIcon size={24} />}>閱讀更多</Button>
+            <Button size="sm" iconRight={<ArrowRightSvg width={24} height={24} />}>閱讀更多</Button>
           </div>
         </div>
         </div>

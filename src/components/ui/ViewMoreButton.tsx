@@ -1,6 +1,6 @@
 import type { ButtonHTMLAttributes } from "react";
 
-import { ArrowRightIcon } from "@/components/icons/ArrowRightIcon";
+import ArrowRightSvg from "@/assets/icons/arrow-right.svg";
 import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
@@ -36,7 +36,7 @@ export function ViewMoreButton({
 
       {/* 箭頭：hover 往右移 4px；顏色繼承 button currentColor */}
       <span className={cn(TRANSFORM_MOTION, "group-hover:translate-x-1")}>
-        <ArrowRightIcon size={20} />
+        <ArrowRightSvg width={20} height={20} />
       </span>
     </button>
   );

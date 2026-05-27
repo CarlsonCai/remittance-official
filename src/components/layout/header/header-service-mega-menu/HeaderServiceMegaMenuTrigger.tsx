@@ -2,7 +2,7 @@
 
 import type { RefObject } from "react";
 
-import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import ChevronRightSvg from "@/assets/icons/chevron-right.svg";
 import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
@@ -37,9 +37,9 @@ export function HeaderServiceMegaMenuTrigger({
         onClick={onToggle}
       >
         匯款服務
-        <ChevronIcon
+        <ChevronRightSvg
           className={cn(
-            "opacity-70",
+            "size-(--size-icon-chevron) shrink-0 opacity-70",
             chevronTransition,
             open ? "-rotate-90" : "rotate-90",
           )}

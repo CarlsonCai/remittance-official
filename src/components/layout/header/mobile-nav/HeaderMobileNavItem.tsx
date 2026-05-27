@@ -1,6 +1,6 @@
 "use client";
 
-import { GlobeIcon } from "@/components/icons/GlobeIcon";
+import GlobeSvg from "@/assets/icons/globe.svg";
 import { Link } from "@/i18n/navigation";
 import {
   HEADER_GUIDE_MENU_ITEMS,
@@ -106,7 +106,7 @@ export function HeaderMobileNavItem({
         triggerLabel="語言"
         triggerContent={
           <span className="flex items-center gap-2">
-            <GlobeIcon aria-hidden="true" />
+            <GlobeSvg className="block size-6 shrink-0" aria-hidden="true" />
             <span className="sr-only">語言</span>
           </span>
         }

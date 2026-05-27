@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import ChevronRightSvg from "@/assets/icons/chevron-right.svg";
 import {
   footerCommonAndContact,
   footerQuickLinks,
@@ -41,7 +41,7 @@ export function FooterNav() {
             <li key={item.href}>
               <Link href={item.href} className={footerNavLinkClass("primary")}>
                 {item.label}
-                <ChevronIcon className="ml-1" />
+                <ChevronRightSvg className="size-(--size-icon-chevron) shrink-0 ml-1" />
               </Link>
             </li>
           ))}

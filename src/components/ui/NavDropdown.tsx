@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { type ReactNode, useCallback, useId, useRef, useState } from "react";
-import { ChevronIcon } from "@/components/icons/ChevronIcon";
+import ChevronRightSvg from "@/assets/icons/chevron-right.svg";
 import { useEscapeKey } from "@/hooks/useEscapeKey";
 import { useOnClickOutside } from "@/hooks/useOnClickOutside";
 import { PortalBackdrop } from "@/components/ui/PortalBackdrop";
@@ -66,8 +66,9 @@ export function NavDropdown({
         onClick={toggle}
       >
         {triggerContent}
-        <ChevronIcon
+        <ChevronRightSvg
           className={cn(
+            "size-(--size-icon-chevron) shrink-0",
             chevronClassName,
             chevronTransition,
             open ? "-rotate-90" : "rotate-90",
