@@ -11,7 +11,7 @@
 - **優先使用專案既有 token**，禁止為了「像設計稿」而大量寫死 `text-[13px]`、`mt-[37px]` 等任意值。
 - **字型**：`type-scale.css` 僅供 `typography.css` 的 `typo-*`；元件見 **§4.2.1**，勿用 arbitrary text-length 引用 type-scale 字級變數。
 - **間距（padding / margin / gap）**：見 **§5.0**（稿面 px 為 4 的倍數時**禁止**寫 `pb-[164px]` 等）。
-- 設計稿若與 token 有落差：**先查** `palette.css`、`type-scale.css`、`effects.css`、`dimensions.css`；仍無對應時才用 Tailwind 任意值，並在 PR／說明中註記需否補 token（見 `docs/design-tokens.md`）。
+- 設計稿若與 token 有落差：**先查** `palette.css`、`type-scale.css`、`effects.css`、`radius.css`、`motion.css`、`layout-tokens.css`；仍無對應時才用 Tailwind 任意值，並在 PR／說明中註記需否補 token（見 `docs/design-tokens.md`）。
 - **Mobile First**：預設為小螢（≤1023）；再用 `tablet:`、`desktop:`、`wide:` 覆寫。
 - 文案使用**繁體中文**；語意標籤正確（見 §6）。
 
@@ -192,7 +192,7 @@ className="typo-sub1-s tablet:text-2xl tablet:tracking-[0.48px]"
 
 ### 4.3 圓角與陰影
 
-- 卡片圓角：2～32px 用 `rounded-xs`～`rounded-4xl`；稿面 **60px** 用 `rounded-5xl`（數值在 `dimensions.css` `--radius-5xl-size`）。
+- 卡片圓角：2～32px 用 `rounded-xs`～`rounded-4xl`；稿面 **60px** 用 `rounded-5xl`（數值在 `radius.css` `--radius-5xl-size`）。
 - 陰影：使用 theme 內 `shadow-s` / `shadow-l`（若已用於元件）；不任意 `shadow-[0_4px_20px_...]`。
 
 ---
@@ -214,7 +214,7 @@ className="typo-sub1-s tablet:text-2xl tablet:tracking-[0.48px]"
 | **換算** | 稿面 px **÷ 4** = utility 數字（根字級 16px：`N` → `N × 0.25rem` = `N × 4px`） |
 | **必須** | 稿面為 **4 的倍數** 時，用 scale class（`pt-15`、`pb-30`、`tablet:pb-41`），**禁止** `pt-[60px]`、`pb-[120px]`、`pb-[164px]` 等「對稿直寫 px」 |
 | **一致** | 同一區塊勿混用：`tablet:pt-30` 配 `tablet:pb-[164px]` 屬錯誤寫法；應為 `tablet:pb-41` |
-| **例外** | 稿面 **非 4 的倍數**（例 37px）→ 先查 `dimensions.css` 是否已有 token；仍無則 `mt-[37px]` 或補 token（§1、§9） |
+| **例外** | 稿面 **非 4 的倍數**（例 37px）→ 先查是否已有對應 token；仍無則 `mt-[37px]` 或補 token（§1、§9） |
 
 **常見對照（AI 勿再發明任意 px）**
 

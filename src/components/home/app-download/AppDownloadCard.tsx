@@ -39,13 +39,13 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
           <h3
             id={`app-card-${index}-title`}
             className={cn(
-              "typo-sub1-s text-navy-900 text-center tracking-[0.4px] capitalize",
-              "tablet:text-2xl tablet:tracking-[0.48px]",
+              "typo-sub1-s text-navy-900 text-center tracking-[0.02em] capitalize",
+              "tablet:text-2xl tablet:tracking-[0.02em]",
             )}
           >
             {option.title}
           </h3>
-          <p className="typo-body4-m text-navy-900 text-center tracking-[0.28px]">
+          <p className="typo-body4-m text-navy-900 text-center tracking-[0.02em]">
             {option.description}
           </p>
           <div
@@ -57,7 +57,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
             {APP_VERSION_LINES.map((line) => (
               <p
                 key={line}
-                className="typo-body6-r tracking-[0.24px] text-gray-700"
+                className="typo-body6-r tracking-[0.02em] text-gray-700"
               >
                 {line}
               </p>
@@ -85,8 +85,8 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         <div className="flex min-w-0 flex-1 flex-col gap-1">
           <p
             className={cn(
-              "typo-body3-m text-navy-900 tracking-[0.32px]",
-              "tablet:typo-body2-m tablet:tracking-[0.36px]",
+              "typo-body3-m text-navy-900",
+              "tablet:typo-body2-m",
             )}
           >
             掃描下載APP
@@ -94,7 +94,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
           {APP_VERSION_LINES.map((line) => (
             <p
               key={line}
-              className="typo-body6-r tracking-[0.24px] text-gray-700"
+              className="typo-body6-r tracking-[0.02em] text-gray-700"
             >
               {line}
             </p>

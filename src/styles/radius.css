@@ -1,0 +1,7 @@
+/*
+ * 圓角 token。
+ * 2～32px 使用 Tailwind 內建 rounded-xs～rounded-4xl；60px 由 theme.css 橋接為 rounded-5xl。
+ */
+:root {
+  --radius-5xl-size: 3.75rem;
+}

@@ -1,6 +1,6 @@
 /*
  * 按鈕動效：wipe（solid 一般）與 dot-pulse（CTA）。
- * 色值用 palette.css 的 :root 變數；動效時序用 dimensions.css 的 --motion-*。
+ * 色值用 palette.css 的 :root 變數；動效時序用 motion.css 的 --motion-*。
  */
 
 /* ─── Wipe overlay ────────────────────────────────────────────────────────────

@@ -39,7 +39,7 @@ const SIZE_ROUNDED: Record<ButtonSize, string> = {
 };
 
 const SIZE_TYPO: Record<ButtonSize, string> = {
-  xl: "text-2xl font-bold leading-[140%] tracking-[0.48px]",
+  xl: "text-2xl font-bold leading-[140%] tracking-[0.02em]",
   lg: "typo-body1-b",
   md: "typo-body1-b",
   sm: "typo-body2-b",

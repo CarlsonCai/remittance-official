@@ -1,8 +1,10 @@
-/* 樣式載入順序：色 → 字階 → 陰影 → 尺寸/grid → 語意色 → Tailwind theme → typo 工具 → layout 類 */
+/* 樣式載入順序：色 → 字階 → 陰影/漸層 → 圓角/動效/grid → 語意色 → Tailwind theme → typo 工具 → layout 類 */
 @import "../styles/palette.css";
 @import "../styles/type-scale.css";
 @import "../styles/effects.css";
-@import "../styles/dimensions.css";
+@import "../styles/radius.css";
+@import "../styles/motion.css";
+@import "../styles/layout-tokens.css";
 @import "../styles/semantic.css";
 @import "../styles/theme.css";
 @import "tailwindcss";

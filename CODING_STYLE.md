@@ -160,12 +160,14 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | 色票 | `src/styles/palette.css` |
 | 字級來源 | `src/styles/type-scale.css` |
 | 陰影 | `src/styles/effects.css` |
-| 圓角／grid／動效 | `src/styles/dimensions.css` |
+| 圓角 | `src/styles/radius.css` |
+| grid | `src/styles/layout-tokens.css` |
+| 動效 | `src/styles/motion.css` |
 | 斷點 px 定義 | `src/styles/theme.css` |
 | 語意色 | `src/styles/semantic.css` |
 | Tailwind 映射 | `src/styles/theme.css` |
 | 整頁／區塊版面 | `PageLayout`、`SectionPanelLayout`、`layout-grid.css`（`MARKUP_STYLE.md` §3） |
-| 跨區塊動效 | `src/lib/siteMotion.ts`（`dimensions` `--motion-*`） |
+| 跨區塊動效 | `src/lib/siteMotion.ts`（`motion.css` `--motion-*`） |
 | 元件邏輯、accordion 狀態 | `src/hooks/`（例：`useMobileNavAccordion`） |
 
 ### 4.2 程式慣例（AI 必守）

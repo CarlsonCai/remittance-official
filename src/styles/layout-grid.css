@@ -1,6 +1,6 @@
 /*
  * 版型元件：.page-layout / .layout-shell / .layout-header-shell / .layout-grid。
- * 數值變數見 dimensions.css；斷點 media 與 --bp-* 同步。
+ * 數值變數見 layout-tokens.css；斷點 media 與 theme.css 的 Tailwind 斷點對齊。
  * page-layout：整頁 ≥1560 外側留白；layout-shell：大區塊內部左右 margin；Header 用 layout-header-shell（&lt;1024：20px；≥1024：48px）。
  */
 @layer components {
@@ -8,7 +8,7 @@
     width: 100%;
     margin-inline: auto;
   }
-  @media (min-width: 1560px) /* --bp-wide */ {
+  @media (min-width: 1560px) /* wide */ {
     .page-layout {
       max-width: var(--layout-container-lg);
     }
@@ -18,7 +18,7 @@
     width: 100%;
     padding-inline: var(--layout-margin-sm);
   }
-  @media (min-width: 1024px) /* --bp-tablet */ {
+  @media (min-width: 1024px) /* tablet */ {
     .layout-header-shell {
       padding-inline: var(--layout-margin-header);
     }
@@ -28,12 +28,12 @@
     width: 100%;
     padding-inline: var(--layout-margin-sm);
   }
-  @media (min-width: 1024px) /* --bp-tablet */ {
+  @media (min-width: 1024px) /* tablet */ {
     .layout-shell {
       padding-inline: var(--layout-margin-md);
     }
   }
-  @media (min-width: 1440px) /* --bp-desktop */ {
+  @media (min-width: 1440px) /* desktop */ {
     .layout-shell {
       padding-inline: var(--layout-margin-lg);
     }
@@ -46,14 +46,14 @@
     column-gap: var(--layout-gutter-sm);
     row-gap: var(--layout-gutter-sm);
   }
-  @media (min-width: 1024px) /* --bp-tablet */ {
+  @media (min-width: 1024px) /* tablet */ {
     .layout-grid {
       grid-template-columns: repeat(var(--layout-columns-md), minmax(0, 1fr));
       column-gap: var(--layout-gutter-md);
       row-gap: var(--layout-gutter-md);
     }
   }
-  @media (min-width: 1440px) /* --bp-desktop */ {
+  @media (min-width: 1440px) /* desktop */ {
     .layout-grid {
       grid-template-columns: repeat(var(--layout-columns-lg), minmax(0, 1fr));
       column-gap: var(--layout-gutter-lg);

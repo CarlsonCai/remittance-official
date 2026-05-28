@@ -1,0 +1,19 @@
+/*
+ * 版型 grid / shell token。
+ * 對應 Figma grid：Small 4 欄；Medium / Large 12 欄。
+ */
+:root {
+  --layout-margin-header: 48px;
+  --layout-margin-sm: 20px;
+  --layout-gutter-sm: 16px;
+  --layout-columns-sm: 4;
+
+  --layout-margin-md: 40px;
+  --layout-gutter-md: 20px;
+  --layout-columns-md: 12;
+
+  --layout-margin-lg: 80px;
+  --layout-gutter-lg: 24px;
+  --layout-columns-lg: 12;
+  --layout-container-lg: 1440px;
+}

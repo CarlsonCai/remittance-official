@@ -30,7 +30,7 @@ export function HomeAppDownload() {
             </h2>
             <p
               className={cn(
-                "typo-body3-r text-navy-900 mt-4 tracking-[0.32px]",
+                "typo-body3-r text-navy-900 mt-4",
                 "tablet:typo-body1-r tablet:mt-5",
               )}
             >

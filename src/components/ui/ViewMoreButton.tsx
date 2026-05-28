@@ -24,7 +24,7 @@ export function ViewMoreButton({
         `transition-colors ${SITE_MOTION}`,
         // 字形
         "text-navy-500 hover:text-sky-600",
-        "text-sm leading-[140%] font-medium tracking-[0.28px] capitalize",
+        "text-sm leading-[140%] font-medium tracking-[0.02em] capitalize",
         // 定位（caller 傳入）
         className,
       )}

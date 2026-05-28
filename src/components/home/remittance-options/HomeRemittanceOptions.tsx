@@ -59,10 +59,7 @@ export function HomeRemittanceOptions() {
           <div className="tablet:col-span-12 col-span-4">
             <h2
               id="remittance-options-heading"
-              className={cn(
-                "typo-h2 text-shadow-on-blue text-white",
-                "max-[1023px]:tracking-[1.12px]",
-              )}
+              className="typo-h2 text-shadow-on-blue text-white"
             >
               多種匯款選擇
             </h2>

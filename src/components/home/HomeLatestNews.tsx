@@ -75,7 +75,7 @@ export function HomeLatestNews() {
                         <Tag>大戶速匯</Tag>
 
                         <time
-                          className="text-navy-500 ml-5 overflow-hidden text-sm leading-[130%] font-medium tracking-[0.28px] text-ellipsis"
+                          className="text-navy-500 ml-5 overflow-hidden text-sm leading-[130%] font-medium tracking-[0.02em] text-ellipsis"
                           dateTime="2026-01-01"
                         >
                           2026.01.01
