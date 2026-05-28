@@ -8,13 +8,23 @@
  * hover-out：animation 取消，overlay 立即重置為初始隱藏狀態
  */
 @keyframes btn-wipe-fill {
-  from { clip-path: inset(0 100% 0 0); opacity: 1; }
-  to   { clip-path: inset(0 0% 0 0); opacity: 1; }
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 1;
+  }
+  to {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
 }
 
 @keyframes btn-wipe-fade {
-  from { opacity: 1; }
-  to   { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .btn-wipe-overlay {
@@ -34,8 +44,14 @@
  */
 
 @keyframes btn-dot-ripple {
-  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.5; }
-  100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
 }
 
 @layer components {
@@ -52,7 +68,7 @@
     transform: translateY(-50%) translateX(-0.75rem);
     transition:
       transform 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s,
-      opacity   1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
+      opacity 1.2s cubic-bezier(0.19, 1, 0.22, 1) 0.2s;
     pointer-events: none;
   }
 

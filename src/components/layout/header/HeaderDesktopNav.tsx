@@ -92,7 +92,9 @@ function HeaderDesktopNavItem({
           "typo-body2-m text-navy-900 hover:text-sky-600",
           "transition-colors",
         )}
-        triggerContent={<GlobeSvg className="block size-6 shrink-0 opacity-80" />}
+        triggerContent={
+          <GlobeSvg className="block size-6 shrink-0 opacity-80" />
+        }
         triggerAriaLabel="選擇介面語言"
         chevronClassName="opacity-70"
         panelClassName="mt-9"
@@ -111,7 +113,7 @@ function HeaderDesktopNavItem({
       menuAriaLabel="前往匯款管道"
       items={remitItems}
       triggerClassName={cn(
-        "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-[57px] w-[138px] shrink-0 rounded-xl py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
+        "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-[57px] w-34.5 shrink-0 rounded-xl py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
         "typo-body2-m text-white",
         "transition-colors",
       )}

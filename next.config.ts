@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
   webpack(config) {
     const fileLoaderRule = config.module.rules.find(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (rule: any) => rule.test?.test?.(".svg")
+      (rule: any) => rule.test?.test?.(".svg"),
     );
     config.module.rules.push(
       // *.svg?url → 維持原本 file/url loader（可用於 CSS background-image 等）
@@ -31,9 +31,11 @@ const nextConfig: NextConfig = {
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule?.issuer,
-        resourceQuery: { not: [...(fileLoaderRule?.resourceQuery?.not ?? []), /url/] },
+        resourceQuery: {
+          not: [...(fileLoaderRule?.resourceQuery?.not ?? []), /url/],
+        },
         use: ["@svgr/webpack"],
-      }
+      },
     );
     if (fileLoaderRule) fileLoaderRule.exclude = /\.svg$/i;
     return config;

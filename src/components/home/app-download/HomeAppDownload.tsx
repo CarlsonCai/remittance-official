@@ -18,7 +18,7 @@ export function HomeAppDownload() {
         )}
       >
         <div className="layout-grid">
-          <div className="col-span-4 tablet:col-span-12">
+          <div className="tablet:col-span-12 col-span-4">
             <h2
               id="app-download-heading"
               className={cn(

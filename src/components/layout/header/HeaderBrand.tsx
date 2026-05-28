@@ -30,7 +30,7 @@ export function HeaderBrand({ onPointerDownCapture }: HeaderBrandProps) {
         />
       </Link>
       <span
-        className="bg-navy-100 tablet:h-6 block h-[18px] w-px shrink-0 self-center"
+        className="bg-navy-100 tablet:h-6 block h-4.5 w-px shrink-0 self-center"
         aria-hidden="true"
       />
       <p className="typo-body4-m tablet:typo-body2-m text-navy-900 min-w-0 flex-1 truncate">

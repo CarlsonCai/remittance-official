@@ -29,12 +29,8 @@ export function MobileServiceMegaMenuCard({
       tabIndex={tabIndex}
     >
       <span className="flex min-w-0 flex-1 flex-col items-start gap-1">
-        <span className="typo-body2-m text-navy-900">
-          {card.title}
-        </span>
-        <p className="typo-body5-r text-navy-900">
-          {card.description}
-        </p>
+        <span className="typo-body2-m text-navy-900">{card.title}</span>
+        <p className="typo-body5-r text-navy-900">{card.description}</p>
       </span>
       <span
         className="flex w-22 shrink-0 self-stretch overflow-hidden rounded-sm bg-gray-200 bg-cover bg-center bg-no-repeat"

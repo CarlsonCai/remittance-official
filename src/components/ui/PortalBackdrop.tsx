@@ -12,7 +12,11 @@ type PortalBackdropProps = {
   className?: string;
 };
 
-export function PortalBackdrop({ open, onClose, className }: PortalBackdropProps) {
+export function PortalBackdrop({
+  open,
+  onClose,
+  className,
+}: PortalBackdropProps) {
   const isClient = useIsClient();
 
   if (!isClient) return null;

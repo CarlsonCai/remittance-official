@@ -41,7 +41,7 @@ export function FooterNav() {
             <li key={item.href}>
               <Link href={item.href} className={footerNavLinkClass("primary")}>
                 {item.label}
-                <ChevronRightSvg className="size-[15px] shrink-0 ml-1" />
+                <ChevronRightSvg className="ml-1 size-[15px] shrink-0" />
               </Link>
             </li>
           ))}

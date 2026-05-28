@@ -36,14 +36,14 @@ export function RemittanceOptionCard({
     >
       <div
         className={cn(
-          "flex flex-row items-start gap-[12px]",
+          "flex flex-row items-start gap-3",
           "tablet:flex-col tablet:gap-0",
         )}
       >
         <div className="tablet:flex-none flex min-w-0 flex-1 flex-col items-start gap-2">
           <div
             className={cn(
-              "flex w-[26px] shrink-0 flex-col items-center justify-center rounded-lg bg-sky-600 p-1 text-white",
+              "flex w-6.5 shrink-0 flex-col items-center justify-center rounded-lg bg-sky-600 p-1 text-white",
               "typo-body6-m tablet:typo-body5 leading-none",
               "tablet:w-10 tablet:rounded-xl tablet:p-2",
             )}
@@ -69,13 +69,13 @@ export function RemittanceOptionCard({
 
         <div
           className={cn(
-            "flex shrink-0 flex-row items-center gap-[10px] rounded-lg bg-sky-50",
+            "flex shrink-0 flex-row items-center gap-2.5 rounded-lg bg-sky-50",
             "tablet:mt-5 tablet:w-full tablet:flex-col tablet:gap-2.5 tablet:self-stretch tablet:rounded-xl",
           )}
         >
           <div
             className={cn(
-              "relative aspect-square size-[120px] shrink-0",
+              "relative aspect-square size-30 shrink-0",
               "tablet:flex tablet:size-auto tablet:aspect-auto tablet:min-h-0 tablet:w-full tablet:flex-col tablet:items-center tablet:gap-2.5 tablet:rounded-xl tablet:bg-sky-50",
             )}
           >

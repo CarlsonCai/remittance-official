@@ -23,7 +23,7 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 // ─── size tables ──────────────────────────────────────────────────────────────
 
 const SIZE_H: Record<ButtonSize, string> = {
-  xl: "h-[82px]",
+  xl: "h-20.5",
   lg: "h-17",
   md: "h-15",
   sm: "h-[57px]",
@@ -125,7 +125,9 @@ export function Button({
   const effectiveGap = gap ?? DEFAULT_GAP[size];
   const paddingKey = `${size}-${effectiveGap}`;
   const padding =
-    PADDING[paddingKey] ?? PADDING[`${size}-${DEFAULT_GAP[size]}`] ?? PADDING["xs-sm"];
+    PADDING[paddingKey] ??
+    PADDING[`${size}-${DEFAULT_GAP[size]}`] ??
+    PADDING["xs-sm"];
 
   const paddingClass =
     iconRight && !iconLeft
@@ -156,14 +158,18 @@ export function Button({
           "transition-colors duration-(--motion-duration-default) ease-(--motion-ease-default)",
         !isSolid && !disabled && OUTLINE_CLASSES[color],
         !isSolid && !disabled && "transition-colors",
-        disabled && "cursor-not-allowed bg-gray-300 text-white pointer-events-none",
+        disabled &&
+          "pointer-events-none cursor-not-allowed bg-gray-300 text-white",
         className,
       )}
     >
       {isWipe && (
         <span
           aria-hidden="true"
-          className={cn("btn-wipe-overlay absolute inset-0 rounded-[inherit]", SOLID_WIPE_BG[color])}
+          className={cn(
+            "btn-wipe-overlay absolute inset-0 rounded-[inherit]",
+            SOLID_WIPE_BG[color],
+          )}
         />
       )}
 
@@ -174,14 +180,22 @@ export function Button({
         </>
       )}
 
-      <span className={cn("relative z-10 flex items-center", GAP_CLASS[effectiveGap], SIZE_TYPO[size])}>
+      <span
+        className={cn(
+          "relative z-10 flex items-center",
+          GAP_CLASS[effectiveGap],
+          SIZE_TYPO[size],
+        )}
+      >
         {iconLeft}
         {children}
         {iconRight && (
           <span
             className={cn(
               isPulse ? CTA_MOTION : WIPE_MOTION,
-              isPulse ? "group-hover:translate-y-1" : "group-hover:translate-x-1",
+              isPulse
+                ? "group-hover:translate-y-1"
+                : "group-hover:translate-x-1",
             )}
           >
             {iconRight}

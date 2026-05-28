@@ -56,7 +56,7 @@ export function HomeRemittanceOptions() {
         )}
       >
         <div className="layout-grid">
-          <div className="col-span-4 tablet:col-span-12">
+          <div className="tablet:col-span-12 col-span-4">
             <h2
               id="remittance-options-heading"
               className={cn(
@@ -66,7 +66,7 @@ export function HomeRemittanceOptions() {
             >
               多種匯款選擇
             </h2>
-            <p className="typo-body3-r tablet:typo-body1-r mt-4 tablet:mt-3 text-white">
+            <p className="typo-body3-r tablet:typo-body1-r tablet:mt-3 mt-4 text-white">
               不論是給孩子的一份心意、家人的緊急需求，或是個人的全球資產調度，給在異鄉的您最即時的支援。
             </p>
           </div>
@@ -76,7 +76,7 @@ export function HomeRemittanceOptions() {
             <div
               key={option.number}
               className={cn(
-                "col-span-4 tablet:col-span-3",
+                "tablet:col-span-3 col-span-4",
                 (index === 1 || index === 3) && "tablet:mt-15",
               )}
             >

@@ -24,7 +24,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         <div
           className={cn(
             "relative flex aspect-square w-20 shrink-0 flex-col items-start overflow-hidden rounded-[13px] border border-gray-300",
-            "tablet:w-[100px] tablet:rounded-2xl",
+            "tablet:w-25 tablet:rounded-2xl",
           )}
         >
           <Image
@@ -69,10 +69,10 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
       <div className="tablet:flex hidden w-full items-start gap-6">
         <div
           className={cn(
-            "border-navy-100 flex aspect-square size-[100px] shrink-0 items-center justify-center rounded-[6.733px] border",
+            "border-navy-100 flex aspect-square size-25 shrink-0 items-center justify-center rounded-[6.733px] border",
           )}
         >
-          <div className="relative aspect-square size-[90px]">
+          <div className="relative aspect-square size-22.5">
             <Image
               src={option.qr}
               alt={option.qrAlt}
