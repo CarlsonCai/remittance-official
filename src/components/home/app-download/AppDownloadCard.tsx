@@ -38,7 +38,10 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         <div className="flex w-full flex-col items-center gap-2">
           <h3
             id={`app-card-${index}-title`}
-            className="typo-sub1-s text-navy-900 text-center tracking-[0.4px] capitalize"
+            className={cn(
+              "typo-sub1-s text-navy-900 text-center tracking-[0.4px] capitalize",
+              "tablet:text-2xl tablet:tracking-[0.48px]",
+            )}
           >
             {option.title}
           </h3>

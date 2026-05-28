@@ -21,7 +21,10 @@ export function HomeAppDownload() {
           <div className="col-span-4 tablet:col-span-12">
             <h2
               id="app-download-heading"
-              className="typo-h2 text-gradient-app-download-heading w-fit"
+              className={cn(
+                "typo-h2 text-gradient-app-download-heading w-fit",
+                "tablet:text-5xl tablet:tracking-[0.06em]",
+              )}
             >
               準備好匯款了嗎？
             </h2>
