@@ -65,7 +65,7 @@ export function HomeLatestNews() {
                   aria-labelledby={`news-item-${i}-title`}
                   className="border-navy-100 tablet:flex-row tablet:items-start tablet:gap-6 flex flex-col gap-4 self-stretch rounded-xl"
                 >
-                  <div className="tablet:w-(--size-remittance-option-card-width) relative flex aspect-[3/2] w-full shrink-0 flex-col items-start overflow-hidden rounded-lg">
+                  <div className="tablet:w-[302px] relative flex aspect-[3/2] w-full shrink-0 flex-col items-start overflow-hidden rounded-lg">
                     <Image src={img} alt="" fill className="object-cover" />
                     <div
                       className="absolute inset-0 rounded-lg"

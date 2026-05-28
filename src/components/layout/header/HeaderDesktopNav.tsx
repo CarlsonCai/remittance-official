@@ -111,14 +111,14 @@ function HeaderDesktopNavItem({
       menuAriaLabel="前往匯款管道"
       items={remitItems}
       triggerClassName={cn(
-        "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-(--size-button-desktop-cta-height) w-(--size-button-desktop-cta-width) shrink-0 rounded-xl py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
+        "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 h-[57px] w-[138px] shrink-0 rounded-xl py-3 pr-4 pl-6 focus-visible:outline-2 focus-visible:outline-offset-2",
         "typo-body2-m text-white",
         "transition-colors",
       )}
       triggerContent={item.label}
       chevronClassName="text-white opacity-90"
       className="shrink-0"
-      panelClassName="mt-6 min-w-(--size-dropdown-panel-min-width)"
+      panelClassName="mt-6 min-w-45"
     />
   );
 }

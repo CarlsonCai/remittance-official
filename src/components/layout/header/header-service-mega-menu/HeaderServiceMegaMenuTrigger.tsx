@@ -39,7 +39,7 @@ export function HeaderServiceMegaMenuTrigger({
         匯款服務
         <ChevronRightSvg
           className={cn(
-            "size-(--size-icon-chevron) shrink-0 opacity-70",
+            "size-[15px] shrink-0 opacity-70",
             chevronTransition,
             open ? "-rotate-90" : "rotate-90",
           )}

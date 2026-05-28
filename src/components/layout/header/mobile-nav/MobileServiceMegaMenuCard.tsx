@@ -37,7 +37,7 @@ export function MobileServiceMegaMenuCard({
         </p>
       </span>
       <span
-        className="flex w-(--size-media-card-thumb) shrink-0 self-stretch overflow-hidden rounded-sm bg-gray-200 bg-cover bg-center bg-no-repeat"
+        className="flex w-22 shrink-0 self-stretch overflow-hidden rounded-sm bg-gray-200 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${card.image.src})` }}
         role="img"
         aria-label={card.imageAlt}

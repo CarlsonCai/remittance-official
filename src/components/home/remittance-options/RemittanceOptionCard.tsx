@@ -30,7 +30,7 @@ export function RemittanceOptionCard({
       className={cn(
         "border-navy-100 flex w-full min-w-0 flex-col border bg-white",
         "shadow-s rounded-[24px_12px] p-4",
-        "tablet:self-start tablet:rounded-(--radius-remittance-option-card) tablet:p-6 tablet:shadow-l",
+        "tablet:self-start tablet:rounded-[36px_24px] tablet:p-6 tablet:shadow-l",
         className,
       )}
     >

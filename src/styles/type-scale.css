@@ -38,7 +38,7 @@
   --font-size-h4-lg: 1.75rem;
   --letter-spacing-h4-sm: 0.028em;
   --letter-spacing-h4-lg: 0.035em;
-  --letter-spacing-h4-tight: 0.56px;
+  --letter-spacing-h4-tight: 0.02em;
 
   --line-height-subtitle1: 1.6;
   /** Subtitle1-S（Semi）：行高依稿 Subtitle Subtitle1-S / 1440up 140% */

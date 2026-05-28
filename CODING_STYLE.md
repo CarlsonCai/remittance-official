@@ -160,7 +160,8 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 | 色票 | `src/styles/palette.css` |
 | 字級來源 | `src/styles/type-scale.css` |
 | 陰影 | `src/styles/effects.css` |
-| 間距／圓角／grid／動效／斷點 | `src/styles/dimensions.css` |
+| 圓角／grid／動效 | `src/styles/dimensions.css` |
+| 斷點 px 定義 | `src/styles/theme.css` |
 | 語意色 | `src/styles/semantic.css` |
 | Tailwind 映射 | `src/styles/theme.css` |
 | 整頁／區塊版面 | `PageLayout`、`SectionPanelLayout`、`layout-grid.css`（`MARKUP_STYLE.md` §3） |

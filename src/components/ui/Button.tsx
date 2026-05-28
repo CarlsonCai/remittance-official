@@ -23,10 +23,10 @@ export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 // ─── size tables ──────────────────────────────────────────────────────────────
 
 const SIZE_H: Record<ButtonSize, string> = {
-  xl: "h-(--size-btn-xl)",
+  xl: "h-[82px]",
   lg: "h-17",
   md: "h-15",
-  sm: "h-(--size-btn-sm)",
+  sm: "h-[57px]",
   xs: "h-13",
 };
 

@@ -68,7 +68,7 @@ export function NavDropdown({
         {triggerContent}
         <ChevronRightSvg
           className={cn(
-            "size-(--size-icon-chevron) shrink-0",
+            "size-[15px] shrink-0",
             chevronClassName,
             chevronTransition,
             open ? "-rotate-90" : "rotate-90",
@@ -82,7 +82,7 @@ export function NavDropdown({
         aria-label={menuAriaLabel}
         aria-hidden={!open}
         className={cn(
-          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,var(--size-dropdown-panel-max-width))] min-w-(--size-dropdown-panel-min-width-sm) flex-col rounded-2xl border bg-white",
+          "border-navy-100 absolute top-full left-1/2 z-50 mt-4 flex w-fit max-w-[min(90vw,280px)] min-w-30 flex-col rounded-2xl border bg-white",
           panelTransition,
           open
             ? "visible -translate-x-1/2 translate-y-0 opacity-100"

@@ -30,8 +30,8 @@ export function FooterBrand() {
           width={203}
           height={60}
           className={cn(
-            "h-(--size-brand-logo-height-md) w-(--size-brand-logo-width-md) max-w-full object-contain object-left",
-            "tablet:h-15 tablet:w-(--size-brand-logo-width-lg)",
+            "h-10 w-[135px] max-w-full object-contain object-left",
+            "tablet:h-15 tablet:w-[203px]",
           )}
           sizes="(max-width: 1023px) 135px, 203px"
           priority={false}

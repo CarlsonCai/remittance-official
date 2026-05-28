@@ -17,7 +17,7 @@ export default function NotFound() {
                 <div className="flex justify-center">
                   <Link
                     href="/"
-                    className="typo-body3 border-navy-900/15 text-navy-900 inline-flex h-(--size-button-height-md) items-center justify-center rounded-full border border-solid px-6 font-medium transition-colors hover:bg-gray-100"
+                    className="typo-body3 border-navy-900/15 text-navy-900 inline-flex h-12 items-center justify-center rounded-full border border-solid px-6 font-medium transition-colors hover:bg-gray-100"
                   >
                     返回首頁
                   </Link>

@@ -200,7 +200,7 @@ className="typo-sub1-s tablet:text-2xl tablet:tracking-[0.48px]"
 ## 5. 間距與尺寸（必須遵守）
 
 - **區塊上下間距**：內容區優先依 `SectionPanelLayout` 的 `py-16 tablet:py-20`；區塊內標題與內容常用 `mt-3`（副標）、`mt-10`（主內容區），與現有首頁區塊一致。
-- **元件內距**：卡片等參考 `RemittanceOptionCard`（`src/components/home/remittance-options/RemittanceOptionCard.tsx`，`p-6 tablet:p-8`）。
+- **元件內距**：卡片等參考 `RemittanceOptionCard`（`src/components/home/remittance-options/RemittanceOptionCard.tsx`，`p-4 tablet:p-6`）。
 - **最大寬度**：長文/副標可用 `max-w-2xl` 等；區塊全寬由 `layout-shell` margin（20/40/80）決定。
 - **間距尺度**：遵守 **§5.0**；小間距用 `4`、`6`、`8`…，大間距用 scale 數字（`15`、`30`、`41`…），避免 `mt-[22px]`、`pb-[164px]`。
 - **合併 class**：有條件或需 `tailwind-merge` 時用 `cn()`（`@/lib/utils`）；規則見 **§5.2**。
@@ -226,7 +226,7 @@ className="typo-sub1-s tablet:text-2xl tablet:tracking-[0.48px]"
 | 140px | `pb-35` / `gap-35` | `pb-[140px]` |
 | 164px | `pb-41` | `pb-[164px]` |
 
-`dimensions.css` 的 `--space-15`（60px）、`--space-20`（80px）、`--space-35`（140px）是 **CSS 變數／文件對照**；JSX 大間距仍用 **同名 scale 數字**（`pt-15`），**不必**也**不要**為每個稿面 px 新增 `--space-*` 或寫 `[…px]`，除非該值**無法**用 ÷4 對齊（見例外）。
+JSX 大間距一律用 **Tailwind scale 數字**（`pt-15`、`pt-20`、`pt-35`…），**不必**也**不要**為每個稿面 px 新增 `--space-*` 或寫 `[…px]`，除非該值**無法**用 ÷4 對齊（見例外）。
 
 ```tsx
 // ✅

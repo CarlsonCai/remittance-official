@@ -1,18 +1,8 @@
 /*
- * 間距、圓角、尺寸、動效、版型 grid（:root 變數）。
+ * 圓角、動效、版型 grid（:root 變數）。
  * 色見 palette.css；字見 type-scale.css；陰影見 effects.css；Tailwind 見 theme.css。
  */
 :root {
-  /* ── Breakpoints（對照表；layout-grid / typography / theme 須同步 px） ── */
-  --bp-tablet: 1024px;
-  --bp-desktop: 1440px;
-  --bp-wide: 1560px;
-
-  /* ── 間距：4～24px 用 Tailwind 1～6；大間距名稱對齊 Tailwind scale（勿用舊 space-7/8/9） ── */
-  --space-15: 60px;
-  --space-20: 80px;
-  --space-35: 140px;
-
   /* ── 圓角：2～32px 用 rounded-xs～4xl；60px 見 --radius-5xl-size（theme 橋接 rounded-5xl） ── */
   --radius-5xl-size: 3.75rem;
 
@@ -21,54 +11,16 @@
   --motion-ease-default: cubic-bezier(0.22, 0.61, 0.35, 1);
   --motion-delay-short: 120ms;
 
-  /* ── 元件尺寸
-  /* Header / Footer */
-  --size-media-card-thumb: 88px;
-  --size-brand-logo-height-sm: 32px;
-  --size-brand-logo-height-md: 40px;
-  --size-brand-logo-width-sm: 108px;
-  --size-brand-logo-width-md: 135px;
-  --size-brand-logo-width-lg: 203px;
-  --size-header-separator-height-sm: 18px;
-  --size-header-separator-height-md: 24px;
-
-  /* Nav / Dropdown */
-  --size-button-desktop-cta-height: 57px;
-  --size-button-desktop-cta-width: 138px;
-  --size-dropdown-panel-min-width: 180px;
-  --size-dropdown-panel-min-width-sm: 120px;
-  --size-dropdown-panel-max-width: 280px;
-  --size-icon-chevron: 15px;
-
-  /* Home */
-  --size-remittance-option-card-width: 302px;
-  --radius-remittance-option-card: 36px 24px;
-  --size-news-thumb-width: 112px;
-  --size-news-thumb-height-md: 96px;
-  --size-news-thumb-width-md: 128px;
-  --size-app-store-icon: 64px;
-  --size-app-qr-max: 160px;
-  --size-loading-spinner: 32px;
-  --size-min-height-loading: 40vh;
-  --size-button-height-md: 48px;
-
-  /* Button */
-  --size-btn-xl: 82px;
-  --size-btn-sm: 57px;
-
   /* ── Layout grid（layout-grid.css） ── */
   --layout-margin-header: 48px;
   --layout-margin-sm: 20px;
   --layout-gutter-sm: 16px;
   --layout-columns-sm: 4;
-  --layout-container-sm: 390px;
-
   --layout-margin-md: 40px;
   --layout-gutter-md: 20px;
   --layout-columns-md: 12;
-  --layout-container-md: 944px; /* 1024 − 40×2 */
 
-  --layout-margin-lg: var(--space-20);
+  --layout-margin-lg: 80px;
   --layout-gutter-lg: 24px;
   --layout-columns-lg: 12;
   --layout-container-lg: 1440px;
