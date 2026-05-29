@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { cn } from "@/lib/utils";
-
 import { AppDownloadStoreButtons } from "./AppDownloadStoreButtons";
 import type { AppDownloadOption } from "./app-download-options";
 import { APP_VERSION_LINES } from "./app-download-options";
@@ -15,18 +13,10 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
   return (
     <article
       aria-labelledby={`app-card-${index}-title`}
-      className={cn(
-        "border-navy-100 shadow-s flex flex-col gap-4 rounded-xl border bg-white p-5",
-        "tablet:shadow-l tablet:gap-5 tablet:p-7 tablet:rounded-[20px]",
-      )}
+      className="border-navy-100 shadow-s tablet:shadow-l tablet:gap-5 tablet:rounded-[20px] tablet:p-7 flex flex-col gap-4 rounded-xl border bg-white p-5"
     >
-      <div className={cn("flex flex-col items-center gap-4", "tablet:gap-5")}>
-        <div
-          className={cn(
-            "relative flex aspect-square w-20 shrink-0 flex-col items-start overflow-hidden rounded-[13px] border border-gray-300",
-            "tablet:w-25 tablet:rounded-2xl",
-          )}
-        >
+      <div className="tablet:gap-5 flex flex-col items-center gap-4">
+        <div className="tablet:w-25 tablet:rounded-2xl relative flex aspect-square w-20 shrink-0 flex-col items-start overflow-hidden rounded-[13px] border border-gray-300">
           <Image
             src={option.icon}
             alt={option.iconAlt}
@@ -38,22 +28,14 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
         <div className="flex w-full flex-col items-center gap-2">
           <h3
             id={`app-card-${index}-title`}
-            className={cn(
-              "typo-sub1-s text-navy-900 text-center tracking-[0.02em] capitalize",
-              "tablet:text-2xl tablet:tracking-[0.02em]",
-            )}
+            className="typo-sub1-s text-navy-900 tablet:text-2xl tablet:tracking-[0.02em] text-center tracking-[0.02em] capitalize"
           >
             {option.title}
           </h3>
           <p className="typo-body4-m text-navy-900 text-center tracking-[0.02em]">
             {option.description}
           </p>
-          <div
-            className={cn(
-              "flex w-full flex-col items-center gap-1 text-center",
-              "tablet:hidden",
-            )}
-          >
+          <div className="tablet:hidden flex w-full flex-col items-center gap-1 text-center">
             {APP_VERSION_LINES.map((line) => (
               <p
                 key={line}
@@ -67,11 +49,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
       </div>
 
       <div className="tablet:flex hidden w-full items-start gap-6">
-        <div
-          className={cn(
-            "border-navy-100 flex aspect-square size-25 shrink-0 items-center justify-center rounded-[6.733px] border",
-          )}
-        >
+        <div className="border-navy-100 flex aspect-square size-25 shrink-0 items-center justify-center rounded-[6.733px] border">
           <div className="relative aspect-square size-22.5">
             <Image
               src={option.qr}

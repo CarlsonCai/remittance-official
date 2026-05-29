@@ -282,10 +282,10 @@ className={cn(
 |------|------|
 | 有 `expanded && …`、`open ? …`、variant 等**條件 class** | ✅ `cn()` |
 | 可能互斥的 utility（兩個 `text-*`、`mt-4` 與 `mt-6`）需 merge | ✅ `cn()` |
-| 複雜元素、需分層閱讀的長 class | ✅ `cn()` 多參數 |
+| 複雜元素、需分層閱讀的長 class，或含共用 class 變數（例：`SITE_MOTION`） | ✅ `cn()` 多參數 |
 | **固定且簡短**、無條件、無衝突 | ❌ 直接 `className="typo-body2-m text-navy-900"`，勿包一層 `cn()` |
 
-**禁止**為每個元素機械式拆三層 `cn()`；簡單靜態區塊一行即可。參考：`src/components/layout/header/mobile-nav/`。
+有條件 class、`tailwind-merge` 衝突、共用 class 變數（如 `SITE_MOTION`），或 class 長到需要分段閱讀時 → 用 `cn()`。其他情況直接寫 `className="…"`。
 
 #### `cn()` 參數順序（語意層）
 

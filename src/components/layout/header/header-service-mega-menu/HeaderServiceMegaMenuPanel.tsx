@@ -42,12 +42,7 @@ export function HeaderServiceMegaMenuPanel({
       >
         <div className="mx-auto flex w-full max-w-(--layout-container-lg) shrink-0 items-start gap-15 self-stretch px-(--layout-margin-lg) pt-10 pb-12">
           <div className="border-navy-100 flex max-w-xs shrink-0 flex-col gap-4 self-stretch border-r pr-15">
-            <h2
-              className={cn(
-                "typo-h4 text-navy-900 font-bold",
-                "desktop:tracking-(--letter-spacing-h4-tight)",
-              )}
-            >
+            <h2 className="typo-h4 text-navy-900 desktop:tracking-(--letter-spacing-h4-tight) font-bold">
               匯款服務
             </h2>
             <p className="typo-body3-r text-navy-900">

@@ -13,7 +13,6 @@ import {
   MOBILE_NAV_CTA_ACCORDION_ID,
   type HeaderNavItem,
 } from "@/lib/headerNav";
-import { cn } from "@/lib/utils";
 
 import { MobileNavAccordion } from "./MobileNavAccordion";
 import { MobileServiceMegaMenuCard } from "./MobileServiceMegaMenuCard";
@@ -48,11 +47,7 @@ export function HeaderMobileNavItem({
       <li>
         <Link
           href={item.href}
-          className={cn(
-            "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-3 pe-2",
-            "typo-body1-m text-navy-900 [&_svg]:opacity-80",
-            "transition-colors",
-          )}
+          className="border-navy-100 typo-body1-m text-navy-900 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-3 pe-2 transition-colors [&_svg]:opacity-80"
           onClick={onNavigate}
         >
           {item.label}

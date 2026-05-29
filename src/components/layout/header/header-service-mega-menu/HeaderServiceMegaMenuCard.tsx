@@ -39,7 +39,7 @@ export function HeaderServiceMegaMenuCard({
         >
           {card.title}
         </span>
-        <div className="group/image relative aspect-4/3 w-full self-stretch overflow-hidden rounded-xl bg-gray-200">
+        <div className="group/image relative aspect-5/4 w-full self-stretch overflow-hidden rounded-xl bg-sky-50">
           <div
             aria-hidden="true"
             className={cn(

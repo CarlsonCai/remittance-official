@@ -47,11 +47,7 @@ export function MobileNavAccordion({
         type="button"
         className={
           isCta
-            ? cn(
-                "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 flex h-15 w-full shrink-0 items-center justify-center gap-1 self-stretch rounded-xl py-3 ps-6 pe-4 focus-visible:outline-2 focus-visible:outline-offset-2",
-                "typo-body1-m text-white",
-                "transition-colors",
-              )
+            ? "focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 typo-body1-m flex h-15 w-full shrink-0 items-center justify-center gap-1 self-stretch rounded-xl py-3 ps-6 pe-4 text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
             : cn(
                 "border-navy-100 flex w-full items-center justify-between border-b bg-transparent py-(--layout-gutter-sm) ps-3 pe-2",
                 "typo-body1-m text-navy-900 [&_svg]:opacity-80",
