@@ -38,7 +38,7 @@ export function HomeAppDownload() {
             </p>
           </div>
         </div>
-        <div className="layout-grid">
+        <div className="layout-grid gap-y-5">
           {APP_DOWNLOAD_OPTIONS.map((option, index) => (
             <div key={option.title} className="col-span-4">
               <AppDownloadCard option={option} index={index} />

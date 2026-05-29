@@ -16,8 +16,8 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
     <article
       aria-labelledby={`app-card-${index}-title`}
       className={cn(
-        "border-navy-100 shadow-l flex flex-col gap-4 rounded-[20px] border bg-white p-5",
-        "tablet:gap-5 tablet:p-7",
+        "border-navy-100 shadow-s flex flex-col gap-4 rounded-xl border bg-white p-5",
+        "tablet:shadow-l tablet:gap-5 tablet:p-7 tablet:rounded-[20px]",
       )}
     >
       <div className={cn("flex flex-col items-center gap-4", "tablet:gap-5")}>
@@ -82,23 +82,18 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
             />
           </div>
         </div>
-        <div className="flex min-w-0 flex-1 flex-col gap-1">
-          <p
-            className={cn(
-              "typo-body3-m text-navy-900",
-              "tablet:typo-body2-m",
-            )}
-          >
-            掃描下載APP
-          </p>
-          {APP_VERSION_LINES.map((line) => (
-            <p
-              key={line}
-              className="typo-body6-r tracking-[0.02em] text-gray-700"
-            >
-              {line}
-            </p>
-          ))}
+        <div className="flex min-w-0 flex-1 flex-col justify-between self-stretch">
+          <p className="typo-body3-m text-navy-900">掃描下載APP</p>
+          <div>
+            {APP_VERSION_LINES.map((line) => (
+              <p
+                key={line}
+                className="typo-body6-r tracking-[0.02em] text-gray-700"
+              >
+                {line}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
 
