@@ -1,36 +1,105 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Remittance Official
 
-## Getting Started
+以 Next.js App Router、Tailwind CSS v4 與 next-intl 建置的跨境匯款官方行銷網站。
 
-First, run the development server:
+## 技術棧
+
+- Next.js 16（App Router、靜態匯出）
+- React 19
+- TypeScript 5
+- Tailwind CSS 4
+- next-intl（語系：`zh-TW`、`en`、`vi`）
+
+## 環境需求
+
+- Node.js 20+
+- npm 10+
+
+## 常用指令
+
+- `npm run dev`：啟動本地開發伺服器
+- `npm run build`：建置並輸出靜態檔到 `out/`
+- `npm run start`：在 3000 埠提供 `out/` 靜態檔預覽
+- `npm run lint`：執行 ESLint
+- `npm run format`：執行 Prettier 並寫入格式化結果
+
+## 本機開發
+
+1. 安裝相依套件：
+
+```bash
+npm install
+```
+
+2. 啟動開發伺服器：
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. 開啟：
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```txt
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 建置與靜態輸出預覽
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+本專案在 `next.config.ts` 設定 `output: "export"`，因此正式輸出為 `out/` 目錄下的靜態檔案。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 環境變數
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+可在本機建立 `.env.local` 覆蓋設定：
 
-## Deploy on Vercel
+```bash
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+正式環境請將 `NEXT_PUBLIC_SITE_URL` 設為最終公開網域，且不要帶結尾斜線 `/`。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 多語系
+
+- 路由設定：`src/i18n/routing.ts`
+- 語系訊息：`messages/*.json`
+- 請求解析：`src/i18n/request.ts`
+
+支援語系：
+
+- `zh-TW`（預設）
+- `en`
+- `vi`
+
+語系路徑範例：
+
+- `/zh-TW/`
+- `/en/`
+- `/vi/`
+
+## 字體與樣式
+
+- 主要拉丁字體：`src/app/layout.tsx` 透過 `next/font` 載入 `Manrope`
+- CJK fallback：`Noto Sans TC`
+- 全域樣式入口：`src/app/globals.css`
+- Token 對照文件：`docs/design-tokens.md`
+
+## 主要目錄
+
+- `src/app/`：路由分段、layout、metadata
+- `src/components/`：頁面與共用元件
+- `src/styles/`：tokens、utility 與元件 CSS layer
+- `src/i18n/`：語系 routing/navigation/request 設定
+- `src/lib/`：常數與工具函式
+- `messages/`：多語文案
+
+## 團隊規範
+
+進行大型 UI 調整或重構前，先閱讀：
+
+- `AGENTS.md`
+- `CODING_STYLE.md`
+- `MARKUP_STYLE.md`
