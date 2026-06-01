@@ -15,10 +15,11 @@
 | 5    | `motion.css`        | Primitive     | 動效時序 token                                                          |
 | 6    | `layout-tokens.css` | Primitive     | layout margin、gutter、columns、container                               |
 | 7    | `semantic.css`      | Semantic      | `--background`、`--foreground`                                          |
-| 8    | `theme.css`         | Tailwind 橋接 | `bg-sky-*`、`tablet:`、`shadow-s`、`rounded-5xl`                         |
+| 8    | `theme.css`         | Tailwind 橋接 | `bg-sky-*`、`tablet:`、`shadow-s`、`rounded-5xl`                        |
 | 9    | `tailwindcss`       | —             | 框架                                                                    |
 | 10   | `typography.css`    | Utility       | `typo-*` 工具類                                                         |
 | 11   | `layout-grid.css`   | Component     | `.page-layout`、`.layout-shell`、`.layout-header-shell`、`.layout-grid` |
+| 12   | `button.css`        | Component     | `.btn-*` 按鈕基礎樣式與變體                                             |
 
 **改數值去哪裡**
 
@@ -36,13 +37,13 @@
 
 ### 1.1 尺寸類 token 用法
 
-| 層級       | 前綴例                                                                                          |
-| ---------- | ----------------------------------------------------------------------------------------------- |
-| Radius     | `radius.css`：`--radius-5xl-size`                                                              |
-| Motion     | `motion.css`：`--motion-*`                                                                      |
-| Layout     | `layout-tokens.css`：`--layout-margin-*`、`--layout-gutter-*`、`--layout-columns-*`             |
-| 元件尺寸   | 固定元件尺寸需要跨元件共用時才補 `--size-*`，不要拿來取代 spacing scale                         |
-| Breakpoint | Tailwind 斷點定義在 `theme.css` 的 `--breakpoint-*`；CSS media query 以相同 literal px 對齊     |
+| 層級       | 前綴例                                                                                      |
+| ---------- | ------------------------------------------------------------------------------------------- |
+| Radius     | `radius.css`：`--radius-5xl-size`                                                           |
+| Motion     | `motion.css`：`--motion-*`                                                                  |
+| Layout     | `layout-tokens.css`：`--layout-margin-*`、`--layout-gutter-*`、`--layout-columns-*`         |
+| 元件尺寸   | 固定元件尺寸需要跨元件共用時才補 `--size-*`，不要拿來取代 spacing scale                     |
+| Breakpoint | Tailwind 斷點定義在 `theme.css` 的 `--breakpoint-*`；CSS media query 以相同 literal px 對齊 |
 
 間距：使用 Tailwind 預設 spacing scale；4～24px → `1`～`6`，60/80/120/140/164px → `15`/`20`/`30`/`35`/`41`。不另外維護 `--space-*` token。圓角：2～32px → `rounded-xs`～`4xl`；60px → `rounded-5xl`（`radius.css` `--radius-5xl-size`）。
 
@@ -86,13 +87,13 @@
 
 ## 5. 版型 grid（`layout-tokens.css` + `layout-grid.css`）
 
-### 5.1 三個 layout class
+### 5.1 四個 layout class
 
 | Class                  | 作用                                                                                                 |
 | ---------------------- | ---------------------------------------------------------------------------------------------------- |
 | `.layout-shell`        | 全寬 + `padding-inline`（`--layout-margin-*`）                                                       |
 | `.layout-header-shell` | Header 全寬；**&lt;1024：`--layout-margin-sm`（20px）**；**≥1024：`--layout-margin-header`（48px）** |
-| `.page-layout`         | `width: 100%`；wide 以上 max-width 1440px；不要包在 `layout-shell` 裡面                              |
+| `.page-layout`         | `width: 100%`；wide 以上 max-width 1560px；不要包在 `layout-shell` 裡面                              |
 | `.layout-grid`         | 欄數 + gutter                                                                                        |
 
 ### 5.2 稿數值（Small / Medium / Large）
@@ -117,17 +118,17 @@
 
 ## 6. 想改〇〇時改哪裡（速查）
 
-| 目標                         | 檔案                                |
-| ---------------------------- | ----------------------------------- |
-| 品牌色                       | `palette.css`                       |
-| 字級                         | `type-scale.css` + `typography.css` |
-| 陰影／漸層                   | `effects.css`                       |
-| 圓角                         | `radius.css`                        |
-| 動效                         | `motion.css`                        |
-| 間距／尺寸／grid             | `layout-tokens.css`                 |
-| 語意色                       | `semantic.css`                      |
-| Tailwind 映射／斷點          | `theme.css`                         |
-| 載入字體                     | `src/app/layout.tsx`                |
+| 目標                | 檔案                                |
+| ------------------- | ----------------------------------- |
+| 品牌色              | `palette.css`                       |
+| 字級                | `type-scale.css` + `typography.css` |
+| 陰影／漸層          | `effects.css`                       |
+| 圓角                | `radius.css`                        |
+| 動效                | `motion.css`                        |
+| 間距／尺寸／grid    | `layout-tokens.css`                 |
+| 語意色              | `semantic.css`                      |
+| Tailwind 映射／斷點 | `theme.css`                         |
+| 載入字體            | `src/app/layout.tsx`                |
 
 ---
 
