@@ -85,7 +85,7 @@ NEXT_PUBLIC_SITE_URL=http://localhost:3000
 - 主要拉丁字體：`src/app/layout.tsx` 透過 `next/font` 載入 `Manrope`
 - CJK fallback：`Noto Sans TC`
 - 全域樣式入口：`src/app/globals.css`
-- Token 對照文件：`docs/design-tokens.md`
+- Token 對照文件：`src/styles/docs/design-tokens.md`
 
 ## 主要目錄
 
