@@ -36,14 +36,20 @@ export function HomeLatestNews() {
             </p>
             <ul className="tablet:flex-col tablet:mt-12 mt-6 flex flex-wrap gap-2">
               <li>
-                <span className="bg-navy-500 typo-body2-m inline-flex items-center justify-center gap-2.5 rounded-lg px-4 py-2 text-center text-white">
+                <button
+                  type="button"
+                  className="bg-navy-500 typo-body2-m inline-flex items-center justify-center gap-2.5 rounded-lg px-4 py-2 text-center text-white"
+                >
                   優惠訊息
-                </span>
+                </button>
               </li>
               <li>
-                <span className="border-navy-100 typo-body2-m text-navy-500 inline-flex items-center justify-center gap-2.5 rounded-lg border bg-white px-4 py-2 text-center">
+                <button
+                  type="button"
+                  className="border-navy-100 typo-body2-m text-navy-500 inline-flex items-center justify-center gap-2.5 rounded-lg border bg-white px-4 py-2 text-center"
+                >
                   重要公告
-                </span>
+                </button>
               </li>
             </ul>
             <Button
@@ -65,8 +71,7 @@ export function HomeLatestNews() {
                     <div className="tablet:w-[302px] relative flex aspect-[3/2] w-full shrink-0 flex-col items-start overflow-hidden rounded-lg">
                       <Image src={img} alt="" fill className="object-cover" />
                       <div
-                        className="absolute inset-0 rounded-lg"
-                        style={{ background: "rgba(44, 161, 254, 0.05)" }}
+                        className="absolute inset-0 rounded-lg bg-sky-500/5"
                         aria-hidden="true"
                       />
                     </div>
@@ -75,7 +80,7 @@ export function HomeLatestNews() {
                         <Tag>大戶速匯</Tag>
 
                         <time
-                          className="text-navy-500 ml-5 overflow-hidden text-sm leading-[130%] font-medium tracking-[0.02em] text-ellipsis"
+                          className="typo-body4-m text-navy-500 ml-5 overflow-hidden text-ellipsis"
                           dateTime="2026-01-01"
                         >
                           2026.01.01

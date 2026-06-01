@@ -41,7 +41,8 @@ export function HomeRemittanceGuide() {
             <ul className="tablet:mt-12 tablet:flex-col mt-6 flex flex-wrap gap-2">
               {GUIDE_CATEGORIES.map((cat, i) => (
                 <li key={cat}>
-                  <span
+                  <button
+                    type="button"
                     className={cn(
                       "inline-flex items-center justify-center gap-2.5 rounded-lg px-4 py-2 text-center",
                       "typo-body2-m",
@@ -51,7 +52,7 @@ export function HomeRemittanceGuide() {
                     )}
                   >
                     {cat}
-                  </span>
+                  </button>
                 </li>
               ))}
             </ul>

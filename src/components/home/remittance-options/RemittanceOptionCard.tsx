@@ -54,17 +54,12 @@ export function RemittanceOptionCard({
 
           <h3
             id={`remittance-option-${index}-title`}
-            className={cn(
-              "typo-sub1-s text-navy-900 capitalize",
-              "max-[1023px]:tracking-[0.02em]",
-            )}
+            className="typo-sub1-s text-navy-900 capitalize"
           >
             {title}
           </h3>
 
-          <p className="typo-body3-m text-navy-900">
-            {subtitle}
-          </p>
+          <p className="typo-body3-m text-navy-900">{subtitle}</p>
         </div>
 
         <div
