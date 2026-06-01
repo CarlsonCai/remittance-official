@@ -187,10 +187,20 @@ className={cn(
 ```txt
 ✅ header / main / section / footer
 ✅ section 要 id + aria-labelledby
-✅ 全頁只有一個 h1
-✅ heading 不跳級
-✅ img 要 alt
-✅ link 要有意義
+✅ 全頁只有一個 h1；heading 不跳級
+✅ nav 要 aria-label（主選單 / 頁尾導覽）
+✅ img 要 alt；裝飾圖 alt="" + aria-hidden="true"
+✅ link 要有意義（不要純「了解更多」）
+✅ 站內連結用 <Link>；外部連結用 <a rel="noopener noreferrer">
+✅ a 要有真實 href，佔位 href="#" 上線前必須換掉
+```
+
+**圖片效能（影響 LCP）**
+
+```txt
+Hero 主圖 → priority（不加 loading="lazy"）
+首屏以下的圖 → loading="lazy"（next/image 預設）
+裝飾圖 → CSS background 或 alt="" + aria-hidden="true"
 ```
 
 ---
@@ -217,6 +227,8 @@ className={cn(
 □ 背景在 section
 □ 字型用 typo
 □ 間距符合 ÷4
-□ 有語意標籤
-□ h1 只有一個
+□ 有語意標籤；nav 有 aria-label
+□ h1 只有一個；heading 不跳級
+□ img 有 alt；Hero 主圖加 priority
+□ a 有真實 href；站內用 Link
 ```
