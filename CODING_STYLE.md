@@ -128,58 +128,29 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 - 未滿 300 行但職責已混雜（多個獨立 UI 區塊、可抽成 hook 的邏輯）→ 仍應拆檔，不必等到行數門檻。
 - 禁止為了避免拆檔而把邏輯塞進註解或超長 JSX 一行到底。
 
-### 3.4 版面元件（必須遵守）
+### 3.4 版面元件
 
-與 **`MARKUP_STYLE.md` §3** 一致。
+版面結構（`PageLayout`、`SectionPanelLayout`、`layout-shell` 用法）詳見 **`MARKUP_STYLE.md`**。
 
-| 元件 | 路徑 | 職責 |
-|------|------|------|
-| **`PageLayout`** | `src/components/layout/PageLayout.tsx` | `.page-layout`：≥1560 整頁 max 1440 置中；掛在 `(site)/layout.tsx` |
-| **`SectionPanelLayout`** | `src/components/layout/SectionPanelLayout.tsx` | [Panel 可選] → `shell`；`panelClassName` 見 `src/components/home/remittance-options/` |
-| **首頁區塊** | `src/components/home/Home*.tsx` | `<section>` + `SectionPanelLayout`；不包 PageLayout |
-| **樣式** | `src/styles/layout-grid.css` | `.page-layout`、`.layout-shell`、`.layout-header-shell`、`.layout-grid` |
-
-- 調整整頁超寬行為：改 `layout-grid.css` 的 `.page-layout`，勿在每個 `Home*` 重複 `max-width`。
-- 調整區塊上下間距：改 `SectionPanelLayout` 內 `py-*` 或該區 `shellClassName`（見 `MARKUP_STYLE.md` §5、§7）。
-- **Grid margin**（20/40/80）：改 `layout-grid.css` 的 `.layout-shell`。
-- 有 Panel：傳 `panelClassName` + `shellClassName`（見 `src/components/home/remittance-options/HomeRemittanceOptions.tsx`）；`layout-shell` 在 Panel **內**。
+| 元件 | 路徑 |
+|------|------|
+| `PageLayout` | `src/components/layout/PageLayout.tsx` |
+| `SectionPanelLayout` | `src/components/layout/SectionPanelLayout.tsx` |
+| 首頁區塊 | `src/components/home/Home*.tsx` |
+| 版面樣式 | `src/styles/layout-grid.css` |
 
 ---
 
 ## 4. `className` 與 `cn()`（必須遵守）
 
-切版、Tailwind、`cn()` 語意分層的完整規則在 **`MARKUP_STYLE.md` §5.1、§5.2**；本節只列程式面必記項。
+`cn()` 的使用時機、class 順序、token 來源詳見 **`MARKUP_STYLE.md` §6**；本節只列程式架構規則。
 
-### 4.1 職責切分
+- `cn()` 從 `@/lib/utils` 引入（內含 `tailwind-merge`）。
+- 條件 class（`isActive && "…"`）放 `cn()` **最後一個參數**，避免 merge 覆寫順序不清。
+- 樣式留在元件 `className`；不抽 `*Classes.ts`（除非使用者明確要求）。動效常數可放 `src/lib/*Motion.ts`。
+- 自訂 Hook 放在 `src/hooks/`，不要因為「離 JSX 近」就放在元件目錄。
 
-| 內容 | 放哪 |
-|------|------|
-| `cn()` 何時用、參數分層（表面 → 字形 → 動畫 → 狀態） | `MARKUP_STYLE.md` **§5.2** |
-| RWD（`tablet:` 等）歸哪層、可否獨立 `cn()` 參數 | `MARKUP_STYLE.md` **§5.2**（RWD 小節） |
-| 單一字串內 utility 排序、Prettier | `MARKUP_STYLE.md` **§5.1** |
-| 色票 | `src/styles/palette.css` |
-| 字級來源 | `src/styles/type-scale.css` |
-| 陰影 | `src/styles/effects.css` |
-| 圓角 | `src/styles/radius.css` |
-| grid | `src/styles/layout-tokens.css` |
-| 動效 | `src/styles/motion.css` |
-| 斷點 px 定義 | `src/styles/theme.css` |
-| 語意色 | `src/styles/semantic.css` |
-| Tailwind 映射 | `src/styles/theme.css` |
-| 整頁／區塊版面 | `PageLayout`、`SectionPanelLayout`、`layout-grid.css`（`MARKUP_STYLE.md` §3） |
-| 跨區塊動效 | `src/lib/siteMotion.ts`（`motion.css` `--motion-*`） |
-| 元件邏輯、accordion 狀態 | `src/hooks/`（例：`useMobileNavAccordion`） |
-
-### 4.2 程式慣例（AI 必守）
-
-- 合併 class 用 `cn()`（`@/lib/utils`，內含 `tailwind-merge`）；**有條件或可能衝突**才用，靜態短 class 直接寫 `className`（見 `MARKUP_STYLE.md` §5.2）。
-- **禁止**為了 DRY 新增 `*Classes.ts` 整包抽離 Tailwind（除非使用者明確要求）；樣式留在元件 JSX，動效可抽 `src/lib/*Motion.ts`。
-- 條件 class（`expanded && …`）放 `cn()` **最後一個參數**。
-- 自訂 Hook 放在 `src/hooks/`，**不要**放在元件目錄僅為了「離 JSX 近」。
-
-### 4.3 參考實作
-
-- `src/components/layout/header/mobile-nav/`（mobile 選單；§5.2 分層示例）
+**參考實作**：`src/components/layout/header/mobile-nav/`
 
 ---
 
@@ -188,8 +159,8 @@ AI 產碼須符合下列原則；以**可讀、可維護**為優先，不追求�
 - [ ] Hook 全在頂層，順序符合 §1.2
 - [ ] 無過度抽象、無未使用程式碼；未新增 `*Classes.ts`（§4.2）
 - [ ] 單檔 ≤ 300 行（或已拆檔並說明）
-- [ ] 版面符合 `MARKUP_STYLE.md` §3、§7（`PageLayout`、`SectionPanelLayout`）
-- [ ] `className` / `cn()` 符合 `MARKUP_STYLE.md` §5.2（§4）
+- [ ] 版面符合 `MARKUP_STYLE.md`（`PageLayout`、`SectionPanelLayout` 用法）
+- [ ] `cn()` 用法符合 `MARKUP_STYLE.md` §6
 - [ ] `npm run lint` 可通過（不關規則）
 
 ---
