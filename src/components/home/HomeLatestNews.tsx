@@ -9,6 +9,8 @@ import { ViewMoreButton } from "@/components/ui/ViewMoreButton";
 import newsImage1 from "@/assets/images/latest-news/latest-news-1.png";
 import newsImage2 from "@/assets/images/latest-news/latest-news-2.png";
 import newsImage3 from "@/assets/images/latest-news/latest-news-3.png";
+import newsKv from "@/assets/images/latest-news/latest-news-kv.png";
+import spark from "@/assets/images/spark.png";
 
 const NEWS_IMAGES = [newsImage1, newsImage2, newsImage3];
 
@@ -21,8 +23,74 @@ export function HomeLatestNews() {
     >
       <SectionPanelLayout
         panelClassName="rounded-5xl bg-sky-100"
-        shellClassName="pt-15 pb-40"
+        shellClassName="pt-35 pb-35"
       >
+        {/* Homepage/News KV 插圖 — 345×192px，左下角 */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0 h-48"
+          style={{ left: 80, bottom: 0, width: 345 }}
+        >
+          <Image
+            src={newsKv}
+            alt=""
+            fill
+            className="object-contain object-bottom"
+            sizes="345px"
+          />
+        </div>
+        {/* Spark 裝飾 ×1 — 13×14px */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0"
+          style={{ left: 372, bottom: 171, width: 13, height: 14 }}
+        >
+          <Image
+            src={spark}
+            alt=""
+            fill
+            className="object-contain"
+            sizes="13px"
+          />
+        </div>
+
+        {/* Spark 裝飾 ×2 — 13×14px */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0"
+          style={{ left: 189, bottom: 157, width: 13, height: 14 }}
+        >
+          <Image
+            src={spark}
+            alt=""
+            fill
+            className="object-contain"
+            sizes="13px"
+          />
+        </div>
+
+        {/* Line / Blue 裝飾線條 */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0 h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          style={{ right: 108, top: 32.75 }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          style={{ right: 80, top: 68.75 }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0 h-20 w-1.5 -translate-y-1/2 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          style={{ left: 434, top: "calc(50% + 122.75px)" }}
+        />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute z-0 h-15 w-1 -translate-y-1/2 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          style={{ left: 406, top: "calc(50% + 148.75px)" }}
+        />
+
         <div className="layout-grid items-start gap-y-8">
           <aside className="col-span-4" aria-label="消息分類">
             <h2
