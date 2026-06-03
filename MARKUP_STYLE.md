@@ -108,6 +108,21 @@ px ÷ 4 = Tailwind 數字
 | 120 | 30 |
 | 140 | 35 |
 | 164 | 41 |
+| 519 | 129.75 |
+| 540 | 135 |
+| 800 | 200 |
+| 92 | 23 |
+
+**任何情況都不寫 `[XXpx]`，包括寬高、border、圓角、字距等。**
+
+```txt
+w-[519px]    ❌ → w-129.75   ✅
+border-[32px] ❌ → border-32  ✅
+rounded-[100px] ❌ → rounded-full ✅
+rounded-[800px] ❌ → rounded-full ✅
+text-[14px]  ❌ → text-sm 或 typo-body4-m ✅
+tracking-[0.28px] ❌ → 用 typo-* utility ✅
+```
 
 ---
 
@@ -174,7 +189,7 @@ className={cn(
 ❌ Section 外再包 layout-shell
 ❌ Panel 內外雙 shell
 ❌ 背景寫在 shell
-❌ text-[13px]
+❌ text-[13px]、w-[519px]、border-[32px] 等任何 [XXpx] arbitrary 寫法
 ❌ blue-500
 ❌ div 當 button / h1
 ❌ font-bold 覆蓋 typo

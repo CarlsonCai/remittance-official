@@ -3,6 +3,6 @@
  * Primitive 色票見 palette.css。
  */
 :root {
-  --background: var(--white);
+  --background: var(--sky-50);
   --foreground: var(--navy-900);
 }

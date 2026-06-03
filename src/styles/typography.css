@@ -246,6 +246,15 @@
 }
 
 /** 最新消息主標：兩色直線漸層，無 background-size 縮放 */
+@utility text-gradient-service-scenarios-heading {
+  background-image: var(--gradient-service-scenarios-heading);
+  background-size: var(--gradient-service-scenarios-heading-size) 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 @utility text-gradient-latest-news-heading {
   background-image: var(--gradient-latest-news-heading);
   -webkit-background-clip: text;

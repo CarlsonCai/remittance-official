@@ -43,7 +43,7 @@ export function HomeRemittanceOptions() {
     <section
       id="remittance-options"
       aria-labelledby="remittance-options-heading"
-      className="w-full"
+      className="relative z-10 w-full"
     >
       <SectionPanelLayout
         panelClassName={cn(

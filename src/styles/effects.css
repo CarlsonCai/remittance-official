@@ -30,11 +30,34 @@
   /* 稿面色標在 29.65% 結束；放大背景讓整段漸層橫跨文字寬（對齊 Figma 文字填色） */
   --gradient-app-download-heading-size: calc(100% / 0.2965);
 
+  /* Headline/H2/1440up — 服務情境主標 */
+  --gradient-service-scenarios-heading: linear-gradient(
+    90deg,
+    var(--navy-900) 0%,
+    var(--navy-500) 19.43%,
+    var(--navy-900) 38.87%
+  );
+  --gradient-service-scenarios-heading-size: calc(100% / 0.3887);
+
   /* Headline/H2/1440up — 最新消息主標 */
   --gradient-latest-news-heading: linear-gradient(
     90deg,
     var(--navy-900) 0%,
     var(--navy-500) 54.41%
+  );
+
+  /* 服務情境區塊 — 右下角放射光暈 */
+  --gradient-service-scenarios-glow: radial-gradient(
+    circle at center,
+    var(--sky-100) 0%,
+    transparent 70%
+  );
+
+  /* 服務情境區塊 — 左上角放射光暈 */
+  --gradient-service-scenarios-glow-tl: radial-gradient(
+    circle at center,
+    var(--sky-200) 0%,
+    rgba(229, 244, 255, 0) 70%
   );
 
   --shadow-l-source:
