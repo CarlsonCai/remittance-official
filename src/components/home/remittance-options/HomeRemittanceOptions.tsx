@@ -55,25 +55,43 @@ export function HomeRemittanceOptions() {
         className="pointer-events-none absolute z-20"
         style={{ right: 60, top: -60, width: 162, height: 208 }}
       >
-        <Image src={moneyIllustration} alt="" fill className="object-contain" sizes="162px" />
+        <Image
+          src={moneyIllustration}
+          alt=""
+          fill
+          className="object-contain"
+          sizes="162px"
+        />
       </div>
 
       {/* Spark ×1 — 11×12px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-20"
+        className="animate-twinkle pointer-events-none absolute z-20 [animation-delay:0.5s]"
         style={{ right: 106, top: 77, width: 11, height: 12 }}
       >
-        <Image src={spark} alt="" fill className="object-contain" sizes="11px" />
+        <Image
+          src={spark}
+          alt=""
+          fill
+          className="object-contain"
+          sizes="11px"
+        />
       </div>
 
       {/* Spark ×2 — 11×12px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-20"
+        className="animate-twinkle pointer-events-none absolute z-20 [animation-delay:1.2s]"
         style={{ right: 156, top: 6, width: 11, height: 12 }}
       >
-        <Image src={spark} alt="" fill className="object-contain" sizes="11px" />
+        <Image
+          src={spark}
+          alt=""
+          fill
+          className="object-contain"
+          sizes="11px"
+        />
       </div>
 
       {/* Background/Circle 圓形光暈 — 800×800px，右下角 */}
@@ -82,33 +100,45 @@ export function HomeRemittanceOptions() {
         className="pointer-events-none absolute z-0 overflow-hidden"
         style={{ right: -345, bottom: -308, width: 800, height: 800 }}
       >
-        <svg viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg" className="size-full">
-          <circle opacity="0.2" cx="400" cy="400" r="384" stroke="white" strokeWidth="32" />
+        <svg
+          viewBox="0 0 800 800"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="size-full"
+        >
+          <circle
+            opacity="0.2"
+            cx="400"
+            cy="400"
+            r="384"
+            stroke="white"
+            strokeWidth="32"
+          />
         </svg>
       </div>
 
       {/* Line / White 右大 — 4×80px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-1 h-20 rounded-full bg-gradient-to-b from-white/60 to-transparent"
+        className="pointer-events-none absolute z-0 h-20 w-1 rounded-full bg-gradient-to-b from-white/60 to-transparent"
         style={{ right: 60, top: 217 }}
       />
       {/* Line / White 右小 — 3×60px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-0.75 h-15 rounded-full bg-gradient-to-b from-white/60 to-transparent"
+        className="pointer-events-none absolute z-0 h-15 w-0.75 rounded-full bg-gradient-to-b from-white/60 to-transparent"
         style={{ right: 86, top: 255 }}
       />
       {/* Line / White 左大 — 4×80px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-1 h-20 rounded-full bg-gradient-to-b from-white/60 to-transparent"
+        className="pointer-events-none absolute z-0 h-20 w-1 rounded-full bg-gradient-to-b from-white/60 to-transparent"
         style={{ left: 40, top: 733 }}
       />
       {/* Line / White 左小 — 3×60px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-0.75 h-15 rounded-full bg-gradient-to-b from-white/60 to-transparent"
+        className="pointer-events-none absolute z-0 h-15 w-0.75 rounded-full bg-gradient-to-b from-white/60 to-transparent"
         style={{ left: 68, top: 783 }}
       />
       <SectionPanelLayout

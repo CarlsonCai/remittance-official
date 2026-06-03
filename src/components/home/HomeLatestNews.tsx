@@ -42,7 +42,7 @@ export function HomeLatestNews() {
         {/* Spark 裝飾 ×1 — 13×14px */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0"
+          className="animate-twinkle pointer-events-none absolute z-0"
           style={{ left: 372, bottom: 171, width: 13, height: 14 }}
         >
           <Image
@@ -57,7 +57,7 @@ export function HomeLatestNews() {
         {/* Spark 裝飾 ×2 — 13×14px */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0"
+          className="animate-twinkle pointer-events-none absolute z-0 [animation-delay:0.7s]"
           style={{ left: 189, bottom: 157, width: 13, height: 14 }}
         >
           <Image

@@ -79,7 +79,7 @@ export function HomeRemittanceGuide() {
       {/* Spark 裝飾 ×1 — 13×14px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0"
+        className="animate-twinkle pointer-events-none absolute z-0 [animation-delay:0.3s]"
         style={{ left: 263, bottom: 337.25, width: 13, height: 14 }}
       >
         <Image
@@ -94,7 +94,7 @@ export function HomeRemittanceGuide() {
       {/* Spark 裝飾 ×2 — 13×14px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0"
+        className="animate-twinkle pointer-events-none absolute z-0 [animation-delay:1s]"
         style={{ left: 132, bottom: 239.25, width: 13, height: 14 }}
       >
         <Image
@@ -198,7 +198,7 @@ export function HomeRemittanceGuide() {
                   >
                     {/* Img+Text */}
                     <div className="flex flex-col gap-3">
-                      <div className="relative w-full overflow-hidden rounded-2xl aspect-video">
+                      <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
                         <Image
                           src={GUIDE_IMAGES[i]}
                           alt=""

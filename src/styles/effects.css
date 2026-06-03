@@ -86,3 +86,31 @@
 @utility animate-marquee {
   animation: marquee-scroll 20s linear infinite;
 }
+
+/* 星星閃爍：scale 1 → 1.15 → 1，Loop */
+@keyframes twinkle {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+@utility animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+/* 漂浮：上下 10px，Loop */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@utility animate-float {
+  animation: float 3.5s ease-in-out infinite;
+}
