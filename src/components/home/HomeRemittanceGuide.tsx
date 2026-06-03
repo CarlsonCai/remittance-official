@@ -35,21 +35,35 @@ export function HomeRemittanceGuide() {
       {/* 左側放射光暈裝飾 — 800×800 */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 size-200 [background:var(--gradient-app-download-glow)]"
+        className="tablet:block pointer-events-none absolute z-0 hidden size-200 [background:var(--gradient-app-download-glow)]"
         style={{ left: -400, top: 82 }}
       />
 
-      {/* 右側放射光暈裝飾 — 800×800 */}
+      {/* 左下放射光暈裝飾（手機專用）— 400×400 */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 size-200 [background:var(--gradient-app-download-glow)]"
+        className="tablet:hidden pointer-events-none absolute z-0 flex size-100 items-center justify-center [background:var(--gradient-app-download-glow)]"
+        style={{ left: -200, bottom: 74.625 }}
+      />
+
+      {/* 右側放射光暈裝飾 — 800×800（tablet+） */}
+      <div
+        aria-hidden="true"
+        className="tablet:block pointer-events-none absolute z-0 hidden size-200 [background:var(--gradient-app-download-glow)]"
         style={{ right: -443, bottom: 160.25 }}
       />
 
-      {/* Homepage/Book 書本插圖 — 154×122px，超出頂部 */}
+      {/* 右側放射光暈裝飾（手機專用）— 400×400 */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-10"
+        className="tablet:hidden pointer-events-none absolute z-0 flex size-100 items-center justify-center [background:var(--gradient-app-download-glow)]"
+        style={{ right: -201, top: 99 }}
+      />
+
+      {/* Homepage/Book 書本插圖 — 154×122px，超出頂部（tablet+） */}
+      <div
+        aria-hidden="true"
+        className="tablet:block pointer-events-none absolute z-10 hidden"
         style={{ left: 90, top: -42, width: 154, height: 122 }}
       >
         <Image
@@ -61,10 +75,25 @@ export function HomeRemittanceGuide() {
         />
       </div>
 
+      {/* Homepage/Book 書本插圖 — 400×400px，右下（手機專用） */}
+      <div
+        aria-hidden="true"
+        className="tablet:hidden pointer-events-none absolute z-10 flex size-100 items-center justify-center"
+        style={{ right: 20, top: -30, width: 117, height: 93 }}
+      >
+        <Image
+          src={guideBook}
+          alt=""
+          fill
+          className="object-contain"
+          sizes="400px"
+        />
+      </div>
+
       {/* Homepage/Transfer 轉帳插圖 — 332×193px */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0"
+        className="tablet:block pointer-events-none absolute z-0 hidden"
         style={{ left: 48, bottom: 193.25, width: 332, height: 193 }}
       >
         <Image
@@ -79,7 +108,7 @@ export function HomeRemittanceGuide() {
       {/* Spark 裝飾 ×1 — 13×14px */}
       <div
         aria-hidden="true"
-        className="animate-twinkle pointer-events-none absolute z-0 [animation-delay:0.3s]"
+        className="animate-twinkle tablet:block pointer-events-none absolute z-0 hidden [animation-delay:0.3s]"
         style={{ left: 263, bottom: 337.25, width: 13, height: 14 }}
       >
         <Image
@@ -94,7 +123,7 @@ export function HomeRemittanceGuide() {
       {/* Spark 裝飾 ×2 — 13×14px */}
       <div
         aria-hidden="true"
-        className="animate-twinkle pointer-events-none absolute z-0 [animation-delay:1s]"
+        className="animate-twinkle tablet:block pointer-events-none absolute z-0 hidden [animation-delay:1s]"
         style={{ left: 132, bottom: 239.25, width: 13, height: 14 }}
       >
         <Image
@@ -109,12 +138,12 @@ export function HomeRemittanceGuide() {
       {/* Line / Blue 裝飾線條 */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+        className="tablet:block pointer-events-none absolute z-0 hidden h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
         style={{ right: 108, top: 32 }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+        className="tablet:block pointer-events-none absolute z-0 hidden h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
         style={{ right: 80, top: 68 }}
       />
       <div
@@ -133,10 +162,7 @@ export function HomeRemittanceGuide() {
         aria-hidden="true"
         className="pointer-events-none absolute bottom-0 z-0 w-full overflow-hidden"
       >
-        <div
-          className="animate-marquee flex w-max gap-10 leading-[1.3] font-bold whitespace-nowrap text-sky-100"
-          style={{ fontSize: 150 }}
-        >
+        <div className="animate-marquee tablet:text-[9.375rem] flex w-max gap-10 text-[4rem] leading-[1.3] font-bold whitespace-nowrap text-sky-100">
           {Array.from({ length: 8 }).map((_, i) => (
             <span key={i}>Together, a better life.</span>
           ))}
@@ -162,16 +188,13 @@ export function HomeRemittanceGuide() {
               掌握國際趨勢，匯款知識與優惠訊息不漏接，讓每一分心意準確送達。
             </p>
             <ul className="tablet:mt-12 tablet:flex-col mt-6 flex flex-wrap gap-2">
-              {GUIDE_CATEGORIES.map((cat, i) => (
+              {GUIDE_CATEGORIES.map((cat) => (
                 <li key={cat}>
                   <button
                     type="button"
                     className={cn(
                       "inline-flex items-center justify-center gap-2.5 rounded-lg px-4 py-2 text-center",
-                      "typo-body2-m",
-                      i === 0
-                        ? "bg-navy-500 text-white"
-                        : "border-navy-100 text-navy-500 border bg-white",
+                      "typo-body2-m border-navy-100 text-navy-500 border bg-white",
                     )}
                   >
                     {cat}
@@ -219,7 +242,7 @@ export function HomeRemittanceGuide() {
                         >
                           海外匯款全攻略，從新手到專家的省錢秘笈海外匯款全攻略，從新手到專家的省錢秘笈
                         </h3>
-                        <p className="typo-body3-r text-navy-900 line-clamp-2">
+                        <p className="typo-body3-r text-navy-900 tablet:block line-clamp-2 hidden">
                           手續費、電報費怎麼算?
                           幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。手續費、電報費怎麼算?
                           幫您整理最完整的匯款知識，讓您的每一分錢都精準到位。

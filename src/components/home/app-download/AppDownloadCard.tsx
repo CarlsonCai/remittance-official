@@ -13,7 +13,7 @@ export function AppDownloadCard({ option, index }: AppDownloadCardProps) {
   return (
     <article
       aria-labelledby={`app-card-${index}-title`}
-      className="border-navy-100 shadow-s tablet:shadow-l tablet:gap-5 tablet:rounded-[20px] tablet:p-7 flex flex-col gap-4 rounded-xl border bg-white p-5"
+      className="border-navy-100 shadow-s tablet:shadow-l tablet:gap-5 tablet:rounded-[20px] tablet:p-7 flex h-full flex-col gap-4 rounded-xl border bg-white p-5"
     >
       <div className="tablet:gap-5 flex flex-col items-center gap-4">
         <div className="tablet:w-25 tablet:rounded-2xl relative flex aspect-square w-20 shrink-0 flex-col items-start overflow-hidden rounded-[13px] border border-gray-300">

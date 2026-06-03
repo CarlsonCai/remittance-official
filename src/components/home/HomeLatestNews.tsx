@@ -22,27 +22,47 @@ export function HomeLatestNews() {
       className="text-navy-900 relative z-10 w-full bg-sky-50/80"
     >
       <SectionPanelLayout
-        panelClassName="rounded-5xl bg-sky-100"
-        shellClassName="pt-35 pb-35"
+        panelClassName="rounded-4xl tablet:rounded-5xl bg-sky-100"
+        shellClassName="pt-15 pb-40 tablet:pt-35 tablet:pb-35"
       >
-        {/* Homepage/News KV 插圖 — 345×192px，左下角 */}
+        {/* Homepage/News KV 插圖 — mobile: 240×133px 置中 / desktop: 345×192px 左下角 */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0 h-48"
-          style={{ left: 80, bottom: 0, width: 345 }}
+          className="tablet:hidden pointer-events-none absolute z-0 -translate-x-1/2"
+          style={{ left: "50%", bottom: 0, width: 240, height: 133 }}
         >
           <Image
             src={newsKv}
             alt=""
-            fill
+            width={240}
+            height={133}
             className="object-contain object-bottom"
-            sizes="345px"
           />
         </div>
-        {/* Spark 裝飾 ×1 — 13×14px */}
         <div
           aria-hidden="true"
-          className="animate-twinkle pointer-events-none absolute z-0"
+          className="tablet:block hidden pointer-events-none absolute z-0"
+          style={{ left: 80, bottom: 0, width: 345, height: 192 }}
+        >
+          <Image
+            src={newsKv}
+            alt=""
+            width={345}
+            height={192}
+            className="object-contain object-bottom"
+          />
+        </div>
+        {/* Spark 裝飾 ×1 — mobile: ~9px 置中右側 / desktop: 13×14px */}
+        <div
+          aria-hidden="true"
+          className="tablet:hidden animate-twinkle pointer-events-none absolute z-0 -translate-x-1/2"
+          style={{ left: "calc(50% + 87.65px)", bottom: 119, width: 9, height: 10 }}
+        >
+          <Image src={spark} alt="" fill className="object-contain" sizes="9px" />
+        </div>
+        <div
+          aria-hidden="true"
+          className="tablet:block animate-twinkle hidden pointer-events-none absolute z-0"
           style={{ left: 372, bottom: 171, width: 13, height: 14 }}
         >
           <Image
@@ -54,10 +74,17 @@ export function HomeLatestNews() {
           />
         </div>
 
-        {/* Spark 裝飾 ×2 — 13×14px */}
+        {/* Spark 裝飾 ×2 — mobile: ~9px 置中左側 / desktop: 13×14px */}
         <div
           aria-hidden="true"
-          className="animate-twinkle pointer-events-none absolute z-0 [animation-delay:0.7s]"
+          className="tablet:hidden animate-twinkle pointer-events-none absolute z-0 -translate-x-1/2 [animation-delay:0.7s]"
+          style={{ left: "calc(50% - 39.65px)", bottom: 109, width: 9, height: 10 }}
+        >
+          <Image src={spark} alt="" fill className="object-contain" sizes="9px" />
+        </div>
+        <div
+          aria-hidden="true"
+          className="tablet:block animate-twinkle hidden pointer-events-none absolute z-0 [animation-delay:0.7s]"
           style={{ left: 189, bottom: 157, width: 13, height: 14 }}
         >
           <Image
@@ -69,25 +96,39 @@ export function HomeLatestNews() {
           />
         </div>
 
-        {/* Line / Blue 裝飾線條 */}
+        {/* Line / Blue 右上 — mobile */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0 h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          className="tablet:hidden pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          style={{ right: 32, top: 24.37 }}
+        />
+        <div
+          aria-hidden="true"
+          className="tablet:hidden pointer-events-none absolute z-0 h-12 w-0.75 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          style={{ right: 52, top: 44.37 }}
+        />
+
+        {/* Line / Blue 右上 — desktop */}
+        <div
+          aria-hidden="true"
+          className="tablet:block hidden pointer-events-none absolute z-0 h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
           style={{ right: 108, top: 32.75 }}
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          className="tablet:block hidden pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
           style={{ right: 80, top: 68.75 }}
         />
+
+        {/* Line / Blue 中左 — desktop only */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0 h-20 w-1.5 -translate-y-1/2 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          className="tablet:block hidden pointer-events-none absolute z-0 h-20 w-1.5 -translate-y-1/2 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
           style={{ left: 434, top: "calc(50% + 122.75px)" }}
         />
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute z-0 h-15 w-1 -translate-y-1/2 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+          className="tablet:block hidden pointer-events-none absolute z-0 h-15 w-1 -translate-y-1/2 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
           style={{ left: 406, top: "calc(50% + 148.75px)" }}
         />
 
@@ -137,7 +178,13 @@ export function HomeLatestNews() {
                     className="border-navy-100 tablet:flex-row tablet:items-start tablet:gap-6 flex flex-col gap-4 self-stretch rounded-xl"
                   >
                     <div className="tablet:w-[302px] relative flex aspect-[3/2] w-full shrink-0 flex-col items-start overflow-hidden rounded-lg">
-                      <Image src={img} alt="" fill className="object-cover" />
+                      <Image
+                        src={img}
+                        alt=""
+                        fill
+                        className="object-cover"
+                        sizes="(min-width: 1440px) 302px, (min-width: 1024px) 50vw, min(576px, 100vw)"
+                      />
                       <div
                         className="absolute inset-0 rounded-lg bg-sky-500/5"
                         aria-hidden="true"
