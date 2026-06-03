@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer
       className={cn(
-        "bg-navy-900 tablet:rounded-t-5xl w-full rounded-t-4xl",
+        "bg-navy-900 tablet:rounded-t-5xl relative z-10 w-full rounded-t-4xl",
         "text-white",
       )}
     >

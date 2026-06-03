@@ -46,6 +46,13 @@
     var(--navy-500) 54.41%
   );
 
+  /* App 下載區塊 — 放射光暈（左上 / 右下共用） */
+  --gradient-app-download-glow: radial-gradient(
+    circle at center,
+    var(--sky-200) 0%,
+    rgba(229, 244, 255, 0) 70%
+  );
+
   /* 服務情境區塊 — 右下角放射光暈 */
   --gradient-service-scenarios-glow: radial-gradient(
     circle at center,

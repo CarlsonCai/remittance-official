@@ -17,7 +17,7 @@ export function HomeLatestNews() {
     <section
       id="latest-news"
       aria-labelledby="latest-news-heading"
-      className="text-navy-900 w-full bg-sky-50/80"
+      className="text-navy-900 relative z-10 w-full bg-sky-50/80"
     >
       <SectionPanelLayout
         panelClassName="rounded-5xl bg-sky-100"
