@@ -73,3 +73,16 @@
     19px 19px 20px 0 rgba(0, 0, 0, 0.03), 5px 5px 14px 0 rgba(0, 0, 0, 0.04);
   --shadow-text-source: 0 4px 12px 0 rgba(0, 0, 0, 0.1);
 }
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-marquee {
+  animation: marquee-scroll 20s linear infinite;
+}

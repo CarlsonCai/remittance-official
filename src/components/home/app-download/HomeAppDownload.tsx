@@ -38,28 +38,28 @@ export function HomeAppDownload() {
       {/* Line / Blue 裝飾線條 */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-1.5 h-20 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+        className="pointer-events-none absolute z-0 h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
         style={{ right: 277, top: 101.75 }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-1 h-15 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+        className="pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
         style={{ right: 249, top: 68.75 }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-1.5 h-20 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+        className="pointer-events-none absolute z-0 h-20 w-1.5 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
         style={{ left: 108, bottom: 40.25 }}
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute z-0 w-1 h-15 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
+        className="pointer-events-none absolute z-0 h-15 w-1 rounded-full bg-gradient-to-b from-sky-200 to-transparent"
         style={{ left: 80, bottom: 24.25 }}
       />
 
       {/* KV illustration */}
       <div
-        className="tablet:block absolute right-10 top-22.5 z-10 hidden h-45 w-42"
+        className="tablet:block absolute top-22.5 right-10 z-10 hidden h-45 w-42"
         aria-hidden="true"
       >
         <Image
