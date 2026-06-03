@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { HomeAppDownload } from "@/components/home/app-download";
+import { HomeFeeCalculator } from "@/components/home/HomeFeeCalculator";
 import { HomeRemittanceOptions } from "@/components/home/remittance-options";
 import { HomeHero } from "@/components/home/HomeHero";
 import { HomeLatestNews } from "@/components/home/HomeLatestNews";
@@ -27,6 +28,7 @@ export default function Home() {
     <div className="bg-background flex min-h-full flex-1 flex-col font-sans">
       <main className="flex flex-1 flex-col">
         <HomeHero />
+        <HomeFeeCalculator />
         <HomeServiceScenarios />
         <HomeRemittanceOptions />
         <HomeRemittanceGuide />
