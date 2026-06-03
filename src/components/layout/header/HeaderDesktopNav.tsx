@@ -38,7 +38,7 @@ function HeaderDesktopNavItem({
       <li key={key}>
         <Link
           href={item.href}
-          className="typo-body2-m text-navy-900 hover:text-navy-600 transition-colors"
+          className="typo-body2-m text-navy-900 hover:text-navy-600 px-3 py-4 transition-colors"
         >
           {item.label}
         </Link>
@@ -61,7 +61,7 @@ function HeaderDesktopNavItem({
         key={key}
         menuAriaLabel={`${item.label}相關連結`}
         items={guideItems}
-        triggerClassName="typo-body2-m text-navy-900 transition-colors hover:text-navy-600"
+        triggerClassName="typo-body2-m text-navy-900 pl-3 pr-2 py-4 transition-colors hover:text-navy-600"
         triggerContent={item.label}
         chevronClassName="opacity-70"
         panelClassName="mt-10"
@@ -81,12 +81,13 @@ function HeaderDesktopNavItem({
         key={key}
         menuAriaLabel="介面語言"
         items={langItems}
-        triggerClassName="typo-body2-m text-navy-900 transition-colors hover:text-sky-600"
+        triggerClassName="typo-body2-m text-navy-900 pl-3 pr-2 py-4 transition-colors hover:text-sky-600"
         triggerContent={
           <GlobeSvg className="block size-6 shrink-0 opacity-80" />
         }
         triggerAriaLabel="選擇介面語言"
         chevronClassName="opacity-70"
+        className="ml-4"
         panelClassName="mt-9"
       />
     );
@@ -105,7 +106,7 @@ function HeaderDesktopNavItem({
       triggerClassName="focus-visible:outline-navy-700 bg-navy-500 hover:bg-navy-600 typo-body2-m h-[57px] w-34.5 shrink-0 rounded-xl py-3 pr-4 pl-6 text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
       triggerContent={item.label}
       chevronClassName="text-white opacity-90"
-      className="shrink-0"
+      className="shrink-0 ml-4"
       panelClassName="mt-6 min-w-45"
     />
   );
@@ -118,10 +119,10 @@ export function HeaderDesktopNav({
 
   return (
     <nav
-      className="tablet:flex hidden min-w-0 shrink-0 items-center gap-(--layout-gutter-md) overflow-visible"
+      className="tablet:flex hidden min-w-0 shrink-0 items-center overflow-visible"
       aria-label="主選單"
     >
-      <ul className="flex items-center gap-(--layout-gutter-md) whitespace-nowrap">
+      <ul className="flex items-center whitespace-nowrap">
         {HEADER_NAV_ITEMS.map((item, index) => (
           <HeaderDesktopNavItem
             key={headerNavItemKey(item, index)}

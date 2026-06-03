@@ -11,7 +11,7 @@ type HeaderBrandProps = {
 export function HeaderBrand({ onPointerDownCapture }: HeaderBrandProps) {
   return (
     <div
-      className="tablet:gap-(--layout-gutter-md) flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm)"
+      className="flex min-w-0 flex-1 items-center gap-(--layout-gutter-sm)"
       onPointerDownCapture={onPointerDownCapture}
     >
       <Link

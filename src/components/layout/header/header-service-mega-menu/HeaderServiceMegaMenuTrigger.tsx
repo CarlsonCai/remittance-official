@@ -2,7 +2,7 @@
 
 import type { RefObject } from "react";
 
-import ChevronRightSvg from "@/assets/icons/chevron-right.svg";
+import ArrowDownSvg from "@/assets/icons/arrow-down.svg";
 import { SITE_MOTION } from "@/lib/siteMotion";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ export function HeaderServiceMegaMenuTrigger({
         type="button"
         className={cn(
           "inline-flex items-center justify-center gap-1",
-          "typo-body2-m",
+          "typo-body2-m pl-3 pr-2 py-4",
           "transition-colors",
           open ? "text-sky-600" : "text-navy-900 hover:text-navy-600",
         )}
@@ -37,11 +37,11 @@ export function HeaderServiceMegaMenuTrigger({
         onClick={onToggle}
       >
         匯款服務
-        <ChevronRightSvg
+        <ArrowDownSvg
           className={cn(
             "size-5 shrink-0 opacity-70",
             chevronTransition,
-            open ? "-rotate-90" : "rotate-90",
+            open ? "rotate-180" : "rotate-0",
           )}
         />
       </button>
