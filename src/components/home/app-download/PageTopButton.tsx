@@ -6,7 +6,7 @@ export function PageTopButton() {
   return (
     <button
       type="button"
-      className="tablet:flex absolute bottom-8 right-20 z-10 hidden items-center gap-3"
+      className="tablet:flex absolute right-20 bottom-8 z-10 hidden items-center gap-3"
       aria-label="回到頁面頂部"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
     >
