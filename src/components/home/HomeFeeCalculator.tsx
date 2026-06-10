@@ -56,10 +56,10 @@ export function HomeFeeCalculator() {
           <hr className="border-navy-100" />
 
           {/* 下半：欄位 + 按鈕 */}
-          <div className="flex items-end gap-6">
-            <div className="flex min-w-0 flex-1 items-end gap-5">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:gap-6">
+            <div className="flex flex-col gap-4 md:min-w-0 md:flex-1 md:flex-row md:items-end md:gap-5">
               {/* 目的地國家 */}
-              <div className="flex min-w-0 flex-1 flex-col gap-2">
+              <div className="flex flex-col gap-2 md:min-w-0 md:flex-1">
                 <span id="label-country" className="typo-body3-r text-navy-900">
                   目的地國家
                 </span>
@@ -81,7 +81,7 @@ export function HomeFeeCalculator() {
               </div>
 
               {/* 幣別 */}
-              <div className="flex min-w-0 flex-1 flex-col gap-2">
+              <div className="flex flex-col gap-2 md:min-w-0 md:flex-1">
                 <span
                   id="label-currency"
                   className="typo-body3-r text-navy-900"
@@ -106,7 +106,7 @@ export function HomeFeeCalculator() {
               </div>
 
               {/* 匯款金額 */}
-              <div className="flex min-w-0 flex-1 flex-col gap-2">
+              <div className="flex flex-col gap-2 md:min-w-0 md:flex-1">
                 <label
                   htmlFor="remittance-amount"
                   className="typo-body3-r text-navy-900"
@@ -126,7 +126,7 @@ export function HomeFeeCalculator() {
             {/* 查看方案按鈕 */}
             <button
               type="submit"
-              className="bg-navy-500 typo-body2-b flex shrink-0 items-center gap-1 rounded-xl py-4 pr-4 pl-6 text-white"
+              className="bg-navy-500 typo-body2-b flex w-full items-center justify-center gap-1 rounded-xl py-4 pr-4 pl-6 text-white md:w-auto md:shrink-0 md:justify-start"
             >
               查看方案
               <ChevronRightSvg

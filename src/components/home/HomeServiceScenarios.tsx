@@ -21,11 +21,11 @@ export function HomeServiceScenarios() {
       aria-labelledby="service-scenarios-heading"
       className="relative w-full overflow-x-clip"
     >
-      <div className="flex flex-col items-start gap-6 self-stretch px-20 py-60">
-        {/* 右側次要情境插圖 — 350×350，blur 6px，部分超出右側 */}
+      <div className="flex flex-col items-start gap-6 self-stretch px-4 py-16 md:px-10 md:py-30 lg:px-20 lg:py-60">
+        {/* 右側次要情境插圖 — 350×350，blur 6px，部分超出右側（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute flex items-center justify-end filter-[blur(6px)]"
+          className="pointer-events-none absolute hidden items-center justify-end filter-[blur(6px)] lg:flex"
           style={{
             right: 62,
             top: 302,
@@ -36,44 +36,44 @@ export function HomeServiceScenarios() {
         >
           <Image src={nextPeek} alt="" width={250} height={216} />
         </div>
-        {/* 左側 Triangle 裝飾 — 26×31 */}
+        {/* 左側 Triangle 裝飾 — 26×31（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute"
+          className="pointer-events-none absolute hidden lg:block"
           style={{ left: 355, top: 549, width: 26, height: 31 }}
         >
           <Image src={decorationTriangle} alt="" width={26} height={31} />
         </div>
-        {/* 右上 Dot Group 裝飾 — 38×46 */}
+        {/* 右上 Dot Group 裝飾 — 38×46（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute"
+          className="pointer-events-none absolute hidden lg:block"
           style={{ left: 932, top: 388, width: 38, height: 46 }}
         >
           <Image src={decorationDotGroup} alt="" width={38} height={46} />
         </div>
-        {/* 左側裝飾線 — 粗線 6×80 */}
+        {/* 左側裝飾線 — 粗線 6×80（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute h-20 w-1.5 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)]"
+          className="pointer-events-none absolute hidden h-20 w-1.5 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)] lg:block"
           style={{ left: 409, top: 441 }}
         />
-        {/* 左側裝飾線 — 細線 4×60 */}
+        {/* 左側裝飾線 — 細線 4×60（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute h-15 w-1 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)]"
+          className="pointer-events-none absolute hidden h-15 w-1 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)] lg:block"
           style={{ left: 381, top: 477 }}
         />
-        {/* 右側裝飾線 — 粗線 6×80 */}
+        {/* 右側裝飾線 — 粗線 6×80（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute h-20 w-1.5 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)]"
+          className="pointer-events-none absolute hidden h-20 w-1.5 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)] lg:block"
           style={{ left: 1064, top: 727 }}
         />
-        {/* 右側裝飾線 — 細線 4×60 */}
+        {/* 右側裝飾線 — 細線 4×60（僅桌面顯示） */}
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute h-15 w-1 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)]"
+          className="pointer-events-none absolute hidden h-15 w-1 rounded-full [background:linear-gradient(to_bottom,var(--sky-200),transparent)] lg:block"
           style={{ left: 1094, top: 763 }}
         />
         {/* 左上角放射光暈裝飾— 800×800 */}
@@ -107,7 +107,7 @@ export function HomeServiceScenarios() {
           <button
             type="button"
             aria-label="上一個"
-            className="border-navy-100 flex h-23 w-23 flex-none flex-col items-center justify-center rounded-2xl border bg-white p-6"
+            className="border-navy-100 flex h-16 w-16 flex-none flex-col items-center justify-center rounded-2xl border bg-white p-4 md:h-23 md:w-23 md:p-6"
           >
             <ArrowRightSvg
               width={24}
@@ -115,7 +115,7 @@ export function HomeServiceScenarios() {
               className="text-navy-500 rotate-180"
             />
           </button>
-          <div className="mx-auto aspect-square w-135">
+          <div className="mx-auto aspect-square w-full max-w-xs md:w-135 md:max-w-none">
             <Image
               src={studyAbroad}
               alt="留學海外匯款情境插圖"
@@ -126,16 +126,16 @@ export function HomeServiceScenarios() {
           <button
             type="button"
             aria-label="下一個"
-            className="border-navy-100 flex h-23 w-23 flex-none flex-col items-center justify-center rounded-2xl border bg-white p-6"
+            className="border-navy-100 flex h-16 w-16 flex-none flex-col items-center justify-center rounded-2xl border bg-white p-4 md:h-23 md:w-23 md:p-6"
           >
             <ArrowRightSvg width={24} height={24} className="text-navy-500" />
           </button>
         </div>
 
         {/* Situation Card + Tab Group */}
-        <div className="flex w-full items-start justify-between">
+        <div className="flex w-full flex-col items-start gap-6 md:flex-row md:justify-between">
           {/* Situation Card */}
-          <article className="shadow-l border-navy-100 relative z-10 flex w-129.75 flex-col gap-3 rounded-3xl border bg-white px-8 py-7">
+          <article className="shadow-l border-navy-100 relative z-10 flex w-full flex-col gap-3 rounded-3xl border bg-white px-8 py-7 md:w-129.75">
             <p className="typo-body4-m font-manrope text-sky-600">
               01 Study abroad
             </p>
@@ -158,7 +158,7 @@ export function HomeServiceScenarios() {
           </article>
 
           {/* Tab Group */}
-          <ul className="`w-45.5 relative z-10 flex flex-col gap-4">
+          <ul className="relative z-10 flex w-full flex-col gap-4 md:w-45.5">
             {SITUATION_TABS.map((tab, i) => (
               <li key={tab}>
                 <button

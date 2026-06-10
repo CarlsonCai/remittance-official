@@ -167,7 +167,12 @@ export function HomeHero() {
             {/* Earth — 地球本體 */}
             <div
               className="absolute -translate-y-1/2"
-              style={{ right: 108, top: "calc(50% - 48px)", width: 558, height: 514 }}
+              style={{
+                right: 108,
+                top: "calc(50% - 48px)",
+                width: 558,
+                height: 514,
+              }}
             >
               <Image
                 src={heroEarth}

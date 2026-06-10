@@ -47,7 +47,7 @@ export function HomeRemittanceOptions() {
     <section
       id="remittance-options"
       aria-labelledby="remittance-options-heading"
-      className="relative z-10 w-full"
+      className="relative z-10 w-full overflow-x-clip"
     >
       {/* Homepage/Money 金幣插圖 — 162×208px，超出頂部 */}
       <div
